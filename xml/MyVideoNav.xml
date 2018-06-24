@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">50</defaultcontrol>
+  <controls>
+    <include>FullBackground</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <include>View_50</include>
+      <control type="fixedlist" id="51" description="51 Wide Container">
+        <visible>Container.Content(episodes)</visible>
+        <viewtype label="539">Wide 51</viewtype>
+        <focusposition>1</focusposition>
+        <movement>0</movement>
+        <left>60</left>
+        <top>260</top>
+        <width>1860</width>
+        <height>408</height>
+        <orientation>horizontal</orientation>
+        <onleft>51</onleft>
+        <onright>51</onright>
+        <onback>9000</onback>
+        <pagecontrol>60</pagecontrol>
+        <preloaditems>4</preloaditems>
+        <itemlayout height="408" width="360">
+          <control type="image">
+            <left>15</left>
+            <top>15</top>
+            <width>330</width>
+            <height>220</height>
+            <texture border="12">img/ThumbBorder.png</texture>
+            <bordersize>-5</bordersize>
+          </control>
+          <control type="image">
+            <left>15</left>
+            <top>15</top>
+            <width>330</width>
+            <height>220</height>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+            <aspectratio aligny="top">scale</aspectratio>
+          </control>
+          <control type="image">
+            <visible>!IsEmpty(ListItem.Thumb)</visible>
+            <right>15</right>
+            <top>15</top>
+            <height>62</height>
+            <width>62</width>
+            <aspectratio>keep</aspectratio>
+            <texture>OverlayBG.png</texture>
+          </control>
+          <control type="image">
+            <right>18</right>
+            <top>18</top>
+            <height>28</height>
+            <width>28</width>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="Black">$VAR[Overlay]</texture>
+          </control>
+        </itemlayout>
+        <focusedlayout height="408" width="360">
+          <control type="group">
+            <control type="image">
+              <left>15</left>
+              <top>15</top>
+              <width>330</width>
+              <height>220</height>
+              <texture border="12">img/ThumbBorder.png</texture>
+              <bordersize>-5</bordersize>
+            </control>
+            <control type="image">
+              <left>15</left>
+              <top>15</top>
+              <width>330</width>
+              <height>220</height>
+              <texture background="true">$INFO[ListItem.Thumb]</texture>
+              <aspectratio aligny="top">scale</aspectratio>
+            </control>
+            <control type="image">
+              <visible>!IsEmpty(ListItem.Thumb)</visible>
+              <right>15</right>
+              <top>15</top>
+              <height>62</height>
+              <width>62</width>
+              <aspectratio>keep</aspectratio>
+              <texture>OverlayBG.png</texture>
+            </control>
+            <control type="image">
+              <right>18</right>
+              <top>18</top>
+              <height>28</height>
+              <width>28</width>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="Black">$VAR[Overlay]</texture>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="group" description="51 episodes Furniture">
+        <visible>Control.IsVisible(51)</visible>
+        <include>ContainerVisibleFade</include>
+        <include>FanartBG</include>
+        <control type="label" description="Main Label">
+          <include>CenterHeading</include>
+          <label>[B]$INFO[ListItem.TVShowTitle][/B]</label>
+        </control>
+        <control type="group" description="Media info left">
+          <left>420</left>
+          <top>600</top>
+          <control type="label" description="Main Label">
+            <top>-14</top>
+            <width>758</width>
+            <font>size22</font>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+          </control>
+          <control type="label">
+            <top>40</top>
+            <width>758</width>
+            <label>$VAR[TopLabel]</label>
+          </control>
+          <control type="label" description="Details">
+            <top>90</top>
+            <width>758</width>
+            <font>size19</font>
+            <label>$VAR[CodecList-Genre]</label>
+          </control>
+          <control type="textbox" description="Plot">
+            <top>160</top>
+            <width>758</width>
+            <height>174</height>
+            <font>plot</font>
+            <align>left</align>
+            <aligny>bottom</aligny>
+            <label>$VAR[Plots]</label>
+          </control>
+        </control>
+      </control>
+      <control type="panel" id="53" description="Grid Container">
+        <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
+        <viewtype label="536">Thumbnails</viewtype>
+        <left>24</left>
+        <top>96</top>
+        <height>960</height>
+        <orientation>horizontal</orientation>
+        <preloaditems>4</preloaditems>
+        <pagecontrol>60</pagecontrol>
+        <itemlayout width="260" height="480">
+          <include>PostersShelfFO</include>
+        </itemlayout>
+        <focusedlayout width="260" height="480">
+          <include>PostersShelfFO</include>
+        </focusedlayout>
+      </control>
+      <control type="group" description="53 Furniture">
+        <visible>Control.IsVisible(53)</visible>
+        <include>ContainerVisibleFade</include>
+        <control type="label" description="MainHeading">
+          <include>CenterHeading</include>
+          <label>[B]$VAR[GlobalHeadings][/B]</label>
+        </control>
+      </control>
+      <control type="group" description="Side menu 9000 group">
+        <include>VisibleFadeEffect</include>
+        <control type="grouplist" id="9000">
+          <include>9000GrouplistParameters</include>
+          <control type="button" id="2" description="Views">
+            <include>9000Buttons</include>
+          </control>
+          <control type="togglebutton" id="14" description="Toggle Watched">
+            <include>9000Buttons</include>
+            <label>$LOCALIZE[535]: $LOCALIZE[16100]</label>
+            <altlabel>$LOCALIZE[535]: $LOCALIZE[16101]</altlabel>
+          </control>
+          <control type="button" id="3" description="Sort">
+            <include>9000Buttons</include>
+          </control>
+          <control type="togglebutton" id="4" description="Ordering">
+            <include>9000Buttons</include>
+            <label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
+            <altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
+          </control>
+          <control type="button" id="20" description="Update library">
+            <visible>Library.HasContent(movies) | Library.HasContent(tvshows)</visible>
+            <include>9000Buttons</include>
+            <label>653</label>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

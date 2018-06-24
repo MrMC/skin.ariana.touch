@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <controls>
+    <include>DialogFullBG</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="multiimage">
+        <centerleft>50%</centerleft>
+        <centertop>50%</centertop>
+        <width>180</width>
+        <height>171</height>
+        <imagepath colordiffuse="$VAR[LabelNFColor]">HUD/loading</imagepath>
+        <timeperimage>80</timeperimage>
+        <loop>yes</loop>
+      </control>
+      <control type="label" description="Loading">
+        <centerleft>50%</centerleft>
+        <centertop>50%</centertop>
+        <width>100%</width>
+        <height>240</height>
+        <font>size50</font>
+        <align>center</align>
+        <aligny>top</aligny>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <label>[B]$LOCALIZE[31037][/B]</label>
+      </control>
+    </control>
+  </controls>
+</window>

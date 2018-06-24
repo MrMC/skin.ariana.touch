@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <zorder>1</zorder>
+  <animation effect="slide" start="0,-44" end="0,0" time="400" easing="inout">WindowOpen</animation>
+  <animation effect="slide" start="0,0" end="0,-44" time="400" easing="inout">WindowClose</animation>
+  <controls>
+    <control type="group">
+      <include>OpenClose</include>
+      <animation effect="slide" start="0,0" end="0,-44" time="200" reversible="true" condition="Window.IsActive(FullScreenVideo)">Conditional</animation>
+      <control type="image">
+        <centerleft>50%</centerleft>
+        <top>0</top>
+        <width>100%</width>
+        <height>44</height>
+        <texture colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      </control>
+      <control type="label" id="30" description="Heading">
+        <top>6</top>
+        <left>10</left>
+        <width>890</width>
+        <height>60</height>
+        <align>right</align>
+        <font>-</font>
+      </control>
+      <control type="label" id="31" description="Message">
+        <top>6</top>
+        <right>10</right>
+        <width>890</width>
+        <height>60</height>
+        <align>left</align>
+        <haspath>true</haspath>
+        <font>-</font>
+      </control>
+      <control type="progress" id="32" description="Progress bar">
+        <left>48</left>
+        <top>0</top>
+        <width>555</width>
+        <height>8</height>
+        <texturebg>-</texturebg>
+        <midtexture>-</midtexture>
+        <righttexture>-</righttexture>
+        <lefttexture>-</lefttexture>
+      </control>
+      <control type="label" id="1" description="Group label">
+        <top>0</top>
+        <left>50</left>
+        <right>50</right>
+        <height>40</height>
+        <font>size14</font>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <scroll>false</scroll>
+        <label>$INFO[Control.GetLabel(32),,%]  $INFO[Control.GetLabel(30)] • $INFO[Control.GetLabel(31)]</label>
+      </control>
+    </control>
+  </controls>
+</window>

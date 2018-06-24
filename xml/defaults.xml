@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <default type="label">
+    <height>60</height>
+    <align>left</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <scrollspeed>50</scrollspeed>
+    <scrollsuffix> &#0000; </scrollsuffix>
+  </default>
+  <default type="fadelabel">
+    <height>60</height>
+    <align>left</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textoffsetx>20</textoffsetx>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <scrollout>false</scrollout>
+    <pauseatend>3000</pauseatend>
+    <scrollsuffix> • </scrollsuffix>
+  </default>
+  <default type="textbox">
+    <font>plot</font>
+    <align>left</align>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <pagecontrol>61</pagecontrol>
+    <pulseonselect>false</pulseonselect>
+    <autoscroll delay="8000" time="4300" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+  </default>
+  <default type="image">
+    <align>center</align>
+    <aligny>center</aligny>
+    <aspectratio>stretch</aspectratio>
+  </default>
+  <default type="button">
+    <width>390</width>
+    <height>60</height>
+    <align>center</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textoffsetx>20</textoffsetx>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <alttexturenofocus border="9">img/SettingsButtonNF.png</alttexturenofocus>
+    <alttexturefocus border="9">img/SettingsButtonFO.png</alttexturefocus>
+    <pulseonselect>false</pulseonselect>
+  </default>
+  <default type="edit">
+    <width>390</width>
+    <height>60</height>
+    <align>center</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textoffsetx>20</textoffsetx>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+
+  </default>
+  <default type="togglebutton">
+    <width>450</width>
+    <height>60</height>
+    <align>left</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textoffsetx>20</textoffsetx>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <altselectedcolor>$VAR[SelectedColor]</altselectedcolor>
+    <align>center</align>
+    <aligny>center</aligny>
+    <pulseonselect>false</pulseonselect>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <alttexturefocus border="9">img/SettingsButtonFO.png</alttexturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <alttexturenofocus border="9">img/SettingsButtonNF.png</alttexturenofocus>
+  </default>
+  <default type="radiobutton">
+    <height>60</height>
+    <align>left</align>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <radiowidth>54</radiowidth>
+    <radioheight>28</radioheight>
+    <textoffsetx>20</textoffsetx>
+    <!--<radioposx>20</radioposx>-->
+    <pulseonselect>false</pulseonselect>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <textureradioonfocus colordiffuse="$VAR[LabelFOColor]">img/RadioON.png</textureradioonfocus>
+    <textureradioonnofocus colordiffuse="$VAR[LabelNFColor]">img/RadioON.png</textureradioonnofocus>
+    <textureradioofffocus colordiffuse="$VAR[LabelFOColor]">img/RadioOFF.png</textureradioofffocus>
+    <textureradiooffnofocus colordiffuse="$VAR[LabelNFColor]">img/RadioOFF.png</textureradiooffnofocus>
+  </default>
+  <default type="spincontrol">
+    <width>450</width>
+    <height>60</height>
+    <font>size20</font>
+    <textureup colordiffuse="$VAR[Label2Color]" flipy="true">img/SpinDW.png</textureup>
+    <textureupfocus colordiffuse="$VAR[LabelFOColor]" flipy="true">img/SpinDW.png</textureupfocus>
+    <texturedown colordiffuse="$VAR[Label2Color]">img/SpinDW.png</texturedown>
+    <texturedownfocus colordiffuse="$VAR[LabelFOColor]">img/SpinDW.png</texturedownfocus>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <spinwidth>30</spinwidth>
+    <spinheight>40</spinheight>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <textoffsetx>20</textoffsetx>
+    <align>left</align>
+    <aligny>center</aligny>
+    <reverse>yes</reverse>
+    <pulseonselect>false</pulseonselect>
+
+  </default>
+  <default type="spincontrolex">
+    <width>450</width>
+    <height>60</height>
+    <font>size20</font>
+    <textureup colordiffuse="$VAR[Label2Color]" flipy="true">img/SpinDW.png</textureup>
+    <textureupfocus colordiffuse="$VAR[LabelFOColor]" flipy="true">img/SpinDW.png</textureupfocus>
+    <texturedown colordiffuse="$VAR[Label2Color]">img/SpinDW.png</texturedown>
+    <texturedownfocus colordiffuse="$VAR[LabelFOColor]">img/SpinDW.png</texturedownfocus>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <spinwidth>30</spinwidth>
+    <spinheight>40</spinheight>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <textoffsetx>20</textoffsetx>
+    <align>left</align>
+    <aligny>center</aligny>
+    <reverse>yes</reverse>
+    <pulseonselect>false</pulseonselect>
+
+  </default>
+  <default type="slider" description="Seek Slider">
+    <height>60</height>
+    <width>450</width>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <sliderwidth>150</sliderwidth>
+    <sliderheight>24</sliderheight>
+    <texturesliderbar border="3,0,3,0">HUD/SliderBG.png</texturesliderbar>
+    <textureslidernib>HUD/SliderNibNF.png</textureslidernib>
+    <textureslidernibfocus>HUD/SliderNibFO.png</textureslidernibfocus>
+    <pulseonselect>false</pulseonselect>
+  </default>
+  <default type="sliderex" description="Default Slider">
+    <height>60</height>
+    <width>450</width>
+    <aligny>center</aligny>
+    <font>size20</font>
+    <textoffsetx>20</textoffsetx>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+    <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
+    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
+    <sliderwidth>150</sliderwidth>
+    <sliderheight>24</sliderheight>
+    <texturesliderbar border="3,0,3,0">HUD/SliderBG.png</texturesliderbar>
+    <textureslidernib>HUD/SliderNibNF.png</textureslidernib>
+    <textureslidernibfocus>HUD/SliderNibFO.png</textureslidernibfocus>
+    <pulseonselect>false</pulseonselect>
+
+  </default>
+  <default type="progress">
+    <reveal>false</reveal>
+    <texturebg border="8,0,8,0">OSD/ProgressBackground.png</texturebg>
+    <lefttexture border="1">-</lefttexture>
+    <midtexture border="1">-</midtexture>
+    <righttexture border="1">-</righttexture>
+    <overlaytexture>-</overlaytexture>
+  </default>
+  <default type="scrollbar">
+    <width>9</width>
+    <orientation>vertical</orientation>
+    <texturesliderbackground border="0,4,0,4">Scrollbar/ScrollbarBG.png</texturesliderbackground>
+    <texturesliderbar border="0,4,0,4">Scrollbar/ScrollerNF.png</texturesliderbar>
+    <texturesliderbarfocus border="0,4,0,4">Scrollbar/ScrollerFO.png</texturesliderbarfocus>
+    <pulseonselect>false</pulseonselect>
+    <showonepage>true</showonepage>
+  </default>
+</includes>

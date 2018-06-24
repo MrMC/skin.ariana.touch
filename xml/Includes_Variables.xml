@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <variable name="Background.Art" description="Art backgrounds">
+    <value condition="Window.IsActive(MyPics.xml) + !IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+    <value condition="!IsEmpty(ListItem.Art(fanart)) + !Skin.HasSetting(HideFanart)">$INFO[ListItem.Art(fanart)]</value>
+    <value>img/WhiteDot.png</value>
+  </variable>
+  <variable name="Overlay" description="Overlay image">
+    <value condition="ListItem.IsResumable">OverlayInProgress.png</value>
+    <value>$INFO[ListItem.Overlay]</value>
+  </variable>
+  <variable name="Thumbnail" description="Item Thumb">
+    <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+    <value>$INFO[ListItem.Icon]</value>
+  </variable>
+  <variable name="CurrentSubs" description="VideoMenu">
+    <value condition="VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled">$LOCALIZE[462]: $LOCALIZE[305]</value>
+    <value condition="VideoPlayer.HasSubtitles + !VideoPlayer.SubtitlesEnabled">$LOCALIZE[462]: $LOCALIZE[1223]</value>
+    <value>$LOCALIZE[462]: $LOCALIZE[16018]</value>
+  </variable>
+  <variable name="GlobalHeadings" description="Global Headings">
+    <value condition="Window.IsActive(56) | Window.IsActive(SkinSettings.xml)">$LOCALIZE[20077]</value>
+    <value condition="Window.IsActive(Settings.xml)">$LOCALIZE[5]</value>
+    <value condition="Window.IsActive(AddonBrowser.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[24001]</value>
+    <value condition="Window.IsActive(MyVideoPlaylist.xml)">$LOCALIZE[20012]</value>
+    <value condition="Window.IsActive(MyMusicPlaylist.xml)">$LOCALIZE[20011]</value>
+    <value condition="Window.IsActive(DialogVideoInfo.xml)">$LOCALIZE[20159]</value>
+    <value condition="Window.IsActive(DialogAlbumInfo.xml) + container.content(albums)">$LOCALIZE[13351]</value>
+    <value condition="Window.IsActive(DialogAlbumInfo.xml) + container.content(artists)">$LOCALIZE[21891]</value>
+    <value condition="Window.IsActive(DialogSongInfo.xml) + container.content(songs)">$LOCALIZE[658]</value>
+    <value condition="Window.IsActive(DialogAddonInfo.xml)">$LOCALIZE[24003]</value>
+    <value condition="Window.IsActive(MyMusicSongs.xml)">$LOCALIZE[2]</value>
+    <value condition="Container.content(movies) + StringCompare(Container.FolderName,$LOCALIZE[369])">$LOCALIZE[20342]</value>
+    <value condition="Container.content(tvshows) + StringCompare(Container.FolderName,$LOCALIZE[369])">$LOCALIZE[20343]</value>
+    <value condition="Container.content(musicvideos) + StringCompare(Container.FolderName,$LOCALIZE[369])">$LOCALIZE[20389]</value>
+    <value condition="Window.IsActive(mypics.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[1]</value>
+    <value condition="Window.IsActive(mymusicnav.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[2]</value>
+    <value condition="Window.IsActive(mypvrsearch.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[137]</value>
+    <value condition="Window.IsActive(mypvrtimers.xml)">$LOCALIZE[19040]</value>
+    <value condition="Window.IsActive(mymediasources.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[20094]</value>
+    <value>$INFO[Container.FolderName]</value>
+  </variable>
+  <variable name="TopLabel" description="Shown Above Plots and descriptions">
+    <value condition="!Container.content(Addons) + Window.IsActive(MyPics.xml)">$INFO[ListItem.Date,, • ]$INFO[ListItem.Size]</value>
+    <value condition="Container.content(Albums)">$INFO[ListItem.Label]</value>
+    <value condition="Container.Content(Episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , • ]$INFO[ListItem.Premiered,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31297]]$INFO[ListItem.RatingAndVotes, • ]</value>
+    <value condition="Container.Content(Addons)">$INFO[ListItem.Property(Addon.Creator),  ]</value>
+    <value condition="Container.Content(songs)">$INFO[ListItem.Album]</value>
+    <value condition="Container.Content(MusicVideos)">$INFO[ListItem.Label]</value>
+    <value condition="Container.Content(Movies) + !IsEmpty(ListItem.VideoCodec)">$INFO[ListItem.Year]$INFO[ListItem.RatingAndVotes, • ][UPPERCASE]$INFO[ListItem.MPAA, • ][/UPPERCASE]$INFO[ListItem.Genre, • ]</value>
+    <value condition="Container.Content(Movies) + IsEmpty(ListItem.VideoCodec)">$INFO[ListItem.Year]$INFO[ListItem.RatingAndVotes, • ][UPPERCASE]$INFO[ListItem.MPAA, • ][/UPPERCASE]</value>
+    <value condition="Container.Content(Seasons) | Container.Content(TVShows)">$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]][UPPERCASE]$INFO[ListItem.MPAA, • ][/UPPERCASE]</value>
+    <value condition="!IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Genre, • ]</value>
+    <value>$INFO[ListItem.Label2]</value>
+  </variable>
+  <variable name="CodecList-Genre" description="Shown with Plots and descriptions">
+    <value condition="[Container.Content(Episodes) | Container.Content(Movies) | Container.Content(musicvideos)] + !IsEmpty(ListItem.VideoCodec)">[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</value>
+    <value condition="Container.Content(songs) + !IsEmpty(ListItem.AudioCodec)">[UPPERCASE]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, • ][/UPPERCASE]</value>
+    <value condition="!IsEmpty(ListItem.NextTitle)">$INFO[ListItem.NextStartTime] $INFO[ListItem.NextTitle]</value>
+    <value>$INFO[ListItem.Genre]</value>
+  </variable>
+  <variable name="500TopLabel" description="Shown Above Plots and descriptions">
+    <value condition="!Container.content(Addons) + Window.IsActive(MyPics.xml)">$INFO[ListItem.Date,, • ]$INFO[ListItem.Size]</value>
+    <value condition="Container.content(Albums)">$INFO[ListItem.Label]</value>
+    <value condition="Container.Content(Episodes)">$INFO[ListItem.Premiered,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
+    <value condition="Container.Content(Addons)">$INFO[ListItem.label2]$INFO[ListItem.Property(Addon.Creator), • ]</value>
+    <value condition="Container.Content(songs)">$INFO[ListItem.Album]</value>
+    <value condition="Container.Content(MusicVideos)">$INFO[ListItem.Label]</value>
+    <value condition="Container.Content(Movies)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31297]]$INFO[ListItem.Rating, • ]</value>
+    <value condition="Container.Content(Seasons) | Container.Content(TVShows)">$INFO[ListItem.Year,, • ]$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[16101] ] $INFO[ListItem.Property(TotalEpisodes),(, $LOCALIZE[20453])]</value>
+    <value>$INFO[ListItem.Label2]</value>
+  </variable>
+  <variable name="Plots" description="Plots and descriptions">
+    <value condition="Container.content(addons) + !IsEmpty(ListItem.Property(Addon.Description))">$INFO[ListItem.Property(Addon.Description)]</value>
+    <value condition="SubString(ListItem.Path,videodb://movies/sets/)">$LOCALIZE[20457]</value>
+    <value condition="[Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes)] + !IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+    <value condition="Container.Content(Seasons) + !IsEmpty(Container.ShowPlot)">$INFO[Container.ShowPlot]</value>
+    <value condition="Container.Content(albums) + !IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+    <value condition="Container.Content(artists) + !IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+    <value condition="!IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+  </variable>
+  <variable name="ShelfLabel2" description="Home shel additional label">
+    <value condition="IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)">$INFO[ListItem.Property(UnwatchedEpisodes)]</value>
+    <value condition="!IsEmpty(ListItem.Date)">$INFO[ListItem.Date]</value>
+    <value>$INFO[ListItem.Year]</value>
+  </variable>
+  <variable name="PVRTimerIcon">
+		<value condition="ListItem.HasTimerSchedule">icons/pvr/HasTimerSchedule.png</value>
+		<value condition="ListItem.HasTimer">icons/pvr/HasTimer.png</value>
+    <value condition="ListItem.IsRecording">icons/pvr/IsRecording.png</value>
+		<value condition="ListItem.HasRecording">icons/pvr/HasRecording.png</value>
+  </variable>
+  <variable name="PVRTimerIcon2">
+		<value condition="ListItem.TimerHasError">icons/pvr/Error.png</value>
+		<value condition="ListItem.TimerHasConflict">icons/pvr/Conflict.png</value>
+    <value condition="[ListItem.HasTimerSchedule | ListItem.HasTimer] + !ListItem.TimerIsActive">icons/pvr/Disabled.png</value>
+  </variable>
+  <variable name="Background.Overlay" description="backgrounds">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">background/LightBG.png</value>
+    <value>background/DarkBG.png</value>
+  </variable>
+  <variable name="OverlayColor" description="Overlay">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FFf9f9f9</value>
+    <value>FF1c1c1c</value>
+  </variable>
+  <variable name="LabelNFColor" description="LabelNF">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF000000</value>
+    <value>FFFFFFFF</value>
+  </variable>
+  <variable name="LabelFOColor" description="LabelFO">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF000000</value>
+    <value>FF000000</value>
+  </variable>
+  <variable name="Label2Color" description="Label2">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF575759</value>
+    <value>FF838485</value>
+  </variable>
+  <variable name="DisabledColor" description="Disabled">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF5e5e60</value>
+    <value>FF909192</value>
+  </variable>
+  <variable name="SelectedColor" description="Selected">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF2980fd</value>
+    <value>FF2980fd</value>
+  </variable>
+  <variable name="ButtonOverlayColor" description="Overlay square buttons">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF6a6a6c</value>
+    <value>FF838485</value>
+  </variable>
+    <variable name="Logo" description="Logo image">
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">Logo_light.png</value>
+    <value>Logo_dark.png</value>
+  </variable>
+</includes>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <zorder>2</zorder>
+  <onunload>Dialog.Close(osdsettings)</onunload>
+  <visible>[[Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd)] + Window.IsActive(fullscreenvideo)] | [Window.IsActive(visualisation) + [Player.Showinfo | Window.IsActive(musicosd)]] | !IsEmpty(Player.SeekNumeric) | Window.IsActive(playercontrols)</visible>
+	<visible>![Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+  <include>VisibleFadeEffect</include>
+  <controls>
+    <control type="group">
+      <animation effect="slide" start="0,0" end="0,-75" time="150" reversible="true" condition="Player.HasVideo + [Window.IsActive(videoOSD) | Window.IsActive(osdsettings)]">Conditional</animation>
+      <include>OpenClose</include>
+      <top>90%</top>
+      <control type="group" description="feedback labels">
+        <top>-250</top>
+        <control type="label" description="2x RW FW label">
+          <visible>player.forwarding2x | player.rewinding2x</visible>
+          <include>SeekbarLabels</include>
+          <label>2 x</label>
+        </control>
+        <control type="label" description="4x RW FW label">
+          <visible>player.forwarding4x | player.rewinding4x</visible>
+          <include>SeekbarLabels</include>
+          <label>4 x</label>
+        </control>
+        <control type="label" description="8x RW FW label">
+          <visible>player.forwarding8x | player.rewinding8x</visible>
+          <include>SeekbarLabels</include>
+          <label>8 x</label>
+        </control>
+        <control type="label" description="16x RW FW label">
+          <visible>player.forwarding16x | player.rewinding16x</visible>
+          <include>SeekbarLabels</include>
+          <label>16 x</label>
+        </control>
+        <control type="label" description="32x RW FW label">
+          <visible>player.forwarding32x | player.rewinding32x</visible>
+          <include>SeekbarLabels</include>
+          <label>32 x</label>
+        </control>
+        <control type="label" description="Seek time label">
+          <visible>![player.forwarding | player.rewinding]</visible>
+          <visible>Player.DisplayAfterSeek</visible>
+          <include>SeekbarLabels</include>
+          <label>$INFO[Player.SeekOffset]</label>
+        </control>
+      </control>
+      <control type="label">
+        <left>60</left>
+        <top>-50</top>
+        <height>30</height>
+        <width>180</width>
+        <align>left</align>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[System.Time]</label>
+        <font>size17</font>
+      </control>
+      <control type="label">
+        <right>60</right>
+        <top>-50</top>
+        <height>30</height>
+        <width>180</width>
+        <align>right</align>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[Player.FinishTime]</label>
+        <font>size17</font>
+      </control>
+      <control type="label">
+        <left>60</left>
+        <top>32</top>
+        <height>30</height>
+        <width>180</width>
+        <align>left</align>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[Player.Time]</label>
+        <font>size17</font>
+      </control>
+      <control type="label">
+        <right>60</right>
+        <top>32</top>
+        <height>30</height>
+        <width>180</width>
+        <align>right</align>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[Player.TimeRemaining]</label>
+        <font>size17</font>
+      </control>
+      <control type="progress" description="Cache Progress">
+        <centerleft>50%</centerleft>
+        <width>1800</width>
+        <height>16</height>
+        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
+        <midtexture colordiffuse="silver">OSD/ProgressMid.png</midtexture>
+        <info>Player.ProgressCache</info>
+      </control>
+      <control type="progress" description="Video Progress">
+        <centerleft>50%</centerleft>
+        <width>1800</width>
+        <height>16</height>
+        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
+        <midtexture border="1">OSD/ProgressMid.png</midtexture>
+        <info>Player.Progress</info>
+      </control>
+      <control type="slider" id="401" description="Seek Scrub Position Vertical Bar">
+        <centerleft>50%</centerleft>
+        <width>1800</width>
+        <height>16</height>
+        <onup>9000</onup>
+        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
+        <textureslidernib colordiffuse="white">OSD/SliderNib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="white">OSD/SliderNib.png</textureslidernibfocus>
+        <action>seek</action>
+      </control>
+    </control>
+  </controls>
+</window>

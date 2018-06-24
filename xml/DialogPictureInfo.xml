@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">5</defaultcontrol>
+  <controls>
+    <include>DialogFullBG</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="label" description="Heading">
+        <centerleft>50%</centerleft>
+        <top>60</top>
+        <width>100%</width>
+        <label>13406</label>
+        <font>size50B</font>
+        <align>center</align>
+        <label>13406</label>
+      </control>
+      <control type="group">
+        <centerleft>50%</centerleft>
+        <top>180</top>
+        <width>930</width>
+        <control type="panel" id="5">
+          <width>930</width>
+          <height>840</height>
+          <itemlayout height="70" width="930">
+            <control type="label">
+              <left>30</left>
+              <height>70</height>
+              <width>600</width>
+              <scroll>false</scroll>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
+              <info>ListItem.Label</info>
+            </control>
+            <control type="label">
+              <right>30</right>
+              <height>70</height>
+              <width>435</width>
+              <align>right</align>
+              <scroll>false</scroll>
+              <font>size19</font>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <info>ListItem.Label2</info>
+            </control>
+          </itemlayout>
+          <focusedlayout height="70" width="930">
+            <control type="group">
+              
+              <control type="image">
+                <animation effect="fade" time="100">VisibleChange</animation>
+                <left>5</left>
+                <top>5</top>
+                <width>920</width>
+                <height>60</height>
+                <texture border="10">focus/FrameFO.png</texture>
+                <bordersize>-10</bordersize>
+                <aspectratio>stretch</aspectratio>
+              </control>
+              <control type="label">
+                <left>30</left>
+                <height>70</height>
+                <width>600</width>
+                <textcolor>$VAR[LabelFOColor]</textcolor>
+                <info>ListItem.Label</info>
+              </control>
+              <control type="label">
+                <right>30</right>
+                <height>70</height>
+                <width>435</width>
+                <align>right</align>
+                <font>size19</font>
+                <textcolor>$VAR[Label2Color]</textcolor>
+                <info>ListItem.Label2</info>
+              </control>
+            </control>
+          </focusedlayout>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

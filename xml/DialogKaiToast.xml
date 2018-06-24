@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <zorder>2</zorder>
+  <animation effect="slide" start="0,-150" end="0,0" time="400" easing="inout">WindowOpen</animation>
+  <animation effect="slide" start="0,0" end="0,-150" time="400" easing="inout">WindowClose</animation>
+  <controls>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="image">
+        <centerleft>50%</centerleft>
+        <top>0</top>
+        <width>100%</width>
+        <height>90</height>
+        <texture colordiffuse="$VAR[OverlayColor]">dot/White90.png</texture>
+      </control>
+      <control type="label" id="9000" description="Real label">
+        <top>0</top>
+        <centerleft>50%</centerleft>
+        <width>100%</width>
+        <height>90</height>
+        <align>center</align>
+        <label>$INFO[Control.GetLabel(401)]$INFO[Control.GetLabel(402), • ]</label>
+      </control>
+      <control type="label" id="401" description="Heading">
+        <top>3</top>
+        <left>0</left>
+        <width>930</width>
+        <height>60</height>
+        <align>right</align>
+        <font>-</font>
+      </control>
+      <control type="label" id="402" description="Message">
+        <top>3</top>
+        <right>0</right>
+        <width>930</width>
+        <height>60</height>
+        <align>left</align>
+        <font>-</font>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="DiffuseBG">
+    <control type="image" description="Dim">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <aspectratio>stretch</aspectratio>
+      <texture>dot/Black50.png</texture>
+    </control>
+  </include>
+  <include name="FanartBG">
+    <control type="image" description="Fanart">
+      <visible>!Skin.HasSetting(HideFanart)</visible>
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <fadetime>400</fadetime>
+      <aspectratio aligny="center">scale</aspectratio>
+      <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+      <animation effect="fade" end="5" time="0" condition="true">Conditional</animation>
+    </control>
+  </include>
+  <include name="View_50" description="50">
+    <control type="list" id="50">
+      <visible>![Container.Content(albums) | Container.content(artists) | Container.Content(episodes) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | container.content(seasons)]</visible>
+      <right>0</right>
+      <top>96</top>
+      <width>50%</width>
+      <bottom>82</bottom>
+      <onup>50</onup>
+      <ondown>50</ondown>
+      <viewtype label="535">List</viewtype>
+      <preloaditems>2</preloaditems>
+      <itemlayout height="122">
+        <control type="image">
+          <left>5</left>
+          <bottom>0</bottom>
+          <right>30</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>120</width>
+          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>10</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>150</left>
+          <right>10</right>
+          <top>0</top>
+          <height>100%</height>
+          <font>size22</font>
+          <label>$INFO[ListItem.Label]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>150</left>
+          <right>10</right>
+          <top>60%</top>
+          <height>40%</height>
+          <font>size19</font>
+          <label>$INFO[ListItem.Label2]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+      </itemlayout>
+      <focusedlayout height="122">
+        <control type="group">
+          <control type="image">
+            <left>5</left>
+            <bottom>0</bottom>
+            <right>30</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>120</width>
+            <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>10</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>150</left>
+            <right>10</right>
+            <top>0</top>
+            <height>100%</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Label2">
+            <left>150</left>
+            <right>10</right>
+            <top>60%</top>
+            <height>40%</height>
+            <font>size19</font>
+            <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
+          </control>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="group" description="List 50 base">
+      <visible>Control.IsVisible(50)</visible>
+      <include>ContainerVisibleFade</include>
+      <control type="label" description="MainHeading">
+        <include>CenterHeading</include>
+        <label>[B]$VAR[GlobalHeadings][/B]</label>
+      </control>
+      <control type="image" description="Thumb">
+        <left>0</left>
+        <top>96</top>
+        <width>50%</width>
+        <bottom>80</bottom>
+        <include>Icon_Fade</include>
+        <texture>thumbs/mrmc.png</texture>
+        <bordersize>0</bordersize>
+        <aspectratio>scale</aspectratio>
+      </control>
+    </control>
+  </include>
+  <include name="InfoPVR" description="PVR item info">
+    <control type="image" description="mid">
+      <visible>!IsEmpty(ListItem.Title)</visible>
+      <include>VisibleFadeEffect</include>
+      <left>66</left>
+      <top>90</top>
+      <width>840</width>
+      <height>904</height>
+      <texture border="24">focus/FrameNF.png</texture>
+    </control>
+    <control type="group" description="Media info">
+      <include>VisibleFadeEffect</include>
+      <left>100</left>
+      <top>110</top>
+      <control type="label" description="Main Label">
+        <top>0</top>
+        <width>758</width>
+        <font>size22</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <label>[B]$INFO[ListItem.Title][/B]</label>
+      </control>
+      <control type="label" description="Details">
+        <top>46</top>
+        <width>758</width>
+        <font>size22</font>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <label>$INFO[ListItem.Duration]</label>
+      </control>
+      <control type="label">
+        <top>780</top>
+        <width>758</width>
+        <font>size19</font>
+        <label>$VAR[TopLabel]</label>
+      </control>
+      <control type="label" description="Details">
+        <top>820</top>
+        <width>758</width>
+        <font>size19</font>
+        <label>$VAR[CodecList-Genre]</label>
+      </control>
+      <control type="textbox" description="Plot">
+        <top>120</top>
+        <width>758</width>
+        <height>612</height>
+        <font>plot</font>
+        <align>left</align>
+        <aligny>bottom</aligny>
+        <label>$VAR[Plots]</label>
+      </control>
+    </control>
+  </include>
+  <include name="PVRGroup9000">
+    <control type="grouplist" id="9000">
+      <include>9000GrouplistParameters</include>
+      <control type="button" id="99">
+        <visible>Player.HasMedia</visible>
+        <description>fullscreen</description>
+        <include>9000Buttons</include>
+        <label>16003</label>
+        <onclick condition="true">fullscreen</onclick>
+      </control>
+      <control type="button" id="2">
+        <visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+        <description>View</description>
+        <include>9000Buttons</include>
+      </control>
+      <control type="togglebutton" id="100">
+        <!--<visible>![Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)]</visible>-->
+        <description>Channels</description>
+        <include>9000Buttons</include>
+        <label>$LOCALIZE[19020]$INFO[Container.FolderName,: ]</label>
+        <altlabel>$LOCALIZE[19021]$INFO[Container.FolderName,: ]</altlabel>
+        <onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
+        <onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
+        <onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
+        <usealttexture>!IsEmpty(Window.Property(IsRadio))</usealttexture>
+      </control>
+      <control type="button" id="101">
+        <description>TV Guide</description>
+        <include>9000Buttons</include>
+        <label>22020</label>
+        <onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
+        <onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
+        <onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
+      </control>
+      <control type="button" id="102">
+        <description>Recordings</description>
+        <visible>![Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)]</visible>
+        <include>9000Buttons</include>
+        <label>19163</label>
+        <onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
+        <!--<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>-->
+      </control>
+      <control type="button" id="103">
+        <description>Timers</description>
+        <visible>![Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)]</visible>
+        <include>9000Buttons</include>
+        <label>19040</label>
+        <onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
+        <onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
+      </control>
+      <control type="button" id="104">
+        <description>Search</description>
+        <visible>![Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)]</visible>
+        <include>9000Buttons</include>
+        <label>137</label>
+        <onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
+        <onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
+      </control>
+      <control type="button" id="5">
+        <description>Group recording items by folder structure</description>
+        <include>9000Buttons</include>
+        <label>19270</label>
+        <visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+      </control>
+      <control type="button" id="6">
+        <description>Show hidden channels</description>
+        <include>9000Buttons</include>
+        <label>19051</label>
+        <visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+      </control>
+      <control type="button" id="7">
+        <description>Show deleted recordings</description>
+        <include>9000Buttons</include>
+        <label>19184</label>
+        <visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+      </control>
+    </control>
+  </include>
+  <include name="List49_Commons">
+    <!--VideoInfo metadata lists-->
+    <left>0</left>
+    <top>0</top>
+    <width>800</width>
+    <height>450</height>
+    <onleft>noop</onleft>
+    <onright>noop</onright>
+    <onup>9000</onup>
+    <ondown>9000</ondown>
+    <pagecontrol>60</pagecontrol>
+    <itemlayout height="90" width="800">
+      <control type="label">
+        <left>0</left>
+        <top>0</top>
+        <width>100%</width>
+        <height>45</height>
+        <font>plot</font>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+      </control>
+      <control type="label">
+        <left>0</left>
+        <top>36</top>
+        <width>100%</width>
+        <height>45</height>
+        <font>plot</font>
+        <label>$INFO[ListItem.Label2]</label>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>22</top>
+        <width>280</width>
+        <height>1</height>
+        <texture>$INFO[ListItem.Thumb]</texture>
+      </control>
+    </itemlayout>
+    <focusedlayout height="90" width="800">
+      <control type="label">
+        <left>0</left>
+        <top>0</top>
+        <width>100%</width>
+        <height>45</height>
+        <font>plot</font>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+      </control>
+      <control type="label">
+        <left>0</left>
+        <top>36</top>
+        <width>100%</width>
+        <height>45</height>
+        <font>plot</font>
+        <label>$INFO[ListItem.Label2]</label>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>22</top>
+        <width>280</width>
+        <height>1</height>
+        <texture>$INFO[ListItem.Thumb]</texture>
+      </control>
+    </focusedlayout>
+  </include>
+  <include name="HeaderLabelShelfUP">
+    <top>480</top>
+    <left>28</left>
+    <height>40</height>
+    <width>100%</width>
+    <font>size15U</font>
+    <textcolor>$VAR[Label2Color]</textcolor>
+    <align>left</align>
+  </include>
+  <include name="HeaderLabelShelfDN">
+    <bottom>515</bottom>
+    <left>28</left>
+    <height>40</height>
+    <width>100%</width>
+    <font>size15U</font>
+    <textcolor>$VAR[Label2Color]</textcolor>
+    <align>left</align>
+  </include>
+  <include name="SquareBG_FO">
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>260</height>
+      <bordersize>2</bordersize>
+      <texture>thumbs/SquareFO.png</texture>
+    </control>
+  </include>
+  <include name="SquareCommons">
+    <left>0</left>
+    <top>0</top>
+    <width>100%</width>
+    <height>260</height>
+    <aspectratio aligny="top">scale</aspectratio>
+    <bordersize>3</bordersize>
+  </include>
+  <include name="PosterBG_FO">
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>370</height>
+      <texture>thumbs/PosterFO.png</texture>
+      <bordersize>2</bordersize>
+    </control>
+  </include>
+  <include name="PosterCommons">
+    <left>0</left>
+    <top>0</top>
+    <width>100%</width>
+    <height>370</height>
+    <aspectratio>scale</aspectratio>
+    <bordersize>3</bordersize>
+  </include>
+  <include name="PosterWatchedMarks">
+    <control type="group" description="Overlay">
+      <control type="image">
+        <right>3</right>
+        <top>3</top>
+        <height>64</height>
+        <width>64</width>
+        <aspectratio>keep</aspectratio>
+        <texture>OverlayBG.png</texture>
+      </control>
+      <control type="image">
+        <visible>!IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+        <right>3</right>
+        <top>3</top>
+        <height>28</height>
+        <width>28</width>
+        <aspectratio>keep</aspectratio>
+        <texture colordiffuse="FF000000">$VAR[Overlay]</texture>
+      </control>
+    </control>
+  </include>
+  <include name="RectangleBG_FO">
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <texture>thumbs/RectangleFO.png</texture>
+      <bordersize>2</bordersize>
+    </control>
+  </include>
+  <include name="RectangleCommons">
+    <left>0</left>
+    <top>0</top>
+    <width>100%</width>
+    <height>100%</height>
+    <aspectratio>scale</aspectratio>
+    <bordersize>3</bordersize>
+  </include>
+  <include name="RectangleWatchedMarks">
+    <control type="group" description="Overlay">
+      <control type="image">
+        <right>24</right>
+        <top>24</top>
+        <height>64</height>
+        <width>64</width>
+        <aspectratio>keep</aspectratio>
+        <texture>OverlayBG.png</texture>
+      </control>
+      <control type="image">
+        <visible>!IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+        <right>28</right>
+        <top>28</top>
+        <height>28</height>
+        <width>28</width>
+        <aspectratio>keep</aspectratio>
+        <texture colordiffuse="FF000000">$VAR[Overlay]</texture>
+      </control>
+    </control>
+  </include>
+  <include name="PostersShelfFO">
+    <control type="group">
+      <include>PosterBG_FO</include>
+      <control type="image">
+        <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+        <include>PosterCommons</include>
+        <texture background="true">$INFO[ListItem.Thumb]</texture>
+      </control>
+      <control type="image">
+        <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+        <include>PosterCommons</include>
+        <texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+      </control>
+      <include>PosterWatchedMarks</include>
+      <control type="label">
+        <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
+        <left>0</left>
+        <top>360</top>
+        <width>95%</width>
+        <height>45</height>
+        <font>size16</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <label>$INFO[ListItem.Label]</label>
+      </control>
+      <control type="label" description="Label2">
+        <left>0</left>
+        <top>390</top>
+        <width>95%</width>
+        <height>45</height>
+        <font>size16</font>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <label>$VAR[ShelfLabel2]</label>
+      </control>
+    </control>
+  </include>
+  <include name="RectangleShelfFO">
+    <control type="group">
+      <include>RectangleBG_FO</include>
+      <control type="image">
+        <visible>IsEmpty(ListItem.Art(fanart))</visible>
+        <include>RectangleCommons</include>
+        <texture background="true">$INFO[ListItem.Thumb]</texture>
+      </control>
+      <control type="image">
+        <visible>!IsEmpty(ListItem.Art(fanart))</visible>
+        <include>RectangleCommons</include>
+        <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <bottom>0</bottom>
+        <right>0</right>
+        <height>90</height>
+        <texture border="1">img/Gradient.png</texture>
+        <aspectratio>stretch</aspectratio>
+        <bordersize>3</bordersize>
+      </control>
+      <control type="progress">
+        <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+        <centerleft>50%</centerleft>
+        <top>315</top>
+        <width>90%</width>
+        <height>10</height>
+        <texturebg>progress/ProgressBG.png</texturebg>
+        <lefttexture>progress/ProgressLeft.png</lefttexture>
+        <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
+        <midtexture>progress/ProgressMid.png</midtexture>
+        <info>ListItem.PercentPlayed</info>
+      </control>
+      <include>RectangleWatchedMarks</include>
+      <control type="label">
+        <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
+        <left>5</left>
+        <bottom>10</bottom>
+        <width>90%</width>
+        <height>45</height>
+        <font>size19</font>
+        <textcolor>white</textcolor>
+        <align>center</align>
+        <label>$INFO[ListItem.Property(SeasonEpisode),, - ]$INFO[ListItem.Label]</label>
+      </control>
+    </control>
+  </include>
+</includes>

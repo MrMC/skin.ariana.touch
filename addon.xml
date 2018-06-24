@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.pm3-hd" version="3.0.0" name="Ariana.Touch" provider-name="pecinko">
+  <requires>
+    <import addon="xbmc.gui" version="5.12.0"/>
+  </requires>
+  <extension point="xbmc.gui.skin" debugging="false">
+		<res width="1536" height="1152" aspect="4:3" default="true" folder="xml" />
+		<res width="1920" height="1280" aspect="3:2" default="false" folder="xml" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+		<res width="1920" height="1080" aspect="16:9" default="false" folder="xml" />
+		<res width="2560" height="1080" aspect="21:9" default="false" folder="xml" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">MrMC Default skin</summary>
+		<description lang="en_GB">MrMC Default skin</description>
+		<disclaimer lang="en_GB"></disclaimer>
+		<platform>all</platform>
+		<license></license>
+		<forum>http://mrmc.tv/forum/</forum>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart></fanart>
+    </assets>
+  </extension>
+</addon>

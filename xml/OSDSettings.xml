@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">9000</defaultcontrol>
+  <zorder>1</zorder>
+  <onload>Dialog.Close(videoosd)</onload>
+  <onload>Dialog.Close(fullscreeninfo)</onload>
+  <controls>
+    <control type="group" description="Video TopMenu">
+      <visible>Player.HasVideo + ![Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+      <include>VisibleFadeEffect</include>
+      <include>OpenClose</include>
+      <control type="image" description="Background">
+        <animation condition="!ControlGroup(9000).HasFocus(101)" effect="slide" start="0,0" end="0,-200" time="150" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+        <left>0</left>
+        <top>0</top>
+        <width>1920</width>
+        <height>390</height>
+        <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
+      </control>
+      <control type="image" description="Background Line">
+        <left>0</left>
+        <top>90</top>
+        <width>1920</width>
+        <height>1</height>
+        <texture>img/LineST.png</texture>
+      </control>
+      <control type="grouplist" id="9000" description="Main Menu">
+        <centerleft>50%</centerleft>
+        <top>15</top>
+        <width>1800</width>
+        <height>90</height>
+        <itemgap>0</itemgap>
+        <onup>Close</onup>
+        <align>center</align>
+        <ondown>9009</ondown>
+        <orientation>horizontal</orientation>
+        <control type="button" id="101" description="Info">
+          <ondown>4</ondown>
+          <font>size22</font>
+          <include>VideoMenuButtons</include>
+          <label>[B]$LOCALIZE[31030][/B]</label>
+        </control>
+        <control type="button" id="105" description="LiveTv">
+          <visible>VideoPlayer.Content(livetv)</visible>
+          <font>size22</font>
+          <include>VideoMenuButtons</include>
+          <label>[B]$LOCALIZE[31033][/B]</label>
+        </control>
+        <control type="button" id="102" description="Subs">
+          <font>size22</font>
+          <include>VideoMenuButtons</include>
+          <label>[B]$LOCALIZE[287][/B]</label>
+        </control>
+        <control type="button" id="103" description="Audio">
+          <font>size22</font>
+          <include>VideoMenuButtons</include>
+          <label>[B]$LOCALIZE[292][/B]</label>
+        </control>
+        <control type="button" id="104" description="Player settings">
+          <font>size22</font>
+          <include>VideoMenuButtons</include>
+          <label>[B]$LOCALIZE[10004][/B]</label>
+        </control>
+      </control>
+      <control type="group" description="101 Info">
+        <visible>ControlGroup(9000).HasFocus(101)</visible>
+        <include>VisibleFadeEffect</include>
+        <include>VideoMenuInfo</include>
+      </control>
+      <control type="group" id="9009" description="Grouping for navigation sake">
+        <control type="grouplist" id="9002" description="SubMenu Subtitles">
+          <visible>ControlGroup(9000).HasFocus(102)</visible>
+          <include>VisibleFadeEffect</include>
+          <top>100</top>
+          <centerleft>50%</centerleft>
+          <width max="1800">auto</width>
+          <height>80</height>
+          <onup>9000</onup>
+          <ondown>4</ondown>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <control type="button" id="2000" description="SubtitlesSubMenuTemplateButton">
+            <include>VideoMenuButtons</include>
+          </control>
+        </control>
+        <control type="grouplist" id="9003" description="SubMenu Audio">
+          <visible>ControlGroup(9000).HasFocus(103)</visible>
+          <include>VisibleFadeEffect</include>
+          <top>100</top>
+          <centerleft>50%</centerleft>
+          <width max="1800">auto</width>
+          <height>80</height>
+          <onup>9000</onup>
+          <ondown>4</ondown>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <control type="button" id="3000" description="AudioSubMenuTemplateButton">
+            <include>VideoMenuButtons</include>
+          </control>
+        </control>
+        <control type="grouplist" id="9004" description="Player Settings Submenu">
+          <visible>ControlGroup(9000).HasFocus(104)</visible>
+          <include>VisibleFadeEffect</include>
+          <top>100</top>
+          <centerleft>50%</centerleft>
+          <width max="1800">auto</width>
+          <height>80</height>
+          <onup>9000</onup>
+          <ondown>4</ondown>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <control type="button" id="4000">
+            <visible>ControlGroup(9000).HasFocus(104)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[292]</label>
+            <onclick>ActivateWindow(osdaudiosettings)</onclick>
+          </control>
+          <control type="button" id="4001">
+            <visible>ControlGroup(9000).HasFocus(104)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[157]</label>
+            <onclick>ActivateWindow(osdvideosettings)</onclick>
+          </control>
+          <control type="button" id="4002">
+            <visible>ControlGroup(9000).HasFocus(104)</visible>
+            <visible>System.HasCMS</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>CMS</label>
+            <onclick>ActivateWindow(osdcmssettings)</onclick>
+          </control>
+        </control>
+        <control type="grouplist" id="9005" description="Player Settings Submenu">
+          <visible>ControlGroup(9000).HasFocus(105)</visible>
+          <include>VisibleFadeEffect</include>
+          <top>100</top>
+          <centerleft>50%</centerleft>
+          <width max="1800">auto</width>
+          <height>80</height>
+          <onup>9000</onup>
+          <ondown>4</ondown>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <control type="button" id="5000" description="record">
+            <visible>ControlGroup(9000).HasFocus(105)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[264]</label>
+            <onclick>PlayerControl(Record)</onclick>
+            <enable>Player.CanRecord</enable>
+          </control>
+          <control type="button" id="5001" description="guide">
+            <visible>ControlGroup(9000).HasFocus(105)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[19069]</label>
+            <onclick>ActivateWindow(PVROSDGuide)</onclick>
+          </control>
+          <control type="button" id="5002" description="Teletext">
+            <visible>ControlGroup(9000).HasFocus(105)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[31022]</label>
+            <onclick>ActivateWindow(Teletext)</onclick>
+          </control>
+        </control>
+      </control>
+    </control>
+    <control type="group" description="osd buttons">
+      <visible>[System.HasAppleTVSlider + [VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]] | !System.HasAppleTVSlider</visible>
+      <include>VisibleFadeEffect</include>
+      <include>OpenClose</include>
+      <control type="image" description="OSD BG">
+        <left>0</left>
+        <bottom>0</bottom>
+        <height>90</height>
+        <width>100%</width>
+        <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
+      </control>
+      <control type="grouplist" id="777">
+        <centerleft>50%</centerleft>
+        <width>100%</width>
+        <bottom>0</bottom>
+        <height>75</height>
+        <itemgap>20</itemgap>
+        <align>center</align>
+        <orientation>horizontal</orientation>
+        <onup>9000</onup>
+        <control type="button" id="1">
+          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/SkipBack.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/SkipBack.png</texturefocus>
+          <onclick>PlayerControl(Previous)</onclick>
+        </control>
+        <control type="button" id="2">
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/Rewind.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Rewind.png</texturefocus>
+          <onclick>PlayerControl(Rewind)</onclick>
+        </control>
+        <control type="button" id="3">
+          <visible>[VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/Stop.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Stop.png</texturefocus>
+          <onclick>PlayerControl(Stop)</onclick>
+        </control>
+        <control type="togglebutton" id="4">
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/Play.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Play.png</texturefocus>
+          <usealttexture>Player.Playing</usealttexture>
+          <alttexturenofocus colordiffuse="grey">OSD/Pause.png</alttexturenofocus>
+          <alttexturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Pause.png</alttexturefocus>
+          <onclick>PlayerControl(Play)</onclick>
+        </control>
+        <control type="button" id="5">
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/FastForward.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/FastForward.png</texturefocus>
+          <onclick>PlayerControl(Forward)</onclick>
+        </control>
+        <control type="button" id="6">
+          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
+          <width>93</width>
+          <height>57</height>
+          <texturenofocus colordiffuse="grey">OSD/SkipForward.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/SkipForward.png</texturefocus>
+          <onclick>PlayerControl(Next)</onclick>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">50</defaultcontrol>
+  <controls>
+    <include>FullBackground</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <include>View_50</include>
+      <control type="panel" id="53" description="Grid">
+        <viewtype label="536">Thumbnails</viewtype>
+        <left>66</left>
+        <top>126</top>
+        <width>1860</width>
+        <height>954</height>
+        <orientation>vertical</orientation>
+        <onback>9000</onback>
+        <pagecontrol>60</pagecontrol>
+        <preloaditems>4</preloaditems>
+        <itemlayout height="408" width="358">
+          <include>SquareBG_FO</include>
+          <control type="image">
+            <include>SquareCommons</include>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+          </control>
+        </itemlayout>
+        <focusedlayout height="408" width="358">
+          <control type="group">
+            <animation type="Focus" reversible="false">
+              <effect type="zoom" center="auto" start="100" end="110" time="120" easing="inout"/>
+            </animation>
+            <animation type="UnFocus" reversible="false">
+              <effect type="zoom" center="auto" start="110" end="100" time="120" easing="inout"/>
+            </animation>
+            <include>SquareBG_FO</include>
+            <control type="image">
+              <include>SquareCommons</include>
+              <texture background="true">$INFO[ListItem.Thumb]</texture>
+            </control>
+            <control type="label">
+              <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
+              <left>0</left>
+              <top>340</top>
+              <width>358</width>
+              <height>30</height>
+              <font>size16</font>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
+              <align>center</align>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="group" description="53 Furniture">
+        <visible>Control.IsVisible(53)</visible>
+        <include>ContainerVisibleFade</include>
+        <control type="label" description="MainHeading">
+          <top>66</top>
+          <left>84</left>
+          <width>1920</width>
+          <font>size50B</font>
+          <label>[B]$VAR[GlobalHeadings][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+          <align>left</align>
+        </control>
+      </control>
+      <control type="group" description="Side menu 9000 group">
+        <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
+        <include>TopBar</include>
+        <include>VisibleFadeEffect</include>
+        <control type="grouplist" id="9000">
+          <include>9000GrouplistParameters</include>
+          <control type="button" id="2" description="Views">
+            <include>9000Buttons</include>
+          </control>
+          <control type="button" id="3" description="Sort">
+            <include>9000Buttons</include>
+          </control>
+          <control type="button" id="19" description="Filter">
+            <include>9000Buttons</include>
+            <label>$LOCALIZE[587] $LOCALIZE[31292]</label>
+          </control>
+          <control type="button" id="697" description="Library">
+            <visible>Library.HasContent(music)</visible>
+            <include>9000Buttons</include>
+            <label>$LOCALIZE[1024] $LOCALIZE[14022]</label>
+            <onclick>ActivateWindow(MusicLibrary,root)</onclick>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

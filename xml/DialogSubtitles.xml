@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <controls>
+    <include>DialogFullBG</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="image" description="Sidebar">
+        <left>-30</left>
+        <top>0</top>
+        <width>471</width>
+        <height>1080</height>
+        <aspectratio>stretch</aspectratio>
+        <texture border="60">img/HomeMenuBarV.png</texture>
+      </control>
+      <control type="image" id="110" description="Service Logo">
+        <centerleft>50%</centerleft>
+        <top>60</top>
+        <width>500</width>
+        <height>80</height>
+        <aspectratio align="center">keep</aspectratio>
+      </control>
+      <control type="label" id="100" description="Active service label">
+        <visible>false</visible>
+        <centerleft>50%</centerleft>
+        <top>120</top>
+        <width>1320</width>
+        <height>60</height>
+        <textcolor>$VAR[LabelFOColor]</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+      <control type="label" description="Video File name">
+        <left>450</left>
+        <top>120</top>
+        <width>1320</width>
+        <height>60</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>size28</font>
+        <label>[B]$INFO[Player.Filename][/B]</label>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+      <control type="label" id="140" description="Number of available/Searching...">
+        <left>450</left>
+        <top>210</top>
+        <width>1320</width>
+        <height>30</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>size19</font>
+      </control>
+      <control type="panel" id="120" description="List of available subtitles">
+        <left>475</left>
+        <top>300</top>
+        <width>1368</width>
+        <height>538</height>
+        <onleft>150</onleft>
+        <onright>150</onright>
+        <onup>120</onup>
+        <ondown>120</ondown>
+        <itemlayout width="1365" height="62">
+          <control type="image">
+            <left>10</left>
+            <top>4</top>
+            <width>33</width>
+            <height>54</height>
+            <aspectratio>keep</aspectratio>
+            <texture>flags/$INFO[ListItem.Thumb].gif</texture>
+          </control>
+          <control type="label">
+            <left>54</left>
+            <top>0</top>
+            <width>135</width>
+            <font>size19</font>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <scroll>false</scroll>
+            <align>left</align>
+            <info>ListItem.Label</info>
+          </control>
+          <control type="image">
+            <left>204</left>
+            <top>4</top>
+            <width>60</width>
+            <height>54</height>
+            <aspectratio>keep</aspectratio>
+            <texture>icon_sync.png</texture>
+            <visible>ListItem.property(sync)</visible>
+          </control>
+          <control type="image">
+            <left>276</left>
+            <top>4</top>
+            <width>24</width>
+            <height>54</height>
+            <aspectratio>keep</aspectratio>
+            <texture>icon_cc.png</texture>
+            <visible>ListItem.property(hearing_imp)</visible>
+          </control>
+          <control type="label">
+            <left>315</left>
+            <top>0</top>
+            <width>900</width>
+            <font>size19</font>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <scroll>false</scroll>
+            <align>left</align>
+            <info>ListItem.Label2</info>
+          </control>
+          <control type="image">
+            <left>1230</left>
+            <top>4</top>
+            <width>120</width>
+            <height>54</height>
+            <colordiffuse>Label2</colordiffuse>
+            <aspectratio>keep</aspectratio>
+            <texture>badges/rating$INFO[ListItem.ActualIcon].png</texture>
+          </control>
+        </itemlayout>
+        <focusedlayout width="1365" height="62">
+          <control type="group">
+            
+            <control type="image">
+              <left>5</left>
+              <top>5</top>
+              <width>1355</width>
+              <height>50</height>
+              <texture border="10">focus/FrameFO.png</texture>
+              <bordersize>-10</bordersize>
+              <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+              <left>10</left>
+              <top>4</top>
+              <width>33</width>
+              <height>54</height>
+              <aspectratio>keep</aspectratio>
+              <texture>flags/$INFO[ListItem.Thumb].gif</texture>
+            </control>
+            <control type="label">
+              <left>54</left>
+              <top>4</top>
+              <width>135</width>
+              <height>54</height>
+              <font>size19</font>
+              <aligny>center</aligny>
+              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <align>left</align>
+              <info>ListItem.Label</info>
+            </control>
+            <control type="image">
+              <left>204</left>
+              <top>4</top>
+              <width>60</width>
+              <height>54</height>
+              <aspectratio>keep</aspectratio>
+              <texture>icon_sync.png</texture>
+              <visible>ListItem.property(sync)</visible>
+            </control>
+            <control type="image">
+              <left>276</left>
+              <top>4</top>
+              <width>24</width>
+              <height>54</height>
+              <aspectratio>keep</aspectratio>
+              <texture>icon_cc.png</texture>
+              <visible>ListItem.property(hearing_imp)</visible>
+            </control>
+            <control type="label">
+              <left>315</left>
+              <top>1</top>
+              <width>900</width>
+              <height>60</height>
+              <font>size18</font>
+              <aligny>center</aligny>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <align>left</align>
+              <info>ListItem.Label2</info>
+            </control>
+            <control type="image">
+              <left>1230</left>
+              <top>4</top>
+              <width>120</width>
+              <height>54</height>
+              <aspectratio>keep</aspectratio>
+              <texture>badges/rating$INFO[ListItem.ActualIcon].png</texture>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="label" id="130" description="Notification Local subtitle available">
+        <top>930</top>
+        <left>475</left>
+        <width>1368</width>
+        <height>60</height>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <font>size24</font>
+        <label>$LOCALIZE[31287]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <wrapmultiline>true</wrapmultiline>
+      </control>
+      <control type="label" description="Left side label">
+        <left>25</left>
+        <top>210</top>
+        <width>360</width>
+        <height>30</height>
+        <label>[B]$LOCALIZE[24018][/B]</label>
+        <align>center</align>
+        <font>size24</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+      </control>
+      <control type="list" id="150" description="list of services">
+        <left>25</left>
+        <top>300</top>
+        <width>375</width>
+        <height>546</height>
+        <onleft>120</onleft>
+        <onright>120</onright>
+        <onup>160</onup>
+        <ondown>160</ondown>
+        <itemlayout width="375" height="60">
+          <control type="label">
+            <top>0</top>
+            <left>5</left>
+            <width>365</width>
+            <align>center</align>
+            <info>ListItem.Label</info>
+          </control>
+        </itemlayout>
+        <focusedlayout width="375" height="60">
+          <control type="group">
+            
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>100%</width>
+              <height>100%</height>
+              <texture border="9">img/SettingsButtonFO.png</texture>
+              <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+              <visible>Control.HasFocus(150)</visible>
+              <top>0</top>
+              <left>5</left>
+              <width>365</width>
+              <align>center</align>
+              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <info>ListItem.Label</info>
+            </control>
+            <control type="label">
+              <visible>!Control.HasFocus(150)</visible>
+              <top>0</top>
+              <left>5</left>
+              <width>365</width>
+              <align>center</align>
+              <textcolor>$VAR[SelectedColor]</textcolor>
+              <info>ListItem.Label</info>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="button" id="160" description="Manual search Button">
+        <left>25</left>
+        <top>700</top>
+        <width>375</width>
+        <textoffsetx>10</textoffsetx>
+        <label>$LOCALIZE[413]</label>
+        <onleft>120</onleft>
+        <onright>120</onright>
+        <onup>150</onup>
+        <ondown>170</ondown>
+        
+      </control>
+      <control type="button" id="170" description="Manual search Button">
+        <left>25</left>
+        <top>770</top>
+        <width>375</width>
+        <textoffsetx>10</textoffsetx>
+        <label>$LOCALIZE[24148]</label>
+        <onleft>120</onleft>
+        <onright>120</onright>
+        <onup>160</onup>
+        <ondown>150</ondown>
+        
+      </control>
+    </control>
+  </controls>
+</window>

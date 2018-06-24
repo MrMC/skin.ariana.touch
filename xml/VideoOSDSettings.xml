@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">5</defaultcontrol>
+  <controls>
+    <control type="group">
+      <visible>Window.IsTopMostModal(VideoOSDSettings.xml)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="image">
+        <visible>!StringCompare(Control.GetLabel(2),$LOCALIZE[13396])</visible>
+        <centerleft>50%</centerleft>
+        <top>40</top>
+        <width>906</width>
+        <height>1000</height>
+        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
+      </control>
+      <control type="image">
+        <visible>StringCompare(Control.GetLabel(2),$LOCALIZE[13396])</visible>
+        <centerleft>50%</centerleft>
+        <top>40</top>
+        <width>906</width>
+        <height>760</height>
+        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
+      </control>
+      <control type="label" id="2" description="Settings">
+        <centerleft>50%</centerleft>
+        <top>120</top>
+        <width>1050</width>
+        <font>-</font>
+        <align>center</align>
+      </control>
+      <control type="grouplist" id="5" description="Control Area">
+        <centerleft>50%</centerleft>
+        <top>75</top>
+        <width>840</width>
+        <height>930</height>
+        <aligny>top</aligny>
+        <itemgap>2</itemgap>
+        <orientation>vertical</orientation>
+        <onup>5</onup>
+        <ondown>5</ondown>
+      </control>
+      <control type="button" id="7">
+        <align>left</align>
+        
+      </control>
+      <control type="radiobutton" id="8">
+        <align>left</align>
+        
+      </control>
+      <control type="spincontrolex" id="9">
+        <align>left</align>
+        <reverse>yes</reverse>
+      </control>
+      <control type="sliderex" id="13">
+        <align>left</align>
+      </control>
+    </control>
+  </controls>
+</window>

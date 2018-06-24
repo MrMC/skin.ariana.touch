@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include file="Includes_Variables.xml" />
+  <include file="defaults.xml" />
+  <include file="Includes_Views.xml" />
+  <!--<include file="View_57_58_59_Showcase.xml" /> -->
+  <include name="9000GrouplistParameters">
+    <left>40</left>
+    <right>40</right>
+    <bottom>0</bottom>
+    <height>80</height>
+    <itemgap>65</itemgap>
+    <onleft>9000</onleft>
+    <onright>9000</onright>
+    <onup>50</onup>
+    <ondown>50</ondown>
+    <align>center</align>
+    <aligny>center</aligny>
+    <orientation>horizontal</orientation>
+  </include>
+  <include name="9000Buttons">
+    <width min="150" max="540">auto</width>
+    <height>80</height>
+    <textoffsetx>0</textoffsetx>
+    <align>center</align>
+    <aligny>center</aligny>
+    <font>size18</font>
+    <textcolor>$VAR[SelectedColor]</textcolor>
+    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+    <alttextcolor>$VAR[SelectedColor]</alttextcolor>
+    <altselectedcolor>$VAR[SelectedColor]</altselectedcolor>
+    <texturefocus/>
+    <texturenofocus/>
+    <alttexturenofocus/>
+    <alttexturefocus/>
+  </include>
+  <include name="TopBar">
+    <control type="image" description="Background">
+      <animation condition="ControlGroup(9000).HasFocus()" effect="slide" start="0,0" end="0,140" time="100" easing="in" reversible="false">Conditional</animation>
+      <animation condition="!ControlGroup(9000).HasFocus()" effect="slide" start="0,140" end="0,0" time="100" delay="50" easing="in" reversible="false">Conditional</animation>
+      <left>0</left>
+      <top>-141</top>
+      <width>1920</width>
+      <height>142</height>
+      <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
+    </control>
+  </include>
+  <include name="SquareButtonCommons">
+    <width>60</width>
+    <height>60</height>
+    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+    <altfocusedcolor>$VAR[SelectedColor]</altfocusedcolor>
+    <font>-</font>
+    <label/>
+    <aligny>top</aligny>
+    <textoffsety>80</textoffsety>
+    <textoffsetx>0</textoffsetx>
+    <align>center</align>
+  </include>
+  <include name="VideoMenuInfo">
+    <control type="group" description="Info group">
+      <top>90</top>
+      <control type="image">
+        <left>15</left>
+        <top>30</top>
+        <width>240</width>
+        <height>256</height>
+        <texture>$INFO[VideoPlayer.Cover]</texture>
+        <aspectratio align="center" aligny="top">keep</aspectratio>
+      </control>
+      <control type="group">
+        <left>-30</left>
+        <top>30</top>
+        <control type="label" description="Main label">
+          <visible>![VideoPlayer.Content(MusicVideos)]</visible>
+          <include>FullscreenInfoLabelMain</include>
+          <label>[B]$INFO[VideoPlayer.Title][/B]</label>
+        </control>
+        <control type="label" description="Main label">
+          <visible>VideoPlayer.Content(MusicVideos)</visible>
+          <include>FullscreenInfoLabelMain</include>
+          <label>[B]$INFO[VideoPlayer.Artist][/B]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>VideoPlayer.Content(MusicVideos)</visible>
+          <include>FullscreenInfoLabel2</include>
+          <label>$INFO[VideoPlayer.Album]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>VideoPlayer.Content(Episodes)</visible>
+          <include>FullscreenInfoLabel2</include>
+          <label>$INFO[VideoPlayer.TVShowTitle] - $LOCALIZE[20373] $INFO[VideoPlayer.Season], $LOCALIZE[20359] $INFO[VideoPlayer.Episode]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>![VideoPlayer.Content(MusicVideos) | VideoPlayer.Content(episodes)]</visible>
+          <include>FullscreenInfoLabel2</include>
+          <label>$INFO[VideoPlayer.Genre]</label>
+        </control>
+        <control type="textbox">
+          <left>300</left>
+          <top>99</top>
+          <width>1500</width>
+          <height>132</height>
+          <label>$INFO[VideoPlayer.Plot]</label>
+          <align>left</align>
+          <autoscroll>false</autoscroll>
+          <font>plot</font>
+        </control>
+        <control type="label" description="Details">
+          <top>214</top>
+          <font>size16</font>
+          <include>FullscreenInfoLabel2</include>
+          <label>[UPPERCASE]$INFO[VideoPlayer.VideoCodec]$INFO[VideoPlayer.VideoResolution, / ]$INFO[VideoPlayer.AudioCodec, • ]$INFO[VideoPlayer.AudioChannels, / ][/UPPERCASE]</label>
+        </control>
+      </control>
+    </control>
+  </include>
+  <include name="VideoMenuButtons">
+    <width min="240" max="540">auto</width>
+    <height>90</height>
+    <font>size16USys</font>
+    <align>center</align>
+    <aligny>center</aligny>
+    <texturefocus/>
+    <texturenofocus/>
+    <alttexturefocus/>
+    <alttexturenofocus/>
+    <textcolor>grey</textcolor>
+    <focusedcolor>$VAR[LabelNFColor]</focusedcolor>
+  </include>
+  <include name="CenterHeading">
+    <top>20</top>
+    <centerleft>50%</centerleft>
+    <align>center</align>
+    <width>100%</width>
+    <height>90</height>
+    <font>size20B</font>
+  </include>
+  <include name="FullBackground">
+    <control type="image" description="BG image">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <aspectratio>stretch</aspectratio>
+      <texture background="true">$VAR[Background.Overlay]</texture>
+    </control>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>96</height>
+      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="button" description="Back">
+      <visible>!Window.IsActive(home)</visible>
+      <top>20</top>
+      <left>30</left>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturenofocus>
+      <include>SquareButtonCommons</include>
+      <onclick>back</onclick>
+    </control>
+    <control type="image" description="BottomBar">
+      <left>0</left>
+      <bottom>0</bottom>
+      <width>100%</width>
+      <height>80</height>
+      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="DebugGrid">
+      <visible>Skin.HasSetting(DebugGrid)</visible>
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <texture>debuggrid1080.png</texture>
+      <aspectratio align="left" aligny="top">scale</aspectratio>
+    </control>
+  </include>
+  <include name="DialogFullBG">
+    <control type="image" description="Art">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <aspectratio>stretch</aspectratio>
+      <texture background="true">$VAR[Background.Overlay]</texture>
+    </control>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>96</height>
+      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="button" description="Back">
+      <top>20</top>
+      <left>30</left>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturenofocus>
+      <include>SquareButtonCommons</include>
+      <onclick>back</onclick>
+    </control>
+    <control type="image" description="BottomBar">
+      <left>0</left>
+      <bottom>0</bottom>
+      <width>100%</width>
+      <height>80</height>
+      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon95.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="DebugGrid">
+      <visible>Skin.HasSetting(DebugGrid)</visible>
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
+      <texture>debuggrid1080.png</texture>
+      <aspectratio align="left" aligny="top">scale</aspectratio>
+    </control>
+  </include>
+  <include name="VisibleFadeEffect">
+    <animation effect="fade" time="200">VisibleChange</animation>
+    <animation effect="fade" time="200">Hidden</animation>
+  </include>
+  <include name="ContainerVisibleFade">
+    <animation effect="fade" time="400">Visible</animation>
+    <animation effect="fade" time="200">Hidden</animation>
+  </include>
+  <include name="OpenClose">
+    <animation effect="fade" time="200">WindowOpen</animation>
+    <animation effect="fade" time="100">WindowClose</animation>
+  </include>
+  <include name="Fanart_Fade">
+    <fadetime>320</fadetime>
+    <animation effect="fade" time="320">Visible</animation>
+    <animation effect="fade" time="280">Hidden</animation>
+  </include>
+  <include name="Icon_Fade">
+    <fadetime>200</fadetime>
+    <animation effect="fade" time="200">Visible</animation>
+    <animation effect="fade" time="100">Hidden</animation>
+  </include>
+  <include name="HiddenButton">
+    <left>-300</left>
+    <top>-300</top>
+    <width>1</width>
+    <height>1</height>
+  </include>
+  <include name="HeadingR">
+    <left>960</left>
+    <top>60</top>
+    <width>930</width>
+    <height>75</height>
+    <align>center</align>
+    <aligny>bottom</aligny>
+    <textcolor>$VAR[SelectedColor]</textcolor>
+    <font>size50B</font>
+  </include>
+  <include name="Dimensions_Fullscreen">
+    <left>0</left>
+    <top>0</top>
+    <width>100%</width>
+    <height>100%</height>
+  </include>
+  <include name="Header">
+    <control type="group">
+      <visible>![Window.IsActive(home) | Window.IsActive(LoginScreen.xml)]</visible>
+      <control type="label" description="Heading">
+        <left>0</left>
+        <top>60</top>
+        <align>center</align>
+        <aligny>center</aligny>
+        <width>1920</width>
+        <height>75</height>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <font>size50B</font>
+        <label>$VAR[GlobalHeadings]</label>
+      </control>
+    </control>
+  </include>
+  <include name="SeekbarIconsCommons">
+    <width>45</width>
+    <height>45</height>
+    <aspectratio aligny="center" align="left">keep</aspectratio>
+  </include>
+  <include name="SeekbarLabels">
+    <height>40</height>
+    <width>100%</width>
+    <align>center</align>
+    <font>size50B</font>
+    <shadowcolor>black</shadowcolor>
+    <textcolor>white</textcolor>
+  </include>
+  <include name="FocusButtonsAnimation">
+    <animation type="Focus" reversible="true">
+      <effect type="zoom" center="auto" start="100" end="104" time="100" easing="inout"/>
+    </animation>
+  </include>
+  <include name="FullscreenInfoLabelMain">
+    <left>300</left>
+    <top>-6</top>
+    <width>1200</width>
+    <scroll>false</scroll>
+    <align>left</align>
+    <font>size24B</font>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <animation effect="fade" time="200">VisibleChange</animation>
+  </include>
+  <include name="FullscreenInfoLabel2">
+    <left>300</left>
+    <top>45</top>
+    <width>1200</width>
+    <scroll>false</scroll>
+    <align>left</align>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <font>plot</font>
+    <animation effect="fade" time="200">VisibleChange</animation>
+  </include>
+  <include name="10Rating">
+    <height>24</height>
+    <width>135</width>
+    <aspectratio align="right">keep</aspectratio>
+    <texture>$INFO[ListItem.Rating,badges/,.png]</texture>
+  </include>
+  <include name="StarRating">
+    <height>24</height>
+    <width>135</width>
+    <aspectratio align="right">keep</aspectratio>
+    <texture>$INFO[ListItem.StarRating,badges/]</texture>
+  </include>
+  <include name="KeyboardButtons">
+    <align>center</align>
+    <aligny>center</aligny>
+    <textoffsetx>0</textoffsetx>
+    <width>68</width>
+    <height>68</height>
+    <font>size26</font>
+  </include>
+</includes>

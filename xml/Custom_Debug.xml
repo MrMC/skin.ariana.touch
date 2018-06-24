@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1121">
+  <visible>Skin.HasSetting(showdebug)</visible>
+  <zorder>3</zorder>
+  <controls>
+    <left>0</left>
+    <top>0</top>
+    <control type="image" description="DebugInfo BG">
+      <left>-30</left>
+      <top>0</top>
+      <width>1980</width>
+      <height>280</height>
+      <texture border="14">dot/Black50.png</texture>
+    </control>
+    <!-- Window Dialog debug -->
+    <control type="grouplist">
+      <left>22</left>
+      <top>22</top>
+      <width>100%</width>
+      <height>675</height>
+      <itemgap>18</itemgap>
+      <control type="label">
+        <top>90</top>
+        <width>100%</width>
+        <height>32</height>
+        <textcolor>red</textcolor>
+        <shadowcolor>FF000000</shadowcolor>
+        <font>font13</font>
+        <align>left</align>
+        <label>$INFO[Container(8002).ListItem.Property(servicetype)] $INFO[Container(8002).ListItem.Property(base64url)]</label>
+      </control>
+      <!-- Window labels -->
+      <control type="label">
+        <width>100%</width>
+        <height>32</height>
+        <textcolor>FFFF0000</textcolor>
+        <shadowcolor>FF000000</shadowcolor>
+        <font>font13</font>
+        <align>left</align>
+        <label>WINDOW: $INFO[System.CurrentWindow]</label>
+      </control>
+      <!-- Content label -->
+      <control type="label">
+        <width>100%</width>
+        <height>32</height>
+        <textcolor>red</textcolor>
+        <shadowcolor>FF000000</shadowcolor>
+        <font>font13</font>
+        <align>left</align>
+        <label>CONTENT: $INFO[container.content]</label>
+      </control>
+      <!-- Path label -->
+      <control type="label">
+        <width>100%</width>
+        <height>32</height>
+        <textcolor>red</textcolor>
+        <shadowcolor>FF000000</shadowcolor>
+        <font>font13</font>
+        <align>left</align>
+        <label>folderNAME: $INFO[Container.FolderName]</label>
+      </control>
+      <control type="label">
+        <width>100%</width>
+        <height>32</height>
+        <textcolor>red</textcolor>
+        <shadowcolor>FF000000</shadowcolor>
+        <font>font13</font>
+        <align>left</align>
+        <label>PATH: $INFO[Container.FolderPath]</label>
+      </control>
+    </control>
+  </controls>
+</window>

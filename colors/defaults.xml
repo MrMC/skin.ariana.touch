@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<color name="white2">FFCCCCCC</color>
+	<color name="white">FFFFFFFF</color>
+	<color name="blue">FF003366</color>
+	<color name="black">FF000000</color>
+	<color name="blackT">55000000</color>
+	<color name="blackST">90000000</color>
+	<color name="silver">FFE2E2E2</color>
+	<color name="diffuse">FFA0A0A0</color>
+	<color name="diffuse2">FF474747</color>
+  <color name="shadow"FF111111</color>
+  <color name="grey">FF777777</color> <!-- THEME INDEPENDENT -->
+  <color name="red">FFff3a31</color> <!-- THEME INDEPENDENT -->
+
+  <color name="Overlay">$VAR[OverlayColor]</color>
+  <color name="LabelNF">$VAR[LabelNFColor]</color>
+  <color name="LabelFO">$VAR[LabelFOColor]</color>
+  <color name="Label2">$VAR[Label2Color]</color>
+  <color name="Disabled">$VAR[DisabledColor]</color>
+  <color name="Selected">$VAR[SelectedColor]</color>
+
+  <color name="systemfocus">FFf6b12b</color>
+</colors>

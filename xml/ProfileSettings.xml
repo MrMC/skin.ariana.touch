@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+  <defaultcontrol always="true">5</defaultcontrol>
+  <controls>
+    <include>DialogFullBG</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="label" id="102" description="Profile Name">
+        <include>CenterHeading</include>
+      </control>
+      <control type="image" id="101" description="Profile image">
+        <centerleft>50%</centerleft>
+        <centertop>252</centertop>
+        <width>168</width>
+        <height>168</height>
+        <texture align="center" diffuse="img/UserDiffuse.png">
+        </texture>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="label" id="103" description="Profile Directory">
+        <top>360</top>
+        <font>size18</font>
+        <include>CenterHeading</include>
+      </control>
+      <control type="group">
+        <top>150</top>
+        <control type="grouplist" id="5">
+          <top>300</top>
+          <centerleft>50%</centerleft>
+          <width>700</width>
+          <ondown>28</ondown>
+        </control>
+        <control type="button" id="7">
+          <align>left</align>
+          <width>700</width>
+        </control>
+        <control type="radiobutton" id="8">
+          <align>left</align>
+          <width>700</width>
+        </control>
+        <control type="spincontrolex" id="9">
+          <align>left</align>
+          <width>700</width>
+        </control>
+        <control type="button" id="28" description="OK">
+          <left>30%</left>
+          <top>800</top>
+          <width>280</width>
+          <label>186</label>
+          <onleft>29</onleft>
+          <onright>29</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+        </control>
+        <control type="button" id="29" description="Cancel">
+          <right>30%</right>
+          <top>800</top>
+          <width>280</width>
+          <label>222</label>
+          <onleft>28</onleft>
+          <onright>28</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">11</defaultcontrol>
+  <controls>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="image">
+        <right>66</right>
+        <top>140</top>
+        <width>800</width>
+        <height>860</height>
+        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
+        <bordersize>-48</bordersize>
+      </control>
+      <control type="label" description="MainHeading">
+        <right>66</right>
+        <top>140</top>
+        <width>800</width>
+        <height>40</height>
+        <font>size50B</font>
+        <label>[B]&lt; $INFO[VideoPlayer.ChannelGroup] &gt;[/B]</label>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <align>center</align>
+      </control>
+      <control type="list" id="11">
+        <right>66</right>
+        <top>248</top>
+        <width>800</width>
+        <height>749</height>
+        <onleft>PreviousChannelGroup</onleft>
+        <onright>NextChannelGroup</onright>
+        <pagecontrol>60</pagecontrol>
+        <viewtype label="535">List 50</viewtype>
+        <itemlayout width="800" height="125">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>800</width>
+            <height>120</height>
+            <texture border="10">focus/FrameNF.png</texture>
+            <bordersize>0</bordersize>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <visible>![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Thumb)]</visible>
+            <right>10</right>
+            <top>9</top>
+            <height>99</height>
+            <width>99</width>
+            <texture fallback="focus/FrameNF.png" align="right" aligny="center">$INFO[ListItem.Thumb]</texture>
+            <aspectratio>keep</aspectratio>
+            <bordersize>3</bordersize>
+          </control>
+          <control type="label" description="Duration">
+            <visible>IsEmpty(ListItem.Thumb)</visible>
+            <right>10</right>
+            <top>9</top>
+            <height>99</height>
+            <width>99</width>
+            <font>size14</font>
+            <align>center</align>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Duration]</label>
+          </control>
+          <control type="image">
+            <visible>ListItem.IsRecording</visible>
+            <left>12</left>
+            <top>54</top>
+            <height>28</height>
+            <width>28</width>
+            <texture align="left" aligny="center">$VAR[PVRTimerIcon]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label" description="Nr">
+            <left>14</left>
+            <width>300</width>
+            <top>6</top>
+            <height>50</height>
+            <font>size20</font>
+            <scroll>false</scroll>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.ChannelNumber]</label>
+          </control>
+          <control type="label" description="Main Label">
+            <top>6</top>
+            <left>110</left>
+            <right>130</right>
+            <height>50</height>
+            <font>size22</font>
+            <scroll>false</scroll>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Label2">
+            <top>54</top>
+            <left>110</left>
+            <right>130</right>
+            <height>30</height>
+            <font>size16</font>
+            <scroll>false</scroll>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Title]</label>
+          </control>
+          <control type="progress">
+            <visible>ListItem.HasEpg</visible>
+            <top>93</top>
+            <left>110</left>
+            <right>130</right>
+            <height>10</height>
+            <texturebg>progress/ProgressBG.png</texturebg>
+            <lefttexture>progress/ProgressLeft.png</lefttexture>
+            <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
+            <midtexture>progress/ProgressMid.png</midtexture>
+            <info>ListItem.Progress</info>
+          </control>
+        </itemlayout>
+        <focusedlayout width="800" height="125">
+          <control type="group">
+            
+            <control type="image">
+              <animation effect="fade" time="100">VisibleChange</animation>
+              <left>0</left>
+              <top>0</top>
+              <width>800</width>
+              <height>120</height>
+              <texture border="10">focus/FrameFO.png</texture>
+              <bordersize>0</bordersize>
+              <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+              <visible>![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Thumb)]</visible>
+              <right>10</right>
+              <top>10</top>
+              <height>99</height>
+              <width>99</width>
+              <texture fallback="focus/FrameNF.png" align="right" aligny="center">$INFO[ListItem.Thumb]</texture>
+              <aspectratio>keep</aspectratio>
+              <bordersize>3</bordersize>
+            </control>
+            <control type="label" description="Duration">
+              <visible>IsEmpty(ListItem.Thumb)</visible>
+              <right>10</right>
+              <top>9</top>
+              <height>99</height>
+              <width>99</width>
+              <font>size14</font>
+              <align>center</align>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <label>$INFO[ListItem.Duration]</label>
+            </control>
+            <control type="image">
+              <visible>ListItem.IsRecording</visible>
+              <left>12</left>
+              <top>54</top>
+              <height>28</height>
+              <width>28</width>
+              <texture align="left" aligny="center">$VAR[PVRTimerIcon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label" description="Nr">
+              <left>14</left>
+              <width>300</width>
+              <top>6</top>
+              <height>50</height>
+              <font>size20</font>
+              <scroll>false</scroll>
+              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <label>$INFO[ListItem.ChannelNumber]</label>
+            </control>
+            <control type="label" description="Main Label">
+              <top>6</top>
+              <left>110</left>
+              <right>130</right>
+              <height>50</height>
+              <font>size22</font>
+              <scroll>false</scroll>
+              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label" description="Label2">
+              <top>54</top>
+              <left>110</left>
+              <right>130</right>
+              <height>30</height>
+              <font>size16</font>
+              <scroll>false</scroll>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <label>$INFO[ListItem.Title]</label>
+            </control>
+            <control type="progress">
+              <visible>ListItem.HasEpg</visible>
+              <top>93</top>
+              <left>110</left>
+              <right>130</right>
+              <height>10</height>
+              <texturebg>progress/ProgressBG.png</texturebg>
+              <lefttexture>progress/ProgressLeft.png</lefttexture>
+              <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
+              <midtexture>progress/ProgressMid.png</midtexture>
+              <info>ListItem.Progress</info>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <defaultcontrol always="true">9</defaultcontrol>
+  <controls>
+    <include>DialogFullBG</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="image" description="Sidebar">
+        <left>-150</left>
+        <top>0</top>
+        <width>780</width>
+        <height>100%</height>
+        <aspectratio>stretch</aspectratio>
+        <texture border="60">img/HomeMenuBarV.png</texture>
+      </control>
+      <control type="label" id="20" description="Heading">
+        <left>700</left>
+        <top>66</top>
+        <width>1000</width>
+        <height>60</height>
+        <font>size50B</font>
+      </control>
+      <control type="grouplist" id="9" description="Left Configure Panel">
+        <left>66</left>
+        <top>180</top>
+        <width>480</width>
+        <height>585</height>
+        <itemgap>4</itemgap>
+        <onleft>30</onleft>
+        <onright>2</onright>
+        <ondown>8999</ondown>
+      </control>
+      <control type="button" id="13" description="Default Category Button">
+        
+        <width>480</width>
+        <align>left</align>
+      </control>
+      <control type="grouplist" id="2" description="Right controls">
+        <left>700</left>
+        <top>180</top>
+        <width>1125</width>
+        <height>600</height>
+        <itemgap>4</itemgap>
+        <ondown>8999</ondown>
+        <onleft>9</onleft>
+      </control>
+      <control type="button" id="3" description="Default Button">
+        
+        <align>left</align>
+      </control>
+      <control type="radiobutton" id="4" description="Default RadioButton">
+        
+        <align>left</align>
+      </control>
+      <control type="spincontrolex" id="5" description="Default spincontrolex">
+        <align>left</align>
+        <reverse>yes</reverse>
+      </control>
+      <control type="label" id="7">
+        <label>-</label>
+        <align>left</align>
+      </control>
+      <control type="image" id="6" description="Default Seperator">
+        <height>-3</height>
+        <texture>-</texture>
+      </control>
+      <control type="sliderex" id="8" description="Default Slider Control">
+        <align>left</align>
+        <width>900</width>
+      </control>
+      <control type="grouplist" id="8999" description="Left OK/Cancel Panel">
+        <left>700</left>
+        <top>960</top>
+        <width>750</width>
+        <height>60</height>
+        <itemgap>20</itemgap>
+        <onleft>9</onleft>
+        <onup>2</onup>
+        <ondown>2</ondown>
+        <align>center</align>
+        <orientation>horizontal</orientation>
+        <control type="button" id="10" description="OK Button">
+          
+          <width>360</width>
+          <label>186</label>
+        </control>
+        <control type="button" id="12" description="Load Defaults">
+          
+          <width>360</width>
+          <label>409</label>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>
