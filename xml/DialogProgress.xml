@@ -6,40 +6,34 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="1" description="Heading">
-        <top>210</top>
-        <centerleft>50%</centerleft>
+        <include>CenterHeading</include>
         <label>-</label>
-        <height>40</height>
-        <width>100%</width>
-        <font>size50B</font>
-        <align>center</align>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
       </control>
       <control type="label" id="2" description="Line 1">
         <top>440</top>
         <centerleft>50%</centerleft>
-        <width>960</width>
+        <width>50%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="3" description="Line 2">
         <top>480</top>
         <centerleft>50%</centerleft>
-        <width>960</width>
+        <width>50%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="4" description="Line 3">
         <top>520</top>
         <centerleft>50%</centerleft>
-        <width>960</width>
+        <width>50%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="21" description="Progress">
         <top>580</top>
         <centerleft>50%</centerleft>
-        <width>960</width>
+        <width>50%</width>
         <height>40</height>
         <align>center</align>
         <label>[B]$INFO[Control.GetLabel(20),,%][/B]</label>
@@ -54,16 +48,12 @@
         <righttexture/>
         <overlaytexture/>
       </control>
-      <control type="button" id="10" description="Cancel">
-        <top>75%</top>
-        <centerleft>50%</centerleft>
-        <width>320</width>
-        <label>222</label>
-        <align>center</align>
-        <textcolor>white</textcolor>
-        <focusedcolor>white</focusedcolor>
-        <pulseonselect>true</pulseonselect>
-        <texturefocus colordiffuse="red" border="9">img/SettingsButtonFO.png</texturefocus>
+      <control type="grouplist" id="9000">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="10" description="Cancel">
+          <include>9000Buttons</include>
+          <pulseonselect>true</pulseonselect>
+        </control>
       </control>
     </control>
   </controls>

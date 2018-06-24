@@ -6,7 +6,6 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="1" description="Header label">
-        <top>100</top>
         <include>CenterHeading</include>
       </control>
       <control type="panel" id="6" description="Addons like">
@@ -75,7 +74,6 @@
         </itemlayout>
         <focusedlayout height="110">
           <control type="group">
-            
             <control type="image">
               <animation effect="fade" time="100">VisibleChange</animation>
               <left>0</left>
@@ -170,7 +168,6 @@
         </itemlayout>
         <focusedlayout height="70">
           <control type="group">
-            
             <control type="image">
               <animation effect="fade" time="100">VisibleChange</animation>
               <left>0</left>
@@ -200,37 +197,15 @@
           </control>
         </focusedlayout>
       </control>
-      <control type="button" id="5" description="Left buttons template">
-        <centerleft>50%</centerleft>
-        <top>960</top>
-        <width>350</width>
-        <onup>3</onup>
-        <onleft>3</onleft>
-        <onright>3</onright>
+      <control type="grouplist" id="9000">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="5" description="Left buttons template">
+          <include>9000Buttons</include>
+          <onup>3</onup>
+          <onleft>3</onleft>
+          <onright>3</onright>
+        </control>
       </control>
-      <!--<control type="group">
-        <visible>Control.IsVisible(6)</visible>
-        <control type="image" description="Item Thumb">
-          <visible>IsEmpty(Container(6).ListItem.Thumb)</visible>
-          <centerleft>25%</centerleft>
-          <top>270</top>
-          <width>400</width>
-          <height>400</height>
-          <fadetime>200</fadetime>
-          <texture>Logo_square.png</texture>
-          <aspectratio aligny="center" align="center">keep</aspectratio>
-        </control>
-        <control type="image" description="Item Thumb">
-          <visible>!IsEmpty(Container(6).ListItem.Thumb)</visible>
-          <centerleft>25%</centerleft>
-          <top>270</top>
-          <width>400</width>
-          <height>400</height>
-          <fadetime>200</fadetime>
-          <texture>$INFO[Container(6).ListItem.Thumb]</texture>
-          <aspectratio aligny="center" align="center">keep</aspectratio>
-        </control>
-      </control>-->
     </control>
   </controls>
 </window>

@@ -18,7 +18,7 @@
         <centertop>50%</centertop>
         <width>100%</width>
         <height>240</height>
-        <font>size50</font>
+        <font>size24</font>
         <align>center</align>
         <aligny>top</aligny>
         <textcolor>$VAR[LabelNFColor]</textcolor>

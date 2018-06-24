@@ -3,18 +3,15 @@
   <defaultcontrol always="true">11</defaultcontrol>
   <controls>
     <include>DialogFullBG</include>
+    <control type="label" id="2" description="Heading">
+      <include>CenterHeading</include>
+      <label>-</label>
+    </control>
     <control type="group" description="Content">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
       <top>120</top>
       <width>930</width>
-      <control type="label" id="2" description="Heading">
-        <width>930</width>
-        <font>size50B</font>
-        <label>-</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-        <align>center</align>
-      </control>
       <control type="grouplist" id="9000">
         <top>142</top>
         <width>930</width>
@@ -27,17 +24,14 @@
         <control type="button" id="11" description="Browse">
           <width>285</width>
           <label>1024</label>
-          
         </control>
         <control type="button" id="13" description="Add">
           <width>285</width>
           <label>15019</label>
-          
         </control>
         <control type="button" id="14" description="Remove">
           <width>285</width>
           <label>1210</label>
-          
         </control>
       </control>
       <control type="panel" id="10">
@@ -93,27 +87,19 @@
         <onup>10</onup>
         <ondown>1800</ondown>
       </control>
-      <control type="grouplist" id="1800">
-        <top>690</top>
-        <width>930</width>
-        <onup>12</onup>
-        <ondown>9000</ondown>
-        <align>center</align>
-        <itemgap>75</itemgap>
-        <orientation>horizontal</orientation>
+      <control type="grouplist" id="1800" description="9000 options">
+        <include>9000GrouplistParameters</include>
         <control type="button" id="18" description="OK">
-          <width>300</width>
+          <include>9000Buttons</include>
           <label>186</label>
           <onleft>20</onleft>
           <onright>19</onright>
-          
         </control>
         <control type="button" id="19" description="Cancel">
-          <width>300</width>
+          <include>9000Buttons</include>
           <label>222</label>
           <onleft>18</onleft>
           <onright>20</onright>
-          
         </control>
       </control>
     </control>

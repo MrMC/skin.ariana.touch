@@ -5,62 +5,68 @@
     <include>DialogFullBG</include>
     <control type="group">
       <include>OpenClose</include>
-      <control type="list" id="50">
-        <left>1058</left>
-        <top>260</top>
-        <width>784</width>
-        <height>720</height>
-        <itemlayout width="784" height="80">
+      <control type="panel" id="50">
+        <right>0</right>
+        <top>96</top>
+        <width>50%</width>
+        <bottom>82</bottom>
+        <viewtype label="535">List</viewtype>
+        <preloaditems>2</preloaditems>
+        <itemlayout height="122">
+          <control type="image">
+            <left>5</left>
+            <bottom>0</bottom>
+            <right>30</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
           <control type="label" description="Main Label">
-            <left>20</left>
-            <right>20</right>
+            <left>10</left>
+            <right>10</right>
             <top>0</top>
-            <height>80</height>
-            <font>size20</font>
+            <height>100%</height>
+            <font>size22</font>
             <label>$INFO[ListItem.Label]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
           </control>
           <control type="label" description="Label2">
-            <left>20</left>
-            <right>20</right>
-            <top>0</top>
-            <height>80</height>
-            <font>size16</font>
-            <scroll>false</scroll>
-            <align>right</align>
+            <left>10</left>
+            <right>10</right>
+            <top>60%</top>
+            <height>40%</height>
+            <font>size19</font>
             <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[SelectedColor]</textcolor>
           </control>
         </itemlayout>
-        <focusedlayout width="784" height="80">
+        <focusedlayout height="122">
           <control type="group">
-            
             <control type="image">
-              <animation effect="fade" time="100">VisibleChange</animation>
-              <left>10</left>
-              <top>10</top>
-              <width>764</width>
-              <height>60</height>
-              <texture border="10">focus/FrameFO.png</texture>
-              <bordersize>-10</bordersize>
+              <left>5</left>
+              <bottom>0</bottom>
+              <right>30</right>
+              <height>1</height>
+              <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
               <aspectratio>stretch</aspectratio>
             </control>
             <control type="label" description="Main Label">
-              <left>20</left>
-              <right>20</right>
+              <left>10</left>
+              <right>10</right>
               <top>0</top>
-              <height>80</height>
-              <font>size20</font>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <height>100%</height>
+              <font>size22</font>
               <label>$INFO[ListItem.Label]</label>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
             </control>
             <control type="label" description="Label2">
-              <left>20</left>
-              <right>20</right>
-              <top>0</top>
-              <height>80</height>
-              <font>size16</font>
-              <align>right</align>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <left>10</left>
+              <right>10</right>
+              <top>60%</top>
+              <height>40%</height>
+              <font>size19</font>
               <label>$INFO[ListItem.Label2]</label>
+              <textcolor>$VAR[SelectedColor]</textcolor>
             </control>
           </control>
         </focusedlayout>
@@ -151,20 +157,14 @@
         <visible>Control.IsVisible(50)</visible>
         <include>ContainerVisibleFade</include>
         <control type="label" description="MainHeading">
-          <right>66</right>
-          <top>60</top>
-          <width>800</width>
-          <height>40</height>
-          <font>size50B</font>
+          <include>CenterHeading</include>
           <label>[B]$VAR[GlobalHeadings][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-          <align>center</align>
         </control>
         <control type="textbox" description="Plot51">
-          <left>120</left>
-          <top>300</top>
-          <width>660</width>
-          <height>378</height>
+          <left>40</left>
+          <centertop>50%</centertop>
+          <width>40%</width>
+          <height>50%</height>
           <font>plot</font>
           <align>center</align>
           <label>[B]$LOCALIZE[470][/B][CR][CR]$LOCALIZE[31000]</label>
