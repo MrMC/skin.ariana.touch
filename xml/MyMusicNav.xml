@@ -11,36 +11,36 @@
         <viewtype label="536">Thumbnails</viewtype>
         <left>24</left>
         <top>96</top>
-        <height>960</height>
+        <height>900</height>
         <orientation>horizontal</orientation>
         <pagecontrol>60</pagecontrol>
         <preloaditems>4</preloaditems>
-        <itemlayout width="260" height="320">
+        <itemlayout width="240" height="300">
           <include>SquareBG_FO</include>
           <control type="image">
             <include>SquareCommons</include>
             <texture background="true">$INFO[ListItem.Thumb]</texture>
           </control>
           <control type="label">
-            <left>0</left>
-            <top>260</top>
-            <width>90%</width>
+            <left>2</left>
+            <top>238</top>
+            <width>95%</width>
             <height>30</height>
             <font>size14</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
           <control type="label">
-            <left>0</left>
-            <top>285</top>
-            <width>90%</width>
+            <left>2</left>
+            <top>262</top>
+            <width>95%</width>
             <height>30</height>
             <font>size14</font>
             <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label2]</label>
           </control>
         </itemlayout>
-        <focusedlayout width="260" height="320">
+        <focusedlayout width="240" height="300">
           <control type="group">
             <include>SquareBG_FO</include>
             <control type="image">
@@ -48,18 +48,18 @@
               <texture background="true">$INFO[ListItem.Thumb]</texture>
             </control>
             <control type="label">
-              <left>0</left>
-              <top>260</top>
-              <width>90%</width>
+              <left>2</left>
+              <top>238</top>
+              <width>95%</width>
               <height>30</height>
               <font>size14</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.Label]</label>
             </control>
             <control type="label">
-              <left>0</left>
-              <top>285</top>
-              <width>90%</width>
+              <left>2</left>
+              <top>262</top>
+              <width>95%</width>
               <height>30</height>
               <font>size14</font>
               <textcolor>$VAR[Label2Color]</textcolor>

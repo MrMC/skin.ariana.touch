@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
   <zorder>2</zorder>
-  <animation effect="slide" start="0,-150" end="0,0" time="400" easing="inout">WindowOpen</animation>
+  <animation effect="slide" start="0,-150" end="0,0" time="200" easing="inout">WindowOpen</animation>
   <animation effect="slide" start="0,0" end="0,-150" time="400" easing="inout">WindowClose</animation>
   <controls>
     <control type="group">

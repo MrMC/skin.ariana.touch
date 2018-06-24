@@ -139,14 +139,14 @@
         <viewtype label="536">Thumbnails</viewtype>
         <left>24</left>
         <top>96</top>
-        <height>960</height>
+        <height>900</height>
         <orientation>horizontal</orientation>
         <preloaditems>4</preloaditems>
         <pagecontrol>60</pagecontrol>
-        <itemlayout width="260" height="480">
+        <itemlayout width="260" height="450">
           <include>PostersShelfFO</include>
         </itemlayout>
-        <focusedlayout width="260" height="480">
+        <focusedlayout width="260" height="450">
           <include>PostersShelfFO</include>
         </focusedlayout>
       </control>

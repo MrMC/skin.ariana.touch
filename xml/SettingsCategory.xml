@@ -18,9 +18,9 @@
         <font>-</font>
       </control>
       <control type="grouplist" id="3" description="Left - Button Area">
-        <left>45</left>
+        <left>40</left>
         <top>132</top>
-        <width>400</width>
+        <width>25%</width>
         <height>90%</height>
         <itemgap>2</itemgap>
         <onleft>5</onleft>
@@ -31,23 +31,21 @@
       </control>
       <control type="button" id="10" description="Category Button">
         <align>left</align>
-
+        <width>25%</width>
       </control>
       <control type="button" id="20" description="Settings level">
         <bottom>100</bottom>
         <left>45</left>
-        <onright>noop</onright>
-        <onleft>noop</onleft>
-        <onup>noop</onup>
+        <width>25%</width>
         <ondown>3</ondown>
         <align>left</align>
         <onclick>SettingsLevelChange</onclick>
 
       </control>
       <control type="grouplist" id="5" description="Right - Control Area">
-        <left>480</left>
+        <right>40</right>
         <top>132</top>
-        <width>1010</width>
+        <width>65%</width>
         <height>742</height>
         <itemgap>2</itemgap>
         <onleft>3</onleft>
@@ -58,28 +56,28 @@
         <orientation>vertical</orientation>
       </control>
       <control type="button" id="7" description="Button">
-        <width>1010</width>
+        <width>65%</width>
         <align>left</align>
 
       </control>
       <control type="radiobutton" id="8" description="Radio Button">
-        <width>1010</width>
+        <width>65%</width>
         <radioleft>1197</radioleft>
         <align>left</align>
 
       </control>
       <control type="spincontrolex" id="9" description="Spin control">
-        <width>1010</width>
+        <width>65%</width>
         <align>left</align>
       </control>
       <control type="sliderex" id="13" description="Slider control">
-        <width>1010</width>
+        <width>65%</width>
         <align>left</align>
       </control>
       <control type="textbox" id="6" description="Settings description">
-        <left>480</left>
+        <right>40</right>
         <top>910</top>
-        <width>1010</width>
+        <width>65%</width>
         <height>126</height>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>

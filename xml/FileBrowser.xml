@@ -3,137 +3,120 @@
   <defaultcontrol always="true">450</defaultcontrol>
   <controls>
     <include>DialogFullBG</include>
-    <control type="image" description="Sidebar">
-      <left>-150</left>
-      <top>0</top>
-      <width>660</width>
-      <height>100%</height>
-      <aspectratio>stretch</aspectratio>
-      <texture border="60">img/HomeMenuBarV.png</texture>
-    </control>
     <control type="group">
       <include>OpenClose</include>
-      <control type="grouplist" id="9000">
-        <left>45</left>
-        <top>135</top>
-        <width>540</width>
-        <height>608</height>
-        <itemgap>5</itemgap>
-        <onleft>450</onleft>
-        <onright>450</onright>
-        <onup>9000</onup>
-        <ondown>9000</ondown>
-        <orientation>vertical</orientation>
-        <control type="button" id="413" description="Ok">
-          <label>186</label>
-          
-        </control>
-        <control type="button" id="414" description="Cancel">
-          <label>222</label>
-          
-        </control>
-        <control type="button" id="415" description="Create folder">
-          <label>119</label>
-          
-        </control>
-      </control>
       <control type="label" id="411" description="Heading">
-        <include>HeadingR</include>
+        <include>CenterHeading</include>
         <label>-</label>
       </control>
       <control type="panel" id="450">
-        <left>1058</left>
-        <top>180</top>
-        <width>784</width>
-        <height>799</height>
-        <pagecontrol>60</pagecontrol>
-        <onleft>9000</onleft>
-        <onright>60</onright>
-        <onup>450</onup>
-        <ondown>450</ondown>
-        <itemlayout width="784" height="80">
-          <control type="label" description="Main Label">
-            <left>20</left>
-            <right>125</right>
-            <top>0</top>
-            <height>80</height>
-            <font>size20</font>
-            <label>$INFO[ListItem.Label]</label>
+        <right>0</right>
+        <top>96</top>
+        <width>50%</width>
+        <bottom>82</bottom>
+        <viewtype label="535">List</viewtype>
+        <preloaditems>2</preloaditems>
+        <itemlayout height="122">
+          <control type="image">
+            <left>5</left>
+            <bottom>0</bottom>
+            <right>30</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
           </control>
-          <control type="image" description="arrow">
-            <visible>ListItem.IsFolder + IsEmpty(ListItem.label2)</visible>
-            <right>20</right>
+          <control type="image">
+            <left>0</left>
             <top>0</top>
-            <height>80</height>
-            <width>40</width>
-            <align>right</align>
-            <aspectratio>keep</aspectratio>
-            <texture colordiffuse="$VAR[LabelNFColor]">img/Arrow.png</texture>
+            <height>100%</height>
+            <width>120</width>
+            <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>10</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>150</left>
+            <right>10</right>
+            <top>0</top>
+            <height>100%</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
           </control>
           <control type="label" description="Label2">
-            <right>20</right>
-            <top>0</top>
-            <height>80</height>
-            <width>124</width>
-            <font>size16</font>
-            <scroll>false</scroll>
-            <align>right</align>
+            <left>150</left>
+            <right>10</right>
+            <top>60%</top>
+            <height>40%</height>
+            <font>size19</font>
             <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
           </control>
         </itemlayout>
-        <focusedlayout width="784" height="80">
+        <focusedlayout height="122">
           <control type="group">
-            
             <control type="image">
-              <animation effect="fade" time="100">VisibleChange</animation>
-              <left>10</left>
-              <top>10</top>
-              <width>776</width>
-              <height>60</height>
-              <texture border="10">focus/FrameFO.png</texture>
-              <bordersize>-10</bordersize>
+              <left>5</left>
+              <bottom>0</bottom>
+              <right>30</right>
+              <height>1</height>
+              <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
               <aspectratio>stretch</aspectratio>
             </control>
-            <control type="label" description="Main Label">
-              <left>20</left>
-              <right>125</right>
+            <control type="image">
+              <left>0</left>
               <top>0</top>
-              <height>80</height>
-              <font>size20</font>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
+              <height>100%</height>
+              <width>120</width>
+              <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+              <bordersize>10</bordersize>
+              <aspectratio>scale</aspectratio>
             </control>
-            <control type="image" description="arrow">
-              <visible>ListItem.IsFolder + IsEmpty(ListItem.label2)</visible>
-              <right>20</right>
+            <control type="label" description="Main Label">
+              <left>150</left>
+              <right>10</right>
               <top>0</top>
-              <height>80</height>
-              <width>40</width>
-              <aspectratio>keep</aspectratio>
-              <align>right</align>
-              <texture colordiffuse="$VAR[LabelFOColor]">img/Arrow.png</texture>
+              <height>100%</height>
+              <font>size22</font>
+              <label>$INFO[ListItem.Label]</label>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
             </control>
             <control type="label" description="Label2">
-              <right>20</right>
-              <top>0</top>
-              <height>80</height>
-              <width>124</width>
-              <font>size16</font>
-              <align>right</align>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <left>150</left>
+              <right>10</right>
+              <top>60%</top>
+              <height>40%</height>
+              <font>size19</font>
               <label>$INFO[ListItem.Label2]</label>
+              <textcolor>$VAR[Label2Color]</textcolor>
             </control>
           </control>
         </focusedlayout>
       </control>
-      <control type="image" description="Item Thumb NOT FLIPPED">
-        <left>600</left>
-        <top>480</top>
-        <width>350</width>
-        <height>350</height>
-        <fadetime>200</fadetime>
-        <texture>$INFO[ListItem.Thumb]</texture>
-        <aspectratio>keep</aspectratio>
+      <control type="image" description="Thumb">
+        <left>0</left>
+        <top>96</top>
+        <width>50%</width>
+        <bottom>80</bottom>
+        <include>Icon_Fade</include>
+        <texture>thumbs/mrmc.png</texture>
+        <bordersize>0</bordersize>
+        <aspectratio>scale</aspectratio>
+      </control>
+      <control type="grouplist" id="9000">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="413" description="Ok">
+          <label>186</label>
+          <include>9000Buttons</include>
+        </control>
+        <control type="button" id="414" description="Cancel">
+          <label>222</label>
+          <include>9000Buttons</include>
+        </control>
+        <control type="button" id="415" description="Create folder">
+          <label>119</label>
+          <include>9000Buttons</include>
+        </control>
       </control>
     </control>
   </controls>

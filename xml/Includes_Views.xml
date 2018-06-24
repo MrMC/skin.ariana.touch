@@ -346,7 +346,7 @@
       <left>0</left>
       <top>0</top>
       <width>100%</width>
-      <height>260</height>
+      <height>240</height>
       <bordersize>2</bordersize>
       <texture>thumbs/SquareFO.png</texture>
     </control>
@@ -355,7 +355,7 @@
     <left>0</left>
     <top>0</top>
     <width>100%</width>
-    <height>260</height>
+    <height>240</height>
     <aspectratio aligny="top">scale</aspectratio>
     <bordersize>3</bordersize>
   </include>
