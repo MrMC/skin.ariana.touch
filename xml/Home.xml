@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol>9000</defaultcontrol>
-  <!--<onload>ClearProperty(shelf)</onload>-->
-  <onload condition="Library.HasContent(music)">SetProperty(shelf,music)</onload>
-  <onload condition="Library.HasContent(tvshows)">SetProperty(shelf,tvshows)</onload>
-  <onload condition="Library.HasContent(movies)">SetProperty(shelf,movies)</onload>
+  <onload condition="StringCompare(Window.Property(shelf),)">SetProperty(shelf,library)</onload>
+  <onload condition="StringCompare(Window.Property(shelf),) + Library.HasContent(music)">SetProperty(shelf,music)</onload>
+  <onload condition="StringCompare(Window.Property(shelf),) + Library.HasContent(tvshows)">SetProperty(shelf,tvshows)</onload>
+  <onload condition="StringCompare(Window.Property(shelf),) + Library.HasContent(movies)">SetProperty(shelf,movies)</onload>
   <controls>
     <include>FullBackground</include>
     <control type="group">
@@ -326,7 +326,7 @@
         </control>
       </control>
       <control type="group" description="MainMenu">
-        <visible>![Control.IsVisible(300) | Control.IsVisible(301) | Control.IsVisible(302)]</visible>
+        <visible>StringCompare(Window.Property(shelf),library)</visible>
         <include>VisibleFadeEffect</include>
         <control type="panel" id="9000" description="Main menu">
           <top>96</top>
@@ -498,6 +498,7 @@
         <label>$LOCALIZE[14022]</label>
         <thumb>icons/touch/library.png</thumb>
         <onclick>ClearProperty(shelf)</onclick>
+        <onclick>SetProperty(shelf,library)</onclick>
       </item>
     </content>
   </control>
