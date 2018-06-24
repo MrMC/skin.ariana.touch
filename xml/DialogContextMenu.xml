@@ -3,6 +3,11 @@
   <defaultcontrol always="true">996</defaultcontrol>
   <controls>
     <include>DialogFullBG</include>
+    <control type="label">
+      <visible>!IsEmpty(ListItem.Label)</visible>
+      <include>CenterHeading</include>
+      <label>[B]$INFO[ListItem.Label][/B]</label>
+    </control>
     <control type="grouplist" id="996" description="Context menu container">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
@@ -11,18 +16,7 @@
       <itemgap>12</itemgap>
       <align>center</align>
       <aligny>center</aligny>
-      <control type="textbox" id="8888">
-        <visible>!IsEmpty(ListItem.Label)</visible>
-        <width>450</width>
-        <height>150</height>
-        <font>size22B</font>
-        <label>[B]$INFO[ListItem.Label][/B]</label>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>$VAR[SelectedColor]</textcolor>
-      </control>
       <control type="button" id="1000" description="Buttons">
-        
         <width>450</width>
         <textoffsetx>0</textoffsetx>
         <align>center</align>

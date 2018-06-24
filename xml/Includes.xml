@@ -154,7 +154,7 @@
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <control type="button" description="Back">
-      <visible>!Window.IsActive(home)</visible>
+      <visible>![Window.IsActive(home) | Window.IsActive(loginscreen)]</visible>
       <top>20</top>
       <left>30</left>
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>
@@ -198,6 +198,7 @@
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <control type="button" description="Back">
+      <visible>![Window.IsActive(home) | Window.IsActive(loginscreen)]</visible>
       <top>20</top>
       <left>30</left>
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>

@@ -6,7 +6,6 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="2" description="Header label">
-        <top>100</top>
         <include>CenterHeading</include>
         <label>13406</label>
       </control>
@@ -57,7 +56,7 @@
         </itemlayout>
         <focusedlayout height="110">
           <control type="group">
-            
+
             <control type="image">
               <animation effect="fade" time="100">VisibleChange</animation>
               <left>0</left>
