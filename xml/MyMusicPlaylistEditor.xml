@@ -13,313 +13,211 @@
       <control type="image" id="600" description="arrows">
         <texture colordiffuse="$VAR[LabelNFColor]">icons/fileman.png</texture>
         <aspectratio>keep</aspectratio>
-        <centertop>25%</centertop>
+        <top>100</top>
         <centerleft>50%</centerleft>
-        <width>50</width>
-        <height>50</height>
+        <width>40</width>
+        <height>40</height>
       </control>
       <control type="label" description="left panel label">
         <centerleft>25%</centerleft>
-        <top>180</top>
-        <width>50%</width>
+        <top>96</top>
+        <width>48%</width>
         <height>40</height>
-        <font>size22B</font>
+        <font>size20</font>
         <align>center</align>
         <label fallback="31058">$INFO[Container(50).FolderName]</label>
       </control>
-      <control type="label" description="left panel label">
+      <control type="label" description="right panel label">
         <centerleft>75%</centerleft>
-        <top>180</top>
-        <width>50%</width>
+        <top>96</top>
+        <width>48%</width>
         <height>40</height>
-        <font>size22B</font>
+        <font>size20</font>
         <align>center</align>
         <label>$LOCALIZE[31059]: $INFO[Control.GetLabel(101)]</label>
       </control>
       <control type="label" description="left panel label">
         <centerleft>50%</centerleft>
-        <bottom>36</bottom>
+        <bottom>0</bottom>
         <width>90%</width>
-        <height>36</height>
+        <height>80</height>
         <font>size20</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <align>center</align>
+        <aligny>center</aligny>
         <label>$LOCALIZE[31060]</label>
       </control>
       <control type="label" id="101" description="right panel label">
         <font>-</font>
       </control>
-      <control type="image">
-        <visible>!IsEmpty(Container(100).ListItem.Label)</visible>
-        <centerleft>75%</centerleft>
-        <top>240</top>
-        <width>840</width>
-        <height>742</height>
-        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
-        <bordersize>-12</bordersize>
-      </control>
-      <control type="panel" id="50" description="List left">
-        <centerleft>25%</centerleft>
-        <top>240</top>
-        <width>840</width>
-        <height>742</height>
-        <onright>100</onright>
-        <itemlayout height="106">
+      <control type="list" id="50" description="left">
+        <left>0</left>
+        <top>150</top>
+        <width>48%</width>
+        <bottom>82</bottom>
+        <onup>50</onup>
+        <ondown>50</ondown>
+        <viewtype label="535">List</viewtype>
+        <preloaditems>2</preloaditems>
+        <itemlayout height="122">
+          <control type="image">
+            <left>5</left>
+            <bottom>0</bottom>
+            <right>30</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
           <control type="image">
             <left>0</left>
             <top>0</top>
-            <width>100%</width>
             <height>100%</height>
-            <texture border="12">focus/FrameNF.png</texture>
-            <bordersize>0</bordersize>
-            <aspectratio>stretch</aspectratio>
+            <width>120</width>
+            <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>10</bordersize>
+            <aspectratio>scale</aspectratio>
           </control>
-          <control type="image" description="arrow">
-            <visible>IsEmpty(ListItem.Thumb) + ListItem.IsFolder</visible>
+          <control type="label" description="Main Label">
+            <left>150</left>
             <right>10</right>
             <top>0</top>
             <height>100%</height>
-            <width>40</width>
-            <align>right</align>
-            <aspectratio>keep</aspectratio>
-            <texture colordiffuse="$VAR[LabelNFColor]">img/Arrow.png</texture>
-          </control>
-          <control type="image" description="arrow">
-            <visible>!IsEmpty(ListItem.Thumb)</visible>
-            <right>4</right>
-            <top>4</top>
-            <height>94</height>
-            <width>94</width>
-            <align>right</align>
-            <aspectratio>scale</aspectratio>
-            <texture>$INFO[ListItem.Thumb]</texture>
-          </control>
-          <control type="label" description="Main Label">
-            <visible>!IsEmpty(ListItem.Label2)</visible>
-            <left>20</left>
-            <right>120</right>
-            <top>0</top>
-            <height>60%</height>
-            <font>size20</font>
-            <scroll>false</scroll>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <font>size22</font>
             <label>$INFO[ListItem.Label]</label>
-          </control>
-          <control type="label" description="Main Label">
-            <visible>IsEmpty(ListItem.Label2)</visible>
-            <left>20</left>
-            <right>120</right>
-            <height>100%</height>
-            <font>size20</font>
-            <scroll>false</scroll>
             <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
           </control>
           <control type="label" description="Label2">
-            <left>20</left>
-            <right>125</right>
-            <bottom>0</bottom>
-            <height>66</height>
+            <left>150</left>
+            <right>10</right>
+            <top>60%</top>
+            <height>40%</height>
             <font>size19</font>
-            <scroll>false</scroll>
-            <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
           </control>
         </itemlayout>
-        <focusedlayout height="106">
+        <focusedlayout height="122">
           <control type="group">
-            
             <control type="image">
-              <animation effect="fade" time="100">VisibleChange</animation>
-              <left>0</left>
-              <top>0</top>
-              <width>100%</width>
-              <height>100%</height>
-              <texture border="12">focus/FrameFO.png</texture>
-              <bordersize>0</bordersize>
+              <left>5</left>
+              <bottom>0</bottom>
+              <right>30</right>
+              <height>1</height>
+              <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
               <aspectratio>stretch</aspectratio>
             </control>
-            <control type="image" description="arrow">
-              <visible>IsEmpty(ListItem.Thumb) + ListItem.IsFolder</visible>
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <height>100%</height>
+              <width>120</width>
+              <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+              <bordersize>10</bordersize>
+              <aspectratio>scale</aspectratio>
+            </control>
+            <control type="label" description="Main Label">
+              <left>150</left>
               <right>10</right>
               <top>0</top>
               <height>100%</height>
-              <width>40</width>
-              <align>right</align>
-              <aspectratio>keep</aspectratio>
-              <texture colordiffuse="$VAR[LabelFOColor]">img/Arrow.png</texture>
-            </control>
-            <control type="image" description="arrow">
-              <visible>!IsEmpty(ListItem.Thumb)</visible>
-              <right>4</right>
-              <top>4</top>
-              <height>94</height>
-              <width>94</width>
-              <align>right</align>
-              <aspectratio>scale</aspectratio>
-              <texture>$INFO[ListItem.Thumb]</texture>
-            </control>
-            <control type="label" description="Main Label">
-              <visible>!IsEmpty(ListItem.Label2)</visible>
-              <left>20</left>
-              <right>120</right>
-              <height>60%</height>
-              <font>size20</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <font>size22</font>
               <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label" description="Main Label">
-              <visible>IsEmpty(ListItem.Label2)</visible>
-              <left>20</left>
-              <right>120</right>
-              <height>100%</height>
-              <font>size20</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
             </control>
             <control type="label" description="Label2">
-              <left>20</left>
-              <right>125</right>
-              <bottom>0</bottom>
-              <height>66</height>
+              <left>150</left>
+              <right>10</right>
+              <top>60%</top>
+              <height>40%</height>
               <font>size19</font>
-              <textcolor>$VAR[Label2Color]</textcolor>
               <label>$INFO[ListItem.Label2]</label>
+              <textcolor>$VAR[Label2Color]</textcolor>
             </control>
           </control>
         </focusedlayout>
       </control>
-      <control type="panel" id="100" description="List right">
-        <centerleft>75%</centerleft>
-        <top>240</top>
-        <width>840</width>
-        <height>742</height>
-        <onleft>50</onleft>
-        <itemlayout height="106">
+      <control type="list" id="100" description="right">
+        <right>0</right>
+        <top>150</top>
+        <width>48%</width>
+        <bottom>82</bottom>
+        <onup>50</onup>
+        <ondown>50</ondown>
+        <viewtype label="535">List</viewtype>
+        <preloaditems>2</preloaditems>
+        <itemlayout height="122">
+          <control type="image">
+            <left>5</left>
+            <bottom>0</bottom>
+            <right>30</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
           <control type="image">
             <left>0</left>
             <top>0</top>
-            <width>100%</width>
             <height>100%</height>
-            <texture border="12">focus/FrameNF.png</texture>
-            <bordersize>0</bordersize>
-            <aspectratio>stretch</aspectratio>
+            <width>120</width>
+            <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>10</bordersize>
+            <aspectratio>scale</aspectratio>
           </control>
-          <control type="image" description="arrow">
-            <visible>IsEmpty(ListItem.Thumb) + ListItem.IsFolder</visible>
+          <control type="label" description="Main Label">
+            <left>150</left>
             <right>10</right>
             <top>0</top>
             <height>100%</height>
-            <width>40</width>
-            <align>right</align>
-            <aspectratio>keep</aspectratio>
-            <texture colordiffuse="$VAR[LabelNFColor]">img/Arrow.png</texture>
-          </control>
-          <control type="image" description="arrow">
-            <visible>!IsEmpty(ListItem.Thumb)</visible>
-            <right>4</right>
-            <top>4</top>
-            <height>94</height>
-            <width>94</width>
-            <align>right</align>
-            <aspectratio>scale</aspectratio>
-            <texture>$INFO[ListItem.Thumb]</texture>
-          </control>
-          <control type="label" description="Main Label">
-            <visible>!IsEmpty(ListItem.Label2)</visible>
-            <left>20</left>
-            <right>120</right>
-            <top>0</top>
-            <height>60%</height>
-            <font>size20</font>
-            <scroll>false</scroll>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <font>size22</font>
             <label>$INFO[ListItem.Label]</label>
-          </control>
-          <control type="label" description="Main Label">
-            <visible>IsEmpty(ListItem.Label2)</visible>
-            <left>20</left>
-            <right>120</right>
-            <height>100%</height>
-            <font>size20</font>
-            <scroll>false</scroll>
             <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
           </control>
           <control type="label" description="Label2">
-            <left>20</left>
-            <right>125</right>
-            <bottom>0</bottom>
-            <height>66</height>
+            <left>150</left>
+            <right>10</right>
+            <top>60%</top>
+            <height>40%</height>
             <font>size19</font>
-            <scroll>false</scroll>
-            <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
           </control>
         </itemlayout>
-        <focusedlayout height="106">
+        <focusedlayout height="122">
           <control type="group">
-            
             <control type="image">
-              <animation effect="fade" time="100">VisibleChange</animation>
-              <left>0</left>
-              <top>0</top>
-              <width>100%</width>
-              <height>100%</height>
-              <texture border="12">focus/FrameFO.png</texture>
-              <bordersize>0</bordersize>
+              <left>5</left>
+              <bottom>0</bottom>
+              <right>30</right>
+              <height>1</height>
+              <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
               <aspectratio>stretch</aspectratio>
             </control>
-            <control type="image" description="arrow">
-              <visible>IsEmpty(ListItem.Thumb) + ListItem.IsFolder</visible>
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <height>100%</height>
+              <width>120</width>
+              <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+              <bordersize>10</bordersize>
+              <aspectratio>scale</aspectratio>
+            </control>
+            <control type="label" description="Main Label">
+              <left>150</left>
               <right>10</right>
               <top>0</top>
               <height>100%</height>
-              <width>40</width>
-              <align>right</align>
-              <aspectratio>keep</aspectratio>
-              <texture colordiffuse="$VAR[LabelFOColor]">img/Arrow.png</texture>
-            </control>
-            <control type="image" description="arrow">
-              <visible>!IsEmpty(ListItem.Thumb)</visible>
-              <right>4</right>
-              <top>4</top>
-              <height>94</height>
-              <width>94</width>
-              <align>right</align>
-              <aspectratio>scale</aspectratio>
-              <texture>$INFO[ListItem.Thumb]</texture>
-            </control>
-            <control type="label" description="Main Label">
-              <visible>!IsEmpty(ListItem.Label2)</visible>
-              <left>20</left>
-              <right>120</right>
-              <height>60%</height>
-              <font>size20</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <font>size22</font>
               <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label" description="Main Label">
-              <visible>IsEmpty(ListItem.Label2)</visible>
-              <left>20</left>
-              <right>120</right>
-              <height>100%</height>
-              <font>size20</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
             </control>
             <control type="label" description="Label2">
-              <left>20</left>
-              <right>125</right>
-              <bottom>0</bottom>
-              <height>66</height>
+              <left>150</left>
+              <right>10</right>
+              <top>60%</top>
+              <height>40%</height>
               <font>size19</font>
-              <textcolor>$VAR[Label2Color]</textcolor>
               <label>$INFO[ListItem.Label2]</label>
+              <textcolor>$VAR[Label2Color]</textcolor>
             </control>
           </control>
         </focusedlayout>
@@ -400,7 +298,7 @@
           </itemlayout>
           <focusedlayout height="60" width="600">
             <control type="group">
-              
+
               <control type="image">
                 <animation effect="fade" time="100">VisibleChange</animation>
                 <left>5</left>
@@ -438,21 +336,21 @@
           <texturefocus>buttons/AddFO.png</texturefocus>
           <texturenofocus>buttons/AddNF.png</texturenofocus>
           <include>SquareButtonCommons</include>
-          
+
           <label>31055</label>
         </control>
         <control type="button" id="7" description="Save">
           <texturefocus>buttons/OKFO.png</texturefocus>
           <texturenofocus>buttons/OKNF.png</texturenofocus>
           <include>SquareButtonCommons</include>
-          
+
           <label>31056</label>
         </control>
         <control type="button" id="8" description="Clear">
           <texturefocus>buttons/CloseFO.png</texturefocus>
           <texturenofocus>buttons/CloseNF.png</texturenofocus>
           <include>SquareButtonCommons</include>
-          
+
           <label>31057</label>
         </control>
       </control>-->

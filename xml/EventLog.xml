@@ -5,62 +5,17 @@
   <defaultcontrol>9000</defaultcontrol>
   <controls>
     <include>DialogFullBG</include>
-    <control type="image" description="Sidebar">
-      <left>-150</left>
-      <top>0</top>
-      <width>660</width>
-      <height>100%</height>
-      <aspectratio>stretch</aspectratio>
-      <texture border="60">img/HomeMenuBarV.png</texture>
-    </control>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="Heading">
         <include>CenterHeading</include>
         <label>$LOCALIZE[14111]</label>
       </control>
-      <control type="grouplist" id="9000" description="Left - Button Area">
-        <left>45</left>
-        <top>210</top>
-        <width>420</width>
-        <height>864</height>
-        <itemgap>2</itemgap>
-        <onleft>570</onleft>
-        <onright>570</onright>
-        <onup>9000</onup>
-        <ondown>9000</ondown>
-        <orientation>vertical</orientation>
-        <control type="togglebutton" id="4">
-          <description>Sort asc</description>
-          <label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
-          <altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
-          <usealttexture>Container.SortDirection(Ascending)</usealttexture>
-          <width>420</width>
-          <align>left</align>
-          
-        </control>
-        <control type="button" id="20" description="clear">
-          <width>420</width>
-          <align>left</align>
-          <label>19185</label>
-          
-        </control>
-        <control type="button" id="21" description="Levels">
-          <width>420</width>
-          <align>left</align>
-          
-        </control>
-        <control type="radiobutton" id="22" description="current level">
-          <width>420</width>
-          <align>left</align>
-          
-        </control>
-      </control>
       <control type="panel" id="570">
-        <left>600</left>
-        <top>207</top>
+        <centerleft>50%</centerleft>
+        <top>120</top>
         <width>1204</width>
-        <height>719</height>
+        <height>720</height>
         <onup>570</onup>
         <ondown>570</ondown>
         <onleft>9000</onleft>
@@ -104,7 +59,7 @@
         </itemlayout>
         <focusedlayout width="1204" height="120">
           <control type="group">
-            
+
             <control type="image">
               <left>4</left>
               <top>4</top>
@@ -145,6 +100,32 @@
             </control>
           </control>
         </focusedlayout>
+      </control>
+      <control type="grouplist" id="9000" description="Left - Button Area">
+        <include>9000GrouplistParameters</include>
+        <control type="togglebutton" id="4">
+          <description>Sort asc</description>
+          <label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
+          <altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
+          <usealttexture>Container.SortDirection(Ascending)</usealttexture>
+          <include>9000Buttons</include>
+
+        </control>
+        <control type="button" id="20" description="clear">
+          <include>9000Buttons</include>
+          <label>19185</label>
+
+        </control>
+        <control type="button" id="21" description="Levels">
+          <include>9000Buttons</include>
+          <align>left</align>
+
+        </control>
+        <control type="radiobutton" id="22" description="current level">
+          <include>9000Buttons</include>
+          <align>left</align>
+
+        </control>
       </control>
     </control>
   </controls>

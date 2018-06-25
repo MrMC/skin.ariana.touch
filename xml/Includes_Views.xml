@@ -25,7 +25,6 @@
   </include>
   <include name="View_50" description="50">
     <control type="list" id="50">
-      <visible>![Container.Content(albums) | Container.content(artists) | Container.Content(episodes) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | container.content(seasons)]</visible>
       <right>0</right>
       <top>96</top>
       <width>50%</width>

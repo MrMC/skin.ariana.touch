@@ -3,22 +3,17 @@
   <defaultcontrol always="true">9001</defaultcontrol>
   <controls>
     <include>DialogFullBG</include>
+    <control type="label" description="header">
+      <include>CenterHeading</include>
+      <label>21421</label>
+    </control>
     <control type="group">
       <include>OpenClose</include>
-      <left>360</left>
+      <width>1140</width>
+      <centerleft>50%</centerleft>
       <top>330</top>
-      <control type="label">
-        <description>header label</description>
-        <left>30</left>
-        <top>-60</top>
-        <width>1140</width>
-        <font>size50B</font>
-        <align>center</align>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-        <label>21421</label>
-      </control>
+
       <control type="label" description="Rule match label">
-        <left>30</left>
         <top>66</top>
         <width>1140</width>
         <align>center</align>
@@ -27,7 +22,6 @@
       </control>
       <control type="group" id="9001">
         <control type="spincontrolex" id="15" description="Rule Field">
-          <left>15</left>
           <top>150</top>
           <width>590</width>
           <onright>16</onright>
@@ -36,7 +30,7 @@
           <ondown>17</ondown>
         </control>
         <control type="spincontrolex" id="16" description="rule operator">
-          <left>622</left>
+          <left>590</left>
           <top>150</top>
           <width>570</width>
           <onright>15</onright>
@@ -46,7 +40,6 @@
         </control>
       </control>
       <control type="edit" id="17" description="value button">
-        <left>15</left>
         <top>234</top>
         <width>900</width>
         <label>-</label>
@@ -56,7 +49,7 @@
         <ondown>9000</ondown>
       </control>
       <control type="button" id="20" description="Browse">
-        <left>938</left>
+        <left>908</left>
         <top>234</top>
         <width>255</width>
         <label>1024</label>
@@ -64,30 +57,27 @@
         <onleft>17</onleft>
         <onright>17</onright>
         <ondown>9000</ondown>
-        
+
       </control>
-      <control type="group" id="9000">
-        <control type="button" id="18" description="ok">
-          <left>278</left>
-          <top>366</top>
-          <width>300</width>
+      <control type="grouplist" id="900">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="18">
+          <description>Ok Button</description>
+          <include>9000Buttons</include>
           <label>186</label>
-          <onup>17</onup>
-          <onleft>19</onleft>
-          <onright>19</onright>
-          <ondown>9001</ondown>
-          
+          <onup>18</onup>
+          <onleft>21</onleft>
+          <onright>21</onright>
+          <ondown>22</ondown>
         </control>
-        <control type="button" id="19" description="cancel">
-          <left>622</left>
-          <top>366</top>
-          <width>300</width>
+        <control type="button" id="19">
+          <description>Cancel Button</description>
+          <include>9000Buttons</include>
           <label>222</label>
-          <onup>17</onup>
-          <onleft>18</onleft>
-          <onright>19</onright>
-          <ondown>9001</ondown>
-          
+          <onup>18</onup>
+          <onleft>20</onleft>
+          <onright>20</onright>
+          <ondown>22</ondown>
         </control>
       </control>
     </control>
