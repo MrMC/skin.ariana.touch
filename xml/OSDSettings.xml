@@ -184,35 +184,35 @@
         <width>100%</width>
         <bottom>0</bottom>
         <height>75</height>
-        <itemgap>20</itemgap>
+        <itemgap>0</itemgap>
         <align>center</align>
         <orientation>horizontal</orientation>
         <onup>9000</onup>
         <control type="button" id="1">
           <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-          <width>93</width>
-          <height>57</height>
-          <texturenofocus colordiffuse="grey">OSD/SkipBack.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/SkipBack.png</texturefocus>
+          <width>120</width>
+          <height>60</height>
+          <texturenofocus colordiffuse="grey">OSD/Previous.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Previous.png</texturefocus>
           <onclick>PlayerControl(Previous)</onclick>
         </control>
         <control type="button" id="2">
-          <width>93</width>
-          <height>57</height>
-          <texturenofocus colordiffuse="grey">OSD/Rewind.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Rewind.png</texturefocus>
+          <width>120</width>
+          <height>60</height>
+          <texturenofocus colordiffuse="grey">OSD/RW.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/RW.png</texturefocus>
           <onclick>PlayerControl(Rewind)</onclick>
         </control>
         <control type="button" id="3">
-          <width>93</width>
-          <height>57</height>
+          <width>120</width>
+          <height>60</height>
           <texturenofocus colordiffuse="grey">OSD/Stop.png</texturenofocus>
           <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Stop.png</texturefocus>
           <onclick>PlayerControl(Stop)</onclick>
         </control>
         <control type="togglebutton" id="4">
-          <width>93</width>
-          <height>57</height>
+          <width>120</width>
+          <height>60</height>
           <texturenofocus colordiffuse="grey">OSD/Play.png</texturenofocus>
           <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Play.png</texturefocus>
           <usealttexture>Player.Playing</usealttexture>
@@ -221,18 +221,18 @@
           <onclick>PlayerControl(Play)</onclick>
         </control>
         <control type="button" id="5">
-          <width>93</width>
-          <height>57</height>
-          <texturenofocus colordiffuse="grey">OSD/FastForward.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/FastForward.png</texturefocus>
+          <width>120</width>
+          <height>60</height>
+          <texturenofocus colordiffuse="grey">OSD/FF.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/FF.png</texturefocus>
           <onclick>PlayerControl(Forward)</onclick>
         </control>
         <control type="button" id="6">
           <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-          <width>93</width>
-          <height>57</height>
-          <texturenofocus colordiffuse="grey">OSD/SkipForward.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/SkipForward.png</texturefocus>
+          <width>120</width>
+          <height>60</height>
+          <texturenofocus colordiffuse="grey">OSD/Next.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Next.png</texturefocus>
           <onclick>PlayerControl(Next)</onclick>
         </control>
       </control>
