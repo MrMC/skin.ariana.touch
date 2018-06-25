@@ -204,7 +204,6 @@
           <onclick>PlayerControl(Rewind)</onclick>
         </control>
         <control type="button" id="3">
-          <visible>[VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
           <width>93</width>
           <height>57</height>
           <texturenofocus colordiffuse="grey">OSD/Stop.png</texturenofocus>
