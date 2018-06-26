@@ -158,7 +158,7 @@
         <include>ContainerVisibleFade</include>
         <control type="label" description="MainHeading">
           <include>CenterHeading</include>
-          <label>[B]$VAR[GlobalHeadings][/B]</label>
+          <label>$VAR[GlobalHeadings]</label>
         </control>
         <control type="textbox" description="Plot51">
           <left>40</left>

@@ -7,13 +7,17 @@
     <include>FullBackground</include>
     <control type="group">
       <include>OpenClose</include>
+      <control type="label" description="MainHeading">
+        <include>CenterHeading</include>
+        <label>$VAR[GlobalHeadings]</label>
+      </control>
       <control type="group" id="50" description="grouping for navigation sake">
         <visible>Control.IsVisible(10)</visible>
         <control type="epggrid" id="10">
-          <left>70</left>
-          <top>40</top>
+          <left>0</left>
+          <top>96</top>
           <right>0</right>
-          <height>840</height>
+          <bottom>200</bottom>
           <timeblocks>28</timeblocks>
           <rulerunit>6</rulerunit>
           <onback>9000</onback>
@@ -197,7 +201,7 @@
           </focusedlayout>
         </control>
         <control type="group" description="EPG info">
-          <bottom>0</bottom>
+          <bottom>80</bottom>
           <height>120</height>
           <control type="image">
             <left>0</left>
@@ -218,9 +222,6 @@
         </control>
       </control>
       <control type="group" description="Side menu 9000 group">
-        <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
-        <include>TopBar</include>
-        <include>VisibleFadeEffect</include>
         <include>PVRGroup9000</include>
       </control>
     </control>

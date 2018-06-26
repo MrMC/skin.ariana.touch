@@ -7,7 +7,7 @@
       <include>OpenClose</include>
       <control type="label" description="MainHeading">
         <include>CenterHeading</include>
-        <label>[B]$VAR[GlobalHeadings][/B]</label>
+        <label>$VAR[GlobalHeadings]</label>
       </control>
       <control type="image" description="Thumb">
         <top>96</top>

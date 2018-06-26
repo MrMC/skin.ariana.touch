@@ -115,7 +115,7 @@
       <include>ContainerVisibleFade</include>
       <control type="label" description="MainHeading">
         <include>CenterHeading</include>
-        <label>[B]$VAR[GlobalHeadings][/B]</label>
+        <label>$VAR[GlobalHeadings]</label>
       </control>
       <control type="image" description="Thumb">
         <left>0</left>
@@ -130,48 +130,39 @@
     </control>
   </include>
   <include name="InfoPVR" description="PVR item info">
-    <control type="image" description="mid">
-      <visible>!IsEmpty(ListItem.Title)</visible>
-      <include>VisibleFadeEffect</include>
-      <left>66</left>
-      <top>90</top>
-      <width>840</width>
-      <height>904</height>
-      <texture border="24">focus/FrameNF.png</texture>
-    </control>
     <control type="group" description="Media info">
       <include>VisibleFadeEffect</include>
-      <left>100</left>
-      <top>110</top>
+      <left>40</left>
+      <top>120</top>
       <control type="label" description="Main Label">
         <top>0</top>
-        <width>758</width>
-        <font>size22</font>
+        <width>45%</width>
+        <font>size20</font>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>[B]$INFO[ListItem.Title][/B]</label>
       </control>
       <control type="label" description="Details">
         <top>46</top>
-        <width>758</width>
-        <font>size22</font>
+        <width>45%</width>
+        <font>size20</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>$INFO[ListItem.Duration]</label>
       </control>
       <control type="label">
         <top>780</top>
-        <width>758</width>
+        <width>45%</width>
         <font>size19</font>
         <label>$VAR[TopLabel]</label>
       </control>
       <control type="label" description="Details">
         <top>820</top>
-        <width>758</width>
+        <width>45%</width>
         <font>size19</font>
         <label>$VAR[CodecList-Genre]</label>
       </control>
       <control type="textbox" description="Plot">
         <top>120</top>
-        <width>758</width>
+        <width>45%</width>
         <height>612</height>
         <font>plot</font>
         <align>left</align>

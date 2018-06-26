@@ -36,6 +36,7 @@
     <value condition="Window.IsActive(mypics.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[1]</value>
     <value condition="Window.IsActive(mymusicnav.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[2]</value>
     <value condition="Window.IsActive(mypvrsearch.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[137]</value>
+    <value condition="Window.IsActive(mypvrguide.xml)">$LOCALIZE[22020]</value>
     <value condition="Window.IsActive(mypvrtimers.xml)">$LOCALIZE[19040]</value>
     <value condition="Window.IsActive(mymediasources.xml) + IsEmpty(Container.FolderName)">$LOCALIZE[20094]</value>
     <value>$INFO[Container.FolderName]</value>
