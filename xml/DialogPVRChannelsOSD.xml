@@ -5,62 +5,51 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="image">
-        <right>66</right>
-        <top>140</top>
-        <width>800</width>
-        <height>860</height>
-        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
-        <bordersize>-48</bordersize>
+        <right>0</right>
+        <top>0</top>
+        <width>50%</width>
+        <height>100%</height>
+        <texture colordiffuse="$VAR[OverlayColor]" border="1">dot/White90.png</texture>
       </control>
-      <control type="label" description="MainHeading">
-        <right>66</right>
-        <top>140</top>
-        <width>800</width>
+      <control type="button" description="MainHeading">
+        <right>0</right>
+        <top>60</top>
+        <width>50%</width>
         <height>40</height>
-        <font>size50B</font>
+        <font>size24</font>
+        <texturefocus/>
+        <texturenofocus/>
         <label>[B]&lt; $INFO[VideoPlayer.ChannelGroup] &gt;[/B]</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <textcolor>$VAR[SelectedColor]</textcolor>
         <align>center</align>
+        <onclick>NextChannelGroup</onclick>
       </control>
       <control type="list" id="11">
-        <right>66</right>
-        <top>248</top>
-        <width>800</width>
-        <height>749</height>
+        <right>0</right>
+        <top>150</top>
+        <width>50%</width>
+        <bottom>150</bottom>
         <onleft>PreviousChannelGroup</onleft>
         <onright>NextChannelGroup</onright>
         <pagecontrol>60</pagecontrol>
         <viewtype label="535">List 50</viewtype>
-        <itemlayout width="800" height="125">
+        <itemlayout height="100">
           <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>800</width>
-            <height>120</height>
-            <texture border="10">focus/FrameNF.png</texture>
-            <bordersize>0</bordersize>
+            <left>20</left>
+            <bottom>0</bottom>
+            <right>20</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
-            <visible>![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Thumb)]</visible>
             <right>10</right>
-            <top>9</top>
-            <height>99</height>
-            <width>99</width>
+            <top>0</top>
+            <height>100%</height>
+            <width>90</width>
             <texture fallback="focus/FrameNF.png" align="right" aligny="center">$INFO[ListItem.Thumb]</texture>
             <aspectratio>keep</aspectratio>
-            <bordersize>3</bordersize>
-          </control>
-          <control type="label" description="Duration">
-            <visible>IsEmpty(ListItem.Thumb)</visible>
-            <right>10</right>
-            <top>9</top>
-            <height>99</height>
-            <width>99</width>
-            <font>size14</font>
-            <align>center</align>
-            <textcolor>$VAR[Label2Color]</textcolor>
-            <label>$INFO[ListItem.Duration]</label>
+            <bordersize>5</bordersize>
           </control>
           <control type="image">
             <visible>ListItem.IsRecording</visible>
@@ -72,133 +61,118 @@
             <aspectratio>keep</aspectratio>
           </control>
           <control type="label" description="Nr">
-            <left>14</left>
-            <width>300</width>
+            <left>0</left>
+            <width>90</width>
             <top>6</top>
             <height>50</height>
-            <font>size20</font>
+            <font>size16</font>
             <scroll>false</scroll>
+            <align>center</align>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.ChannelNumber]</label>
           </control>
           <control type="label" description="Main Label">
             <top>6</top>
-            <left>110</left>
+            <left>90</left>
             <right>130</right>
             <height>50</height>
-            <font>size22</font>
+            <font>size20</font>
             <scroll>false</scroll>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
           <control type="label" description="Label2">
-            <top>54</top>
-            <left>110</left>
+            <top>45</top>
+            <left>90</left>
             <right>130</right>
             <height>30</height>
             <font>size16</font>
             <scroll>false</scroll>
             <textcolor>$VAR[Label2Color]</textcolor>
-            <label>$INFO[ListItem.Title]</label>
+            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime] - $INFO[ListItem.Title]</label>
           </control>
           <control type="progress">
             <visible>ListItem.HasEpg</visible>
-            <top>93</top>
-            <left>110</left>
+            <top>80</top>
+            <left>90</left>
             <right>130</right>
             <height>10</height>
-            <texturebg>progress/ProgressBG.png</texturebg>
-            <lefttexture>progress/ProgressLeft.png</lefttexture>
-            <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
-            <midtexture>progress/ProgressMid.png</midtexture>
+            <texturebg colordiffuse="white">progress/ProgressBG.png</texturebg>
+            <lefttexture colordiffuse="$VAR[LabelNFColor]">progress/ProgressLeft.png</lefttexture>
+            <righttexture flipx="true" colordiffuse="$VAR[LabelNFColor]">progress/ProgressLeft.png</righttexture>
+            <midtexture colordiffuse="$VAR[LabelNFColor]">progress/ProgressMid.png</midtexture>
             <info>ListItem.Progress</info>
           </control>
         </itemlayout>
-        <focusedlayout width="800" height="125">
-          <control type="group">
-            
-            <control type="image">
-              <animation effect="fade" time="100">VisibleChange</animation>
-              <left>0</left>
-              <top>0</top>
-              <width>800</width>
-              <height>120</height>
-              <texture border="10">focus/FrameFO.png</texture>
-              <bordersize>0</bordersize>
-              <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="image">
-              <visible>![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Thumb)]</visible>
-              <right>10</right>
-              <top>10</top>
-              <height>99</height>
-              <width>99</width>
-              <texture fallback="focus/FrameNF.png" align="right" aligny="center">$INFO[ListItem.Thumb]</texture>
-              <aspectratio>keep</aspectratio>
-              <bordersize>3</bordersize>
-            </control>
-            <control type="label" description="Duration">
-              <visible>IsEmpty(ListItem.Thumb)</visible>
-              <right>10</right>
-              <top>9</top>
-              <height>99</height>
-              <width>99</width>
-              <font>size14</font>
-              <align>center</align>
-              <textcolor>$VAR[Label2Color]</textcolor>
-              <label>$INFO[ListItem.Duration]</label>
-            </control>
-            <control type="image">
-              <visible>ListItem.IsRecording</visible>
-              <left>12</left>
-              <top>54</top>
-              <height>28</height>
-              <width>28</width>
-              <texture align="left" aligny="center">$VAR[PVRTimerIcon]</texture>
-              <aspectratio>keep</aspectratio>
-            </control>
-            <control type="label" description="Nr">
-              <left>14</left>
-              <width>300</width>
-              <top>6</top>
-              <height>50</height>
-              <font>size20</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.ChannelNumber]</label>
-            </control>
-            <control type="label" description="Main Label">
-              <top>6</top>
-              <left>110</left>
-              <right>130</right>
-              <height>50</height>
-              <font>size22</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label" description="Label2">
-              <top>54</top>
-              <left>110</left>
-              <right>130</right>
-              <height>30</height>
-              <font>size16</font>
-              <scroll>false</scroll>
-              <textcolor>$VAR[Label2Color]</textcolor>
-              <label>$INFO[ListItem.Title]</label>
-            </control>
-            <control type="progress">
-              <visible>ListItem.HasEpg</visible>
-              <top>93</top>
-              <left>110</left>
-              <right>130</right>
-              <height>10</height>
-              <texturebg>progress/ProgressBG.png</texturebg>
-              <lefttexture>progress/ProgressLeft.png</lefttexture>
-              <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
-              <midtexture>progress/ProgressMid.png</midtexture>
-              <info>ListItem.Progress</info>
-            </control>
+        <focusedlayout height="100">
+          <control type="image">
+            <left>20</left>
+            <bottom>0</bottom>
+            <right>20</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <right>10</right>
+            <top>0</top>
+            <height>100%</height>
+            <width>90</width>
+            <texture fallback="focus/FrameNF.png" align="right" aligny="center">$INFO[ListItem.Thumb]</texture>
+            <aspectratio>keep</aspectratio>
+            <bordersize>5</bordersize>
+          </control>
+          <control type="image">
+            <visible>ListItem.IsRecording</visible>
+            <left>12</left>
+            <top>54</top>
+            <height>28</height>
+            <width>28</width>
+            <texture align="left" aligny="center">$VAR[PVRTimerIcon]</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label" description="Nr">
+            <left>0</left>
+            <width>90</width>
+            <top>6</top>
+            <height>50</height>
+            <font>size16</font>
+            <scroll>false</scroll>
+            <align>center</align>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.ChannelNumber]</label>
+          </control>
+          <control type="label" description="Main Label">
+            <top>6</top>
+            <left>90</left>
+            <right>130</right>
+            <height>50</height>
+            <font>size20</font>
+            <scroll>false</scroll>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Label2">
+            <top>45</top>
+            <left>90</left>
+            <right>130</right>
+            <height>30</height>
+            <font>size16</font>
+            <scroll>false</scroll>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime] - $INFO[ListItem.Title]</label>
+          </control>
+          <control type="progress">
+            <visible>ListItem.HasEpg</visible>
+            <top>80</top>
+            <left>90</left>
+            <right>130</right>
+            <height>10</height>
+            <texturebg colordiffuse="white">progress/ProgressBG.png</texturebg>
+            <lefttexture colordiffuse="$VAR[LabelNFColor]">progress/ProgressLeft.png</lefttexture>
+            <righttexture flipx="true" colordiffuse="$VAR[LabelNFColor]">progress/ProgressLeft.png</righttexture>
+            <midtexture colordiffuse="$VAR[LabelNFColor]">progress/ProgressMid.png</midtexture>
+            <info>ListItem.Progress</info>
           </control>
         </focusedlayout>
       </control>

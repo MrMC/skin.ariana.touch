@@ -6,7 +6,7 @@
   <onload>Dialog.Close(fullscreeninfo)</onload>
   <controls>
     <control type="group" description="Video TopMenu">
-      <visible>Player.HasVideo + ![Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+      <visible>Player.HasVideo + ![Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="Background">
@@ -150,6 +150,13 @@
             <label>$LOCALIZE[264]</label>
             <onclick>PlayerControl(Record)</onclick>
             <enable>Player.CanRecord</enable>
+          </control>
+          <control type="button" id="5003" description="channels">
+            <visible>ControlGroup(9000).HasFocus(105)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>VideoMenuButtons</include>
+            <label>$LOCALIZE[19019]</label>
+            <onclick>ActivateWindow(pvrosdchannels)</onclick>
           </control>
           <control type="button" id="5001" description="guide">
             <visible>ControlGroup(9000).HasFocus(105)</visible>
