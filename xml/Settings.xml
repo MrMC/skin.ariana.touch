@@ -11,9 +11,8 @@
       </control>
       <control type="panel" id="9000">
         <centerleft>50%</centerleft>
-        <left>40</left>
-        <right>40</right>
-        <centertop>55%</centertop>
+        <width>1456</width>
+        <centertop>52%</centertop>
         <height>900</height>
         <itemlayout height="140" width="728">
           <control type="image">

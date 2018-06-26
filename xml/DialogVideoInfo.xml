@@ -412,7 +412,7 @@
           </control>-->
           <control type="textbox" description="Plot">
             <left>0</left>
-            <top>240</top>
+            <top>220</top>
             <width>920</width>
             <height>212</height>
             <align>left</align>
