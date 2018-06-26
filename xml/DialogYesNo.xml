@@ -6,18 +6,11 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="1" description="Heading">
-        <top>240</top>
-        <centerleft>960</centerleft>
-        <label>-</label>
-        <height>32</height>
-        <width>100%</width>
-        <font>size24B</font>
-        <align>center</align>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
+        <include>CenterHeading</include>
       </control>
       <control type="textbox" id="9" description="Labels">
         <top>340</top>
-        <centerleft>960</centerleft>
+        <centerleft>50%</centerleft>
         <width>960</width>
         <height>170</height>
         <align>center</align>

@@ -6,12 +6,7 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="Heading">
-        <centerleft>50%</centerleft>
-        <top>60</top>
-        <width>100%</width>
-        <label>13406</label>
-        <font>size50B</font>
-        <align>center</align>
+        <include>CenterHeading</include>
         <label>13406</label>
       </control>
       <control type="group">
@@ -43,7 +38,7 @@
           </itemlayout>
           <focusedlayout height="70" width="930">
             <control type="group">
-              
+
               <control type="image">
                 <animation effect="fade" time="100">VisibleChange</animation>
                 <left>5</left>

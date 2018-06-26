@@ -60,7 +60,7 @@
     </font>
     <font>
       <name>size16USys</name>
-      <filename>Arimo.ttf</filename>
+      <filename>Arial.ttf</filename>
       <size>22</size>
       <style>uppercase bold</style>
     </font>
@@ -121,6 +121,12 @@
       <name>size20</name>
       <filename>Arimo.ttf</filename>
       <size>30</size>
+    </font>
+    <font>
+      <name>size20A</name>
+      <filename>Arial.ttf</filename>
+      <size>30</size>
+      <aspect>0.95</aspect>
     </font>
     <font>
       <name>size20B</name>

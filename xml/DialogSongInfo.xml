@@ -5,98 +5,87 @@
     <include>FullBackground</include>
     <control type="group">
       <include>OpenClose</include>
-      <include>Header</include>
+      <control type="label" description="MainHeading">
+        <include>CenterHeading</include>
+        <label>[B]$VAR[GlobalHeadings][/B]</label>
+      </control>
       <control type="image" description="Thumb">
-        <centertop>460</centertop>
-        <centerleft>1510</centerleft>
-        <width>640</width>
-        <height>640</height>
+        <top>96</top>
+        <left>40</left>
+        <width>600</width>
+        <bottom>80</bottom>
         <texture background="true">$INFO[ListItem.Thumb]</texture>
-        <aspectratio align="center" aligny="center">keep</aspectratio>
-        <bordertexture border="12">img/ThumbBorder.png</bordertexture>
-        <bordersize>4</bordersize>
+        <aspectratio align="left" aligny="center">keep</aspectratio>
       </control>
       <control type="group" description="Top info">
-        <left>94</left>
+        <left>50%</left>
         <top>300</top>
+        <width>840</width>
         <control type="label" description="Main Label">
           <font>size24B</font>
+          <top>60</top>
           <width>840</width>
           <height>36</height>
-          <label>$INFO[ListItem.Title]</label>
+          <label>[B]$INFO[ListItem.Title][/B]</label>
+        </control>
+        <control type="label" description="Artist Label">
+          <top>180</top>
+          <width>840</width>
+          <height>36</height>
+          <label>$LOCALIZE[557]: $INFO[ListItem.Artist]</label>
         </control>
         <control type="label" description="Album label 1">
-          <top>60</top>
+          <top>230</top>
           <width>840</width>
           <label>$LOCALIZE[558]: $INFO[ListItem.Album]</label>
         </control>
         <control type="label" description="Genre label 2">
-          <top>110</top>
+          <top>280</top>
           <width>840</width>
           <label>$LOCALIZE[515]: $INFO[ListItem.Genre]</label>
         </control>
         <control type="label" description="Type label 3">
-          <top>160</top>
+          <top>330</top>
           <width>840</width>
           <label>$LOCALIZE[564]: [UPPERCASE]$INFO[ListItem.FileExtension][/UPPERCASE]</label>
         </control>
         <control type="label" description="Duration label 3">
-          <top>210</top>
+          <top>420</top>
           <width>840</width>
           <label>$LOCALIZE[180]: $INFO[ListItem.Duration]</label>
         </control>
         <control type="image" description="Rating">
-          <top>300</top>
-          <height>30</height>
-          <colordiffuse>LabelFO</colordiffuse>
+          <top>500</top>
+          <height>27</height>
           <aspectratio align="left">keep</aspectratio>
-          <texture>$INFO[ListItem.StarRating,badges/]</texture>
+          <texture colordiffuse="$VAR[LabelNFColor]" fallback="badges/0.png">$INFO[ListItem.StarRating,badges/]</texture>
         </control>
       </control>
       <control type="label" description="Path">
-        <left>90</left>
-        <top>990</top>
-        <width>1800</width>
+        <left>40</left>
+        <right>40</right>
+        <bottom>90</bottom>
         <height>27</height>
-        <font>size19</font>
-        <align>left</align>
+        <font>size14</font>
+        <align>center</align>
         <textcolor>$VAR[Label2Color]</textcolor>
         <haspath>true</haspath>
         <scroll>true</scroll>
         <label>$INFO[ListItem.FilenameAndPath]</label>
       </control>
       <control type="grouplist" id="9001">
-        <left>90</left>
-        <top>754</top>
-        <width>800</width>
-        <height>150</height>
-        <itemgap>20</itemgap>
-        <onleft>9001</onleft>
-        <onright>9001</onright>
-        <onup>9002</onup>
-        <ondown>50</ondown>
-        <align>left</align>
-        <orientation>horizontal</orientation>
+        <include>9000GrouplistParameters</include>
         <control type="button" id="7" description="rating">
-          <texturefocus>buttons/StarFO.png</texturefocus>
-          <texturenofocus>buttons/StarNF.png</texturenofocus>
+          <include>9000Buttons</include>
           <label>$LOCALIZE[563]</label>
-          <include>SquareButtonCommons</include>
-          
         </control>
         <control type="button" id="12" description="albums">
-          <texturefocus>buttons/AlbumFO.png</texturefocus>
-          <texturenofocus>buttons/AlbumNF.png</texturenofocus>
           <label>$LOCALIZE[10523]</label>
-          <include>SquareButtonCommons</include>
-          
+          <include>9000Buttons</include>
         </control>
         <control type="button" id="13" description="thumb">
-          <texturefocus>buttons/ArtworkFO.png</texturefocus>
-          <texturenofocus>buttons/ArtworkNF.png</texturenofocus>
           <label>$LOCALIZE[13405]</label>
-          <include>SquareButtonCommons</include>
-          
+          <include>9000Buttons</include>
         </control>
       </control>
     </control>

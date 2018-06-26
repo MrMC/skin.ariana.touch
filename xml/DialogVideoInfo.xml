@@ -5,42 +5,289 @@
     <include>FullBackground</include>
     <control type="image" description="Fanart">
       <left>0</left>
-      <top>0</top>
+      <top>96</top>
+      <bottom>80</bottom>
       <width>100%</width>
-      <height>100%</height>
-      <aspectratio aligny="top">scale</aspectratio>
+      <aspectratio aligny="center">scale</aspectratio>
       <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
       <animation effect="fade" end="8" time="0" condition="true">Conditional</animation>
     </control>
     <control type="group" description="content">
       <include>OpenClose</include>
-      <animation effect="slide" start="0,0" end="0,-740" time="300" reversible="true" condition="Control.HasFocus(50)">Conditional</animation>
-      <control type="group" description="Media Info and buttons">
-        <control type="image" description="Media Thumb">
-          <visible>!Skin.HasSetting(InfoPosterHide)</visible>
-          <right>150</right>
-          <top>70</top>
-          <width>662</width>
-          <height>648</height>
-          <fadetime>400</fadetime>
-          <texture>$INFO[ListItem.Art(thumb)]</texture>
-          <bordertexture border="24">thumbs/PosterFO.png</bordertexture>
-          <bordersize>23</bordersize>
-          <aspectratio align="right" aligny="center">keep</aspectratio>
-        </control>
-        <control type="group" description="top">
-          <left>150</left>
-          <top>90</top>
-          <control type="label" description="Main Label">
-            <top>0</top>
-            <width>900</width>
-            <height>60</height>
-            <font>size50B</font>
-            <align>left</align>
-            <autoscroll time="6000" delay="8000" repeat="8000">true</autoscroll>
-            <label>[B]$INFO[ListItem.Label][/B]</label>
-            <wrapmultiline>true</wrapmultiline>
+      <control type="image" description="Media Thumb">
+        <visible>!Skin.HasSetting(InfoPosterHide)</visible>
+        <right>40</right>
+        <top>136</top>
+        <bottom>400</bottom>
+        <width>420</width>
+        <texture>$INFO[ListItem.Art(thumb)]</texture>
+        <bordertexture border="3">thumbs/PosterFO.png</bordertexture>
+        <bordersize>1</bordersize>
+        <aspectratio align="right" aligny="top">keep</aspectratio>
+      </control>
+      <control type="group" description="List Info">
+        <left>40</left>
+        <top>134</top>
+        <control type="group">
+          <visible>![container.content(tvshows) | container.content(episodes) | SubString(Container.FolderPath,videodb://3,left)]</visible>
+          <include>VisibleFadeEffect</include>
+          <control type="list" id="49">
+            <include>List49_Commons</include>
+            <content>
+              <item>
+                <label/>
+                <visible>!IsEmpty(ListItem.OriginalTitle)</visible>
+                <label2>$LOCALIZE[20376]: $INFO[ListItem.OriginalTitle]</label2>
+                <onclick>noop</onclick>
+              </item>
+              <item>
+                <visible>!IsEmpty(ListItem.Director)</visible>
+                <label>$LOCALIZE[20339]: $INFO[ListItem.Director]</label>
+                <onclick>noop</onclick>
+              </item>
+              <item>
+                <label>$LOCALIZE[20417]: $INFO[ListItem.Writer]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Writer)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[572]: $INFO[ListItem.Studio]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Studio)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+              </item>
+            </content>
           </control>
+        </control>
+        <control type="group" description="TV Shows">
+          <visible>Container.Content(TVShows)</visible>
+          <include>VisibleFadeEffect</include>
+          <control type="list" id="49">
+            <include>List49_Commons</include>
+            <content>
+              <item>
+                <label>$LOCALIZE[20360]: $INFO[ListItem.Property(TotalEpisodes)]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[16101]: $INFO[ListItem.Property(UnwatchedEpisodes)]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Property(UnwatchedEpisodes))</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[31322]: $INFO[ListItem.Premiered]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Premiered)</visible>
+              </item>
+            </content>
+          </control>
+        </control>
+        <control type="group" description="Episodes">
+          <visible>container.content(episodes)</visible>
+          <include>VisibleFadeEffect</include>
+          <control type="list" id="49">
+            <include>List49_Commons</include>
+            <content>
+              <item>
+                <label>$LOCALIZE[20364]: $INFO[ListItem.TVShowTitle,, - ]$INFO[ListItem.Season,S, ]$INFO[ListItem.Episode,E]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[31322]: $INFO[ListItem.Premiered]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Premiered)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20339]: $INFO[ListItem.Director]</label>
+                <onclick>SendClick(2003,13)</onclick>
+                <visible>!IsEmpty(ListItem.Director)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20417]: $INFO[ListItem.Writer]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Writer)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+              </item>
+            </content>
+          </control>
+        </control>
+        <control type="group" description="Music Videos">
+          <visible>SubString(Container.FolderPath,videodb://3,left)</visible>
+          <include>VisibleFadeEffect</include>
+          <control type="list" id="49">
+            <include>List49_Commons</include>
+            <content>
+              <item>
+                <label>$LOCALIZE[557]</label>
+                <label2>$INFO[ListItem.Artist]</label2>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Artist)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[558]</label>
+                <label2>$INFO[ListItem.Album]</label2>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.Album)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
+                <onclick>noop</onclick>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+              </item>
+            </content>
+          </control>
+        </control>
+      </control>
+      <control type="grouplist" id="9001">
+        <include>9000GrouplistParameters</include>
+        <control type="togglebutton" id="8" description="Play">
+          <include>9000Buttons</include>
+          <label>208</label>
+          <altlabel>1024</altlabel>
+          <usealttexture>Container.Content(TVShows)</usealttexture>
+        </control>
+        <control type="button" id="11" description="Trailer">
+          <visible>!IsEmpty(ListItem.Trailer)</visible>
+          <include>9000Buttons</include>
+          <label>20410</label>
+        </control>
+        <control type="button" id="6" description="refresh">
+          <include>9000Buttons</include>
+          <label>$LOCALIZE[184]</label>
+        </control>
+        <control type="button" id="10" description="art">
+          <include>9000Buttons</include>
+          <label>$LOCALIZE[13511]</label>
+        </control>
+      </control>
+      <control type="label" description="Main Label">
+        <include>CenterHeading</include>
+        <label>$INFO[ListItem.Label]</label>
+      </control>
+      <control type="panel" id="50" description="50 actors">
+        <left>40</left>
+        <bottom>80</bottom>
+        <width>100%</width>
+        <height>250</height>
+        <orientation>horizontal</orientation>
+        <onleft>50</onleft>
+        <onright>50</onright>
+        <onup>9001</onup>
+        <ondown>noop</ondown>
+        <itemlayout width="200">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <texture colordiffuse="$VAR[OverlayColor]">thumbs/Monogram.png</texture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="label" description="Monogram">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <font>monogram</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Property(monogram)]</label>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <texture diffuse="img/UserDiffuse.png">$INFO[ListItem.Thumb]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <bordersize>25</bordersize>
+          </control>
+          <control type="label" description="Main Label">
+            <left>3</left>
+            <right>3</right>
+            <top>180</top>
+            <height>25</height>
+            <font>size16</font>
+            <align>center</align>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Main Label">
+            <left>3</left>
+            <right>3</right>
+            <top>205</top>
+            <height>25</height>
+            <font>size14</font>
+            <align>center</align>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Label2]</label>
+          </control>
+        </itemlayout>
+        <focusedlayout width="200">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <texture colordiffuse="$VAR[OverlayColor]">thumbs/Monogram.png</texture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="label" description="Monogram">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <font>monogram</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Property(monogram)]</label>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>200</height>
+            <texture diffuse="img/UserDiffuse.png">$INFO[ListItem.Thumb]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <bordersize>25</bordersize>
+          </control>
+          <control type="label" description="Main Label">
+            <left>3</left>
+            <right>3</right>
+            <top>180</top>
+            <height>25</height>
+            <font>size16</font>
+            <align>center</align>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Main Label">
+            <left>3</left>
+            <right>3</right>
+            <top>205</top>
+            <height>25</height>
+            <font>size14</font>
+            <align>center</align>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Label2]</label>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="group" description="INFO">
+          <left>40</left>
+          <top>314</top>
           <control type="grouplist">
             <top>84</top>
             <width>900</width>
@@ -59,7 +306,7 @@
               <visible>!IsEmpty(ListItem.Property(RottenTomatoesRating))</visible>
               <width>90</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <align>left</align>
               <label>$INFO[ListItem.Property(RottenTomatoesRating),,%]</label>
@@ -75,7 +322,7 @@
               <visible>!IsEmpty(ListItem.Property(RottenTomatoesAudienceRating))</visible>
               <width>90</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <align>left</align>
               <label>$INFO[ListItem.Property(RottenTomatoesAudienceRating),,%]</label>
@@ -97,7 +344,7 @@
             <control type="label" description="Simple Rating">
               <width min="40">auto</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <align>left</align>
               <label>$INFO[ListItem.RatingAndVotes]</label>
@@ -105,7 +352,7 @@
             <control type="label" description="Labels">
               <width min="50">auto</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <align>left</align>
               <aligny>center</aligny>
@@ -114,7 +361,7 @@
             <control type="label" description="Labels">
               <width min="50">auto</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <align>left</align>
               <aligny>center</aligny>
@@ -124,7 +371,7 @@
               <visible>!IsEmpty(ListItem.VideoResolution)</visible>
               <width min="60" max="400">auto</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <align>center</align>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.VideoResolution]</label>
@@ -136,7 +383,7 @@
               <visible>!IsEmpty(ListItem.mpaa)</visible>
               <width min="60" max="400">auto</width>
               <height>38</height>
-              <font>size21</font>
+              <font>size20</font>
               <align>center</align>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.mpaa]</label>
@@ -149,20 +396,20 @@
             <top>136</top>
             <width>900</width>
             <height>45</height>
-            <font>size18</font>
+            <font>size20</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <align>left</align>
             <label>$INFO[ListItem.Genre]</label>
           </control>
-          <control type="label" description="Codec">
+          <!--<control type="label" description="Codec">
             <top>184</top>
             <width>900</width>
             <height>45</height>
-            <font>size16</font>
+            <font>size18</font>
             <textcolor>$VAR[Label2Color]</textcolor>
             <align>left</align>
             <label>[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
-          </control>
+          </control>-->
           <control type="textbox" description="Plot">
             <left>0</left>
             <top>240</top>
@@ -173,383 +420,20 @@
             <autoscroll delay="15000" time="5000" repeat="10000">true</autoscroll>
             <label>$VAR[Plots]</label>
           </control>
-          <control type="grouplist" id="9001">
-            <left>-5</left>
-            <top>495</top>
-            <width>638</width>
-            <height>150</height>
-            <itemgap>20</itemgap>
-            <onleft>9001</onleft>
-            <onright>9001</onright>
-            <onup>noop</onup>
-            <ondown>50</ondown>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="togglebutton" id="8" description="Play">
-              <texturefocus>buttons/PlayFO.png</texturefocus>
-              <texturenofocus>buttons/PlayNF.png</texturenofocus>
-              <alttexturefocus>buttons/EpisodesFO.png</alttexturefocus>
-              <alttexturenofocus>buttons/EpisodesNF.png</alttexturenofocus>
-              <label>208</label>
-              <altlabel>1024</altlabel>
-              <usealttexture>Container.Content(TVShows)</usealttexture>
-              <include>SquareButtonCommons</include>
-              
-            </control>
-            <control type="button" id="11" description="Trailer">
-              <visible>!IsEmpty(ListItem.Trailer)</visible>
-              <texturefocus>buttons/TrailerFO.png</texturefocus>
-              <texturenofocus>buttons/TrailerNF.png</texturenofocus>
-              <label>20410</label>
-              <include>SquareButtonCommons</include>
-              
-            </control>
-            <control type="button" id="6" description="refresh">
-              <texturefocus>buttons/RefreshFO.png</texturefocus>
-              <texturenofocus>buttons/RefreshNF.png</texturenofocus>
-              <label>$LOCALIZE[184]</label>
-              <include>SquareButtonCommons</include>
-              
-            </control>
-            <control type="button" id="10" description="art">
-              <texturefocus>buttons/ArtworkFO.png</texturefocus>
-              <texturenofocus>buttons/ArtworkNF.png</texturenofocus>
-              <label>$LOCALIZE[13511]</label>
-              <include>SquareButtonCommons</include>
-              
-            </control>
-          </control>
         </control>
-      </control>
       <control type="group" description="Actors">
         <visible>Control.IsVisible(50)</visible>
         <top>60</top>
-        <control type="image" description="Navbar">
+        <!--<control type="image" description="Navbar">
           <centerleft>590</centerleft>
           <top>680</top>
           <width>140%</width>
           <height>360</height>
           <aspectratio align="center">stretch</aspectratio>
           <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
-        </control>
-        <control type="panel" id="50" description="50 actors">
-          <left>60</left>
-          <top>666</top>
-          <width>1860</width>
-          <height>408</height>
-          <orientation>horizontal</orientation>
-          <onleft>50</onleft>
-          <onright>50</onright>
-          <onup>9001</onup>
-          <ondown>noop</ondown>
-          <itemlayout height="408" width="300">
-            <control type="image">
-              <left>25</left>
-              <top>25</top>
-              <width>250</width>
-              <height>250</height>
-              <texture colordiffuse="$VAR[OverlayColor]">thumbs/Monogram.png</texture>
-              <bordersize>0</bordersize>
-              <aspectratio>scale</aspectratio>
-            </control>
-            <control type="label" description="Monogram">
-              <left>25</left>
-              <top>25</top>
-              <width>250</width>
-              <height>250</height>
-              <font>monogram</font>
-              <align>center</align>
-              <aligny>center</aligny>
-              <textcolor>$VAR[Label2Color]</textcolor>
-              <label>$INFO[ListItem.Property(monogram)]</label>
-            </control>
-            <control type="image">
-              <left>25</left>
-              <top>26</top>
-              <width>250</width>
-              <height>250</height>
-              <texture diffuse="img/UserDiffuse.png">$INFO[ListItem.Thumb]</texture>
-              <aspectratio scalediffuse="false">scale</aspectratio>
-              <bordersize>22</bordersize>
-            </control>
-            <control type="label" description="Main Label">
-              <left>0</left>
-              <right>0</right>
-              <top>250</top>
-              <height>66</height>
-              <font>size20</font>
-              <align>center</align>
-              <textcolor>$VAR[LabelNFColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label" description="Main Label">
-              <left>0</left>
-              <right>0</right>
-              <top>286</top>
-              <height>66</height>
-              <font>size18</font>
-              <align>center</align>
-              <textcolor>$VAR[Label2Color]</textcolor>
-              <label>$INFO[ListItem.Label2]</label>
-            </control>
-          </itemlayout>
-          <focusedlayout height="408" width="300">
-            <control type="group">
-              <animation type="Focus" reversible="false">
-                <effect type="zoom" center="auto" start="100" end="115" time="120" easing="inout"/>
-              </animation>
-              <animation type="UnFocus" reversible="false">
-                <effect type="zoom" center="auto" start="115" end="100" time="120" easing="inout"/>
-              </animation>
-              <control type="image">
-                <left>25</left>
-                <top>25</top>
-                <width>250</width>
-                <height>250</height>
-                <texture colordiffuse="$VAR[OverlayColor]">thumbs/Monogram.png</texture>
-                <bordersize>0</bordersize>
-                <aspectratio>scale</aspectratio>
-              </control>
-              <control type="label" description="Monogram">
-                <left>25</left>
-                <top>25</top>
-                <width>250</width>
-                <height>250</height>
-                <font>monogram</font>
-                <align>center</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[Label2Color]</textcolor>
-                <label>$INFO[ListItem.Property(monogram)]</label>
-              </control>
-              <control type="image">
-                <left>25</left>
-                <top>26</top>
-                <width>250</width>
-                <height>250</height>
-                <font>monogram</font>
-                <texture diffuse="img/UserDiffuse.png">$INFO[ListItem.Thumb]</texture>
-                <aspectratio scalediffuse="false">scale</aspectratio>
-                <bordersize>22</bordersize>
-              </control>
-              <control type="label" description="Main Label">
-                <left>0</left>
-                <right>0</right>
-                <top>250</top>
-                <height>66</height>
-                <font>size20</font>
-                <align>center</align>
-                <textcolor>$VAR[LabelNFColor]</textcolor>
-                <label>$INFO[ListItem.Label]</label>
-              </control>
-              <control type="label" description="Main Label">
-                <left>0</left>
-                <right>0</right>
-                <top>286</top>
-                <height>66</height>
-                <font>size18</font>
-                <align>center</align>
-                <textcolor>$VAR[Label2Color]</textcolor>
-                <label>$INFO[ListItem.Label2]</label>
-              </control>
-            </control>
-          </focusedlayout>
-        </control>
-        <control type="group" description="List Info">
-          <left>150</left>
-          <top>1200</top>
-          <control type="group">
-            <visible>![container.content(tvshows) | container.content(episodes) | SubString(Container.FolderPath,videodb://3,left)]</visible>
-            <include>VisibleFadeEffect</include>
-            <control type="list" id="49">
-              <include>List49_Commons</include>
-              <content>
-                <item>
-                  <label>$LOCALIZE[544]</label>
-                  <label2>[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.VideoCodec)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[515]</label>
-                  <label2>$INFO[ListItem.Genre]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Genre)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20376]</label>
-                  <label2>$INFO[ListItem.OriginalTitle]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.OriginalTitle) + !stringcompare(ListItem.OriginalTitle,Listitem.Title)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20339]</label>
-                  <label2>$INFO[ListItem.Director]</label2>
-                  <onclick>SendClick(2003,13)</onclick>
-                  <visible>!IsEmpty(ListItem.Director)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20417]</label>
-                  <label2>$INFO[ListItem.Writer]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Writer)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[572]</label>
-                  <label2>$INFO[ListItem.Studio]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Studio)</visible>
-                </item>
-              </content>
-            </control>
-          </control>
-          <control type="group" description="TV Shows">
-            <visible>Container.Content(TVShows)</visible>
-            <include>VisibleFadeEffect</include>
-            <control type="list" id="49">
-              <include>List49_Commons</include>
-              <content>
-                <item>
-                  <label>$LOCALIZE[544]</label>
-                  <label2>[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.VideoCodec)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20360]</label>
-                  <label2>$INFO[ListItem.Property(TotalEpisodes)]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[31322]</label>
-                  <label2>$INFO[ListItem.Premiered]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Premiered)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[515]</label>
-                  <label2>$INFO[ListItem.Genre]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Genre)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[562]</label>
-                  <label2>$INFO[ListItem.Year]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Year)</visible>
-                </item>
-              </content>
-            </control>
-          </control>
-          <control type="group" description="Episodes">
-            <visible>container.content(episodes)</visible>
-            <include>VisibleFadeEffect</include>
-            <control type="list" id="49">
-              <include>List49_Commons</include>
-              <content>
-                <item>
-                  <label>$LOCALIZE[544]</label>
-                  <label2>[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.VideoCodec)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20364]</label>
-                  <label2>$INFO[ListItem.TVShowTitle]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20373]</label>
-                  <label2>$INFO[ListItem.Season]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Season)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20359]</label>
-                  <label2>$INFO[ListItem.Episode]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Episode)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[31322]</label>
-                  <label2>$INFO[ListItem.Premiered]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Premiered)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[515]</label>
-                  <label2>$INFO[ListItem.Genre]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Genre)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20339]</label>
-                  <label2>$INFO[ListItem.Director]</label2>
-                  <onclick>SendClick(2003,13)</onclick>
-                  <visible>!IsEmpty(ListItem.Director)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[20417]</label>
-                  <label2>$INFO[ListItem.Writer]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Writer)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[2050]</label>
-                  <label2>$INFO[ListItem.Duration] $LOCALIZE[12391]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Duration)</visible>
-                </item>
-              </content>
-            </control>
-          </control>
-          <control type="group" description="Music Videos">
-            <visible>SubString(Container.FolderPath,videodb://3,left)</visible>
-            <include>VisibleFadeEffect</include>
-            <control type="list" id="49">
-              <include>List49_Commons</include>
-              <content>
-                <item>
-                  <label>$LOCALIZE[544]</label>
-                  <label2>[UPPERCASE]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.VideoCodec)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[557]</label>
-                  <label2>$INFO[ListItem.Artist]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Artist)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[558]</label>
-                  <label2>$INFO[ListItem.Album]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Album)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[515]</label>
-                  <label2>$INFO[ListItem.Genre]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Genre)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[562]</label>
-                  <label2>$INFO[ListItem.Year]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Year)</visible>
-                </item>
-                <item>
-                  <label>$LOCALIZE[2050]</label>
-                  <label2>$INFO[ListItem.Duration] $LOCALIZE[12391]</label2>
-                  <onclick>noop</onclick>
-                  <visible>!IsEmpty(ListItem.Duration)</visible>
-                </item>
-              </content>
-            </control>
-          </control>
-        </control>
+        </control>-->
+
+
         <!--<control type="image" description="Stars rating">
         <left>200</left>
         <top>130</top>
@@ -559,6 +443,7 @@
         <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Rating,badges/,.png]</texture>
       </control>-->
     </control>
+
   </control>
 </controls>
 </window>
