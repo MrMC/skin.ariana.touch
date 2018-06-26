@@ -5,6 +5,31 @@
     <include>DialogFullBG</include>
     <control type="group">
       <include>OpenClose</include>
+      <control type="label" description="MainHeading">
+        <include>CenterHeading</include>
+        <label>$VAR[GlobalHeadings]</label>
+      </control>
+      <control type="grouplist" id="9001">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="28">
+          <description>OK Button</description>
+          <include>9000Buttons</include>
+          <label>186</label>
+          <onleft>29</onleft>
+          <onright>29</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+        </control>
+        <control type="button" id="29">
+          <description>Cancel Button</description>
+          <include>9000Buttons</include>
+          <label>222</label>
+          <onleft>28</onleft>
+          <onright>28</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+        </control>
+      </control>
       <control type="grouplist" id="5">
         <centerleft>50%</centerleft>
         <centertop>45%</centertop>
@@ -16,49 +41,13 @@
         <onleft>9001</onleft>
         <onright>9001</onright>
       </control>
-      <control type="group" id="9001">
-        <centerleft>50%</centerleft>
-        <top>840</top>
-        <width>520</width>
-        <height>80</height>
-        <control type="button" id="28">
-          <description>OK Button</description>
-          <left>0</left>
-          <top>0</top>
-          <width>250</width>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>186</label>
-          <onleft>29</onleft>
-          <onright>29</onright>
-          <onup>5</onup>
-          <ondown>5</ondown>
-          
-        </control>
-        <control type="button" id="29">
-          <description>Cancel Button</description>
-          <left>270</left>
-          <top>0</top>
-          <width>250</width>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>222</label>
-          <onleft>28</onleft>
-          <onright>28</onright>
-          <onup>5</onup>
-          <ondown>5</ondown>
-          
-        </control>
-      </control>
       <control type="button" id="7">
         <description>Default Button</description>
         <align>left</align>
-        
       </control>
       <control type="radiobutton" id="8">
         <description>Default RadioButton</description>
         <align>left</align>
-        
       </control>
       <control type="spincontrolex" id="9">
         <description>Default spincontrolex</description>

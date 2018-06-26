@@ -5,43 +5,26 @@
     <include>DialogFullBG</include>
     <control type="group">
       <include>OpenClose</include>
-      <control type="image" description="mid">
-        <centerleft>50%</centerleft>
-        <top>150</top>
-        <width>1520</width>
-        <height>900</height>
-        <texture border="24">focus/FrameNF.png</texture>
-      </control>
       <control type="label" description="Heading">
         <include>CenterHeading</include>
         <label>$LOCALIZE[19142]</label>
       </control>
       <control type="grouplist" id="9000">
-        <top>940</top>
-        <centerleft>50%</centerleft>
-        <onup>5000</onup>
-        <ondown>9</ondown>
-        <width>620</width>
-        <itemgap>20</itemgap>
-        <orientation>horizontal</orientation>
+        <include>9000GrouplistParameters</include>
         <control type="button" id="26">
-          <width>300</width>
+          <include>9000Buttons</include>
           <label>$LOCALIZE[137]</label>
-          
         </control>
         <control type="button" id="28">
-          <width>300</width>
-          <focusedcolor>white</focusedcolor>
-          <texturefocus colordiffuse="red" border="9">img/SettingsButtonFO.png</texturefocus>
+          <include>9000Buttons</include>
           <label>$LOCALIZE[10035]</label>
-          
         </control>
       </control>
       <control type="group">
-        <top>180</top>
-        <left>220</left>
-        <height>990</height>
-        <width>1780</width>
+        <top>120</top>
+        <bottom>120</bottom>
+        <centerleft>50%</centerleft>
+        <width>1480</width>
         <control type="edit" id="9">
           <left>35</left>
           <top>40</top>
@@ -75,14 +58,12 @@
             <width>710</width>
             <onright>12</onright>
             <label>$LOCALIZE[19134]</label>
-            
           </control>
           <control type="radiobutton" id="11">
             <description>Case Sensitive</description>
             <width>710</width>
             <onright>13</onright>
             <label>$LOCALIZE[19135]</label>
-            
           </control>
           <control type="edit" id="14">
             <description>Start Date</description>
@@ -107,21 +88,18 @@
             <width>710</width>
             <onright>21</onright>
             <label>$LOCALIZE[19132]</label>
-            
           </control>
           <control type="radiobutton" id="22">
             <description>FTA only</description>
             <width>710</width>
             <onright>23</onright>
             <label>$LOCALIZE[19123]</label>
-            
           </control>
           <control type="radiobutton" id="24">
             <description>Ignore Timers</description>
             <width>710</width>
             <onright>27</onright>
             <label>$LOCALIZE[19124]</label>
-            
           </control>
         </control>
         <control type="grouplist" id="6000">
@@ -161,7 +139,6 @@
             <width>710</width>
             <onleft>18</onleft>
             <label>$LOCALIZE[19121]</label>
-            
           </control>
           <control type="spincontrolex" id="21">
             <description>Groups</description>
@@ -180,7 +157,6 @@
             <width>710</width>
             <onleft>24</onleft>
             <label>$LOCALIZE[19125]</label>
-            
           </control>
         </control>
       </control>
