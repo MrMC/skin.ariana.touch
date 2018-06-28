@@ -320,15 +320,16 @@
         <visible>StringCompare(Window.Property(shelf),library)</visible>
         <include>VisibleFadeEffect</include>
         <control type="panel" id="9000" description="Main menu">
-          <top>96</top>
-          <bottom>90</bottom>
+          <centertop>50%</centertop>
+          <bottom>80</bottom>
           <width>100%</width>
-          <left>20</left>
+          <left>40</left>
+          <height>800</height>
           <onup>9000</onup>
           <ondown>9000</ondown>
           <onleft>9000</onleft>
           <onright>9000</onright>
-          <orientation>vertical</orientation>
+          <orientation>horizontal</orientation>
           <itemlayout height="200" width="320">
             <control type="image">
               <left>0</left>
