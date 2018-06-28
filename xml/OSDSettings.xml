@@ -176,7 +176,7 @@
       </control>
     </control>
     <control type="group" description="osd buttons">
-      <visible>[System.HasAppleTVSlider + [VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]] | !System.HasAppleTVSlider</visible>
+      <visible>[System.HasAppleTVSlider + [VideoPlayer.Content(livetv) | VideoPlayer.HasMenu | Pvr.IsPlayingRecording]] | !System.HasAppleTVSlider</visible>
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="OSD BG">
