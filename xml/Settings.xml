@@ -13,22 +13,23 @@
         <centerleft>50%</centerleft>
         <width>1456</width>
         <centertop>52%</centertop>
-        <height>900</height>
-        <itemlayout height="140" width="728">
+        <height>840</height>
+        <itemlayout height="120" width="728">
           <control type="image">
-            <left>0</left>
-            <right>0</right>
+            <left>20</left>
             <bottom>0</bottom>
-            <texture border="9">img/SettingsButtonNF.png</texture>
-            <bordersize>12</bordersize>
+            <right>20</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
             <left>0</left>
-            <top>20</top>
+            <top>0</top>
             <width>240</width>
-            <bottom>20</bottom>
-            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>24</bordersize>
+            <bottom>0</bottom>
+            <texture colordiffuse="$VAR[SelectedColor]">$INFO[ListItem.Icon]</texture>
+            <bordersize>34</bordersize>
             <align>center</align>
             <aspectratio>keep</aspectratio>
           </control>
@@ -36,26 +37,28 @@
             <left>200</left>
             <top>0</top>
             <aligny>center</aligny>
-            <height>140</height>
+            <height>100%</height>
             <font>size24B</font>
+            <textcolor>$VAR[SelectedColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
-        <focusedlayout height="140" width="728">
+        <focusedlayout height="120" width="728">
           <control type="image">
-            <left>0</left>
-            <right>0</right>
+            <left>20</left>
             <bottom>0</bottom>
-            <texture border="9">img/SettingsButtonNF.png</texture>
-            <bordersize>12</bordersize>
+            <right>20</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
             <left>0</left>
-            <top>20</top>
+            <top>0</top>
             <width>240</width>
-            <bottom>20</bottom>
+            <bottom>0</bottom>
             <texture colordiffuse="$VAR[SelectedColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>24</bordersize>
+            <bordersize>34</bordersize>
             <align>center</align>
             <aspectratio>keep</aspectratio>
           </control>
@@ -63,8 +66,9 @@
             <left>200</left>
             <top>0</top>
             <aligny>center</aligny>
-            <height>140</height>
+            <height>100%</height>
             <font>size24B</font>
+            <textcolor>$VAR[SelectedColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </focusedlayout>
