@@ -33,7 +33,7 @@
           <left>48</left>
           <texturefocus/>
           <texturenofocus/>
-          <width min="200">auto</width>
+          <width>500</width>
           <height>96</height>
           <textcolor>$VAR[SelectedColor]</textcolor>
           <focusedcolor>$VAR[SelectedColor]</focusedcolor>
