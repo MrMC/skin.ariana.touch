@@ -24,7 +24,6 @@
     <textoffsetx>0</textoffsetx>
     <align>center</align>
     <aligny>center</aligny>
-    <font>size18</font>
     <textcolor>$VAR[SelectedColor]</textcolor>
     <focusedcolor>$VAR[SelectedColor]</focusedcolor>
     <alttextcolor>$VAR[SelectedColor]</alttextcolor>
@@ -129,12 +128,13 @@
     <focusedcolor>$VAR[LabelNFColor]</focusedcolor>
   </include>
   <include name="CenterHeading">
-    <top>20</top>
+    <top>0</top>
     <centerleft>50%</centerleft>
     <align>center</align>
+    <aligny>center</aligny>
     <width>100%</width>
-    <height>90</height>
-    <font>size20B</font>
+    <height>96</height>
+    <font>size22B</font>
   </include>
   <include name="FullBackground">
     <control type="image" description="BG image">
@@ -155,11 +155,17 @@
     </control>
     <control type="button" description="Back">
       <visible>![Window.IsActive(home) | Window.IsActive(loginscreen)]</visible>
-      <top>20</top>
-      <left>30</left>
-      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>
-      <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturenofocus>
-      <include>SquareButtonCommons</include>
+      <top>0</top>
+      <left>46</left>
+      <texturefocus/>
+      <texturenofocus/>
+      <width>600</width>
+      <height>96</height>
+      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+      <textcolor>$VAR[SelectedColor]</textcolor>
+      <align>left</align>
+      <aligny>center</aligny>
+      <label>[UPPERCASE]&lt; $LOCALIZE[31040][/UPPERCASE]</label>
       <onclick>back</onclick>
     </control>
     <control type="image" description="BottomBar">
@@ -199,11 +205,17 @@
     </control>
     <control type="button" description="Back">
       <visible>![Window.IsActive(home) | Window.IsActive(loginscreen)]</visible>
-      <top>20</top>
-      <left>30</left>
-      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturefocus>
-      <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/back.png</texturenofocus>
-      <include>SquareButtonCommons</include>
+      <top>0</top>
+      <left>46</left>
+      <texturefocus/>
+      <texturenofocus/>
+      <width>600</width>
+      <height>96</height>
+      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+      <textcolor>$VAR[SelectedColor]</textcolor>
+      <align>left</align>
+      <aligny>center</aligny>
+      <label>[UPPERCASE]&lt; $LOCALIZE[31040][/UPPERCASE]</label>
       <onclick>back</onclick>
     </control>
     <control type="image" description="BottomBar">

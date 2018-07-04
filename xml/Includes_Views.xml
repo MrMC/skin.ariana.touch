@@ -306,20 +306,20 @@
     </focusedlayout>
   </include>
   <include name="HeaderLabelShelfUP">
-    <top>480</top>
+    <top>450</top>
     <left>28</left>
     <height>40</height>
     <width>100%</width>
-    <font>size15U</font>
+    <font>size16U</font>
     <textcolor>$VAR[Label2Color]</textcolor>
     <align>left</align>
   </include>
   <include name="HeaderLabelShelfDN">
-    <bottom>515</bottom>
+    <bottom>545</bottom>
     <left>28</left>
     <height>40</height>
     <width>100%</width>
-    <font>size15U</font>
+    <font>size16U</font>
     <textcolor>$VAR[Label2Color]</textcolor>
     <align>left</align>
   </include>
@@ -328,7 +328,7 @@
       <left>0</left>
       <top>0</top>
       <width>100%</width>
-      <height>240</height>
+      <height>360</height>
       <bordersize>2</bordersize>
       <texture>thumbs/SquareFO.png</texture>
     </control>
@@ -337,7 +337,7 @@
     <left>0</left>
     <top>0</top>
     <width>100%</width>
-    <height>240</height>
+    <height>360</height>
     <aspectratio aligny="top">scale</aspectratio>
     <bordersize>3</bordersize>
   </include>
@@ -401,8 +401,8 @@
   <include name="RectangleWatchedMarks">
     <control type="group" description="Overlay">
       <control type="image">
-        <right>24</right>
-        <top>24</top>
+        <right>3</right>
+        <top>3</top>
         <height>64</height>
         <width>64</width>
         <aspectratio>keep</aspectratio>
@@ -410,8 +410,8 @@
       </control>
       <control type="image">
         <visible>!IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
-        <right>28</right>
-        <top>28</top>
+        <right>3</right>
+        <top>3</top>
         <height>28</height>
         <width>28</width>
         <aspectratio>keep</aspectratio>
@@ -435,20 +435,18 @@
       <include>PosterWatchedMarks</include>
       <control type="label">
         <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
-        <left>0</left>
-        <top>360</top>
-        <width>95%</width>
+        <left>10</left>
+        <right>10</right>
+        <top>366</top>
         <height>45</height>
-        <font>size16</font>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>$INFO[ListItem.Label]</label>
       </control>
       <control type="label" description="Label2">
-        <left>0</left>
-        <top>390</top>
-        <width>95%</width>
+        <left>10</left>
+        <right>10</right>
+        <top>404</top>
         <height>45</height>
-        <font>size16</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>$VAR[ShelfLabel2]</label>
       </control>
@@ -471,7 +469,7 @@
         <left>0</left>
         <bottom>0</bottom>
         <right>0</right>
-        <height>90</height>
+        <height>120</height>
         <texture border="1">img/Gradient.png</texture>
         <aspectratio>stretch</aspectratio>
         <bordersize>3</bordersize>
@@ -479,8 +477,9 @@
       <control type="progress">
         <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
         <centerleft>50%</centerleft>
-        <top>315</top>
-        <width>90%</width>
+        <top>284</top>
+        <left>30</left>
+        <right>30</right>
         <height>10</height>
         <texturebg>progress/ProgressBG.png</texturebg>
         <lefttexture>progress/ProgressLeft.png</lefttexture>
@@ -491,11 +490,10 @@
       <include>RectangleWatchedMarks</include>
       <control type="label">
         <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
-        <left>5</left>
-        <bottom>10</bottom>
-        <width>90%</width>
+        <left>30</left>
+        <right>30</right>
+        <bottom>12</bottom>
         <height>45</height>
-        <font>size19</font>
         <textcolor>white</textcolor>
         <align>center</align>
         <label>$INFO[ListItem.Property(SeasonEpisode),, - ]$INFO[ListItem.Label]</label>
