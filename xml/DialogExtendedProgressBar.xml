@@ -8,7 +8,7 @@
       <include>OpenClose</include>
       <animation effect="slide" start="0,0" end="0,-44" time="200" reversible="true" condition="Window.IsActive(FullScreenVideo)">Conditional</animation>
       <control type="image">
-        <centerleft>50%</centerleft>
+        <left>0</left>
         <top>0</top>
         <width>100%</width>
         <height>44</height>
@@ -43,8 +43,8 @@
       </control>
       <control type="label" id="1" description="Group label">
         <top>0</top>
-        <left>50</left>
-        <right>50</right>
+        <left>60</left>
+        <right>20</right>
         <height>40</height>
         <font>size14</font>
         <textcolor>$VAR[Label2Color]</textcolor>
