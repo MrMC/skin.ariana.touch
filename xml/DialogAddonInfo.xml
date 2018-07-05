@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">9000</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="Heading">

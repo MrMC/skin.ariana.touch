@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">5</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="group" description="Content">
       <include>OpenClose</include>
       <control type="label" id="2" description="Heading">

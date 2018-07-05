@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">996</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="label">
       <visible>!IsEmpty(ListItem.Label)</visible>
       <include>CenterHeading</include>

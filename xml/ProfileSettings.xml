@@ -2,7 +2,7 @@
 <window type="dialog">
   <defaultcontrol always="true">5</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="102" description="Profile Name">

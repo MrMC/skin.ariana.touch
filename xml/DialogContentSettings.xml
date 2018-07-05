@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">20</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="label" description="Directory Contains">
       <include>CenterHeading</include>
       <label>20344</label>

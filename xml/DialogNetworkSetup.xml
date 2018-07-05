@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">10</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="label" id="2" description="Heading">
       <include>CenterHeading</include>
       <label>1007</label>

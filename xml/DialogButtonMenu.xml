@@ -2,7 +2,7 @@
 <window type="buttonMenu" id="111">
   <defaultcontrol>9000</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>FullBackground</include>
     <control type="grouplist" id="9000">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
