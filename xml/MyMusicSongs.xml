@@ -14,57 +14,51 @@
         <orientation>horizontal</orientation>
         <pagecontrol>60</pagecontrol>
         <preloaditems>4</preloaditems>
-        <itemlayout width="240" height="300">
+        <itemlayout width="360" height="450">
           <include>SquareBG_FO</include>
           <control type="image">
             <include>SquareCommons</include>
             <texture background="true">$INFO[ListItem.Thumb]</texture>
           </control>
           <control type="label">
-            <left>2</left>
-            <top>238</top>
-            <width>95%</width>
+            <left>20</left>
+            <right>20</right>
+            <top>366</top>
             <height>30</height>
-            <font>size14</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
           <control type="label">
-            <left>2</left>
-            <top>262</top>
-            <width>95%</width>
+            <left>20</left>
+            <right>20</right>
+            <top>400</top>
             <height>30</height>
-            <font>size14</font>
             <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label2]</label>
           </control>
         </itemlayout>
-        <focusedlayout width="240" height="300">
-          <control type="group">
+        <focusedlayout width="360" height="450">
             <include>SquareBG_FO</include>
             <control type="image">
               <include>SquareCommons</include>
               <texture background="true">$INFO[ListItem.Thumb]</texture>
             </control>
             <control type="label">
-              <left>2</left>
-              <top>238</top>
-              <width>95%</width>
+              <left>20</left>
+              <right>20</right>
+              <top>366</top>
               <height>30</height>
-              <font>size14</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.Label]</label>
             </control>
             <control type="label">
-              <left>2</left>
-              <top>262</top>
-              <width>95%</width>
+              <left>20</left>
+              <right>20</right>
+              <top>400</top>
               <height>30</height>
-              <font>size14</font>
               <textcolor>$VAR[Label2Color]</textcolor>
               <label>$INFO[ListItem.Label2]</label>
             </control>
-          </control>
         </focusedlayout>
       </control>
       <control type="group" description="53 furniture">

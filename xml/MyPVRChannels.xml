@@ -196,49 +196,47 @@
         <orientation>horizontal</orientation>
         <pagecontrol>60</pagecontrol>
         <preloaditems>4</preloaditems>
-        <itemlayout width="240" height="300">
+        <itemlayout width="360" height="450">
           <include>SquareBG_FO</include>
           <control type="image">
             <texture colordiffuse="$VAR[OverlayColor]">img/WhiteDot.png</texture>
             <include>SquareCommons</include>
           </control>
           <control type="image">
+            <bordersize>10</bordersize>
             <aspectratio>keep</aspectratio>
             <include>SquareCommons</include>
             <texture background="true">$INFO[ListItem.Thumb]</texture>
           </control>
           <control type="label">
-            <left>2</left>
-            <top>238</top>
-            <width>95%</width>
+            <left>20</left>
+            <right>20</right>
+            <top>366</top>
             <height>30</height>
-            <font>size14</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
-        <focusedlayout width="240" height="300">
-          <control type="group">
+        <focusedlayout width="360" height="450">
             <include>SquareBG_FO</include>
             <control type="image">
               <texture colordiffuse="$VAR[OverlayColor]">img/WhiteDot.png</texture>
               <include>SquareCommons</include>
             </control>
             <control type="image">
+              <bordersize>10</bordersize>
               <aspectratio>keep</aspectratio>
               <include>SquareCommons</include>
               <texture background="true">$INFO[ListItem.Thumb]</texture>
             </control>
             <control type="label">
-              <left>2</left>
-              <top>238</top>
-              <width>95%</width>
+              <left>20</left>
+              <right>20</right>
+              <top>366</top>
               <height>30</height>
-              <font>size14</font>
               <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.Label]</label>
             </control>
-          </control>
         </focusedlayout>
       </control>
       <control type="group" description="Side menu 9000 group">
