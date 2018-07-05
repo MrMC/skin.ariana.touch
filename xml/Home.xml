@@ -73,13 +73,16 @@
             <include>HeaderLabelShelfUP</include>
             <label>$INFO[Container(8010).ListItem.Property(ItemType)]</label>
           </control>
-          <control type="wraplist" id="8020" description="Continue">
+          <control type="list" id="8020" description="Continue">
             <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
+            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8020).NumItems,1) + !IntegerGreaterThan(Container(8020).NumItems,2)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8020).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
             <centerleft>50%</centerleft>
             <width>1980</width>
             <height>360</height>
+            <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
             <onleft>8020</onleft>
             <onright>8020</onright>
@@ -90,13 +93,16 @@
               <include>RectangleShelfFO</include>
             </focusedlayout>
           </control>
-          <control type="wraplist" id="8010" description="Progress">
+          <control type="list" id="8010" description="Progress">
             <visible>IntegerGreaterThan(Container(8010).NumItems,0) + !Control.IsVisible(8020)</visible>
+            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8010).NumItems,1) + !IntegerGreaterThan(Container(8010).NumItems,2)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8010).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
             <centerleft>50%</centerleft>
             <width>1980</width>
             <height>360</height>
+            <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
             <onleft>8010</onleft>
             <onright>8010</onright>
@@ -139,13 +145,16 @@
             <include>HeaderLabelShelfUP</include>
             <label>$INFO[Container(8011).ListItem.Property(ItemType)]</label>
           </control>
-          <control type="wraplist" id="8011" description="Shows OnDeck">
+          <control type="list" id="8011" description="Shows OnDeck">
             <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
+            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8011).NumItems,1) + !IntegerGreaterThan(Container(8011).NumItems,2)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8011).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
             <centerleft>50%</centerleft>
             <width>1980</width>
             <height>360</height>
+            <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
             <onleft>8011</onleft>
             <onright>8011</onright>
@@ -316,20 +325,29 @@
           <left>0</left>
           <bottom>0</bottom>
           <width>100%</width>
-          <height>93</height>
+          <height>96</height>
           <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon95.png</texture>
           <aspectratio align="left" aligny="top">stretch</aspectratio>
         </control>
         <control type="grouplist" id="700">
-          <include>9000GrouplistParameters</include>
+          <left>0</left>
+          <right>0</right>
+          <bottom>36</bottom>
+          <height>48</height>
+          <itemgap>80</itemgap>
+          <onleft>9000</onleft>
+          <onright>9000</onright>
+          <align>center</align>
+          <aligny>center</aligny>
+          <orientation>horizontal</orientation>
           <control type="button" id="4" description="Views">
             <label>$LOCALIZE[14022]</label>
             <onclick>ClearProperty(shelf)</onclick>
             <onclick>SetProperty(shelf,library)</onclick>
             <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturefocus>
             <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturenofocus>
-            <height>54</height>
-            <textoffsetx>66</textoffsetx>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
           <control type="button" id="1" description="Views">
@@ -339,8 +357,8 @@
             <label>$LOCALIZE[342]</label>
             <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturefocus>
             <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturenofocus>
-            <height>54</height>
-            <textoffsetx>66</textoffsetx>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
           <control type="button" id="2" description="Views">
@@ -350,8 +368,8 @@
             <onclick>SetProperty(shelf,tvshows)</onclick>
             <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturefocus>
             <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturenofocus>
-            <height>54</height>
-            <textoffsetx>66</textoffsetx>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
           <control type="button" id="3" description="Views">
@@ -361,8 +379,18 @@
             <onclick>SetProperty(shelf,music)</onclick>
             <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturefocus>
             <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturenofocus>
-            <height>54</height>
-            <textoffsetx>66</textoffsetx>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
+            <include>9000Buttons</include>
+          </control>
+          <control type="button" id="8999" description="Player">
+            <visible>Player.HasMedia</visible>
+            <onclick condition="Player.HasMedia">fullscreen</onclick>
+            <label>$LOCALIZE[16003]</label>
+            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/player.png</texturefocus>
+            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/player.png</texturenofocus>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
         </control>
