@@ -6,6 +6,7 @@
     <control type="group">
       <include>OpenClose</include>
       <include>View_50</include>
+      <include>View_52</include>
       <control type="fixedlist" id="51" description="51 Wide Container">
         <visible>Container.Content(episodes)</visible>
         <viewtype label="539">Wide 51</viewtype>

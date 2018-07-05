@@ -6,6 +6,7 @@
     <control type="group">
       <include>OpenClose</include>
       <include>View_50</include>
+      <include>View_52</include>
       <control type="panel" id="53" description="Grid view">
         <viewtype label="536">Thumbnails</viewtype>
         <left>24</left>

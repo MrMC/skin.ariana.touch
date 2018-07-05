@@ -23,8 +23,412 @@
       <animation effect="fade" end="5" time="0" condition="true">Conditional</animation>
     </control>
   </include>
+  <include name="View_52" description="52">
+    <control type="list" id="52">
+      <visible>[container.content(movies) | container.content(tvshows) | container.content(seasons) | container.content(episodes) | container.content(albums) | container.content(songs) | container.content(artists)]</visible>
+      <left>100</left>
+      <right>100</right>
+      <top>96</top>
+      <bottom>82</bottom>
+      <onup>51</onup>
+      <ondown>51</ondown>
+      <viewtype label="535">List</viewtype>
+      <preloaditems>2</preloaditems>
+      <itemlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <right>20</right>
+          <top>14</top>
+          <height>40</height>
+          <width>40</width>
+          <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>160</width>
+          <texture fallback="thumbs/PosterFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>180</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>180</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>180</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </itemlayout>
+      <focusedlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <right>20</right>
+          <top>14</top>
+          <height>40</height>
+          <width>40</width>
+          <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>160</width>
+          <texture fallback="thumbs/PosterFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>180</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>180</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>180</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </focusedlayout>
+      <itemlayout condition="container.content(episodes)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <right>20</right>
+          <top>14</top>
+          <height>40</height>
+          <width>40</width>
+          <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>426</width>
+          <texture fallback="thumbs/RectangleFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>450</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>450</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>450</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </itemlayout>
+      <focusedlayout condition="container.content(episodes)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <right>20</right>
+          <top>14</top>
+          <height>40</height>
+          <width>40</width>
+          <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>426</width>
+          <texture fallback="thumbs/RectangleFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>450</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>450</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>450</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </focusedlayout>
+      <itemlayout condition="container.content(artists)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>240</width>
+          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>260</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>260</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>260</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </itemlayout>
+      <focusedlayout condition="container.content(artists)" height="240">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>240</width>
+          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>260</left>
+          <right>0</right>
+          <top>14</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>260</left>
+          <right>0</right>
+          <top>56</top>
+          <height>40</height>
+          <font>size20</font>
+          <label>$VAR[TopLabel]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+        <control type="textbox" description="Plot">
+          <left>260</left>
+          <right>0</right>
+          <top>100</top>
+          <bottom>10</bottom>
+          <font>plot</font>
+          <align>left</align>
+          <label>$VAR[Plots]</label>
+        </control>
+      </focusedlayout>
+      <itemlayout condition="container.content(albums) | container.content(songs)" height="160">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>160</width>
+          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>180</left>
+          <right>0</right>
+          <top>24</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>180</left>
+          <right>0</right>
+          <bottom>24</bottom>
+          <height>40</height>
+          <font>size20</font>
+          <label>$INFO[ListItem.Label2]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+      </itemlayout>
+      <focusedlayout condition="container.content(albums) | container.content(songs)" height="160">
+        <control type="image">
+          <left>20</left>
+          <bottom>0</bottom>
+          <right>20</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <height>100%</height>
+          <width>160</width>
+          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <bordersize>6</bordersize>
+          <aspectratio>scale</aspectratio>
+        </control>
+        <control type="label" description="Main Label">
+          <left>180</left>
+          <right>0</right>
+          <top>24</top>
+          <height>40</height>
+          <font>size22</font>
+          <label>[B]$INFO[ListItem.Label][/B]</label>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+        </control>
+        <control type="label" description="Label2">
+          <left>180</left>
+          <right>0</right>
+          <bottom>24</bottom>
+          <height>40</height>
+          <font>size20</font>
+          <label>$INFO[ListItem.Label2]</label>
+          <textcolor>$VAR[Label2Color]</textcolor>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="group" description="List 52 furniture">
+      <visible>Control.IsVisible(52)</visible>
+      <include>ContainerVisibleFade</include>
+      <control type="label" description="MainHeading">
+        <include>CenterHeading</include>
+        <label>$VAR[GlobalHeadings]</label>
+      </control>
+    </control>
+  </include>
   <include name="View_50" description="50">
     <control type="list" id="50">
+      <visible>![container.content(movies) | container.content(tvshows) | container.content(seasons) | container.content(episodes) | container.content(albums) | container.content(songs) | container.content(artists)]</visible>
       <right>0</right>
       <top>96</top>
       <width>50%</width>
