@@ -10,11 +10,10 @@
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="Background">
-        <animation condition="!ControlGroup(9000).HasFocus(101)" effect="slide" start="0,0" end="0,-200" time="150" tween="cubic" easing="inout" reversible="true">Conditional</animation>
         <left>0</left>
         <top>0</top>
         <width>100%</width>
-        <height>390</height>
+        <height>190</height>
         <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
       </control>
       <control type="image" description="Background Line">
@@ -66,8 +65,10 @@
         <visible>ControlGroup(9000).HasFocus(101)</visible>
         <include>VisibleFadeEffect</include>
         <include>VideoMenuInfo</include>
+        <height>190</height>
       </control>
       <control type="group" id="9009" description="Grouping for navigation sake">
+        <height>190</height>
         <control type="grouplist" id="9002" description="SubMenu Subtitles">
           <visible>ControlGroup(9000).HasFocus(102)</visible>
           <include>VisibleFadeEffect</include>
@@ -176,13 +177,11 @@
       </control>
     </control>
     <control type="group" description="osd buttons">
-      <visible>[System.HasAppleTVSlider + [VideoPlayer.Content(livetv) | VideoPlayer.HasMenu | Pvr.IsPlayingRecording]] | !System.HasAppleTVSlider</visible>
-      <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="OSD BG">
         <left>0</left>
         <bottom>0</bottom>
-        <height>90</height>
+        <height>240</height>
         <width>100%</width>
         <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
       </control>
@@ -244,5 +243,5 @@
         </control>
       </control>
     </control>
-  </controls>
+</controls>
 </window>

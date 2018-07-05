@@ -53,6 +53,7 @@
     <value condition="Container.Content(Movies) + IsEmpty(ListItem.VideoCodec)">$INFO[ListItem.Year]$INFO[ListItem.RatingAndVotes, • ][UPPERCASE]$INFO[ListItem.MPAA, • ][/UPPERCASE]</value>
     <value condition="Container.Content(Seasons) | Container.Content(TVShows)">$INFO[ListItem.Year,, • ]$INFO[ListItem.RatingAndVotes,, • ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20453]][UPPERCASE]$INFO[ListItem.MPAA, • ][/UPPERCASE]</value>
     <value condition="!IsEmpty(ListItem.StartTime)">$INFO[ListItem.StartTime,, - ]$INFO[ListItem.EndTime]$INFO[ListItem.Genre, • ]</value>
+    <value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_YearsActive)]$INFO[ListItem.Property(Artist_Genre),   ]</value>
     <value>$INFO[ListItem.Label2]</value>
   </variable>
   <variable name="CodecList-Genre" description="Shown with Plots and descriptions">

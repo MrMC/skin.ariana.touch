@@ -8,7 +8,7 @@
     <right>40</right>
     <bottom>0</bottom>
     <height>80</height>
-    <itemgap>65</itemgap>
+    <itemgap>30</itemgap>
     <onleft>9000</onleft>
     <onright>9000</onright>
     <onup>50</onup>
@@ -58,57 +58,17 @@
   <include name="VideoMenuInfo">
     <control type="group" description="Info group">
       <top>90</top>
-      <control type="image">
-        <left>15</left>
-        <top>30</top>
-        <width>240</width>
-        <height>256</height>
-        <texture>$INFO[VideoPlayer.Cover]</texture>
-        <aspectratio align="center" aligny="top">keep</aspectratio>
-      </control>
       <control type="group">
-        <left>-30</left>
         <top>30</top>
         <control type="label" description="Main label">
           <visible>![VideoPlayer.Content(MusicVideos)]</visible>
           <include>FullscreenInfoLabelMain</include>
-          <label>[B]$INFO[VideoPlayer.Title][/B]</label>
+          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.TVShowTitle, • ]$INFO[VideoPlayer.Season, - $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode, $LOCALIZE[20359] ]$INFO[VideoPlayer.Year, • ]</label>
         </control>
         <control type="label" description="Main label">
           <visible>VideoPlayer.Content(MusicVideos)</visible>
           <include>FullscreenInfoLabelMain</include>
-          <label>[B]$INFO[VideoPlayer.Artist][/B]</label>
-        </control>
-        <control type="label" description="Label 2">
-          <visible>VideoPlayer.Content(MusicVideos)</visible>
-          <include>FullscreenInfoLabel2</include>
-          <label>$INFO[VideoPlayer.Album]</label>
-        </control>
-        <control type="label" description="Label 2">
-          <visible>VideoPlayer.Content(Episodes)</visible>
-          <include>FullscreenInfoLabel2</include>
-          <label>$INFO[VideoPlayer.TVShowTitle] - $LOCALIZE[20373] $INFO[VideoPlayer.Season], $LOCALIZE[20359] $INFO[VideoPlayer.Episode]</label>
-        </control>
-        <control type="label" description="Label 2">
-          <visible>![VideoPlayer.Content(MusicVideos) | VideoPlayer.Content(episodes)]</visible>
-          <include>FullscreenInfoLabel2</include>
-          <label>$INFO[VideoPlayer.Genre]</label>
-        </control>
-        <control type="textbox">
-          <left>300</left>
-          <top>99</top>
-          <width>1500</width>
-          <height>132</height>
-          <label>$INFO[VideoPlayer.Plot]</label>
-          <align>left</align>
-          <autoscroll>false</autoscroll>
-          <font>plot</font>
-        </control>
-        <control type="label" description="Details">
-          <top>214</top>
-          <font>size16</font>
-          <include>FullscreenInfoLabel2</include>
-          <label>[UPPERCASE]$INFO[VideoPlayer.VideoCodec]$INFO[VideoPlayer.VideoResolution, / ]$INFO[VideoPlayer.AudioCodec, • ]$INFO[VideoPlayer.AudioChannels, / ][/UPPERCASE]</label>
+          <label>[B]$INFO[VideoPlayer.Artist][/B]$INFO[VideoPlayer.Album, • ]</label>
         </control>
       </control>
     </control>
@@ -314,23 +274,13 @@
     </animation>
   </include>
   <include name="FullscreenInfoLabelMain">
-    <left>300</left>
+    <left>0</left>
     <top>-6</top>
-    <right>30</right>
+    <right>0</right>
     <scroll>false</scroll>
-    <align>left</align>
-    <font>size24B</font>
+    <align>center</align>
+    <font>size22</font>
     <textcolor>$VAR[LabelNFColor]</textcolor>
-    <animation effect="fade" time="200">VisibleChange</animation>
-  </include>
-  <include name="FullscreenInfoLabel2">
-    <left>300</left>
-    <top>45</top>
-    <right>30</right>
-    <scroll>false</scroll>
-    <align>left</align>
-    <textcolor>$VAR[LabelNFColor]</textcolor>
-    <font>plot</font>
     <animation effect="fade" time="200">VisibleChange</animation>
   </include>
   <include name="KeyboardButtons">
