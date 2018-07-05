@@ -77,6 +77,12 @@
       </control>
       <control type="grouplist" id="9000">
         <include>9000GrouplistParameters</include>
+        <control type="button" id="8999" description="Player">
+          <visible>Player.HasMedia</visible>
+          <onclick condition="Player.HasMedia">fullscreen</onclick>
+          <label>$LOCALIZE[16003]</label>
+          <include>9000Buttons</include>
+        </control>
         <control type="button" id="2" description="Views">
           <include>9000Buttons</include>
         </control>
