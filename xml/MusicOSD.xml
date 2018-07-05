@@ -9,6 +9,7 @@
       <width>100%</width>
       <texture colordiffuse="black">dot/White95.png</texture>
     </control>
+    <include>DownButton</include>
     <control type="group">
       <left>120</left>
       <top>758</top>

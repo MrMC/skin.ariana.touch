@@ -118,13 +118,14 @@
     <control type="button" description="Down">
       <top>16</top>
       <left>46</left>
-      <texturefocus colordiffuse="blue">icons/touch/down.png</texturefocus>
+      <texturefocus>icons/touch/down.png</texturefocus>
       <texturenofocus>icons/touch/down.png</texturenofocus>
       <width>80</width>
       <height>80</height>
       <font>-</font>
       <align>left</align>
       <aligny>center</aligny>
+      <onclick>Dialog.Close(all)</onclick>
       <onclick>fullscreen</onclick>
     </control>
   </include>

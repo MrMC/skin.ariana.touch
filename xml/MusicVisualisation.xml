@@ -138,6 +138,9 @@
         <textcolor>$VAR[LabelFOColor]</textcolor>
       </control>
     </control>
+    <control type="group">
+    <visible>!Window.IsActive(musicosd.xml)</visible>
     <include>DownButton</include>
+  </control>
   </controls>
 </window>
