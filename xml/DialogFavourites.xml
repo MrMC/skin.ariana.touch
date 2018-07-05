@@ -2,7 +2,8 @@
 <window>
   <defaultcontrol always="true">450</defaultcontrol>
   <controls>
-    <include>DialogFullBG</include>
+    <include>PlainBG</include>
+    <include>BackButton</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="Heading">
@@ -103,21 +104,6 @@
         <bordersize>0</bordersize>
         <aspectratio>scale</aspectratio>
       </control>
-      <!--<control type="grouplist" id="9000">
-        <include>9000GrouplistParameters</include>
-        <control type="button" id="413" description="Ok">
-          <label>186</label>
-          <include>9000Buttons</include>
-        </control>
-        <control type="button" id="414" description="Cancel">
-          <label>222</label>
-          <include>9000Buttons</include>
-        </control>
-        <control type="button" id="415" description="Create folder">
-          <label>119</label>
-          <include>9000Buttons</include>
-        </control>
-      </control>-->
     </control>
   </controls>
 </window>
