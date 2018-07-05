@@ -114,6 +114,20 @@
       </control>
     </control>
   </include>
+  <include name="DownButton">
+    <control type="button" description="Down">
+      <top>16</top>
+      <left>46</left>
+      <texturefocus colordiffuse="blue">icons/touch/down.png</texturefocus>
+      <texturenofocus>icons/touch/down.png</texturenofocus>
+      <width>80</width>
+      <height>80</height>
+      <font>-</font>
+      <align>left</align>
+      <aligny>center</aligny>
+      <onclick>fullscreen</onclick>
+    </control>
+  </include>
   <include name="CloseButton">
     <control type="button" description="Close">
       <top>16</top>

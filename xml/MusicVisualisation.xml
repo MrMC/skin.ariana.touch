@@ -84,36 +84,24 @@
     <control type="group" id="0">
       <left>0</left>
       <top>0</top>
-      <visible>Player.ShowCodec</visible>
       <animation effect="fade" time="200">VisibleChange</animation>
       <control type="image" description="Info Background">
         <left>0</left>
         <top>0</top>
-        <width>1920</width>
+        <width>100%</width>
         <height>60</height>
-        <texture>img/BlackDotST2.png</texture>
+        <texture>dot/Black65.png</texture>
       </control>
       <control type="label" description="row 1 sys label">
-        <left>45</left>
+        <left>46</left>
+        <right>46</right>
         <top>0</top>
-        <width>1770</width>
         <height>60</height>
-        <align>left</align>
+        <align>center</align>
         <aligny>center</aligny>
-        <font>size17</font>
+        <font>size18</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>[UPPERCASE]$INFO[musicplayer.Codec][/UPPERCASE] $INFO[musicplayer.Bitrate, @ ,kbps]$INFO[musicplayer.bitspersample, · ,bit]$INFO[musicplayer.Samplerate, · ,kHz]$INFO[musicplayer.Channels, · , $LOCALIZE[21444]]</label>
-      </control>
-      <control type="label" description="row 2 sys label">
-        <left>1875</left>
-        <top>0</top>
-        <width>1770</width>
-        <height>60</height>
-        <align>right</align>
-        <aligny>center</aligny>
-        <font>size17</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <label>$INFO[Visualisation.Preset,, @ ]$INFO[Visualisation.Name]</label>
       </control>
     </control>
     <control type="group" description="next/Previous">
@@ -150,5 +138,6 @@
         <textcolor>$VAR[LabelFOColor]</textcolor>
       </control>
     </control>
+    <include>DownButton</include>
   </controls>
 </window>
