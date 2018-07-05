@@ -330,11 +330,11 @@
           <aspectratio align="left" aligny="top">stretch</aspectratio>
         </control>
         <control type="grouplist" id="700">
-          <left>0</left>
-          <right>0</right>
+          <left>40</left>
+          <right>40</right>
           <bottom>36</bottom>
           <height>48</height>
-          <itemgap>80</itemgap>
+          <itemgap>30</itemgap>
           <onleft>9000</onleft>
           <onright>9000</onright>
           <align>center</align>
