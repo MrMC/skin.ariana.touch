@@ -13,7 +13,7 @@
         <animation condition="!ControlGroup(9000).HasFocus(101)" effect="slide" start="0,0" end="0,-200" time="150" tween="cubic" easing="inout" reversible="true">Conditional</animation>
         <left>0</left>
         <top>0</top>
-        <width>1920</width>
+        <width>100%</width>
         <height>390</height>
         <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
       </control>
