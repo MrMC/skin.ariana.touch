@@ -3,7 +3,7 @@
   <zorder>2</zorder>
   <onunload>Dialog.Close(osdsettings)</onunload>
   <visible>[[Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd) | Window.IsActive(osdsettings.xml)] + Window.IsActive(fullscreenvideo)] | [Window.IsActive(visualisation) + [Player.Showinfo | Window.IsActive(musicosd)]] | !IsEmpty(Player.SeekNumeric) | Window.IsActive(playercontrols)</visible>
-	<visible>![Window.IsActive(sliderdialog) | Window.IsActive(locksettings) | Window.IsActive(dialogsubtitles.xml) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+  <visible>![Window.IsActive(sliderdialog) | Window.IsActive(locksettings) | Window.IsActive(dialogsubtitles.xml) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
   <include>VisibleFadeEffect</include>
   <controls>
     <control type="group">
@@ -43,75 +43,6 @@
           <label>$INFO[Player.SeekOffset]</label>
         </control>
       </control>
-      <control type="label">
-        <left>60</left>
-        <top>-50</top>
-        <height>30</height>
-        <width>180</width>
-        <align>left</align>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[System.Time]</label>
-        <font>size17</font>
-      </control>
-      <control type="label">
-        <right>60</right>
-        <top>-50</top>
-        <height>30</height>
-        <width>180</width>
-        <align>right</align>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[Player.FinishTime]</label>
-        <font>size17</font>
-      </control>
-      <control type="label">
-        <left>60</left>
-        <top>32</top>
-        <height>30</height>
-        <width>180</width>
-        <align>left</align>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[Player.Time]</label>
-        <font>size17</font>
-      </control>
-      <control type="label">
-        <right>60</right>
-        <top>32</top>
-        <height>30</height>
-        <width>180</width>
-        <align>right</align>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-        <label>$INFO[Player.TimeRemaining]</label>
-        <font>size17</font>
-      </control>
-      <control type="progress" description="Cache Progress">
-        <left>0</left>
-        <right>0</right>
-        <height>16</height>
-        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
-        <midtexture colordiffuse="silver">OSD/ProgressMid.png</midtexture>
-        <info>Player.ProgressCache</info>
-      </control>
-      <control type="progress" description="Video Progress">
-        <left>0</left>
-        <right>0</right>
-        <height>16</height>
-        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
-        <midtexture border="1">OSD/ProgressMid.png</midtexture>
-        <info>Player.Progress</info>
-      </control>
-      <!--<control type="slider" id="401" description="Seek Scrub Position Vertical Bar">
-        <left>0</left>
-        <right>0</right>
-        <height>16</height>
-        <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
-        <textureslidernib colordiffuse="$VAR[SelectedColor]">OSD/SliderNib.png</textureslidernib>
-        <textureslidernibfocus colordiffuse="$VAR[SelectedColor]">OSD/SliderNib.png</textureslidernibfocus>
-        <action>seek</action>
-      </control>-->
     </control>
   </controls>
 </window>

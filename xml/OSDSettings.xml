@@ -2,11 +2,10 @@
 <window>
   <defaultcontrol always="true">9000</defaultcontrol>
   <zorder>1</zorder>
-  <onload>Dialog.Close(videoosd)</onload>
   <onload>Dialog.Close(fullscreeninfo)</onload>
   <controls>
     <control type="group" description="Video TopMenu">
-      <visible>Player.HasVideo + ![Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+      <visible>Player.HasVideo + ![Window.IsActive(videoosd) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="Background">
@@ -14,7 +13,7 @@
         <top>0</top>
         <width>100%</width>
         <height>190</height>
-        <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
+        <texture>dot/Black65.png</texture>
       </control>
       <control type="image" description="Background Line">
         <left>0</left>
@@ -173,73 +172,6 @@
             <label>$LOCALIZE[31022]</label>
             <onclick>ActivateWindow(Teletext)</onclick>
           </control>
-        </control>
-      </control>
-    </control>
-    <control type="group" description="osd buttons">
-      <include>OpenClose</include>
-      <control type="image" description="OSD BG">
-        <left>0</left>
-        <bottom>0</bottom>
-        <height>240</height>
-        <width>100%</width>
-        <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
-      </control>
-      <control type="grouplist" id="777">
-        <centerleft>50%</centerleft>
-        <width>100%</width>
-        <bottom>0</bottom>
-        <height>75</height>
-        <itemgap>0</itemgap>
-        <align>center</align>
-        <orientation>horizontal</orientation>
-        <onup>9000</onup>
-        <control type="button" id="1">
-          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/Previous.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Previous.png</texturefocus>
-          <onclick>PlayerControl(Previous)</onclick>
-        </control>
-        <control type="button" id="2">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/RW.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/RW.png</texturefocus>
-          <onclick>PlayerControl(Rewind)</onclick>
-        </control>
-        <control type="button" id="3">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/Stop.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Stop.png</texturefocus>
-          <onclick>PlayerControl(Stop)</onclick>
-        </control>
-        <control type="togglebutton" id="4">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/Play.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Play.png</texturefocus>
-          <usealttexture>Player.Playing</usealttexture>
-          <alttexturenofocus colordiffuse="grey">OSD/Pause.png</alttexturenofocus>
-          <alttexturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Pause.png</alttexturefocus>
-          <onclick>PlayerControl(Play)</onclick>
-        </control>
-        <control type="button" id="5">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/FF.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/FF.png</texturefocus>
-          <onclick>PlayerControl(Forward)</onclick>
-        </control>
-        <control type="button" id="6">
-          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus colordiffuse="grey">OSD/Next.png</texturenofocus>
-          <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Next.png</texturefocus>
-          <onclick>PlayerControl(Next)</onclick>
         </control>
       </control>
     </control>

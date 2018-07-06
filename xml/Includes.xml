@@ -76,17 +76,17 @@
   </include>
   <include name="DownButton">
     <control type="button" description="Down">
-      <top>16</top>
-      <left>46</left>
+      <top>46</top>
+      <right>46</right>
       <texturefocus>icons/touch/down.png</texturefocus>
       <texturenofocus>icons/touch/down.png</texturenofocus>
-      <width>80</width>
-      <height>80</height>
+      <width>50</width>
+      <height>50</height>
       <font>-</font>
       <align>left</align>
       <aligny>center</aligny>
       <onclick>Dialog.Close(all)</onclick>
-      <onclick>fullscreen</onclick>
+      <onclick>FullScreen</onclick>
     </control>
   </include>
   <include name="CloseButton">
@@ -100,7 +100,22 @@
       <font>-</font>
       <align>left</align>
       <aligny>center</aligny>
-      <onclick>back</onclick>
+      <onclick>Dialog.Close()</onclick>
+    </control>
+  </include>
+  <include name="PlayerCloseButton">
+    <control type="button" description="PlayerClose">
+      <top>46</top>
+      <left>46</left>
+      <texturefocus>icons/touch/close.png</texturefocus>
+      <texturenofocus>icons/touch/close.png</texturenofocus>
+      <width>50</width>
+      <height>50</height>
+      <font>-</font>
+      <align>left</align>
+      <aligny>center</aligny>
+      <onclick>Dialog.Close(all)</onclick>
+      <onclick>PlayerControl(Stop)</onclick>
     </control>
   </include>
   <include name="BackButton">
@@ -146,7 +161,7 @@
     <alttexturefocus/>
     <alttexturenofocus/>
     <textcolor>grey</textcolor>
-    <focusedcolor>$VAR[LabelNFColor]</focusedcolor>
+    <focusedcolor>white</focusedcolor>
   </include>
   <include name="CenterHeading">
     <top>0</top>
@@ -356,7 +371,7 @@
     <scroll>false</scroll>
     <align>center</align>
     <font>size22</font>
-    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <textcolor>white</textcolor>
     <animation effect="fade" time="200">VisibleChange</animation>
   </include>
   <include name="KeyboardButtons">
