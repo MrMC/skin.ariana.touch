@@ -7,5 +7,6 @@
       <include>OpenClose</include>
       <include>View_50</include>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

@@ -273,7 +273,6 @@
       <control type="group" description="Right panel">
         <left>1215</left>
         <top>78</top>
-
         <control type="panel" id="100">
           <visible>!IsEmpty(Container(100).ListItem.Label)</visible>
           <left>-15</left>
@@ -298,7 +297,6 @@
           </itemlayout>
           <focusedlayout height="60" width="600">
             <control type="group">
-
               <control type="image">
                 <animation effect="fade" time="100">VisibleChange</animation>
                 <left>5</left>
@@ -321,61 +319,6 @@
           </focusedlayout>
         </control>
       </control>
-      <!--<control type="grouplist" id="8999">
-        <centerleft>50%</centerleft>
-        <top>184</top>
-        <width>154</width>
-        <height>500</height>
-        <itemgap>60</itemgap>
-        <onleft>50</onleft>
-        <onright>100</onright>
-        <align>center</align>
-        <aligny>center</aligny>
-        <orientation>vertical</orientation>
-        <control type="button" id="6" description="Open">
-          <texturefocus>buttons/AddFO.png</texturefocus>
-          <texturenofocus>buttons/AddNF.png</texturenofocus>
-          <include>SquareButtonCommons</include>
-
-          <label>31055</label>
-        </control>
-        <control type="button" id="7" description="Save">
-          <texturefocus>buttons/OKFO.png</texturefocus>
-          <texturenofocus>buttons/OKNF.png</texturenofocus>
-          <include>SquareButtonCommons</include>
-
-          <label>31056</label>
-        </control>
-        <control type="button" id="8" description="Clear">
-          <texturefocus>buttons/CloseFO.png</texturefocus>
-          <texturenofocus>buttons/CloseNF.png</texturenofocus>
-          <include>SquareButtonCommons</include>
-
-          <label>31057</label>
-        </control>
-      </control>-->
-      <!--<control type="scrollbar" id="550">
-        <left>30</left>
-        <top>210</top>
-        <height>759</height>
-        <width>12</width>
-        <onleft>noop</onleft>
-        <onright>50</onright>
-        <animation type="Conditional" condition="!Control.HasFocus(550) + !Container.Scrolling">
-          <effect type="fade" start="100" end="40" time="200" reversible="true" />
-        </animation>
-      </control>
-      <control type="scrollbar" id="150">
-        <right>30</right>
-        <top>210</top>
-        <height>759</height>
-        <width>12</width>
-        <onleft>100</onleft>
-        <onright>noop</onright>
-        <animation type="Conditional" condition="!Control.HasFocus(150) + !Container.Scrolling">
-          <effect type="fade" start="100" end="40" time="200" reversible="true" />
-        </animation>
-      </control>-->
     </control>
   </controls>
 </window>

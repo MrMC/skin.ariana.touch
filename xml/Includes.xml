@@ -4,11 +4,11 @@
   <include file="defaults.xml" />
   <include file="Includes_Views.xml" />
   <include name="9000GrouplistParameters">
-    <left>40</left>
-    <right>40</right>
+    <left>0</left>
+    <right>0</right>
     <bottom>0</bottom>
     <height>80</height>
-    <itemgap>30</itemgap>
+    <itemgap>40</itemgap>
     <onleft>9000</onleft>
     <onright>9000</onright>
     <onup>50</onup>
@@ -23,6 +23,7 @@
     <textoffsetx>0</textoffsetx>
     <align>center</align>
     <aligny>center</aligny>
+    <font>size19CU</font>
     <textcolor>$VAR[SelectedColor]</textcolor>
     <focusedcolor>$VAR[SelectedColor]</focusedcolor>
     <alttextcolor>$VAR[SelectedColor]</alttextcolor>
@@ -104,18 +105,34 @@
   </include>
   <include name="BackButton">
     <control type="button" description="Back">
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturenofocus>
       <top>0</top>
       <left>46</left>
-      <texturefocus/>
-      <texturenofocus/>
-      <width>600</width>
+      <width>360</width>
       <height>96</height>
       <focusedcolor>$VAR[SelectedColor]</focusedcolor>
       <textcolor>$VAR[SelectedColor]</textcolor>
       <align>left</align>
       <aligny>center</aligny>
-      <label>[UPPERCASE]&lt; $LOCALIZE[31040][/UPPERCASE]</label>
+      <textoffsetx>60</textoffsetx>
+      <label>[UPPERCASE]$LOCALIZE[31040][/UPPERCASE]</label>
       <onclick>back</onclick>
+    </control>
+  </include>
+  <include name="SearchButton">
+    <control type="button" id="19" description="Search">
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturenofocus>
+      <top>0</top>
+      <right>46</right>
+      <width>360</width>
+      <height>96</height>
+      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+      <textcolor>$VAR[SelectedColor]</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <textoffsetx>64</textoffsetx>
     </control>
   </include>
   <include name="VideoMenuButtons">
@@ -138,7 +155,66 @@
     <aligny>center</aligny>
     <width>100%</width>
     <height>96</height>
-    <font>size22B</font>
+    <font>size22UB</font>
+  </include>
+  <include name="NowPlaying">
+    <control type="group" description="NowPlaying">
+      <visible>Player.HasMedia</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="image" description="bg">
+        <left>0</left>
+        <bottom>80</bottom>
+        <width>100%</width>
+        <height>88</height>
+        <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon.png</texture>
+        <aspectratio align="left" aligny="top">stretch</aspectratio>
+      </control>
+
+      <control type="label">
+        <bottom>80</bottom>
+        <left>60</left>
+        <right>300</right>
+        <height>88</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>size19CU</font>
+        <textoffsetx>0</textoffsetx>
+        <textcolor>$VAR[Label2Color]</textcolor>
+        <focusedcolor>$VAR[Label2Color]</focusedcolor>
+        <scrollsuffix> • </scrollsuffix>
+        <label>$VAR[PlayerState]: [COLOR $VAR[LabelNFColor]]$INFO[MusicPlayer.Artist,, • ]$INFO[Player.Title][/COLOR]$INFO[Player.TimeRemaining, / ]</label>
+      </control>
+      <control type="togglebutton" id="3">
+        <bottom>100</bottom>
+        <right>220</right>
+        <height>50</height>
+        <width>50</width>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/play.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/play.png</texturefocus>
+        <alttexturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/pause.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/pause.png</alttexturefocus>
+        <usealttexture>Player.Playing</usealttexture>
+        <onclick>PlayerControl(Play)</onclick>
+      </control>
+      <control type="button" id="3">
+        <bottom>100</bottom>
+        <right>140</right>
+        <height>50</height>
+        <width>50</width>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/stop.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/stop.png</texturefocus>
+        <onclick>PlayerControl(Stop)</onclick>
+      </control>
+      <control type="button" id="5" description="Player">
+        <bottom>100</bottom>
+        <right>60</right>
+        <height>50</height>
+        <width>50</width>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/fullscreen.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/fullscreen.png</texturefocus>
+        <onclick>fullscreen</onclick>
+      </control>
+    </control>
   </include>
   <include name="FullBackground">
     <control type="image" description="BG image">
@@ -290,5 +366,17 @@
     <width>68</width>
     <height>68</height>
     <font>size26</font>
+  </include>
+  <include name="KeyboardButtonsPin">
+    <align>center</align>
+    <aligny>center</aligny>
+    <textoffsetx>0</textoffsetx>
+    <width>100</width>
+    <height>100</height>
+    <font>size28</font>
+    <textcolor>$VAR[SelectedColor]</textcolor>
+    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+    <texturefocus colordiffuse="$VAR[SelectedColor]">buttons/KeyNumeric.png</texturefocus>
+    <texturenofocus colordiffuse="$VAR[SelectedColor]">buttons/KeyNumeric.png</texturenofocus>
   </include>
 </includes>

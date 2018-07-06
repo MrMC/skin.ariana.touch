@@ -150,5 +150,6 @@
         <visible>false</visible>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

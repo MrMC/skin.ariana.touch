@@ -8,12 +8,6 @@
       <include>View_50</include>
       <control type="grouplist" id="9001">
         <include>9000GrouplistParameters</include>
-        <control type="button" id="8999" description="Player">
-          <visible>Player.HasMedia</visible>
-          <onclick condition="Player.HasMedia">fullscreen</onclick>
-          <label>$LOCALIZE[16003]</label>
-          <include>9000Buttons</include>
-        </control>
         <control type="button" id="23" description="Play">
           <include>9000Buttons</include>
           <label>208</label>
@@ -32,5 +26,6 @@
         </control>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

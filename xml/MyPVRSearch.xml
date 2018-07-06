@@ -194,5 +194,6 @@
         <include>PVRGroup9000</include>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

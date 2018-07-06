@@ -6,25 +6,35 @@
     <control type="group">
       <include>OpenClose</include>
       <include>View_50</include>
-      <include>View_52</include>
       <control type="panel" id="53" description="Grid view">
         <viewtype label="536">Thumbnails</viewtype>
-        <left>24</left>
+        <left>48</left>
+        <right>48</right>
         <top>96</top>
-        <height>900</height>
-        <orientation>horizontal</orientation>
-        <pagecontrol>60</pagecontrol>
+        <bottom>80</bottom>
         <preloaditems>4</preloaditems>
-        <itemlayout width="360" height="450">
-          <include>SquareBG_FO</include>
+        <itemlayout width="288" height="400">
           <control type="image">
-            <include>SquareCommons</include>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>288</height>
+            <bordersize>8</bordersize>
+            <texture>thumbs/SquareFO.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>288</height>
+            <aspectratio aligny="top">scale</aspectratio>
+            <bordersize>9</bordersize>
             <texture background="true">$INFO[ListItem.Thumb]</texture>
           </control>
           <control type="label">
             <left>20</left>
             <right>20</right>
-            <top>366</top>
+            <top>294</top>
             <height>30</height>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
@@ -32,34 +42,46 @@
           <control type="label">
             <left>20</left>
             <right>20</right>
-            <top>400</top>
+            <top>330</top>
             <height>30</height>
             <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label2]</label>
           </control>
         </itemlayout>
-        <focusedlayout width="360" height="450">
-            <include>SquareBG_FO</include>
-            <control type="image">
-              <include>SquareCommons</include>
-              <texture background="true">$INFO[ListItem.Thumb]</texture>
-            </control>
-            <control type="label">
-              <left>20</left>
-              <right>20</right>
-              <top>366</top>
-              <height>30</height>
-              <textcolor>$VAR[LabelNFColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label">
-              <left>20</left>
-              <right>20</right>
-              <top>400</top>
-              <height>30</height>
-              <textcolor>$VAR[Label2Color]</textcolor>
-              <label>$INFO[ListItem.Label2]</label>
-            </control>
+        <focusedlayout width="288" height="400">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>288</height>
+            <bordersize>8</bordersize>
+            <texture>thumbs/SquareFO.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>288</height>
+            <aspectratio aligny="top">scale</aspectratio>
+            <bordersize>9</bordersize>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <right>20</right>
+            <top>294</top>
+            <height>30</height>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <right>20</right>
+            <top>330</top>
+            <height>30</height>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Label2]</label>
+          </control>
         </focusedlayout>
       </control>
       <control type="group" description="53 furniture">
@@ -73,12 +95,6 @@
       <control type="group" description="Side menu 9000 group">
         <control type="grouplist" id="9000">
           <include>9000GrouplistParameters</include>
-          <control type="button" id="8999" description="Player">
-            <visible>Player.HasMedia</visible>
-            <onclick condition="Player.HasMedia">fullscreen</onclick>
-            <label>$LOCALIZE[16003]</label>
-            <include>9000Buttons</include>
-          </control>
           <control type="button" id="2" description="Views">
             <include>9000Buttons</include>
           </control>
@@ -98,5 +114,6 @@
         </control>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

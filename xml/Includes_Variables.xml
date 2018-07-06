@@ -9,6 +9,10 @@
     <value condition="ListItem.IsResumable">OverlayInProgress.png</value>
     <value>$INFO[ListItem.Overlay]</value>
   </variable>
+  <variable name="PlayerState" description="MiniPlayerOverlay">
+    <value condition="Player.Playing">$LOCALIZE[31041]</value>
+    <value condition="Player.Paused">$LOCALIZE[31042]</value>
+  </variable>
   <variable name="Thumbnail" description="Item Thumb">
     <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
     <value>$INFO[ListItem.Icon]</value>

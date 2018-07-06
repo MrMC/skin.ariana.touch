@@ -5,8 +5,8 @@
     <include>FullBackground</include>
     <control type="group">
       <include>OpenClose</include>
+      <include>SearchButton</include>
       <include>View_50</include>
-      <include>View_52</include>
       <control type="fixedlist" id="51" description="51 Wide Container">
         <visible>Container.Content(episodes)</visible>
         <viewtype label="539">Wide 51</viewtype>
@@ -138,17 +138,139 @@
       <control type="panel" id="53" description="Grid Container">
         <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
         <viewtype label="536">Thumbnails</viewtype>
-        <left>24</left>
+        <left>48</left>
+        <right>48</right>
         <top>96</top>
-        <height>900</height>
-        <orientation>horizontal</orientation>
+        <bottom>80</bottom>
+        <centerleft>50%</centerleft>
         <preloaditems>4</preloaditems>
-        <pagecontrol>60</pagecontrol>
-        <itemlayout width="260" height="450">
-          <include>PostersShelfFO</include>
+        <itemlayout width="240" height="470">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <texture>thumbs/PosterFO.png</texture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="image">
+            <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <aspectratio>scale</aspectratio>
+            <bordersize>9</bordersize>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+          </control>
+          <control type="image">
+            <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <aspectratio>scale</aspectratio>
+            <bordersize>9</bordersize>
+            <texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+          </control>
+          <control type="group" description="Overlay">
+            <control type="image">
+              <right>9</right>
+              <top>9</top>
+              <height>64</height>
+              <width>64</width>
+              <aspectratio>keep</aspectratio>
+              <texture>OverlayBG.png</texture>
+            </control>
+            <control type="image">
+              <right>11</right>
+              <top>11</top>
+              <height>30</height>
+              <width>30</width>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="FF000000">$VAR[Overlay]</texture>
+            </control>
+          </control>
+          <control type="label">
+            <left>10</left>
+            <right>10</right>
+            <top>366</top>
+            <height>45</height>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Label2">
+            <left>10</left>
+            <right>10</right>
+            <top>404</top>
+            <height>45</height>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$VAR[ShelfLabel2]</label>
+          </control>
         </itemlayout>
-        <focusedlayout width="260" height="450">
-          <include>PostersShelfFO</include>
+        <focusedlayout width="240" height="470">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <texture>thumbs/PosterFO.png</texture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="image">
+            <visible>IsEmpty(ListItem.Art(tvshow.poster))</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <aspectratio>scale</aspectratio>
+            <bordersize>9</bordersize>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+          </control>
+          <control type="image">
+            <visible>!IsEmpty(ListItem.Art(tvshow.poster))</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>370</height>
+            <aspectratio>scale</aspectratio>
+            <bordersize>9</bordersize>
+            <texture background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+          </control>
+          <control type="group" description="Overlay">
+            <control type="image">
+              <right>9</right>
+              <top>9</top>
+              <height>64</height>
+              <width>64</width>
+              <aspectratio>keep</aspectratio>
+              <texture>OverlayBG.png</texture>
+            </control>
+            <control type="image">
+              <right>11</right>
+              <top>11</top>
+              <height>30</height>
+              <width>30</width>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="FF000000">$VAR[Overlay]</texture>
+            </control>
+          </control>
+          <control type="label">
+            <left>10</left>
+            <right>10</right>
+            <top>366</top>
+            <height>45</height>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label" description="Label2">
+            <left>10</left>
+            <right>10</right>
+            <top>404</top>
+            <height>45</height>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$VAR[ShelfLabel2]</label>
+          </control>
         </focusedlayout>
       </control>
       <control type="group" description="53 Furniture">
@@ -163,19 +285,11 @@
         <include>VisibleFadeEffect</include>
         <control type="grouplist" id="9000">
           <include>9000GrouplistParameters</include>
-          <control type="button" id="8999" description="Player">
-            <visible>Player.HasMedia</visible>
-            <onclick condition="Player.HasMedia">fullscreen</onclick>
-            <label>$LOCALIZE[16003]</label>
-            <include>9000Buttons</include>
-          </control>
           <control type="button" id="2" description="Views">
             <include>9000Buttons</include>
           </control>
-          <control type="togglebutton" id="14" description="Toggle Watched">
+          <control type="togglebutton" id="10" description="Toggle Watched">
             <include>9000Buttons</include>
-            <label>$LOCALIZE[535]: $LOCALIZE[16100]</label>
-            <altlabel>$LOCALIZE[535]: $LOCALIZE[16101]</altlabel>
           </control>
           <control type="button" id="3" description="Sort">
             <include>9000Buttons</include>
@@ -193,5 +307,6 @@
         </control>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

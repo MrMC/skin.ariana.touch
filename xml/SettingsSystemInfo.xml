@@ -129,5 +129,6 @@
         </control>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>

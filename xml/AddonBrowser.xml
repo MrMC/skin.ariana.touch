@@ -4,5 +4,6 @@
   <controls>
     <include>FullBackground</include>
     <include>View_50</include>
+    <include>NowPlaying</include>
   </controls>
 </window>

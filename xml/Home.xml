@@ -23,6 +23,7 @@
           <disabledcolor>$VAR[DisabledColor]</disabledcolor>
           <texturefocus/>
           <texturenofocus/>
+          <font>size20CU</font>
           <aligny>center</aligny>
           <align>right</align>
           <label>$LOCALIZE[10004]</label>
@@ -35,6 +36,7 @@
           <texturenofocus/>
           <width>500</width>
           <height>96</height>
+          <font>size20CU</font>
           <textcolor>$VAR[SelectedColor]</textcolor>
           <focusedcolor>$VAR[SelectedColor]</focusedcolor>
           <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -53,6 +55,7 @@
           <texturenofocus/>
           <align>center</align>
           <aligny>center</aligny>
+          <font>size20U</font>
           <textcolor>$VAR[SelectedColor]</textcolor>
           <focusedcolor>$VAR[SelectedColor]</focusedcolor>
           <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -73,14 +76,12 @@
             <include>HeaderLabelShelfUP</include>
             <label>$INFO[Container(8010).ListItem.Property(ItemType)]</label>
           </control>
-          <control type="list" id="8020" description="Continue">
+          <control type="panel" id="8020" description="Continue">
             <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
-            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8020).NumItems,1) + !IntegerGreaterThan(Container(8020).NumItems,2)">Conditional</animation>
-            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8020).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
-            <centerleft>50%</centerleft>
-            <width>1980</width>
+            <left>24</left>
+            <right>0</right>
             <height>360</height>
             <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
@@ -93,16 +94,13 @@
               <include>RectangleShelfFO</include>
             </focusedlayout>
           </control>
-          <control type="list" id="8010" description="Progress">
+          <control type="panel" id="8010" description="Progress">
             <visible>IntegerGreaterThan(Container(8010).NumItems,0) + !Control.IsVisible(8020)</visible>
-            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8010).NumItems,1) + !IntegerGreaterThan(Container(8010).NumItems,2)">Conditional</animation>
-            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8010).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
-            <centerleft>50%</centerleft>
-            <width>1980</width>
+            <left>24</left>
+            <right>0</right>
             <height>360</height>
-            <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
             <onleft>8010</onleft>
             <onright>8010</onright>
@@ -145,16 +143,13 @@
             <include>HeaderLabelShelfUP</include>
             <label>$INFO[Container(8011).ListItem.Property(ItemType)]</label>
           </control>
-          <control type="list" id="8011" description="Shows OnDeck">
+          <control type="panel" id="8011" description="Shows OnDeck">
             <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
-            <animation effect="slide" start="0,0" end="330,0" time="0" reversible="true" condition="IntegerGreaterThan(Container(8011).NumItems,1) + !IntegerGreaterThan(Container(8011).NumItems,2)">Conditional</animation>
-            <animation effect="slide" start="0,0" end="660,0" time="0" reversible="true" condition="!IntegerGreaterThan(Container(8011).NumItems,1)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <top>93</top>
-            <centerleft>50%</centerleft>
-            <width>1980</width>
+            <left>24</left>
+            <right>0</right>
             <height>360</height>
-            <focusposition>1</focusposition>
             <orientation>horizontal</orientation>
             <onleft>8011</onleft>
             <onright>8011</onright>
@@ -251,21 +246,19 @@
             </focusedlayout>
           </control>
         </control>
-        <control type="group" description="MainMenu">
+        <control type="panel" id="9000" description="Main menu">
           <visible>StringCompare(Window.Property(shelf),library)</visible>
           <include>VisibleFadeEffect</include>
-          <control type="panel" id="9000" description="Main menu">
-            <centertop>50%</centertop>
-            <bottom>80</bottom>
-            <width>100%</width>
-            <left>40</left>
-            <height>800</height>
+            <top>150</top>
+            <bottom>86</bottom>
+            <centerleft>50%</centerleft>
+            <width>1280</width>
             <onup>9000</onup>
             <ondown>9000</ondown>
             <onleft>9000</onleft>
             <onright>9000</onright>
-            <orientation>horizontal</orientation>
-            <itemlayout height="200" width="320">
+            <orientation>vertical</orientation>
+            <itemlayout height="160" width="320">
               <control type="image">
                 <left>0</left>
                 <top>0</top>
@@ -275,10 +268,9 @@
                 <bordersize>12</bordersize>
               </control>
               <control type="image">
-                <centerleft>50%</centerleft>
-                <centertop>50%</centertop>
-                <height>60</height>
-                <width>60</width>
+                <top>44</top>
+                <bottom>66</bottom>
+                <width>100%</width>
                 <texture>$INFO[ListItem.Property(type),icons/,.png]</texture>
                 <aspectratio>keep</aspectratio>
               </control>
@@ -292,7 +284,7 @@
                 <label>$INFO[ListItem.Label]</label>
               </control>
             </itemlayout>
-            <focusedlayout height="200" width="320">
+            <focusedlayout height="160" width="320">
               <control type="image">
                 <left>0</left>
                 <top>0</top>
@@ -302,10 +294,9 @@
                 <bordersize>12</bordersize>
               </control>
               <control type="image">
-                <centerleft>50%</centerleft>
-                <centertop>50%</centertop>
-                <height>60</height>
-                <width>60</width>
+                <top>44</top>
+                <bottom>66</bottom>
+                <width>100%</width>
                 <texture>$INFO[ListItem.Property(type),icons/,.png]</texture>
                 <aspectratio>keep</aspectratio>
               </control>
@@ -320,7 +311,6 @@
               </control>
             </focusedlayout>
           </control>
-        </control>
         <control type="image" description="BottomBar">
           <left>0</left>
           <bottom>0</bottom>
@@ -329,7 +319,7 @@
           <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon95.png</texture>
           <aspectratio align="left" aligny="top">stretch</aspectratio>
         </control>
-        <control type="grouplist" id="700">
+        <control type="grouplist">
           <left>40</left>
           <right>40</right>
           <bottom>36</bottom>
@@ -383,17 +373,8 @@
             <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
-          <control type="button" id="8999" description="Player">
-            <visible>Player.HasMedia</visible>
-            <onclick condition="Player.HasMedia">fullscreen</onclick>
-            <label>$LOCALIZE[16003]</label>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/player.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/player.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
         </control>
       </control>
+      <include>NowPlaying</include>
     </controls>
   </window>

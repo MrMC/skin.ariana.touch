@@ -18,7 +18,7 @@
         <font>-</font>
       </control>
       <control type="grouplist" id="3" description="Left - Button Area">
-        <left>40</left>
+        <left>60</left>
         <top>132</top>
         <width>25%</width>
         <height>90%</height>
@@ -33,17 +33,8 @@
         <align>left</align>
         <width>25%</width>
       </control>
-      <control type="button" id="20" description="Settings level">
-        <bottom>100</bottom>
-        <left>45</left>
-        <width>25%</width>
-        <ondown>3</ondown>
-        <align>left</align>
-        <onclick>SettingsLevelChange</onclick>
-
-      </control>
       <control type="grouplist" id="5" description="Right - Control Area">
-        <right>40</right>
+        <right>60</right>
         <top>132</top>
         <width>65%</width>
         <height>742</height>
@@ -58,13 +49,11 @@
       <control type="button" id="7" description="Button">
         <width>65%</width>
         <align>left</align>
-
       </control>
       <control type="radiobutton" id="8" description="Radio Button">
         <width>65%</width>
         <radioleft>1197</radioleft>
         <align>left</align>
-
       </control>
       <control type="spincontrolex" id="9" description="Spin control">
         <width>65%</width>
@@ -75,12 +64,22 @@
         <align>left</align>
       </control>
       <control type="textbox" id="6" description="Settings description">
-        <right>40</right>
-        <top>910</top>
+        <right>60</right>
+        <top>900</top>
         <width>65%</width>
         <height>126</height>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+      </control>
+    </control>
+    <control type="group" description="Side menu 9000 group">
+      <include>VisibleFadeEffect</include>
+      <control type="grouplist" id="9000">
+        <include>9000GrouplistParameters</include>
+        <control type="button" id="20" description="Settings level">
+          <include>9000Buttons</include>
+          <onclick>SettingsLevelChange</onclick>
+        </control>
       </control>
     </control>
   </controls>

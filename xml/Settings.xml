@@ -39,7 +39,7 @@
             <aligny>center</aligny>
             <height>100%</height>
             <font>size24B</font>
-            <textcolor>$VAR[SelectedColor]</textcolor>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
@@ -68,7 +68,7 @@
             <aligny>center</aligny>
             <height>100%</height>
             <font>size24B</font>
-            <textcolor>$VAR[SelectedColor]</textcolor>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </focusedlayout>
@@ -136,5 +136,6 @@
         </content>
       </control>
     </control>
+    <include>NowPlaying</include>
   </controls>
 </window>
