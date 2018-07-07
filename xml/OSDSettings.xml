@@ -20,7 +20,66 @@
         <height>1</height>
         <texture>img/LineST.png</texture>
       </control>
-      <control type="grouplist" id="9000" description="Main Menu">
+      <control type="list" id="9000" description="Main menu">
+        <centerleft>50%</centerleft>
+        <top>15</top>
+        <height>90</height>
+        <include condition="VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording">PVRwidth</include>
+        <width>1000</width>
+        <onup>noop</onup>
+        <ondown>9009</ondown>
+        <onleft>noop</onleft>
+        <onright>noop</onright>
+        <orientation>horizontal</orientation>
+        <itemlayout width="250">
+          <control type="label">
+            <left>0</left>
+            <right>0</right>
+            <height>100%</height>
+            <width>100%</width>
+            <align>center</align>
+            <font>size22</font>
+            <textcolor>grey</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </itemlayout>
+        <focusedlayout width="250">
+          <control type="label">
+            <left>0</left>
+            <right>0</right>
+            <height>100%</height>
+            <width>100%</width>
+            <align>center</align>
+            <font>size22</font>
+            <textcolor>white</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </focusedlayout>
+        <content>
+          <item id="101">
+            <label>[B]$LOCALIZE[31030][/B]</label>
+            <onclick>noop</onclick>
+          </item>
+          <item id="102">
+            <label>[B]$LOCALIZE[287][/B]</label>
+            <onclick>SetFocus(9002)</onclick>
+          </item>
+          <item id="103">
+            <label>[B]$LOCALIZE[292][/B]</label>
+            <onclick>SetFocus(9003)</onclick>
+          </item>
+          <item id="104">
+            <label>[B]$LOCALIZE[10004][/B]</label>
+            <onclick>SetFocus(9004)</onclick>
+          </item>
+          <item id="105">
+            <visible>VideoPlayer.Content(livetv)</visible>
+            <label>[B]$LOCALIZE[31033][/B]</label>
+            <onclick>SetFocus(9005)</onclick>
+          </item>
+        </content>
+      </control>
+      <!--<control type="grouplist" id="9000" description="Main Menu">
         <centerleft>50%</centerleft>
         <top>15</top>
         <width>1800</width>
@@ -57,9 +116,9 @@
           <include>VideoMenuButtons</include>
           <label>[B]$LOCALIZE[10004][/B]</label>
         </control>
-      </control>
+      </control> -->
       <control type="group" description="101 Info">
-        <visible>ControlGroup(9000).HasFocus(101)</visible>
+        <visible>Container(9000).HasFocus(101)</visible>
         <include>VisibleFadeEffect</include>
         <include>VideoMenuInfo</include>
         <height>190</height>
@@ -67,7 +126,7 @@
       <control type="group" id="9009" description="Grouping for navigation sake">
         <height>190</height>
         <control type="grouplist" id="9002" description="SubMenu Subtitles">
-          <visible>ControlGroup(9000).HasFocus(102)</visible>
+          <visible>Container(9000).HasFocus(102)</visible>
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
@@ -82,7 +141,7 @@
           </control>
         </control>
         <control type="grouplist" id="9003" description="SubMenu Audio">
-          <visible>ControlGroup(9000).HasFocus(103)</visible>
+          <visible>Container(9000).HasFocus(103)</visible>
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
@@ -97,7 +156,7 @@
           </control>
         </control>
         <control type="grouplist" id="9004" description="Player Settings Submenu">
-          <visible>ControlGroup(9000).HasFocus(104)</visible>
+          <visible>Container(9000).HasFocus(104)</visible>
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
@@ -108,21 +167,18 @@
           <orientation>horizontal</orientation>
           <align>center</align>
           <control type="button" id="4000">
-            <visible>ControlGroup(9000).HasFocus(104)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[292]</label>
             <onclick>ActivateWindow(osdaudiosettings)</onclick>
           </control>
           <control type="button" id="4001">
-            <visible>ControlGroup(9000).HasFocus(104)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[157]</label>
             <onclick>ActivateWindow(osdvideosettings)</onclick>
           </control>
           <control type="button" id="4002">
-            <visible>ControlGroup(9000).HasFocus(104)</visible>
             <visible>System.HasCMS</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
@@ -130,8 +186,9 @@
             <onclick>ActivateWindow(osdcmssettings)</onclick>
           </control>
         </control>
-        <control type="grouplist" id="9005" description="Player Settings Submenu">
-          <visible>ControlGroup(9000).HasFocus(105)</visible>
+        <control type="grouplist" id="9005" description="PVR">
+          <visible>VideoPlayer.Content(livetv)</visible>
+          <visible>Container(9000).HasFocus(105)</visible>
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
@@ -142,7 +199,6 @@
           <orientation>horizontal</orientation>
           <align>center</align>
           <control type="button" id="5000" description="record">
-            <visible>ControlGroup(9000).HasFocus(105)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[264]</label>
@@ -150,21 +206,18 @@
             <enable>Player.CanRecord</enable>
           </control>
           <control type="button" id="5003" description="channels">
-            <visible>ControlGroup(9000).HasFocus(105)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[19019]</label>
             <onclick>ActivateWindow(pvrosdchannels)</onclick>
           </control>
           <control type="button" id="5001" description="guide">
-            <visible>ControlGroup(9000).HasFocus(105)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[19069]</label>
             <onclick>ActivateWindow(PVROSDGuide)</onclick>
           </control>
           <control type="button" id="5002" description="Teletext">
-            <visible>ControlGroup(9000).HasFocus(105)</visible>
             <include>VisibleFadeEffect</include>
             <include>VideoMenuButtons</include>
             <label>$LOCALIZE[31022]</label>
@@ -173,5 +226,6 @@
         </control>
       </control>
     </control>
-</controls>
+    <include>CloseButton</include>
+  </controls>
 </window>

@@ -3,6 +3,9 @@
   <include file="Includes_Variables.xml" />
   <include file="defaults.xml" />
   <include file="Includes_Views.xml" />
+  <include name="PVRwidth" description="PVR count">
+    <width>1250</width>
+  </include>
   <include name="9000GrouplistParameters">
     <left>0</left>
     <right>0</right>
@@ -100,7 +103,7 @@
       <font>-</font>
       <align>left</align>
       <aligny>center</aligny>
-      <onclick>Dialog.Close()</onclick>
+      <onclick>back</onclick>
     </control>
   </include>
   <include name="PlayerCloseButton">

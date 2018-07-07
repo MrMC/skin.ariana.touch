@@ -84,7 +84,8 @@
     <midtexture border="1">HUD/ProgressFill.png</midtexture>
     <info>Player.Progress</info>
   </control>
-    <control type="slider" id="87" description="Seek Scrub Position Vertical Bar">
+    <control type="slider" id="87" description="Seek Slider">
+      <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
       <bottom>180</bottom>
       <left>0</left>
       <width>100%</width>
@@ -177,6 +178,7 @@
         <texturenofocus>OSD/Settings.png</texturenofocus>
         <texturefocus>OSD/Settings.png</texturefocus>
         <onclick>Dialog.Close(all)</onclick>
+        <onclick>Close</onclick>
         <onclick>ActivateWindow(osdsettings.xml)</onclick>
       </control>
     </control>
