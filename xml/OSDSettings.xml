@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol always="true">9000</defaultcontrol>
-  <zorder>1</zorder>
-  <onload>Dialog.Close(fullscreeninfo)</onload>
   <controls>
     <control type="group" description="Video TopMenu">
-      <visible>Player.HasVideo + ![Window.IsActive(videoosd) | Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
+      <visible>Player.HasVideo + ![Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="Background">
@@ -13,7 +11,7 @@
         <top>0</top>
         <width>100%</width>
         <height>190</height>
-        <texture>dot/Black65.png</texture>
+        <texture>dot/Black75.png</texture>
       </control>
       <control type="image" description="Background Line">
         <left>0</left>

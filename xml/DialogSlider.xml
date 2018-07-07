@@ -9,11 +9,11 @@
         <centertop>25%</centertop>
         <width>660</width>
         <height>240</height>
-        <texture colordiffuse="$VAR[OverlayColor]" border="24">background/DialogBG.png</texture>
+        <texture colordiffuse="black" border="24">background/DialogBG.png</texture>
       </control>
       <control type="label" id="10" description="Heading">
         <centerleft>50%</centerleft>
-        <centertop>201</centertop>
+        <centertop>220</centertop>
         <width>990</width>
         <align>center</align>
         <font>size50B</font>
@@ -21,18 +21,17 @@
       </control>
       <control type="slider" id="11" description="Slider">
         <centerleft>50%</centerleft>
-        <centertop>279</centertop>
-        <width>540</width>
-        <height>33</height>
+        <centertop>300</centertop>
+        <sliderwidth>500</sliderwidth>
+        <sliderheight>36</sliderheight>
         <onup>noop</onup>
         <ondown>noop</ondown>
         <onleft>11</onleft>
         <onright>11</onright>
-        
       </control>
       <control type="label" id="12" description="Slider value">
         <centerleft>50%</centerleft>
-        <centertop>339</centertop>
+        <centertop>366</centertop>
         <width>690</width>
         <align>center</align>
         <textcolor>white</textcolor>

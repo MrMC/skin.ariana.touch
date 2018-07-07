@@ -72,7 +72,6 @@
     <disabledcolor>$VAR[DisabledColor]</disabledcolor>
     <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
     <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
-
   </default>
   <default type="togglebutton">
     <width>450</width>
@@ -136,7 +135,6 @@
     <aligny>center</aligny>
     <reverse>yes</reverse>
     <pulseonselect>false</pulseonselect>
-
   </default>
   <default type="spincontrolex">
     <width>450</width>
@@ -159,7 +157,6 @@
     <aligny>center</aligny>
     <reverse>yes</reverse>
     <pulseonselect>false</pulseonselect>
-
   </default>
   <default type="slider" description="Seek Slider">
     <height>60</height>
@@ -170,13 +167,11 @@
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
     <selectedcolor>$VAR[SelectedColor]</selectedcolor>
     <disabledcolor>$VAR[DisabledColor]</disabledcolor>
-    <texturefocus border="9">img/SettingsButtonFO.png</texturefocus>
-    <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
-    <sliderwidth>150</sliderwidth>
-    <sliderheight>24</sliderheight>
-    <texturesliderbar border="3,0,3,0">HUD/SliderBG.png</texturesliderbar>
+    <!--<sliderwidth>258</sliderwidth>-->
+    <!--<sliderheight>36</sliderheight>-->
+    <texturesliderbar>HUD/SliderBG.png</texturesliderbar>
     <textureslidernib>HUD/SliderNibNF.png</textureslidernib>
-    <textureslidernibfocus>HUD/SliderNibFO.png</textureslidernibfocus>
+    <textureslidernibfocus colordiffuse="$VAR[SelectedColor]">HUD/SliderNibFO.png</textureslidernibfocus>
     <pulseonselect>false</pulseonselect>
   </default>
   <default type="sliderex" description="Default Slider">
@@ -193,11 +188,10 @@
     <texturenofocus border="9">img/SettingsButtonNF.png</texturenofocus>
     <sliderwidth>150</sliderwidth>
     <sliderheight>24</sliderheight>
-    <texturesliderbar border="3,0,3,0">HUD/SliderBG.png</texturesliderbar>
-    <textureslidernib>HUD/SliderNibNF.png</textureslidernib>
-    <textureslidernibfocus>HUD/SliderNibFO.png</textureslidernibfocus>
+    <texturesliderbar border="10,0,10,0">HUD/SliderBG.png</texturesliderbar>
+    <textureslidernib colordiffuse="$VAR[Label2Color]">HUD/SliderNibFO.png</textureslidernib>
+    <textureslidernibfocus colordiffuse="$VAR[SelectedColor]">HUD/SliderNibFO.png</textureslidernibfocus>
     <pulseonselect>false</pulseonselect>
-
   </default>
   <default type="progress">
     <reveal>false</reveal>

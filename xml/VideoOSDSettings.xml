@@ -10,7 +10,7 @@
         <top>0</top>
         <width>100%</width>
         <height>100%</height>
-        <texture>dot/Black65.png</texture>
+        <texture>dot/Black75.png</texture>
       </control>
       <include>CloseButton</include>
       <control type="label" id="2" description="Settings">

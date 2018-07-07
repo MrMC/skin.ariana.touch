@@ -5,91 +5,69 @@
     <control type="image" description="OSD BG">
       <left>0</left>
       <bottom>0</bottom>
-      <height>90</height>
+      <height>150</height>
       <width>100%</width>
-      <texture colordiffuse="black">dot/White95.png</texture>
+      <texture>dot/Black75.png</texture>
     </control>
     <include>DownButton</include>
-    <control type="group">
-      <left>120</left>
-      <top>758</top>
-      <!--101-->
-      <control type="grouplist">
-        <centerleft>50%</centerleft>
-        <width>100%</width>
-        <bottom>0</bottom>
-        <height>75</height>
-        <itemgap>0</itemgap>
-        <align>center</align>
-        <orientation>horizontal</orientation>
-        <control type="button" id="104">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus>OSD/Previous.png</texturenofocus>
-          <texturefocus>OSD/Previous.png</texturefocus>
-          <onclick>PlayerControl(Previous)</onclick>
-        </control>
-        <control type="button" id="105">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus>OSD/Stop.png</texturenofocus>
-          <texturefocus>OSD/Stop.png</texturefocus>
-          <onclick>PlayerControl(Stop)</onclick>
-        </control>
-        <control type="togglebutton" id="106">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus>OSD/Play.png</texturenofocus>
-          <texturefocus>OSD/Play.png</texturefocus>
-          <usealttexture>Player.Playing</usealttexture>
-          <alttexturenofocus>OSD/Pause.png</alttexturenofocus>
-          <alttexturefocus>OSD/Pause.png</alttexturefocus>
-          <onclick>PlayerControl(Play)</onclick>
-        </control>
-        <control type="button" id="107">
-          <width>120</width>
-          <height>60</height>
-          <texturenofocus>OSD/Next.png</texturenofocus>
-          <texturefocus>OSD/Next.png</texturefocus>
-          <onclick>PlayerControl(Next)</onclick>
-        </control>
-        <control type="togglebutton" id="108" description="Random">
-          <width>120</width>
-          <height>60</height>
-          <texturefocus>OSD/UnShuffled.png</texturefocus>
-          <texturenofocus>OSD/UnShuffled.png</texturenofocus>
-          <usealttexture>Playlist.IsRandom</usealttexture>
-          <alttexturefocus>OSD/Shuffled.png</alttexturefocus>
-          <alttexturenofocus>OSD/Shuffled.png</alttexturenofocus>
-          <onclick>PlayerControl(Random)</onclick>
-        </control>
-        <control type="button" id="101">
-          <visible>![Control.IsVisible(102) | Control.IsVisible(103)]</visible>
-          <description>Repeat</description>
-          <width>120</width>
-          <height>60</height>
-          <texturefocus>OSD/Repeat.png</texturefocus>
-          <texturenofocus>OSD/Repeat.png</texturenofocus>
-          <onclick>PlayerControl(Repeat)</onclick>
-        </control>
-        <control type="button" id="102">
-          <visible>Playlist.IsRepeatOne</visible>
-          <description>Repeat1</description>
-          <width>120</width>
-          <height>60</height>
-          <texturefocus>OSD/Repeat1.png</texturefocus>
-          <texturenofocus>OSD/Repeat1.png</texturenofocus>
-          <onclick>PlayerControl(Repeat)</onclick>
-        </control>
-        <control type="button" id="103">
-          <visible>Playlist.IsRepeat</visible>
-          <description>RepeatAll</description>
-          <width>120</width>
-          <height>60</height>
-          <texturefocus>OSD/RepeatAll.png</texturefocus>
-          <texturenofocus>OSD/RepeatAll.png</texturenofocus>
-          <onclick>PlayerControl(Repeat)</onclick>
-        </control>
+    <control type="grouplist">
+      <centerleft>50%</centerleft>
+      <width>100%</width>
+      <bottom>60</bottom>
+      <height>90</height>
+      <itemgap>50</itemgap>
+      <align>center</align>
+      <orientation>horizontal</orientation>
+      <control type="togglebutton" id="101">
+        <description>Repeat</description>
+        <width>90</width>
+        <height>90</height>
+        <texturefocus>OSD/Repeat.png</texturefocus>
+        <texturenofocus>OSD/Repeat.png</texturenofocus>
+        <alttexturefocus>OSD/RepeatAll.png</alttexturefocus>
+        <alttexturenofocus>OSD/RepeatAll.png</alttexturenofocus>
+        <onclick>PlayerControl(Repeat)</onclick>
+      </control>
+      <control type="button" id="104">
+        <width>90</width>
+        <height>90</height>
+        <texturenofocus>OSD/Previous.png</texturenofocus>
+        <texturefocus>OSD/Previous.png</texturefocus>
+        <onclick>PlayerControl(Previous)</onclick>
+      </control>
+      <control type="button" id="105">
+        <width>90</width>
+        <height>90</height>
+        <texturenofocus>OSD/Stop.png</texturenofocus>
+        <texturefocus>OSD/Stop.png</texturefocus>
+        <onclick>PlayerControl(Stop)</onclick>
+      </control>
+      <control type="togglebutton" id="106">
+        <width>90</width>
+        <height>90</height>
+        <texturenofocus>OSD/Play.png</texturenofocus>
+        <texturefocus>OSD/Play.png</texturefocus>
+        <usealttexture>Player.Playing</usealttexture>
+        <alttexturenofocus>OSD/Pause.png</alttexturenofocus>
+        <alttexturefocus>OSD/Pause.png</alttexturefocus>
+        <onclick>PlayerControl(Play)</onclick>
+      </control>
+      <control type="button" id="107">
+        <width>90</width>
+        <height>90</height>
+        <texturenofocus>OSD/Next.png</texturenofocus>
+        <texturefocus>OSD/Next.png</texturefocus>
+        <onclick>PlayerControl(Next)</onclick>
+      </control>
+      <control type="togglebutton" id="108" description="Random">
+        <width>90</width>
+        <height>90</height>
+        <texturefocus>OSD/UnShuffled.png</texturefocus>
+        <texturenofocus>OSD/UnShuffled.png</texturenofocus>
+        <usealttexture>Playlist.IsRandom</usealttexture>
+        <alttexturefocus>OSD/Shuffled.png</alttexturefocus>
+        <alttexturenofocus>OSD/Shuffled.png</alttexturenofocus>
+        <onclick>PlayerControl(Random)</onclick>
       </control>
     </control>
   </controls>
