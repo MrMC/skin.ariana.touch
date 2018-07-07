@@ -12,7 +12,6 @@
         <height>100%</height>
         <texture>dot/Black75.png</texture>
       </control>
-      <include>CloseButton</include>
       <control type="label" id="2" description="Settings">
         <centerleft>50%</centerleft>
         <top>120</top>
@@ -47,5 +46,6 @@
         <align>left</align>
       </control>
     </control>
+    <include>CloseButton</include>
   </controls>
 </window>
