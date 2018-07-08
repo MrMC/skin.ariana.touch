@@ -6,37 +6,37 @@
       <visible>Player.HasVideo + ![Window.IsActive(pvrosdguide) | Window.IsActive(pvrosdchannels) | Window.IsActive(sliderdialog) | Window.IsActive(subtitlesearch) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
-      <control type="image" description="Top BG">
-        <left>0</left>
-        <top>0</top>
-        <height>180</height>
-        <width>100%</width>
-        <texture>dot/Black75.png</texture>
-      </control>
-      <control type="group" description="progress bars">
+      <control type="group" description="Top Bar">
+        <control type="image" description="Top BG">
+          <left>0</left>
+          <top>0</top>
+          <height>180</height>
+          <width>100%</width>
+          <texture>dot/Black75.png</texture>
+        </control>
         <control type="label">
-          <left>60</left>
-          <top>100</top>
+          <left>105</left>
+          <top>30</top>
           <height>30</height>
-          <width>180</width>
+          <width>140</width>
           <align>left</align>
-          <textcolor>$VAR[Label2Color]</textcolor>
+          <textcolor>grey</textcolor>
           <label>$INFO[System.Time]</label>
-          <font>size20</font>
+          <font>size20CU</font>
         </control>
         <control type="label">
-          <right>60</right>
-          <top>100</top>
+          <right>105</right>
+          <top>30</top>
           <height>30</height>
-          <width>180</width>
+          <width>140</width>
           <align>right</align>
-          <textcolor>$VAR[Label2Color]</textcolor>
+          <textcolor>grey</textcolor>
           <label>$INFO[Player.FinishTime]</label>
-          <font>size20</font>
+          <font>size20CU</font>
         </control>
         <control type="label">
-          <left>600</left>
-          <right>600</right>
+          <left>300</left>
+          <right>300</right>
           <top>30</top>
           <height>30</height>
           <align>center</align>
@@ -44,144 +44,188 @@
           <font>size22</font>
           <label>[B]$INFO[Player.Title][/B]</label>
         </control>
-        <control type="slider" id="1" description="Volume Slider">
+        <control type="button" description="Done">
           <top>90</top>
-          <centerleft>50%</centerleft>
-          <sliderwidth>500</sliderwidth>
-          <sliderheight>24</sliderheight>
-          <info>Player.Volume</info>
-          <action>Volume</action>
-          <onleft>1</onleft>
-          <onright>1</onright>
+          <left>90</left>
+          <width>300</width>
+          <height>60</height>
+          <textcolor>white</textcolor>
+          <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+          <texturefocus/>
+          <texturenofocus/>
+          <font>size20CU</font>
+          <aligny>center</aligny>
+          <align>left</align>
+          <label>$LOCALIZE[20177]</label>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>PlayerControl(Stop)</onclick>
         </control>
-
-    </control>
-    <control type="image" description="OSD BG">
-      <left>0</left>
-      <bottom>0</bottom>
-      <height>212</height>
-      <width>100%</width>
-      <texture>dot/Black75.png</texture>
-    </control>
-    <!--<control type="progress" description="Cache Progress">
-    <top>60</top>
-    <left>100</left>
-    <right>100</right>
-    <height>16</height>
-    <texturesliderbar border="8,0,8,0">OSD/ProgressBackground.png</texturesliderbar>
-    <midtexture colordiffuse="silver">OSD/ProgressMid.png</midtexture>
-    <info>Player.ProgressCache</info>
-  </control>-->
-  <control type="progress" description="Video Progress">
-    <reveal>true</reveal>
-    <bottom>184</bottom>
-    <left>0</left>
-    <width>100%</width>
-    <height>48</height>
-    <texturebg border="2">HUD/SliderBG.png</texturebg>
-    <lefttexture/>
-    <righttexture/>
-    <midtexture border="1">HUD/ProgressFill.png</midtexture>
-    <info>Player.Progress</info>
-  </control>
-    <control type="slider" id="87" description="Seek Slider">
-      <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-      <bottom>180</bottom>
-      <left>0</left>
-      <width>100%</width>
-      <texturesliderbar>HUD/SliderBGempty.png</texturesliderbar>
-      <info>Player.Progress</info>
-      <action>seek</action>
-      <onleft>87</onleft>
-      <onright>87</onright>
-    </control>
-    <control type="label">
-      <right>60</right>
-      <bottom>128</bottom>
-      <height>30</height>
-      <width>180</width>
-      <align>right</align>
-      <textcolor>white</textcolor>
-      <label>$INFO[Player.TimeRemaining]</label>
-      <font>size20</font>
-    </control>
-    <control type="label">
-      <left>60</left>
-      <bottom>128</bottom>
-      <height>30</height>
-      <width>180</width>
-      <align>left</align>
-      <textcolor>white</textcolor>
-      <shadowcolor>black</shadowcolor>
-      <label>$INFO[Player.Time]</label>
-      <font>size20</font>
-    </control>
-    <control type="grouplist">
-      <centerleft>50%</centerleft>
-      <width>100%</width>
-      <bottom>68</bottom>
-      <height>90</height>
-      <itemgap>50</itemgap>
-      <align>center</align>
-      <orientation>horizontal</orientation>
-      <onup>9000</onup>
-      <control type="button" id="3">
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/Cancel.png</texturenofocus>
-        <texturefocus>OSD/Cancel.png</texturefocus>
-        <onclick>PlayerControl(Stop)</onclick>
+        <control type="button" description="settings">
+          <top>90</top>
+          <right>90</right>
+          <width>300</width>
+          <height>60</height>
+          <textcolor>white</textcolor>
+          <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+          <texturefocus/>
+          <texturenofocus/>
+          <font>size20CU</font>
+          <aligny>center</aligny>
+          <align>right</align>
+          <label>$LOCALIZE[10004]</label>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>Close</onclick>
+          <onclick>ActivateWindow(osdsettings.xml)</onclick>
+        </control>
+        <control type="grouplist" description="Volume Control">
+          <top>90</top>
+          <height>60</height>
+          <width>700</width>
+          <centerleft>50%</centerleft>
+          <itemgap>40</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="togglebutton" description="VolMin">
+            <height>60</height>
+            <width>60</width>
+            <texturefocus>OSD/VolMin.png</texturefocus>
+            <texturenofocus>OSD/VolMin.png</texturenofocus>
+            <alttexturefocus>OSD/VolOff.png</alttexturefocus>
+            <alttexturenofocus>OSD/VolOff.png</alttexturenofocus>
+            <usealttexture>!IntegerGreaterThan(player.volume,0)</usealttexture>
+            <onclick>VolumeDown</onclick>
+          </control>
+          <control type="slider" id="1" description="Volume Slider">
+            <sliderwidth>500</sliderwidth>
+            <sliderheight>24</sliderheight>
+            <info>Player.Volume</info>
+            <action>Volume</action>
+            <onleft>1</onleft>
+            <onright>1</onright>
+          </control>
+          <control type="button" description="VolMax">
+            <height>60</height>
+            <width>60</width>
+            <texturefocus>OSD/VolMax.png</texturefocus>
+            <texturenofocus>OSD/VolMax.png</texturenofocus>
+            <onclick>VolumeUp</onclick>
+          </control>
+        </control>
       </control>
-      <control type="button" id="1">
+      <control type="image" description="OSD BG">
+        <left>0</left>
+        <bottom>0</bottom>
+        <height>212</height>
+        <width>100%</width>
+        <texture>dot/Black75.png</texture>
+      </control>
+      <control type="progress" description="Video Progress">
+        <reveal>true</reveal>
+        <bottom>184</bottom>
+        <left>0</left>
+        <width>100%</width>
+        <height>48</height>
+        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <lefttexture/>
+        <righttexture/>
+        <midtexture colordiffuse="grey" border="1">HUD/ProgressFill.png</midtexture>
+        <info>Player.ProgressCache</info>
+      </control>
+      <control type="progress" description="Video Progress">
+        <reveal>true</reveal>
+        <bottom>184</bottom>
+        <left>0</left>
+        <width>100%</width>
+        <height>48</height>
+        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <lefttexture/>
+        <righttexture/>
+        <midtexture border="1">HUD/ProgressFill.png</midtexture>
+        <info>Player.Progress</info>
+      </control>
+      <control type="slider" id="87" description="Seek Slider">
         <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/Previous.png</texturenofocus>
-        <texturefocus>OSD/Previous.png</texturefocus>
-        <onclick>PlayerControl(Previous)</onclick>
+        <bottom>180</bottom>
+        <left>0</left>
+        <width>100%</width>
+        <texturesliderbar>HUD/SliderBGempty.png</texturesliderbar>
+        <info>Player.Progress</info>
+        <action>seek</action>
+        <onleft>87</onleft>
+        <onright>87</onright>
       </control>
-      <control type="button" id="2">
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/RW.png</texturenofocus>
-        <texturefocus>OSD/RW.png</texturefocus>
-        <onclick>PlayerControl(Rewind)</onclick>
+      <control type="label">
+        <right>105</right>
+        <bottom>128</bottom>
+        <height>30</height>
+        <width>140</width>
+        <align>right</align>
+        <textcolor>white</textcolor>
+        <label>$INFO[Player.TimeRemaining]</label>
+        <font>size20CU</font>
       </control>
-      <control type="togglebutton" id="4">
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/Play.png</texturenofocus>
-        <texturefocus>OSD/Play.png</texturefocus>
-        <usealttexture>Player.Playing</usealttexture>
-        <alttexturenofocus>OSD/Pause.png</alttexturenofocus>
-        <alttexturefocus>OSD/Pause.png</alttexturefocus>
-        <onclick>PlayerControl(Play)</onclick>
+      <control type="label">
+        <left>105</left>
+        <bottom>128</bottom>
+        <height>30</height>
+        <width>140</width>
+        <align>left</align>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[Player.Time]</label>
+        <font>size20CU</font>
       </control>
-      <control type="button" id="5">
-        <width>90</width>
+      <control type="grouplist">
+        <centerleft>50%</centerleft>
+        <width>100%</width>
+        <bottom>60</bottom>
         <height>90</height>
-        <texturenofocus>OSD/FF.png</texturenofocus>
-        <texturefocus>OSD/FF.png</texturefocus>
-        <onclick>PlayerControl(Forward)</onclick>
-      </control>
-      <control type="button" id="6">
-        <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/Next.png</texturenofocus>
-        <texturefocus>OSD/Next.png</texturefocus>
-        <onclick>PlayerControl(Next)</onclick>
-      </control>
-      <control type="button" id="7" description="settings">
-        <width>90</width>
-        <height>90</height>
-        <texturenofocus>OSD/Settings.png</texturenofocus>
-        <texturefocus>OSD/Settings.png</texturefocus>
-        <onclick>Dialog.Close(all)</onclick>
-        <onclick>Close</onclick>
-        <onclick>ActivateWindow(osdsettings.xml)</onclick>
+        <itemgap>50</itemgap>
+        <align>center</align>
+        <orientation>horizontal</orientation>
+        <onup>9000</onup>
+        <control type="button" id="1">
+          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
+          <width>90</width>
+          <height>90</height>
+          <texturenofocus>OSD/Previous.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Previous.png</texturefocus>
+          <onclick>PlayerControl(Previous)</onclick>
+        </control>
+        <control type="button" id="2">
+          <width>90</width>
+          <height>90</height>
+          <texturenofocus>OSD/RW.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/RW.png</texturefocus>
+          <onclick condition="[VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]">PlayerControl(Rewind)</onclick>
+          <onclick condition="![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]">PlayerControl(SmallSkipBackward)</onclick>
+        </control>
+        <control type="togglebutton" id="4">
+          <width>90</width>
+          <height>90</height>
+          <texturenofocus>OSD/Play.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Play.png</texturefocus>
+          <usealttexture>Player.Playing</usealttexture>
+          <alttexturenofocus>OSD/Pause.png</alttexturenofocus>
+          <alttexturefocus colordiffuse="$VAR[SelectedColor]">OSD/Pause.png</alttexturefocus>
+          <onclick>PlayerControl(Play)</onclick>
+        </control>
+        <control type="button" id="5">
+          <width>90</width>
+          <height>90</height>
+          <texturenofocus>OSD/FF.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/FF.png</texturefocus>
+          <onclick condition="[VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]">PlayerControl(Forward)</onclick>
+          <onclick condition="![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]">PlayerControl(SmallSkipForward)</onclick>
+        </control>
+        <control type="button" id="7">
+          <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
+          <width>90</width>
+          <height>90</height>
+          <texturenofocus>OSD/Next.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Next.png</texturefocus>
+          <onclick>PlayerControl(Next)</onclick>
+        </control>
       </control>
     </control>
-  </control>
-</controls>
+  </controls>
 </window>

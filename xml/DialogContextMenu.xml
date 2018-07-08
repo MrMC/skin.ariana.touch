@@ -11,16 +11,19 @@
     <control type="grouplist" id="996" description="Context menu container">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
-      <height max="1000">auto</height>
-      <width>450</width>
-      <itemgap>12</itemgap>
-      <align>center</align>
+      <centertop>50%</centertop>
+      <top>120</top>
+      <bottom>120</bottom>
+      <width>600</width>
+      <itemgap>20</itemgap>
       <aligny>center</aligny>
       <control type="button" id="1000" description="Buttons">
-        <width>450</width>
+        <width>600</width>
         <textoffsetx>0</textoffsetx>
         <align>center</align>
         <aligny>center</aligny>
+        <height>80</height>
+        <font>size22U</font>
       </control>
     </control>
   </controls>

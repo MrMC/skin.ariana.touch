@@ -127,8 +127,8 @@
     <value>FF909192</value>
   </variable>
   <variable name="SelectedColor" description="Selected">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF2980fd</value>
-    <value>FF2980fd</value>
+    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF0071ec</value>
+    <value>FF69aaff</value>
   </variable>
   <variable name="ButtonOverlayColor" description="Overlay square buttons">
     <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF6a6a6c</value>

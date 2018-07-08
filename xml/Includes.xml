@@ -126,7 +126,7 @@
       <texturefocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturenofocus>
       <top>0</top>
-      <left>46</left>
+      <left>90</left>
       <width>360</width>
       <height>96</height>
       <focusedcolor>$VAR[SelectedColor]</focusedcolor>
@@ -143,7 +143,7 @@
       <texturefocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturenofocus>
       <top>0</top>
-      <right>46</right>
+      <right>90</right>
       <width>360</width>
       <height>96</height>
       <focusedcolor>$VAR[SelectedColor]</focusedcolor>
@@ -181,18 +181,17 @@
       <include>VisibleFadeEffect</include>
       <control type="image" description="bg">
         <left>0</left>
-        <bottom>80</bottom>
+        <bottom>81</bottom>
         <width>100%</width>
-        <height>88</height>
+        <height>70</height>
         <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon.png</texture>
         <aspectratio align="left" aligny="top">stretch</aspectratio>
       </control>
-
       <control type="label">
-        <bottom>80</bottom>
-        <left>60</left>
-        <right>300</right>
-        <height>88</height>
+        <bottom>81</bottom>
+        <left>90</left>
+        <right>650</right>
+        <height>70</height>
         <align>left</align>
         <aligny>center</aligny>
         <font>size20CU</font>
@@ -202,35 +201,52 @@
         <scrollsuffix> • </scrollsuffix>
         <label>$VAR[PlayerState]: [COLOR $VAR[LabelNFColor]]$INFO[MusicPlayer.Artist,, • ]$INFO[Player.Title][/COLOR]$INFO[Player.TimeRemaining, / ]</label>
       </control>
-      <control type="togglebutton" id="3">
-        <bottom>90</bottom>
-        <right>260</right>
-        <height>66</height>
-        <width>66</width>
-        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/play.png</texturenofocus>
-        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/play.png</texturefocus>
-        <alttexturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/pause.png</alttexturenofocus>
-        <alttexturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/pause.png</alttexturefocus>
-        <usealttexture>Player.Playing</usealttexture>
-        <onclick>PlayerControl(Play)</onclick>
-      </control>
-      <control type="button" id="3">
-        <bottom>90</bottom>
-        <right>160</right>
-        <height>66</height>
-        <width>66</width>
-        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/stop.png</texturenofocus>
-        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/stop.png</texturefocus>
-        <onclick>PlayerControl(Stop)</onclick>
-      </control>
-      <control type="button" id="5" description="Player">
-        <bottom>90</bottom>
-        <right>60</right>
-        <height>66</height>
-        <width>66</width>
-        <texturenofocus colordiffuse="$VAR[SelectedColor]">icons/touch/fullscreen.png</texturenofocus>
-        <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/fullscreen.png</texturefocus>
-        <onclick>fullscreen</onclick>
+      <control type="grouplist">
+        <right>90</right>
+        <width>500</width>
+        <bottom>86</bottom>
+        <height>60</height>
+        <itemgap>50</itemgap>
+        <align>right</align>
+        <orientation>horizontal</orientation>
+        <control type="button" id="1">
+          <height>60</height>
+          <width>60</width>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/Previous.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Previous.png</texturefocus>
+          <onclick>PlayerControl(Previous)</onclick>
+        </control>
+        <control type="togglebutton" id="2">
+          <height>60</height>
+          <width>60</width>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/Play.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Play.png</texturefocus>
+          <alttexturenofocus colordiffuse="$VAR[Label2Color]">OSD/Pause.png</alttexturenofocus>
+          <alttexturefocus colordiffuse="$VAR[SelectedColor]">OSD/Pause.png</alttexturefocus>
+          <usealttexture>Player.Playing</usealttexture>
+          <onclick>PlayerControl(Play)</onclick>
+        </control>
+        <control type="button" id="3">
+          <height>60</height>
+          <width>60</width>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/Next.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Next.png</texturefocus>
+          <onclick>PlayerControl(Next)</onclick>
+        </control>
+        <control type="button" id="4" description="Player">
+          <height>60</height>
+          <width>60</width>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/Fullscreen.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Fullscreen.png</texturefocus>
+          <onclick>fullscreen</onclick>
+        </control>
+        <control type="button" id="5">
+          <height>60</height>
+          <width>60</width>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/Cancel.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[SelectedColor]">OSD/Cancel.png</texturefocus>
+          <onclick>PlayerControl(Stop)</onclick>
+        </control>
       </control>
     </control>
   </include>

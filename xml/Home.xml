@@ -9,12 +9,12 @@
         <control type="button" id="4004" description="Users">
           <include>HiddenButton</include>
         </control>
-        <control type="button" id="4000" description="Users">
+        <control type="button" id="4000" description="Server">
           <include>HiddenButton</include>
         </control>
         <control type="button" description="settings">
           <top>0</top>
-          <right>48</right>
+          <right>90</right>
           <width>300</width>
           <height>96</height>
           <textcolor>$VAR[SelectedColor]</textcolor>
@@ -30,8 +30,9 @@
           <onclick>ActivateWindow(settings)</onclick>
         </control>
         <control type="button" description="Users">
+          <visible>!IsEmpty(Control.GetLabel(4004))</visible>
           <top>0</top>
-          <left>48</left>
+          <left>90</left>
           <texturefocus/>
           <texturenofocus/>
           <width>500</width>
@@ -118,6 +119,7 @@
           </control>
           <control type="panel" id="8000" description="Movies RA">
             <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
+            <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8010) + !Control.IsVisible(8020)">Conditional</animation>
             <animation effect="fade" time="200">Visible</animation>
             <bottom>110</bottom>
             <left>24</left>
@@ -168,6 +170,7 @@
           <control type="panel" id="8001" description="Shows RA">
             <visible>IntegerGreaterThan(Container(8001).NumItems,0)</visible>
             <animation effect="fade" time="200">Visible</animation>
+            <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8011)">Conditional</animation>
             <bottom>110</bottom>
             <left>24</left>
             <right>0</right>
@@ -320,8 +323,8 @@
           <aspectratio align="left" aligny="top">stretch</aspectratio>
         </control>
         <control type="grouplist">
-          <left>40</left>
-          <right>40</right>
+          <left>90</left>
+          <right>90</right>
           <bottom>36</bottom>
           <height>48</height>
           <itemgap>30</itemgap>
@@ -373,8 +376,17 @@
             <textoffsetx>72</textoffsetx>
             <include>9000Buttons</include>
           </control>
+          <control type="button" id="4" description="Views">
+            <visible>Player.HasMedia</visible>
+            <label>$LOCALIZE[31041]</label>
+            <onclick>fullscreen</onclick>
+            <texturefocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturefocus>
+            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturenofocus>
+            <height>48</height>
+            <textoffsetx>72</textoffsetx>
+            <include>9000Buttons</include>
+          </control>
         </control>
       </control>
-      <include>NowPlaying</include>
     </controls>
   </window>

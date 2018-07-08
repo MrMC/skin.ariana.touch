@@ -105,8 +105,8 @@
         <include>9000GrouplistParameters</include>
         <control type="togglebutton" id="4">
           <description>Sort asc</description>
-          <label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
-          <altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
+          <label>$LOCALIZE[21430]</label>
+          <altlabel>$LOCALIZE[21431]</altlabel>
           <usealttexture>Container.SortDirection(Ascending)</usealttexture>
           <include>9000Buttons</include>
 

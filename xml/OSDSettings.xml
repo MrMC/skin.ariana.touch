@@ -130,7 +130,8 @@
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
-          <width max="1800">auto</width>
+          <left>100</left>
+          <right>100</right>
           <height>80</height>
           <onup>9000</onup>
           <ondown>4</ondown>
@@ -145,7 +146,8 @@
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
-          <width max="1800">auto</width>
+          <left>100</left>
+          <right>100</right>
           <height>80</height>
           <onup>9000</onup>
           <ondown>4</ondown>
@@ -160,7 +162,8 @@
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
-          <width max="1800">auto</width>
+          <left>100</left>
+          <right>100</right>
           <height>80</height>
           <onup>9000</onup>
           <ondown>4</ondown>
@@ -192,7 +195,8 @@
           <include>VisibleFadeEffect</include>
           <top>100</top>
           <centerleft>50%</centerleft>
-          <width max="1800">auto</width>
+          <left>100</left>
+          <right>100</right>
           <height>80</height>
           <onup>9000</onup>
           <ondown>4</ondown>
