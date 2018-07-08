@@ -127,7 +127,7 @@
         <texturebg border="2">HUD/SliderBG.png</texturebg>
         <lefttexture/>
         <righttexture/>
-        <midtexture colordiffuse="grey" border="1">HUD/ProgressFill.png</midtexture>
+        <midtexture border="1">HUD/ProgressFill.png</midtexture>
         <info>Player.ProgressCache</info>
       </control>
       <control type="progress" description="Video Progress">
@@ -139,7 +139,7 @@
         <texturebg border="2">HUD/SliderBG.png</texturebg>
         <lefttexture/>
         <righttexture/>
-        <midtexture border="1">HUD/ProgressFill.png</midtexture>
+        <midtexture colordiffuse="$VAR[SelectedColor]" border="1">HUD/ProgressFill.png</midtexture>
         <info>Player.Progress</info>
       </control>
       <control type="slider" id="87" description="Seek Slider">
