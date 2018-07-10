@@ -11,14 +11,14 @@
       </control>
       <control type="panel" id="9000">
         <centerleft>50%</centerleft>
-        <width>1456</width>
-        <centertop>52%</centertop>
-        <height>840</height>
-        <itemlayout height="120" width="728">
+        <width>1440</width>
+        <top>120</top>
+        <bottom>100</bottom>
+        <itemlayout height="100" width="720">
           <control type="image">
-            <left>20</left>
-            <bottom>0</bottom>
-            <right>20</right>
+            <left>60</left>
+            <top>0</top>
+            <right>60</right>
             <height>1</height>
             <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
             <aspectratio>stretch</aspectratio>
@@ -28,8 +28,8 @@
             <top>0</top>
             <width>240</width>
             <bottom>0</bottom>
-            <texture colordiffuse="$VAR[SelectedColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>34</bordersize>
+            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
+            <bordersize>28</bordersize>
             <align>center</align>
             <aspectratio>keep</aspectratio>
           </control>
@@ -41,13 +41,21 @@
             <font>size24B</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="image">
+            <left>60</left>
+            <bottom>-1</bottom>
+            <right>60</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
           </control>
         </itemlayout>
-        <focusedlayout height="120" width="728">
+        <focusedlayout height="100" width="720">
           <control type="image">
-            <left>20</left>
-            <bottom>0</bottom>
-            <right>20</right>
+            <left>60</left>
+            <top>0</top>
+            <right>60</right>
             <height>1</height>
             <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
             <aspectratio>stretch</aspectratio>
@@ -57,8 +65,8 @@
             <top>0</top>
             <width>240</width>
             <bottom>0</bottom>
-            <texture colordiffuse="$VAR[SelectedColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>34</bordersize>
+            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
+            <bordersize>28</bordersize>
             <align>center</align>
             <aspectratio>keep</aspectratio>
           </control>
@@ -70,6 +78,14 @@
             <font>size24B</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="image">
+            <left>60</left>
+            <bottom>-1</bottom>
+            <right>60</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
           </control>
         </focusedlayout>
         <content>

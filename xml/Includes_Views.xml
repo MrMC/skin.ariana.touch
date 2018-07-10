@@ -44,8 +44,8 @@
   <include name="52plotCommons">
       <left>186</left>
       <right>0</right>
-      <top>130</top>
-      <bottom>24</bottom>
+      <top>133</top>
+      <bottom>22</bottom>
       <font>size22</font>
       <align>left</align>
       <label>$VAR[Plots]</label>
@@ -63,7 +63,7 @@
   <include name="52overlay">
     <control type="image">
       <right>20</right>
-      <top>14</top>
+      <top>30</top>
       <height>40</height>
       <width>40</width>
       <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
@@ -884,7 +884,7 @@
       <control type="label" description="Label2">
         <left>10</left>
         <right>10</right>
-        <top>404</top>
+        <top>400</top>
         <height>45</height>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>$VAR[ShelfLabel2]</label>
@@ -908,7 +908,7 @@
         <left>0</left>
         <bottom>0</bottom>
         <right>0</right>
-        <height>120</height>
+        <height>160</height>
         <texture border="1">img/Gradient.png</texture>
         <aspectratio>stretch</aspectratio>
         <bordersize>3</bordersize>
@@ -916,14 +916,14 @@
       <control type="progress">
         <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
         <centerleft>50%</centerleft>
-        <top>284</top>
+        <bottom>10</bottom>
         <left>30</left>
         <right>30</right>
-        <height>10</height>
-        <texturebg>progress/ProgressBG.png</texturebg>
-        <lefttexture>progress/ProgressLeft.png</lefttexture>
-        <righttexture flipx="true">progress/ProgressLeft.png</righttexture>
-        <midtexture>progress/ProgressMid.png</midtexture>
+        <height>24</height>
+        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <lefttexture/>
+        <righttexture/>
+        <midtexture border="1">HUD/ProgressFill.png</midtexture>
         <info>ListItem.PercentPlayed</info>
       </control>
       <include>RectangleWatchedMarks</include>
@@ -931,7 +931,17 @@
         <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
         <left>30</left>
         <right>30</right>
-        <bottom>12</bottom>
+        <bottom>74</bottom>
+        <height>40</height>
+        <textcolor>white</textcolor>
+        <align>center</align>
+        <label>$INFO[ListItem.TVShowTitle]</label>
+      </control>
+      <control type="label">
+        <animation effect="fade" start="0" end="100" time="200" delay="100">Focus</animation>
+        <left>30</left>
+        <right>30</right>
+        <bottom>28</bottom>
         <height>45</height>
         <textcolor>white</textcolor>
         <align>center</align>

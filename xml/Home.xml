@@ -1,392 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol>9000</defaultcontrol>
-  <onload condition="StringCompare(Window.Property(shelf),)">SetProperty(shelf,library)</onload>
-    <controls>
-      <include>FullBackground</include>
-      <control type="group">
-        <include>OpenClose</include>
-        <control type="button" id="4004" description="Users">
-          <include>HiddenButton</include>
-        </control>
-        <control type="button" id="4000" description="Server">
-          <include>HiddenButton</include>
-        </control>
-        <control type="button" description="settings">
-          <top>0</top>
-          <right>90</right>
-          <width>300</width>
-          <height>96</height>
-          <textcolor>$VAR[SelectedColor]</textcolor>
-          <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-          <selectedcolor>$VAR[SelectedColor]</selectedcolor>
-          <disabledcolor>$VAR[DisabledColor]</disabledcolor>
-          <texturefocus/>
-          <texturenofocus/>
-          <font>size20CU</font>
-          <aligny>center</aligny>
-          <align>right</align>
-          <label>$LOCALIZE[10004]</label>
-          <onclick>ActivateWindow(settings)</onclick>
-        </control>
-        <control type="button" description="Users">
-          <visible>!IsEmpty(Control.GetLabel(4004))</visible>
-          <top>0</top>
-          <left>90</left>
-          <texturefocus/>
-          <texturenofocus/>
-          <width>500</width>
-          <height>96</height>
-          <font>size20CU</font>
-          <textcolor>$VAR[SelectedColor]</textcolor>
-          <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-          <selectedcolor>$VAR[SelectedColor]</selectedcolor>
-          <disabledcolor>$VAR[DisabledColor]</disabledcolor>
-          <aligny>center</aligny>
-          <align>left</align>
-          <label>$LOCALIZE[31027]$INFO[Control.GetLabel(4004),: ]</label>
-          <onclick>SendClick(4004)</onclick>
-        </control>
-        <control type="button" description="Server">
-          <top>0</top>
-          <centerleft>50%</centerleft>
-          <width>800</width>
-          <height>96</height>
-          <texturefocus/>
-          <texturenofocus/>
-          <align>center</align>
-          <aligny>center</aligny>
-          <font>size20U</font>
-          <textcolor>$VAR[SelectedColor]</textcolor>
-          <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-          <selectedcolor>$VAR[SelectedColor]</selectedcolor>
-          <disabledcolor>$VAR[DisabledColor]</disabledcolor>
-          <label>$LOCALIZE[706]$INFO[Control.GetLabel(4000),: ]</label>
-          <onclick>SendClick(4000)</onclick>
-        </control>
-        <control type="group" id="300" description="Movie shelves">
-          <visible>StringCompare(Window.Property(shelf),movies)</visible>
-          <include>VisibleFadeEffect</include>
-          <control type="label" description="Heading8020">
-            <visible>Control.IsVisible(8020)</visible>
-            <include>HeaderLabelShelfUP</include>
-            <label>$INFO[Container(8020).ListItem.Property(ItemType)]</label>
-          </control>
-          <control type="label" description="Heading8010">
-            <visible>Control.IsVisible(8010)</visible>
-            <include>HeaderLabelShelfUP</include>
-            <label>$INFO[Container(8010).ListItem.Property(ItemType)]</label>
-          </control>
-          <control type="panel" id="8020" description="Continue">
-            <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
-            <animation effect="fade" time="200">Visible</animation>
-            <top>93</top>
-            <left>24</left>
-            <right>0</right>
-            <height>360</height>
-            <focusposition>1</focusposition>
-            <orientation>horizontal</orientation>
-            <onleft>8020</onleft>
-            <onright>8020</onright>
-            <itemlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </itemlayout>
-            <focusedlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </focusedlayout>
-          </control>
-          <control type="panel" id="8010" description="Progress">
-            <visible>IntegerGreaterThan(Container(8010).NumItems,0) + !Control.IsVisible(8020)</visible>
-            <animation effect="fade" time="200">Visible</animation>
-            <top>93</top>
-            <left>24</left>
-            <right>0</right>
-            <height>360</height>
-            <orientation>horizontal</orientation>
-            <onleft>8010</onleft>
-            <onright>8010</onright>
-            <itemlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </itemlayout>
-            <focusedlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </focusedlayout>
-          </control>
-          <control type="label" description="Heading8000">
-            <visible>Control.IsVisible(8000)</visible>
-            <include>HeaderLabelShelfDN</include>
-            <label>$INFO[Container(8000).ListItem.Property(ItemType)]</label>
-          </control>
-          <control type="panel" id="8000" description="Movies RA">
-            <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
-            <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8010) + !Control.IsVisible(8020)">Conditional</animation>
-            <animation effect="fade" time="200">Visible</animation>
-            <bottom>110</bottom>
-            <left>24</left>
-            <right>0</right>
-            <height>440</height>
-            <orientation>horizontal</orientation>
-            <onleft>8000</onleft>
-            <onright>8000</onright>
-            <onback>9000</onback>
-            <itemlayout width="240" height="360">
-              <include>PostersShelfFO</include>
-            </itemlayout>
-            <focusedlayout width="240" height="360">
-              <include>PostersShelfFO</include>
-            </focusedlayout>
-          </control>
-        </control>
-        <control type="group" id="301" description="TV shelves">
-          <visible>StringCompare(Window.Property(shelf),tvshows)</visible>
-          <include>VisibleFadeEffect</include>
-          <control type="label" description="Heading8011">
-            <visible>Control.IsVisible(8011)</visible>
-            <include>HeaderLabelShelfUP</include>
-            <label>$INFO[Container(8011).ListItem.Property(ItemType)]</label>
-          </control>
-          <control type="panel" id="8011" description="Shows OnDeck">
-            <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
-            <animation effect="fade" time="200">Visible</animation>
-            <top>93</top>
-            <left>24</left>
-            <right>0</right>
-            <height>360</height>
-            <orientation>horizontal</orientation>
-            <onleft>8011</onleft>
-            <onright>8011</onright>
-            <itemlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </itemlayout>
-            <focusedlayout width="660" height="360">
-              <include>RectangleShelfFO</include>
-            </focusedlayout>
-          </control>
-          <control type="label" description="Heading8001">
-            <visible>Control.IsVisible(8001)</visible>
-            <include>HeaderLabelShelfDN</include>
-            <label>$INFO[Container(8001).ListItem.Property(ItemType)]</label>
-          </control>
-          <control type="panel" id="8001" description="Shows RA">
-            <visible>IntegerGreaterThan(Container(8001).NumItems,0)</visible>
-            <animation effect="fade" time="200">Visible</animation>
-            <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8011)">Conditional</animation>
-            <bottom>110</bottom>
-            <left>24</left>
-            <right>0</right>
-            <height>440</height>
-            <orientation>horizontal</orientation>
-            <onleft>8001</onleft>
-            <onright>8001</onright>
-            <itemlayout width="260" height="370">
-              <include>PostersShelfFO</include>
-            </itemlayout>
-            <focusedlayout width="260" height="370">
-              <include>PostersShelfFO</include>
-            </focusedlayout>
-          </control>
-        </control>
-        <control type="group" id="302" description="Music shelves">
-          <visible>StringCompare(Window.Property(shelf),music)</visible>
-          <include>VisibleFadeEffect</include>
-          <control type="panel" id="8002" description="Music RA">
-            <visible>IntegerGreaterThan(Container(8002).NumItems,0)</visible>
-            <animation effect="fade" time="200">Visible</animation>
-            <top>94</top>
-            <left>24</left>
-            <right>0</right>
-            <height>450</height>
-            <orientation>horizontal</orientation>
-            <onleft>8002</onleft>
-            <onright>8002</onright>
-            <itemlayout width="360" height="360">
-              <include>SquareBG_FO</include>
-              <control type="image">
-                <include>SquareCommons</include>
-                <texture background="true">$INFO[ListItem.Property(Thumb)]</texture>
-              </control>
-              <control type="label">
-                <left>20</left>
-                <right>20</right>
-                <top>366</top>
-                <height>30</height>
-                <textcolor>$VAR[LabelNFColor]</textcolor>
-                <label>$INFO[ListItem.Label]</label>
-              </control>
-              <control type="label">
-                <left>20</left>
-                <right>20</right>
-                <top>400</top>
-                <height>30</height>
-                <textcolor>$VAR[Label2Color]</textcolor>
-                <label>$INFO[ListItem.Year]</label>
-              </control>
-            </itemlayout>
-            <focusedlayout width="360" height="360">
-              <control type="group">
-                <include>SquareBG_FO</include>
-                <control type="image">
-                  <include>SquareCommons</include>
-                  <texture background="true">$INFO[ListItem.Property(Thumb)]</texture>
-                </control>
-                <control type="label">
-                  <left>20</left>
-                  <right>20</right>
-                  <top>366</top>
-                  <height>30</height>
-                  <textcolor>$VAR[LabelNFColor]</textcolor>
-                  <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                  <left>20</left>
-                  <right>20</right>
-                  <top>400</top>
-                  <height>30</height>
-                  <textcolor>$VAR[Label2Color]</textcolor>
-                  <label>$INFO[ListItem.Year]</label>
-                </control>
-              </control>
-            </focusedlayout>
-          </control>
-        </control>
-        <control type="panel" id="9000" description="Main menu">
-          <visible>StringCompare(Window.Property(shelf),library)</visible>
-          <include>VisibleFadeEffect</include>
-            <top>150</top>
-            <bottom>86</bottom>
-            <centerleft>50%</centerleft>
-            <width>1280</width>
-            <onup>9000</onup>
-            <ondown>9000</ondown>
-            <onleft>9000</onleft>
-            <onright>9000</onright>
-            <orientation>vertical</orientation>
-            <itemlayout height="160" width="320">
-              <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <height>100%</height>
-                <width>100%</width>
-                <texture>thumbs/MainMenuFO.png</texture>
-                <bordersize>12</bordersize>
-              </control>
-              <control type="image">
-                <top>44</top>
-                <bottom>66</bottom>
-                <width>100%</width>
-                <texture>$INFO[ListItem.Property(type),icons/,.png]</texture>
-                <aspectratio>keep</aspectratio>
-              </control>
-              <control type="label">
-                <bottom>15</bottom>
-                <left>0</left>
-                <right>0</right>
-                <height>40</height>
-                <align>center</align>
-                <textcolor>$VAR[LabelNFColor]</textcolor>
-                <label>$INFO[ListItem.Label]</label>
-              </control>
-            </itemlayout>
-            <focusedlayout height="160" width="320">
-              <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <height>100%</height>
-                <width>100%</width>
-                <texture>thumbs/MainMenuFO.png</texture>
-                <bordersize>12</bordersize>
-              </control>
-              <control type="image">
-                <top>44</top>
-                <bottom>66</bottom>
-                <width>100%</width>
-                <texture>$INFO[ListItem.Property(type),icons/,.png]</texture>
-                <aspectratio>keep</aspectratio>
-              </control>
-              <control type="label">
-                <bottom>15</bottom>
-                <left>0</left>
-                <right>0</right>
-                <height>40</height>
-                <align>center</align>
-                <textcolor>$VAR[LabelNFColor]</textcolor>
-                <label>$INFO[ListItem.Label]</label>
-              </control>
-            </focusedlayout>
-          </control>
-        <control type="image" description="BottomBar">
-          <left>0</left>
-          <bottom>0</bottom>
-          <width>100%</width>
-          <height>96</height>
-          <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon95.png</texture>
-          <aspectratio align="left" aligny="top">stretch</aspectratio>
-        </control>
-        <control type="grouplist">
-          <left>90</left>
-          <right>90</right>
-          <bottom>36</bottom>
-          <height>48</height>
-          <itemgap>30</itemgap>
-          <onleft>9000</onleft>
-          <onright>9000</onright>
-          <align>center</align>
-          <aligny>center</aligny>
-          <orientation>horizontal</orientation>
-          <control type="button" id="4" description="Views">
-            <label>$LOCALIZE[14022]</label>
-            <onclick>ClearProperty(shelf)</onclick>
-            <onclick>SetProperty(shelf,library)</onclick>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
-          <control type="button" id="1" description="Views">
-            <visible>Library.HasContent(movies) | Library.HasServices</visible>
-            <onclick>ClearProperty(shelf)</onclick>
-            <onclick>SetProperty(shelf,movies)</onclick>
-            <label>$LOCALIZE[342]</label>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
-          <control type="button" id="2" description="Views">
-            <visible>Library.HasContent(tvshows) | Library.HasServices</visible>
-            <label>$LOCALIZE[20343]</label>
-            <onclick>ClearProperty(shelf)</onclick>
-            <onclick>SetProperty(shelf,tvshows)</onclick>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
-          <control type="button" id="3" description="Views">
-            <visible>Library.HasContent(music) | Library.HasServices</visible>
-            <label>$LOCALIZE[2]</label>
-            <onclick>ClearProperty(shelf)</onclick>
-            <onclick>SetProperty(shelf,music)</onclick>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
-          <control type="button" id="4" description="Views">
-            <visible>Player.HasMedia</visible>
-            <label>$LOCALIZE[31041]</label>
-            <onclick>fullscreen</onclick>
-            <texturefocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturefocus>
-            <texturenofocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturenofocus>
-            <height>48</height>
-            <textoffsetx>72</textoffsetx>
-            <include>9000Buttons</include>
-          </control>
-        </control>
+  <controls>
+    <include>FullBackground</include>
+    <control type="group">
+      <include>OpenClose</include>
+      <control type="button" id="4004" description="Users">
+        <include>HiddenButton</include>
       </control>
-    </controls>
-  </window>
+      <control type="button" id="4000" description="Server">
+        <include>HiddenButton</include>
+      </control>
+      <control type="button" description="settings">
+        <top>0</top>
+        <right>90</right>
+        <width>300</width>
+        <height>96</height>
+        <textcolor>$VAR[SelectedColor]</textcolor>
+        <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+        <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+        <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+        <texturefocus/>
+        <texturenofocus/>
+        <font>size20CU</font>
+        <aligny>center</aligny>
+        <align>right</align>
+        <label>$LOCALIZE[10004]</label>
+        <onclick>ActivateWindow(settings)</onclick>
+      </control>
+      <control type="button" description="Users">
+        <visible>!IsEmpty(Control.GetLabel(4004))</visible>
+        <top>0</top>
+        <left>90</left>
+        <texturefocus/>
+        <texturenofocus/>
+        <width>500</width>
+        <height>96</height>
+        <font>size20CU</font>
+        <textcolor>$VAR[SelectedColor]</textcolor>
+        <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+        <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+        <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+        <aligny>center</aligny>
+        <align>left</align>
+        <label>$LOCALIZE[31027]$INFO[Control.GetLabel(4004),: ]</label>
+        <onclick>SendClick(4004)</onclick>
+      </control>
+      <control type="button" description="Server">
+        <top>0</top>
+        <centerleft>50%</centerleft>
+        <width>800</width>
+        <height>96</height>
+        <texturefocus/>
+        <texturenofocus/>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>size20U</font>
+        <textcolor>$VAR[SelectedColor]</textcolor>
+        <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+        <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+        <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+        <label>$LOCALIZE[706]$INFO[Control.GetLabel(4000),: ]</label>
+        <onclick>SendClick(4000)</onclick>
+      </control>
+      <control type="grouplist" id="9001">
+        <visible>StringCompare(Window.Property(shelf),home)</visible>
+        <include>VisibleFadeEffect</include>
+        <left>100</left>
+        <right>0</right>
+        <bottom>96</bottom>
+        <top>93</top>
+        <itemgap>0</itemgap>
+        <control type="panel" id="8020" description="Continue">
+          <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
+          <animation effect="fade" time="200">Visible</animation>
+          <top>93</top>
+          <left>0</left>
+          <right>0</right>
+          <height>360</height>
+          <focusposition>1</focusposition>
+          <orientation>horizontal</orientation>
+          <onleft>8020</onleft>
+          <onright>8020</onright>
+          <itemlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </itemlayout>
+          <focusedlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </focusedlayout>
+        </control>
+        <control type="panel" id="8010" description="Progress">
+          <visible>IntegerGreaterThan(Container(8010).NumItems,0) + !Control.IsVisible(8020)</visible>
+          <animation effect="fade" time="200">Visible</animation>
+          <top>93</top>
+          <left>0</left>
+          <right>0</right>
+          <height>360</height>
+          <orientation>horizontal</orientation>
+          <onleft>8010</onleft>
+          <onright>8010</onright>
+          <itemlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </itemlayout>
+          <focusedlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </focusedlayout>
+        </control>
+        <control type="label" id="80200" description="Heading8020">
+          <visible>Control.IsVisible(8020)</visible>
+          <include>HeaderLabelShelfUP</include>
+          <label>$INFO[Container(8020).ListItem.Property(ItemType)]</label>
+        </control>
+        <control type="label" id="80100" description="Heading8010">
+          <visible>Control.IsVisible(8010)</visible>
+          <include>HeaderLabelShelfUP</include>
+          <label>$INFO[Container(8010).ListItem.Property(ItemType)]</label>
+        </control>
+        <control type="image" id="500" description="spacer">
+          <width>100%</width>
+          <height>5</height>
+          <texture/>
+        </control>
+        <control type="label" id="80000" description="Heading8000">
+          <visible>Control.IsVisible(8000)</visible>
+          <include>HeaderLabelShelfDN</include>
+          <label>$INFO[Container(8000).ListItem.Property(ItemType)]</label>
+        </control>
+        <control type="panel" id="8000" description="Movies RA">
+          <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
+          <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8010) + !Control.IsVisible(8020)">Conditional</animation>
+          <animation effect="fade" time="200">Visible</animation>
+          <bottom>110</bottom>
+          <left>0</left>
+          <right>0</right>
+          <height>440</height>
+          <orientation>horizontal</orientation>
+          <onleft>8000</onleft>
+          <onright>8000</onright>
+          <onback>9000</onback>
+          <itemlayout width="240" height="360">
+            <include>PostersShelfFO</include>
+          </itemlayout>
+          <focusedlayout width="240" height="360">
+            <include>PostersShelfFO</include>
+          </focusedlayout>
+        </control>
+        <control type="image" id="501" description="spacer">
+          <width>100%</width>
+          <height>15</height>
+          <texture/>
+        </control>
+        <control type="panel" id="8011" description="Shows OnDeck">
+          <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
+          <animation effect="fade" time="200">Visible</animation>
+          <top>93</top>
+          <left>0</left>
+          <right>0</right>
+          <height>360</height>
+          <orientation>horizontal</orientation>
+          <onleft>8011</onleft>
+          <onright>8011</onright>
+          <itemlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </itemlayout>
+          <focusedlayout width="660" height="360">
+            <include>RectangleShelfFO</include>
+          </focusedlayout>
+        </control>
+        <control type="label" id="80110" description="Heading8011">
+          <visible>Control.IsVisible(8011)</visible>
+          <include>HeaderLabelShelfUP</include>
+          <label>$INFO[Container(8011).ListItem.Property(ItemType)]</label>
+        </control>
+        <control type="image" id="502" description="spacer">
+          <width>100%</width>
+          <height>15</height>
+          <texture/>
+        </control>
+        <control type="label" id="80010" description="Heading8001">
+          <visible>Control.IsVisible(8001)</visible>
+          <include>HeaderLabelShelfDN</include>
+          <label>$INFO[Container(8001).ListItem.Property(ItemType)]</label>
+        </control>r          <control type="panel" id="8001" description="Shows RA">
+        <visible>IntegerGreaterThan(Container(8001).NumItems,0)</visible>
+        <animation effect="fade" time="200">Visible</animation>
+        <!--<animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8011)">Conditional</animation>-->
+        <bottom>110</bottom>
+        <left>0</left>
+        <right>0</right>
+        <height>440</height>
+        <orientation>horizontal</orientation>
+        <onleft>8001</onleft>
+        <onright>8001</onright>
+        <itemlayout width="260" height="370">
+          <include>PostersShelfFO</include>
+        </itemlayout>
+        <focusedlayout width="260" height="370">
+          <include>PostersShelfFO</include>
+        </focusedlayout>
+      </control>
+      <control type="image" id="503" description="spacer">
+        <width>100%</width>
+        <height>15</height>
+        <texture/>
+      </control>
+      <control type="label" id="80020" description="Heading8002">
+        <visible>Control.IsVisible(8002)</visible>
+        <include>HeaderLabelShelfDN</include>
+        <label>$INFO[Container(8002).ListItem.Property(ItemType)]</label>
+      </control>
+      <control type="panel" id="8002" description="Music RA">
+        <visible>IntegerGreaterThan(Container(8002).NumItems,0)</visible>
+        <animation effect="fade" time="200">Visible</animation>
+        <top>94</top>
+        <left>0</left>
+        <right>0</right>
+        <height>450</height>
+        <orientation>horizontal</orientation>
+        <onleft>8002</onleft>
+        <onright>8002</onright>
+        <itemlayout width="360" height="360">
+          <include>SquareBG_FO</include>
+          <control type="image">
+            <include>SquareCommons</include>
+            <texture background="true">$INFO[ListItem.Property(Thumb)]</texture>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <right>20</right>
+            <top>366</top>
+            <height>30</height>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <right>20</right>
+            <top>400</top>
+            <height>30</height>
+            <textcolor>$VAR[Label2Color]</textcolor>
+            <label>$INFO[ListItem.Year]</label>
+          </control>
+        </itemlayout>
+        <focusedlayout width="360" height="360">
+          <control type="group">
+            <include>SquareBG_FO</include>
+            <control type="image">
+              <include>SquareCommons</include>
+              <texture background="true">$INFO[ListItem.Property(Thumb)]</texture>
+            </control>
+            <control type="label">
+              <left>20</left>
+              <right>20</right>
+              <top>366</top>
+              <height>30</height>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+              <left>20</left>
+              <right>20</right>
+              <top>400</top>
+              <height>30</height>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <label>$INFO[ListItem.Year]</label>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="image" id="504" description="spacer">
+        <width>100%</width>
+        <height>100</height>
+        <texture/>
+      </control>
+    </control>
+    <control type="panel" id="9000">
+      <visible>!StringCompare(Window.Property(shelf),home)</visible>
+      <include>VisibleFadeEffect</include>
+      <centerleft>50%</centerleft>
+      <width>1440</width>
+      <top>120</top>
+      <bottom>100</bottom>
+      <itemlayout height="100" width="720">
+        <control type="image">
+          <left>60</left>
+          <top>0</top>
+          <right>60</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>240</width>
+          <bottom>0</bottom>
+          <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
+          <bordersize>28</bordersize>
+          <align>center</align>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+          <left>200</left>
+          <top>0</top>
+          <aligny>center</aligny>
+          <height>100%</height>
+          <font>size24B</font>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="image">
+          <left>60</left>
+          <bottom>-1</bottom>
+          <right>60</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+      </itemlayout>
+      <focusedlayout height="100" width="720">
+        <control type="image">
+          <left>60</left>
+          <top>0</top>
+          <right>60</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>240</width>
+          <bottom>0</bottom>
+          <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
+          <bordersize>28</bordersize>
+          <align>center</align>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+          <left>200</left>
+          <top>0</top>
+          <aligny>center</aligny>
+          <height>100%</height>
+          <font>size24B</font>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+          <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="image">
+          <left>60</left>
+          <bottom>-1</bottom>
+          <right>60</right>
+          <height>1</height>
+          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="grouplist">
+      <left>90</left>
+      <right>90</right>
+      <bottom>36</bottom>
+      <height>48</height>
+      <itemgap>30</itemgap>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <align>center</align>
+      <aligny>center</aligny>
+      <orientation>horizontal</orientation>
+      <control type="button" id="1" description="Shelves">
+        <onclick>ClearProperty(shelf)</onclick>
+        <onclick>SetProperty(shelf,home)</onclick>
+        <label>$LOCALIZE[10000]</label>
+        <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/home.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/home.png</texturenofocus>
+        <height>48</height>
+        <textoffsetx>72</textoffsetx>
+        <include>9000Buttons</include>
+      </control>
+      <control type="button" id="4" description="Library">
+        <label>$LOCALIZE[14022]</label>
+        <onclick>ClearProperty(shelf)</onclick>
+        <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturenofocus>
+        <height>48</height>
+        <textoffsetx>72</textoffsetx>
+        <include>9000Buttons</include>
+      </control>
+      <!--<control type="button" id="1" description="Views">
+      <visible>Library.HasContent(movies) | Library.HasServices</visible>
+      <onclick>ClearProperty(shelf)</onclick>
+      <onclick>SetProperty(shelf,movies)</onclick>
+      <label>$LOCALIZE[342]</label>
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/movies.png</texturenofocus>
+      <height>48</height>
+      <textoffsetx>72</textoffsetx>
+      <include>9000Buttons</include>
+    </control>
+    <control type="button" id="2" description="Views">
+      <visible>Library.HasContent(tvshows) | Library.HasServices</visible>
+      <label>$LOCALIZE[20343]</label>
+      <onclick>ClearProperty(shelf)</onclick>
+      <onclick>SetProperty(shelf,tvshows)</onclick>
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/tvshows.png</texturenofocus>
+      <height>48</height>
+      <textoffsetx>72</textoffsetx>
+      <include>9000Buttons</include>
+    </control>
+    <control type="button" id="3" description="Views">
+      <visible>Library.HasContent(music) | Library.HasServices</visible>
+      <label>$LOCALIZE[2]</label>
+      <onclick>ClearProperty(shelf)</onclick>
+      <onclick>SetProperty(shelf,music)</onclick>
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/music.png</texturenofocus>
+      <height>48</height>
+      <textoffsetx>72</textoffsetx>
+      <include>9000Buttons</include>
+    </control>-->
+    <control type="button" id="4" description="Views">
+      <visible>Player.HasMedia</visible>
+      <label>$LOCALIZE[31041]</label>
+      <onclick>fullscreen</onclick>
+      <texturefocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturenofocus>
+      <height>48</height>
+      <textoffsetx>72</textoffsetx>
+      <include>9000Buttons</include>
+    </control>
+  </control>
+</control>
+</controls>
+</window>
