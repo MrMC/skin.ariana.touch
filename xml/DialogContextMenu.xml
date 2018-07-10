@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">996</defaultcontrol>
   <controls>
-    <include>FullBackground</include>
+    <include>PlainBG</include>
     <control type="label">
       <visible>!IsEmpty(ListItem.Label)</visible>
       <include>CenterHeading</include>
@@ -15,7 +15,7 @@
       <top>120</top>
       <bottom>120</bottom>
       <width>600</width>
-      <itemgap>20</itemgap>
+      <itemgap>10</itemgap>
       <aligny>center</aligny>
       <control type="button" id="1000" description="Buttons">
         <width>600</width>
