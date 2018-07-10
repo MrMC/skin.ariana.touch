@@ -6,9 +6,9 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="panel" id="50">
-        <right>0</right>
+        <right>100</right>
         <top>96</top>
-        <width>50%</width>
+        <width>40%</width>
         <bottom>82</bottom>
         <viewtype label="535">List</viewtype>
         <preloaditems>2</preloaditems>
@@ -73,29 +73,17 @@
         <content>
           <item id="5" description="Theme force dark">
             <visible>!System.Platform.TVOS</visible>
-            <visible>!Skin.HasSetting(LightInterface)</visible>
+            <visible>!Skin.HasSetting(DarkInterface)</visible>
             <label>$LOCALIZE[480]</label>
-            <label2>$LOCALIZE[31021]</label2>
-            <onclick>Skin.ToggleSetting(LightInterface)</onclick>
+            <label2>$LOCALIZE[31024]</label2>
+            <onclick>Skin.ToggleSetting(DarkInterface)</onclick>
           </item>
           <item id="6" description="Theme reset fallback light">
             <visible>!System.Platform.TVOS</visible>
-            <visible>Skin.HasSetting(LightInterface)</visible>
+            <visible>Skin.HasSetting(DarkInterface)</visible>
             <label>$LOCALIZE[480]</label>
-            <label2>$LOCALIZE[31024]</label2>
-            <onclick>Skin.Reset(LightInterface)</onclick>
-          </item>
-          <item id="1" description="List Fanart">
-            <visible>Skin.HasSetting(FanartInList)</visible>
-            <label>$LOCALIZE[31032]</label>
-            <label2>$LOCALIZE[107]</label2>
-            <onclick>Skin.ToggleSetting(FanartInList)</onclick>
-          </item>
-          <item id="2" description="List Fanart">
-            <visible>!Skin.HasSetting(FanartInList)</visible>
-            <label>$LOCALIZE[31032]</label>
-            <label2>$LOCALIZE[106]</label2>
-            <onclick>Skin.ToggleSetting(FanartInList)</onclick>
+            <label2>$LOCALIZE[31021]</label2>
+            <onclick>Skin.Reset(DarkInterface)</onclick>
           </item>
           <item id="7" description="InfoPoster">
             <visible>Skin.HasSetting(InfoPosterHide)</visible>
@@ -109,29 +97,17 @@
             <label2>$LOCALIZE[107]</label2>
             <onclick>Skin.ToggleSetting(InfoPosterHide)</onclick>
           </item>
-          <item id="9" description="FanartBG">
-            <visible>Skin.HasSetting(HideFanart)</visible>
-            <label>$LOCALIZE[31036]</label>
-            <label2>$LOCALIZE[106]</label2>
-            <onclick>Skin.ToggleSetting(HideFanart)</onclick>
-          </item>
-          <item id="10" description="FanartBG">
-            <visible>!Skin.HasSetting(HideFanart)</visible>
-            <label>$LOCALIZE[31036]</label>
-            <label2>$LOCALIZE[107]</label2>
-            <onclick>Skin.ToggleSetting(HideFanart)</onclick>
-          </item>
           <item id="11" description="HomeFav">
-            <visible>!Skin.HasSetting(FavButton)</visible>
+            <visible>Skin.HasSetting(HomeMenuNoFavButton)</visible>
             <label>$LOCALIZE[513] - $LOCALIZE[1036]</label>
             <label2>$LOCALIZE[1223]</label2>
-            <onclick>Skin.ToggleSetting(FavButton)</onclick>
+            <onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
           </item>
           <item id="12" description="HomeFav">
-            <visible>Skin.HasSetting(FavButton)</visible>
+            <visible>!Skin.HasSetting(HomeMenuNoFavButton)</visible>
             <label>$LOCALIZE[513] - $LOCALIZE[1036]</label>
             <label2>$LOCALIZE[305]</label2>
-            <onclick>Skin.ToggleSetting(FavButton)</onclick>
+            <onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
           </item>
           <item id="11" description="HomeMS">
             <visible>!Skin.HasSetting(HomeMenuNoMediaSourceButton)</visible>
@@ -161,9 +137,9 @@
           <label>$VAR[GlobalHeadings]</label>
         </control>
         <control type="textbox" description="Plot51">
-          <left>40</left>
+          <left>90</left>
           <centertop>50%</centertop>
-          <width>40%</width>
+          <width>36%</width>
           <height>50%</height>
           <font>plot</font>
           <align>center</align>

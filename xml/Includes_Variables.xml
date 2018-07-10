@@ -103,39 +103,36 @@
     <value condition="[ListItem.HasTimerSchedule | ListItem.HasTimer] + !ListItem.TimerIsActive">icons/pvr/Disabled.png</value>
   </variable>
   <variable name="Background.Overlay" description="backgrounds">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">background/LightBG.png</value>
-    <value>background/DarkBG.png</value>
+    <value condition="Skin.HasSetting(DarkInterface)">background/DarkBG.png</value>
+    <value>background/LightBG.png</value>
   </variable>
   <variable name="OverlayColor" description="Overlay">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FFf9f9f9</value>
-    <value>FF1c1c1c</value>
-  </variable>
-  <variable name="LabelNFColor" description="LabelNF">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF000000</value>
+    <value condition="Skin.HasSetting(DarkInterface)">FF151515</value>
     <value>FFFFFFFF</value>
   </variable>
+  <variable name="LabelNFColor" description="LabelNF">
+    <value condition="Skin.HasSetting(DarkInterface)">FFf1f1f1</value>
+    <value>FF131313</value>
+  </variable>
   <variable name="LabelFOColor" description="LabelFO">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF000000</value>
+    <value condition="Skin.HasSetting(DarkInterface)">FF000000</value>
     <value>FF000000</value>
   </variable>
   <variable name="Label2Color" description="Label2">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF575759</value>
-    <value>FF838485</value>
+    <value condition="Skin.HasSetting(DarkInterface)">FF8d9196</value>
+    <value>FF5b5f63</value>
   </variable>
   <variable name="DisabledColor" description="Disabled">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF5e5e60</value>
-    <value>FF909192</value>
+    <value condition="Skin.HasSetting(DarkInterface)">FF909192</value>
+    <value>FF5e5e60</value>
   </variable>
   <variable name="SelectedColor" description="Selected">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF0071ec</value>
-    <value>FF69aaff</value>
+    <value condition="Skin.HasSetting(DarkInterface)">ff007dd4</value>
+    <value>FF288bfc</value>
+    <!--<value>FFba8854</value>-->
   </variable>
-  <variable name="ButtonOverlayColor" description="Overlay square buttons">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">FF6a6a6c</value>
-    <value>FF838485</value>
-  </variable>
-    <variable name="Logo" description="Logo image">
-    <value condition="[!System.IsDarkInterface + System.Platform.TVOS] | [!System.Platform.TVOS + Skin.HasSetting(LightInterface)]">Logo_light.png</value>
-    <value>Logo_dark.png</value>
+  <variable name="ButtonOverlayColor" description="Overlay home buttons">
+    <value condition="Skin.HasSetting(DarkInterface)">white</value>
+    <value>white</value>
   </variable>
 </includes>
