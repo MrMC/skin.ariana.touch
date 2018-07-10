@@ -37,6 +37,7 @@
         <textcolor>white</textcolor>
         <font>size22</font>
       </control>
+      <include>CloseButton</include>
     </control>
   </controls>
 </window>

@@ -56,7 +56,7 @@
           <font>size20CU</font>
           <aligny>center</aligny>
           <align>left</align>
-          <label>$LOCALIZE[20177]</label>
+          <label>$LOCALIZE[15067]</label>
           <onclick>Dialog.Close(all)</onclick>
           <onclick>PlayerControl(Stop)</onclick>
         </control>
@@ -118,7 +118,7 @@
         <width>100%</width>
         <texture>dot/Black75.png</texture>
       </control>
-      <control type="progress" description="Video Progress">
+      <control type="progress" description="Cache Progress">
         <reveal>true</reveal>
         <bottom>184</bottom>
         <left>0</left>

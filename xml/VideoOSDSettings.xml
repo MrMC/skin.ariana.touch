@@ -8,44 +8,58 @@
       <control type="image">
         <left>0</left>
         <top>0</top>
-        <width>100%</width>
+        <width>60%</width>
         <height>100%</height>
-        <texture>dot/Black75.png</texture>
+        <texture colordiffuse="black">dot/White80.png</texture>
       </control>
       <control type="label" id="2" description="Settings">
-        <centerleft>50%</centerleft>
-        <top>120</top>
-        <width>1050</width>
+        <centerleft>25%</centerleft>
+        <top>60</top>
+        <width>50%</width>
         <font>-</font>
         <align>center</align>
       </control>
       <control type="grouplist" id="5" description="Control Area">
-        <centerleft>50%</centerleft>
+        <left>10%</left>
         <top>75</top>
-        <width>840</width>
+        <width>40%</width>
         <height>930</height>
         <aligny>top</aligny>
-        <itemgap>2</itemgap>
+        <itemgap>5</itemgap>
         <orientation>vertical</orientation>
         <onup>5</onup>
         <ondown>5</ondown>
       </control>
       <control type="button" id="7">
         <align>left</align>
-
+        <font>size22</font>
+        <height>80</height>
+        <textcolor>white</textcolor>
+        <focusedcolor>black</focusedcolor>
       </control>
       <control type="radiobutton" id="8">
         <align>left</align>
-
+        <font>size22</font>
+        <height>80</height>
+        <textcolor>white</textcolor>
+        <focusedcolor>black</focusedcolor>
       </control>
       <control type="spincontrolex" id="9">
         <align>left</align>
+        <font>size22</font>
+        <height>80</height>
+        <textcolor>white</textcolor>
+        <focusedcolor>black</focusedcolor>
         <reverse>yes</reverse>
       </control>
       <control type="sliderex" id="13">
         <align>left</align>
+        <font>size22</font>
+        <height>80</height>
+        <textcolor>white</textcolor>
+        <focusedcolor>black</focusedcolor>
       </control>
+      <include>CloseButton</include>
     </control>
-    <include>CloseButton</include>
   </controls>
 </window>
