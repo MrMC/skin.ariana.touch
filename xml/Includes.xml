@@ -263,8 +263,16 @@
       <left>0</left>
       <top>0</top>
       <width>100%</width>
-      <height>96</height>
-      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon80.png</texture>
+      <height>95</height>
+      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <top>95</top>
+      <width>100%</width>
+      <height>1</height>
+      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <include condition="![Window.IsActive(home) | Window.IsActive(loginscreen)]">BackButton</include>
@@ -273,8 +281,17 @@
       <left>0</left>
       <bottom>0</bottom>
       <width>100%</width>
-      <height>80</height>
-      <texture border="2" flipy="true" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon80.png</texture>
+      <height>79</height>
+      <texture border="2" flipy="true" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="TopBar">
+      <visible>!Window.IsActive(home)</visible>
+      <left>0</left>
+      <bottom>79</bottom>
+      <width>100%</width>
+      <height>1</height>
+      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <control type="image" description="BottomBar">
@@ -282,8 +299,17 @@
       <left>0</left>
       <bottom>0</bottom>
       <width>100%</width>
-      <height>94</height>
-      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/WhiteRibbon80.png</texture>
+      <height>93</height>
+      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="TopBar">
+      <visible>Window.IsActive(home)</visible>
+      <left>0</left>
+      <bottom>93</bottom>
+      <width>100%</width>
+      <height>1</height>
+      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <control type="image" description="DebugGrid">

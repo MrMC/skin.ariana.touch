@@ -923,7 +923,7 @@
         <texturebg border="2">HUD/SliderBG.png</texturebg>
         <lefttexture/>
         <righttexture/>
-        <midtexture border="1">HUD/ProgressFill.png</midtexture>
+        <midtexture colordiffuse="$VAR[SelectedColor]" border="1">HUD/ProgressFill.png</midtexture>
         <info>ListItem.PercentPlayed</info>
       </control>
       <include>RectangleWatchedMarks</include>
