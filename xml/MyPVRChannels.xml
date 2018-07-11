@@ -171,9 +171,10 @@
       </control>
       <control type="panel" id="53" description="Grid view">
         <viewtype label="536">Thumbnails</viewtype>
-        <left>24</left>
+        <left>90</left>
+        <right>90</right>
         <top>96</top>
-        <height>900</height>
+        <bottom>80</bottom>
         <orientation>horizontal</orientation>
         <pagecontrol>60</pagecontrol>
         <preloaditems>4</preloaditems>

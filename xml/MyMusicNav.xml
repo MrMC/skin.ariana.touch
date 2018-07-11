@@ -10,8 +10,8 @@
       <control type="panel" id="53" description="Grid view">
         <visible>[Container.Content(albums) | Container.content(artists)]</visible>
         <viewtype label="536">Thumbnails</viewtype>
-        <left>48</left>
-        <right>48</right>
+        <left>90</left>
+        <right>90</right>
         <top>96</top>
         <bottom>80</bottom>
         <preloaditems>4</preloaditems>

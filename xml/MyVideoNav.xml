@@ -138,8 +138,8 @@
       <control type="panel" id="53" description="Grid Container">
         <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
         <viewtype label="536">Thumbnails</viewtype>
-        <left>48</left>
-        <right>48</right>
+        <left>90</left>
+        <right>90</right>
         <top>96</top>
         <bottom>80</bottom>
         <centerleft>50%</centerleft>

@@ -691,7 +691,7 @@
   </include>
   <include name="List49_Commons">
     <!--VideoInfo metadata lists-->
-    <left>0</left>
+    <left>90</left>
     <top>0</top>
     <width>50%</width>
     <height>450</height>
@@ -700,15 +700,15 @@
     <onup>9000</onup>
     <ondown>9000</ondown>
     <pagecontrol>60</pagecontrol>
-    <itemlayout height="45">
+    <itemlayout height="50">
       <control type="label">
         <visible>!IsEmpty(ListItem.Label)</visible>
         <left>0</left>
         <top>0</top>
         <width>100%</width>
         <height>100%</height>
-        <font>size20</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
+        <font>size22</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>$INFO[ListItem.Label]</label>
       </control>
       <control type="label">
@@ -717,20 +717,20 @@
         <top>0</top>
         <width>100%</width>
         <height>100%</height>
-        <font>size20A</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
+        <font>size22</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>$INFO[ListItem.Label2]</label>
       </control>
     </itemlayout>
-    <focusedlayout height="45">
+    <focusedlayout height="50">
       <control type="label">
         <visible>!IsEmpty(ListItem.Label)</visible>
         <left>0</left>
         <top>0</top>
         <width>100%</width>
         <height>100%</height>
-        <font>size20</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
+        <font>size22</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>$INFO[ListItem.Label]</label>
       </control>
       <control type="label">
@@ -739,8 +739,8 @@
         <top>0</top>
         <width>100%</width>
         <height>100%</height>
-        <font>size20A</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
+        <font>size22</font>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>$INFO[ListItem.Label2]</label>
       </control>
     </focusedlayout>
