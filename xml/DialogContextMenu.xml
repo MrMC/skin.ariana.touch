@@ -3,6 +3,7 @@
   <defaultcontrol always="true">996</defaultcontrol>
   <controls>
     <include>PlainBG</include>
+    <include>BackButton</include>
     <control type="label">
       <visible>!IsEmpty(ListItem.Label)</visible>
       <include>CenterHeading</include>

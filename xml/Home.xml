@@ -2,7 +2,39 @@
 <window>
   <defaultcontrol>9000</defaultcontrol>
   <controls>
-    <include>FullBackground</include>
+    <include>PlainBG</include>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <bottom>93</bottom>
+      <width>100%</width>
+      <height>1</height>
+      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="BottomBar">
+      <left>0</left>
+      <bottom>0</bottom>
+      <width>100%</width>
+      <height>93</height>
+      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>95</height>
+      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
+    <control type="image" description="TopBar">
+      <left>0</left>
+      <top>95</top>
+      <width>100%</width>
+      <height>1</height>
+      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
+      <aspectratio align="left" aligny="top">stretch</aspectratio>
+    </control>
     <control type="group">
       <include>OpenClose</include>
       <control type="button" id="4004" description="Users">

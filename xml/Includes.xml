@@ -36,17 +36,6 @@
     <alttexturenofocus/>
     <alttexturefocus/>
   </include>
-  <include name="TopBar">
-    <control type="image" description="Background">
-      <animation condition="ControlGroup(9000).HasFocus()" effect="slide" start="0,0" end="0,140" time="100" easing="in" reversible="false">Conditional</animation>
-      <animation condition="!ControlGroup(9000).HasFocus()" effect="slide" start="0,140" end="0,0" time="100" delay="50" easing="in" reversible="false">Conditional</animation>
-      <left>0</left>
-      <top>-141</top>
-      <width>1920</width>
-      <height>142</height>
-      <texture colordiffuse="$VAR[OverlayColor]">dot/White95.png</texture>
-    </control>
-  </include>
   <include name="SquareButtonCommons">
     <width>60</width>
     <height>60</height>
@@ -58,24 +47,6 @@
     <textoffsety>80</textoffsety>
     <textoffsetx>0</textoffsetx>
     <align>center</align>
-  </include>
-  <include name="VideoMenuInfo">
-    <control type="group" description="Info group">
-      <top>90</top>
-      <control type="group">
-        <top>30</top>
-        <control type="label" description="Main label">
-          <visible>![VideoPlayer.Content(MusicVideos)]</visible>
-          <include>FullscreenInfoLabelMain</include>
-          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.TVShowTitle, • ]$INFO[VideoPlayer.Season, - $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode, $LOCALIZE[20359] ]$INFO[VideoPlayer.Year, • ]</label>
-        </control>
-        <control type="label" description="Main label">
-          <visible>VideoPlayer.Content(MusicVideos)</visible>
-          <include>FullscreenInfoLabelMain</include>
-          <label>[B]$INFO[VideoPlayer.Artist][/B]$INFO[VideoPlayer.Album, • ]</label>
-        </control>
-      </control>
-    </control>
   </include>
   <include name="DownButton">
     <control type="button" description="Down">
@@ -165,6 +136,24 @@
     <alttexturenofocus/>
     <textcolor>grey</textcolor>
     <focusedcolor>white</focusedcolor>
+  </include>
+  <include name="VideoMenuInfo">
+    <control type="group" description="Info group">
+      <top>90</top>
+      <control type="group">
+        <top>30</top>
+        <control type="label" description="Main label">
+          <visible>![VideoPlayer.Content(MusicVideos)]</visible>
+          <include>FullscreenInfoLabelMain</include>
+          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.TVShowTitle, • ]$INFO[VideoPlayer.Season, - $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode, $LOCALIZE[20359] ]$INFO[VideoPlayer.Year, • ]</label>
+        </control>
+        <control type="label" description="Main label">
+          <visible>VideoPlayer.Content(MusicVideos)</visible>
+          <include>FullscreenInfoLabelMain</include>
+          <label>[B]$INFO[VideoPlayer.Artist][/B]$INFO[VideoPlayer.Album, • ]</label>
+        </control>
+      </control>
+    </control>
   </include>
   <include name="CenterHeading">
     <top>0</top>
@@ -275,9 +264,7 @@
       <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
-    <include condition="![Window.IsActive(home) | Window.IsActive(loginscreen)]">BackButton</include>
     <control type="image" description="BottomBar">
-      <visible>!Window.IsActive(home)</visible>
       <left>0</left>
       <bottom>0</bottom>
       <width>100%</width>
@@ -286,7 +273,6 @@
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
     <control type="image" description="TopBar">
-      <visible>!Window.IsActive(home)</visible>
       <left>0</left>
       <bottom>79</bottom>
       <width>100%</width>
@@ -294,24 +280,7 @@
       <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio align="left" aligny="top">stretch</aspectratio>
     </control>
-    <control type="image" description="BottomBar">
-      <visible>Window.IsActive(home)</visible>
-      <left>0</left>
-      <bottom>0</bottom>
-      <width>100%</width>
-      <height>93</height>
-      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
-    <control type="image" description="TopBar">
-      <visible>Window.IsActive(home)</visible>
-      <left>0</left>
-      <bottom>93</bottom>
-      <width>100%</width>
-      <height>1</height>
-      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
+    <include>BackButton</include>
     <control type="image" description="DebugGrid">
       <visible>Skin.HasSetting(DebugGrid)</visible>
       <left>0</left>
@@ -369,37 +338,11 @@
     <width>1</width>
     <height>1</height>
   </include>
-  <include name="HeadingR">
-    <left>960</left>
-    <top>60</top>
-    <width>930</width>
-    <height>75</height>
-    <align>center</align>
-    <aligny>bottom</aligny>
-    <textcolor>$VAR[SelectedColor]</textcolor>
-    <font>size50B</font>
-  </include>
   <include name="Dimensions_Fullscreen">
     <left>0</left>
     <top>0</top>
     <width>100%</width>
     <height>100%</height>
-  </include>
-  <include name="Header">
-    <control type="group">
-      <visible>![Window.IsActive(home) | Window.IsActive(LoginScreen.xml)]</visible>
-      <control type="label" description="Heading">
-        <left>0</left>
-        <top>60</top>
-        <align>center</align>
-        <aligny>center</aligny>
-        <width>1920</width>
-        <height>75</height>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-        <font>size50B</font>
-        <label>$VAR[GlobalHeadings]</label>
-      </control>
-    </control>
   </include>
   <include name="SeekbarIconsCommons">
     <width>45</width>
@@ -413,11 +356,6 @@
     <font>size50B</font>
     <shadowcolor>black</shadowcolor>
     <textcolor>white</textcolor>
-  </include>
-  <include name="FocusButtonsAnimation">
-    <animation type="Focus" reversible="true">
-      <effect type="zoom" center="auto" start="100" end="104" time="100" easing="inout"/>
-    </animation>
   </include>
   <include name="FullscreenInfoLabelMain">
     <left>0</left>
