@@ -693,7 +693,7 @@
     <!--VideoInfo metadata lists-->
     <left>90</left>
     <top>0</top>
-    <width>50%</width>
+    <width>45%</width>
     <height>450</height>
     <onleft>noop</onleft>
     <onright>noop</onright>

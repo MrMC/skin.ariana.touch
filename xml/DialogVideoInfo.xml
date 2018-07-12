@@ -23,20 +23,32 @@
         <visible>!Skin.HasSetting(InfoPosterHide)</visible>
         <include>VisibleFadeEffect</include>
         <control type="image" id="3" description="Media Thumb">
+          <visible>!IsEmpty(ListItem.art(tvshow.poster))</visible>
           <right>90</right>
           <top>96</top>
           <bottom>80</bottom>
-          <width>660</width>
-          <texture background="true">$INFO[ListItem.thumb]</texture>
+          <width>38%</width>
+          <texture background="true">$INFO[ListItem.art(tvshow.poster)]</texture>
           <bordertexture border="3">thumbs/PosterFO.png</bordertexture>
           <bordersize>1</bordersize>
-          <aspectratio align="center" aligny="center">keep</aspectratio>
+          <aspectratio align="right" aligny="center">keep</aspectratio>
+        </control>
+        <control type="image" id="3" description="Media Thumb">
+          <visible>IsEmpty(ListItem.art(tvshow.poster))</visible>
+          <right>90</right>
+          <top>96</top>
+          <bottom>80</bottom>
+          <width>38%</width>
+          <texture background="true">$INFO[ListItem.art(thumb)]</texture>
+          <bordertexture border="3">thumbs/PosterFO.png</bordertexture>
+          <bordersize>1</bordersize>
+          <aspectratio align="right" aligny="center">keep</aspectratio>
         </control>
         <control type="togglebutton" description="Play">
-          <centerright>420</centerright>
+          <centerright>380</centerright>
           <centertop>50%</centertop>
-          <width>200</width>
-          <height>200</height>
+          <width>300</width>
+          <height>300</height>
           <texturefocus>icons/touch/videoinfoplay.png</texturefocus>
           <texturenofocus>icons/touch/videoinfoplay.png</texturenofocus>
           <alttexturefocus>icons/touch/videoinfoplay2.png</alttexturefocus>
@@ -46,7 +58,7 @@
         </control>
       </control>
       <control type="group" description="List Info">
-        <top>210</top>
+        <top>150</top>
         <control type="group">
           <visible>![container.content(tvshows) | container.content(episodes) | SubString(Container.FolderPath,videodb://3,left)]</visible>
           <include>VisibleFadeEffect</include>
@@ -73,6 +85,10 @@
                 <label>$LOCALIZE[572]: $INFO[ListItem.Studio]</label>
                 <onclick>noop</onclick>
                 <visible>!IsEmpty(ListItem.Studio)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20074]: $INFO[ListItem.mpaa]</label>
+                <onclick>noop</onclick>
               </item>
               <item>
                 <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
@@ -102,6 +118,10 @@
                 <label>$LOCALIZE[31322]: $INFO[ListItem.Premiered]</label>
                 <onclick>noop</onclick>
                 <visible>!IsEmpty(ListItem.Premiered)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20074]: $INFO[ListItem.mpaa]</label>
+                <onclick>noop</onclick>
               </item>
             </content>
           </control>
@@ -133,6 +153,10 @@
                 <visible>!IsEmpty(ListItem.Writer)</visible>
               </item>
               <item>
+                <label>$LOCALIZE[20074]: $INFO[ListItem.mpaa]</label>
+                <onclick>noop</onclick>
+              </item>
+              <item>
                 <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
                 <onclick>noop</onclick>
                 <visible>!IsEmpty(ListItem.VideoCodec)</visible>
@@ -159,6 +183,10 @@
                 <visible>!IsEmpty(ListItem.Album)</visible>
               </item>
               <item>
+                <label>$LOCALIZE[20074]: $INFO[ListItem.mpaa]</label>
+                <onclick>noop</onclick>
+              </item>
+              <item>
                 <label>$LOCALIZE[544]: [UPPERCASE]$INFO[ListItem.FileExtension,, • ]$INFO[ListItem.VideoCodec]$INFO[ListItem.VideoResolution, / ]$INFO[ListItem.AudioCodec, • ]$INFO[ListItem.AudioChannels, / ][/UPPERCASE]</label>
                 <onclick>noop</onclick>
                 <visible>!IsEmpty(ListItem.VideoCodec)</visible>
@@ -172,7 +200,7 @@
         <top>400</top>
         <control type="grouplist">
           <top>84</top>
-          <width>50%</width>
+          <width>45%</width>
           <height>38</height>
           <align>left</align>
           <aligny>center</aligny>
@@ -224,12 +252,13 @@
             <texture colordiffuse="$VAR[LabelNFColor]">badges/default.rating.png</texture>
           </control>
           <control type="label" description="Simple Rating">
+            <visible>!IsEmpty(ListItem.RatingAndVotes)</visible>
             <width min="40">auto</width>
             <height>38</height>
             <font>size22</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <align>left</align>
-            <label>$INFO[ListItem.RatingAndVotes]</label>
+            <label>$INFO[ListItem.RatingAndVotes,, • ]</label>
           </control>
           <control type="label" description="Labels">
             <width min="50">auto</width>
@@ -238,7 +267,7 @@
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <align>left</align>
             <aligny>center</aligny>
-            <label>$INFO[ListItem.Year, • ,]</label>
+            <label>$INFO[ListItem.Year]</label>
           </control>
           <control type="label" description="Labels">
             <width min="50">auto</width>
@@ -249,34 +278,10 @@
             <aligny>center</aligny>
             <label>$INFO[ListItem.Duration, • , $LOCALIZE[31297]]</label>
           </control>
-          <control type="button" description="Resolution">
-            <visible>!IsEmpty(ListItem.VideoResolution)</visible>
-            <width min="60" max="400">auto</width>
-            <height>38</height>
-            <font>size22</font>
-            <align>center</align>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.VideoResolution]</label>
-            <texturefocus>focus/FrameNF.png</texturefocus>
-            <texturenofocus>focus/FrameNF.png</texturenofocus>
-            <onclick>-</onclick>
-          </control>
-          <control type="button" description="MPAA">
-            <visible>!IsEmpty(ListItem.mpaa)</visible>
-            <width min="60" max="400">auto</width>
-            <height>38</height>
-            <font>size22</font>
-            <align>center</align>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.mpaa]</label>
-            <texturefocus>focus/FrameNF.png</texturefocus>
-            <texturenofocus>focus/FrameNF.png</texturenofocus>
-            <onclick>-</onclick>
-          </control>
         </control>
         <control type="label" description="Genre">
           <top>136</top>
-          <width>900</width>
+          <width>45%</width>
           <height>45</height>
           <font>size22</font>
           <textcolor>$VAR[LabelNFColor]</textcolor>
@@ -287,7 +292,7 @@
           <include>VisibleFadeEffect</include>
           <left>0</left>
           <top>220</top>
-          <width>920</width>
+          <width>45%</width>
           <height>40%</height>
           <align>left</align>
           <font>size22</font>
@@ -324,7 +329,7 @@
       <control type="panel" id="50" description="50 actors">
         <include>VisibleFadeEffect</include>
         <left>90</left>
-        <bottom>120</bottom>
+        <bottom>136</bottom>
         <width>100%</width>
         <height>330</height>
         <orientation>horizontal</orientation>
