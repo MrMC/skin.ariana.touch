@@ -1,60 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  <include name="DiffuseBG">
-    <control type="image" description="Dim">
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-      <aspectratio>stretch</aspectratio>
-      <texture>dot/Black50.png</texture>
-    </control>
-  </include>
-  <include name="FanartBG">
-    <control type="image" description="Fanart">
-      <visible>!Skin.HasSetting(HideFanart)</visible>
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-      <fadetime>400</fadetime>
-      <aspectratio aligny="center">scale</aspectratio>
-      <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-      <animation effect="fade" end="5" time="0" condition="true">Conditional</animation>
-    </control>
-  </include>
   <include name="52mainLabelCommons">
-      <left>186</left>
-      <right>0</right>
-      <top>24</top>
-      <height>40</height>
-      <font>size22</font>
-      <label>[B]$INFO[ListItem.Label][/B]</label>
-      <textcolor>$VAR[LabelNFColor]</textcolor>
+    <left>186</left>
+    <right>0</right>
+    <top>24</top>
+    <height>40</height>
+    <font>size22</font>
+    <label>[B]$INFO[ListItem.Label][/B]</label>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
   </include>
   <include name="52label2Commons">
-      <left>186</left>
-      <right>0</right>
-      <top>78</top>
-      <height>40</height>
-      <font>size22</font>
-      <label>$VAR[TopLabel]</label>
-      <textcolor>$VAR[Label2Color]</textcolor>
+    <left>186</left>
+    <right>0</right>
+    <top>78</top>
+    <height>40</height>
+    <font>size22</font>
+    <label>$VAR[TopLabel]</label>
+    <textcolor>$VAR[Label2Color]</textcolor>
   </include>
   <include name="52plotCommons">
-      <left>186</left>
-      <right>0</right>
-      <top>133</top>
-      <bottom>22</bottom>
-      <font>size22</font>
-      <align>left</align>
-      <label>$VAR[Plots]</label>
+    <left>186</left>
+    <right>0</right>
+    <top>133</top>
+    <bottom>22</bottom>
+    <font>size22</font>
+    <align>left</align>
+    <label>$VAR[Plots]</label>
   </include>
   <include name="52listBG">
     <control type="image">
-      <left>20</left>
+      <left>0</left>
       <bottom>0</bottom>
-      <right>20</right>
+      <right>0</right>
       <height>1</height>
       <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
       <aspectratio>stretch</aspectratio>
@@ -70,14 +47,112 @@
       <aspectratio>keep</aspectratio>
     </control>
   </include>
+  <include name="View_53" description="Grid container">
+    <param name="Left"/>
+    <param name="Right"/>
+    <param name="Width"/>
+    <param name="Height"/>
+    <definition>
+      <control type="panel" id="53" description="Grid Container">
+        <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons) | Container.Content(albums) | Container.content(artists) | Window.IsActive(pictures)]</visible>
+        <viewtype label="536">Thumbnails</viewtype>
+        <!--<include condition="StringCompare(Skin.AspectRatio,4:3)">53_Margins</include>-->
+        <left>$PARAM[Left]</left>
+        <right>$PARAM[Right]</right>
+        <top>97</top>
+        <bottom>97</bottom>
+        <preloaditems>4</preloaditems>
+        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]">
+          <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture>thumbs/PosterFO.png</texture>
+            <bordersize>30,0,30,30</bordersize>
+          </control>
+          <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+            <bordersize>30,0,30,30</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="group" description="Overlay">
+            <control type="image">
+              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <right>30</right>
+              <top>0</top>
+              <height>48</height>
+              <width>48</width>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="orange">$INFO[ListItem.Overlay,grid/]</texture>
+            </control>
+            <control type="progress">
+              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <bottom>18</bottom>
+              <left>30</left>
+              <right>30</right>
+              <height>24</height>
+              <texturebg border="2">HUD/SliderBG.png</texturebg>
+              <lefttexture/>
+              <righttexture/>
+              <midtexture colordiffuse="orange" border="1">HUD/ProgressFill.png</midtexture>
+              <info>ListItem.PercentPlayed</info>
+            </control>
+          </control>
+        </itemlayout>
+        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+          <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture>thumbs/PosterFO.png</texture>
+            <bordersize>30,0,30,30</bordersize>
+          </control>
+          <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture background="true">$INFO[ListItem.Thumb]</texture>
+            <bordersize>30,0,30,30</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="group" description="Overlay">
+            <control type="image">
+              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <right>30</right>
+              <top>0</top>
+              <height>48</height>
+              <width>48</width>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="orange">$INFO[ListItem.Overlay,grid/]</texture>
+            </control>
+            <control type="progress">
+              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <bottom>18</bottom>
+              <left>30</left>
+              <right>30</right>
+              <height>24</height>
+              <texturebg border="2">HUD/SliderBG.png</texturebg>
+              <lefttexture/>
+              <righttexture/>
+              <midtexture colordiffuse="orange" border="1">HUD/ProgressFill.png</midtexture>
+              <info>ListItem.PercentPlayed</info>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+    </definition>
+  </include>
   <include name="View_50" description="50">
-    <control type="list" id="50">
-      <left>100</left>
-      <right>100</right>
+    <param name="Left" default="30"/>
+    <param name="Right" default="30"/>
+    <param name="ID" default="50" />
+    <definition>
+    <control type="list" id="$PARAM[ID]">
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
       <top>96</top>
-      <bottom>82</bottom>
+      <bottom>96</bottom>
       <viewtype label="535">List</viewtype>
-      <preloaditems>2</preloaditems>
+      <preloaditems>4</preloaditems>
       <itemlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
         <include>52listBG</include>
         <include>52overlay</include>
@@ -245,7 +320,7 @@
           <right>0</right>
           <bottom>24</bottom>
           <height>40</height>
-          <font>size20</font>
+          <font>size22</font>
           <label>$INFO[ListItem.Label2]</label>
           <textcolor>$VAR[Label2Color]</textcolor>
         </control>
@@ -275,7 +350,7 @@
           <right>0</right>
           <bottom>24</bottom>
           <height>40</height>
-          <font>size20</font>
+          <font>size22</font>
           <label>$INFO[ListItem.Label2]</label>
           <textcolor>$VAR[Label2Color]</textcolor>
         </control>
@@ -316,7 +391,7 @@
           <right>0</right>
           <bottom>24</bottom>
           <height>40</height>
-          <font>size20</font>
+          <font>size22</font>
           <label>$INFO[ListItem.Label2]</label>
           <textcolor>$VAR[Label2Color]</textcolor>
         </control>
@@ -357,12 +432,13 @@
           <right>0</right>
           <bottom>24</bottom>
           <height>40</height>
-          <font>size20</font>
+          <font>size22</font>
           <label>$INFO[ListItem.Label2]</label>
           <textcolor>$VAR[Label2Color]</textcolor>
         </control>
       </focusedlayout>
     </control>
+  </definition>
     <control type="group" description="List 50 furniture">
       <visible>Control.IsVisible(50)</visible>
       <include>ContainerVisibleFade</include>
@@ -373,201 +449,94 @@
     </control>
   </include>
   <include name="Base_List" description="50">
-      <left>100</left>
-      <right>100</right>
-      <top>96</top>
-      <bottom>82</bottom>
-      <viewtype label="535">List</viewtype>
-      <preloaditems>2</preloaditems>
-      <itemlayout height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>0</top>
-          <height>100%</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>!IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size20</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </itemlayout>
-      <focusedlayout height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>0</top>
-          <height>100%</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>!IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size20</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </focusedlayout>
-  </include>
-  <include name="View_50_old" description="50">
-    <control type="list" id="50">
-      <visible>![container.content(movies) | container.content(tvshows) | container.content(seasons) | container.content(episodes) | container.content(albums) | container.content(songs) | container.content(artists)]</visible>
-      <right>0</right>
-      <top>96</top>
-      <width>50%</width>
-      <bottom>82</bottom>
-      <onup>50</onup>
-      <ondown>50</ondown>
-      <viewtype label="535">List</viewtype>
-      <preloaditems>2</preloaditems>
-      <itemlayout height="122">
-        <control type="image">
-          <left>5</left>
-          <bottom>0</bottom>
-          <right>30</right>
-          <height>1</height>
-          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-          <aspectratio>stretch</aspectratio>
-        </control>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>120</width>
-          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>10</bordersize>
-          <aspectratio>scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <left>150</left>
-          <right>10</right>
-          <top>0</top>
-          <height>100%</height>
-          <font>size22</font>
-          <label>$INFO[ListItem.Label]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>150</left>
-          <right>10</right>
-          <top>60%</top>
-          <height>40%</height>
-          <font>size19</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </itemlayout>
-      <focusedlayout height="122">
-        <control type="group">
-          <control type="image">
-            <left>5</left>
-            <bottom>0</bottom>
-            <right>30</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
-          <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <height>100%</height>
-            <width>120</width>
-            <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-            <bordersize>10</bordersize>
-            <aspectratio>scale</aspectratio>
-          </control>
-          <control type="label" description="Main Label">
-            <left>150</left>
-            <right>10</right>
-            <top>0</top>
-            <height>100%</height>
-            <font>size22</font>
-            <label>$INFO[ListItem.Label]</label>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
-          </control>
-          <control type="label" description="Label2">
-            <left>150</left>
-            <right>10</right>
-            <top>60%</top>
-            <height>40%</height>
-            <font>size19</font>
-            <label>$INFO[ListItem.Label2]</label>
-            <textcolor>$VAR[Label2Color]</textcolor>
-          </control>
-        </control>
-      </focusedlayout>
-    </control>
-    <control type="group" description="List 50 base">
-      <visible>Control.IsVisible(50)</visible>
-      <include>ContainerVisibleFade</include>
-      <control type="label" description="MainHeading">
-        <include>CenterHeading</include>
-        <label>$VAR[GlobalHeadings]</label>
-      </control>
-      <control type="image" description="Thumb">
+    <left>100</left>
+    <right>100</right>
+    <top>96</top>
+    <bottom>82</bottom>
+    <viewtype label="535">List</viewtype>
+    <preloaditems>2</preloaditems>
+    <itemlayout height="160">
+      <include>52listBG</include>
+      <control type="image">
         <left>0</left>
-        <top>96</top>
-        <width>50%</width>
-        <bottom>80</bottom>
-        <include>Icon_Fade</include>
-        <texture>thumbs/mrmc.png</texture>
-        <bordersize>0</bordersize>
+        <top>0</top>
+        <height>100%</height>
+        <width>160</width>
+        <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+        <bordersize>12</bordersize>
         <aspectratio>scale</aspectratio>
       </control>
-    </control>
+      <control type="label" description="Main Label">
+        <visible>IsEmpty(ListItem.Label2)</visible>
+        <left>180</left>
+        <right>0</right>
+        <top>0</top>
+        <height>100%</height>
+        <font>size22</font>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+      </control>
+      <control type="label" description="Main Label">
+        <visible>!IsEmpty(ListItem.Label2)</visible>
+        <left>180</left>
+        <right>0</right>
+        <top>24</top>
+        <height>40</height>
+        <font>size22</font>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+      </control>
+      <control type="label" description="Label2">
+        <left>180</left>
+        <right>0</right>
+        <bottom>24</bottom>
+        <height>40</height>
+        <font>size22</font>
+        <label>$INFO[ListItem.Label2]</label>
+        <textcolor>$VAR[Label2Color]</textcolor>
+      </control>
+    </itemlayout>
+    <focusedlayout height="160">
+      <include>52listBG</include>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <height>100%</height>
+        <width>160</width>
+        <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+        <bordersize>12</bordersize>
+        <aspectratio>scale</aspectratio>
+      </control>
+      <control type="label" description="Main Label">
+        <visible>IsEmpty(ListItem.Label2)</visible>
+        <left>180</left>
+        <right>0</right>
+        <top>0</top>
+        <height>100%</height>
+        <font>size22</font>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+      </control>
+      <control type="label" description="Main Label">
+        <visible>!IsEmpty(ListItem.Label2)</visible>
+        <left>180</left>
+        <right>0</right>
+        <top>24</top>
+        <height>40</height>
+        <font>size22</font>
+        <label>[B]$INFO[ListItem.Label][/B]</label>
+        <textcolor>$VAR[LabelNFColor]</textcolor>
+      </control>
+      <control type="label" description="Label2">
+        <left>180</left>
+        <right>0</right>
+        <bottom>24</bottom>
+        <height>40</height>
+        <font>size22</font>
+        <label>$INFO[ListItem.Label2]</label>
+        <textcolor>$VAR[Label2Color]</textcolor>
+      </control>
+    </focusedlayout>
   </include>
   <include name="InfoPVR" description="PVR item info">
     <control type="group" description="Media info">
@@ -577,14 +546,14 @@
       <control type="label" description="Main Label">
         <top>0</top>
         <width>45%</width>
-        <font>size20</font>
+        <font>size22</font>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <label>[B]$INFO[ListItem.Title][/B]</label>
       </control>
       <control type="label" description="Details">
         <top>46</top>
         <width>45%</width>
-        <font>size20</font>
+        <font>size22</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>$INFO[ListItem.Duration]</label>
       </control>

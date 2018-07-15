@@ -2,39 +2,9 @@
 <window>
   <defaultcontrol>9000</defaultcontrol>
   <controls>
-    <include>PlainBG</include>
-    <control type="image" description="TopBar">
-      <left>0</left>
-      <bottom>93</bottom>
-      <width>100%</width>
-      <height>1</height>
-      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
-    <control type="image" description="BottomBar">
-      <left>0</left>
-      <bottom>0</bottom>
-      <width>100%</width>
-      <height>93</height>
-      <texture flipy="true" border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
-    <control type="image" description="TopBar">
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>95</height>
-      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
-    <control type="image" description="TopBar">
-      <left>0</left>
-      <top>95</top>
-      <width>100%</width>
-      <height>1</height>
-      <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
+    <include>PlainBackground</include>
+    <include>TopBar</include>
+    <include>BottomBar</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="button" id="4004" description="Users">
@@ -87,7 +57,7 @@
         <texturenofocus/>
         <align>center</align>
         <aligny>center</aligny>
-        <font>size20U</font>
+        <font>size20CU</font>
         <textcolor>$VAR[SelectedColor]</textcolor>
         <focusedcolor>$VAR[SelectedColor]</focusedcolor>
         <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -160,7 +130,7 @@
         </control>
         <control type="panel" id="8000" description="Movies RA">
           <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
-          <animation effect="slide" start="0,0" end="0,-509" time="0" reversible="true" condition="!Control.IsVisible(8010) + !Control.IsVisible(8020)">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-100" time="0" reversible="true" condition="!Control.IsVisible(8010) + !Control.IsVisible(8020)">Conditional</animation>
           <animation effect="fade" time="200">Visible</animation>
           <bottom>110</bottom>
           <left>0</left>
@@ -389,23 +359,14 @@
       </focusedlayout>
     </control>
     <control type="grouplist">
-      <left>90</left>
-      <right>90</right>
-      <bottom>36</bottom>
-      <height>48</height>
-      <itemgap>30</itemgap>
-      <onleft>9000</onleft>
-      <onright>9000</onright>
-      <align>center</align>
-      <aligny>center</aligny>
-      <orientation>horizontal</orientation>
+      <include>9000GrouplistParameters</include>
       <control type="button" id="1" description="Shelves">
         <onclick>ClearProperty(shelf)</onclick>
         <onclick>SetProperty(shelf,home)</onclick>
         <label>$LOCALIZE[10000]</label>
         <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/home.png</texturefocus>
         <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/home.png</texturenofocus>
-        <height>48</height>
+        <height>44</height>
         <textoffsetx>72</textoffsetx>
         <include>9000Buttons</include>
       </control>
@@ -414,7 +375,7 @@
         <onclick>ClearProperty(shelf)</onclick>
         <texturefocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturefocus>
         <texturenofocus colordiffuse="$VAR[SelectedColor]" border="59,0,0,0">icons/touch/library.png</texturenofocus>
-        <height>48</height>
+        <height>44</height>
         <textoffsetx>72</textoffsetx>
         <include>9000Buttons</include>
       </control>
@@ -457,7 +418,7 @@
       <onclick>fullscreen</onclick>
       <texturefocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[SelectedColor]" border="60,0,0,0">icons/touch/playing.png</texturenofocus>
-      <height>48</height>
+      <height>44</height>
       <textoffsetx>72</textoffsetx>
       <include>9000Buttons</include>
     </control>

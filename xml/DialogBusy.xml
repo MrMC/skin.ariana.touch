@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
   <controls>
-    <include>PlainBG</include>
+    <include>PlainBackground</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="multiimage">

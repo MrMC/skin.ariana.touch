@@ -6,52 +6,28 @@
   <include name="PVRwidth" description="PVR count">
     <width>1250</width>
   </include>
-  <include name="9000GrouplistParameters">
-    <left>0</left>
-    <right>0</right>
-    <bottom>0</bottom>
-    <height>80</height>
-    <itemgap>40</itemgap>
-    <onleft>9000</onleft>
-    <onright>9000</onright>
-    <onup>50</onup>
-    <ondown>50</ondown>
-    <align>center</align>
-    <aligny>center</aligny>
-    <orientation>horizontal</orientation>
+  <include name="VerticalMargins">
+    <param name="Top" default="96"/>
+    <param name="Bottom" default="96"/>
+    <definition>
+      <top>$PARAM[Top]</top>
+      <bottom>$PARAM[Bottom]</bottom>
+  </definition>
   </include>
-  <include name="9000Buttons">
-    <width min="150" max="540">auto</width>
-    <height>80</height>
-    <textoffsetx>0</textoffsetx>
-    <align>center</align>
-    <aligny>center</aligny>
-    <font>size19CU</font>
-    <textcolor>$VAR[SelectedColor]</textcolor>
-    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-    <alttextcolor>$VAR[SelectedColor]</alttextcolor>
-    <altselectedcolor>$VAR[SelectedColor]</altselectedcolor>
-    <texturefocus/>
-    <texturenofocus/>
-    <alttexturenofocus/>
-    <alttexturefocus/>
-  </include>
-  <include name="SquareButtonCommons">
-    <width>60</width>
-    <height>60</height>
-    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-    <altfocusedcolor>$VAR[SelectedColor]</altfocusedcolor>
-    <font>-</font>
-    <label/>
-    <aligny>top</aligny>
-    <textoffsety>80</textoffsety>
-    <textoffsetx>0</textoffsetx>
-    <align>center</align>
+  <include name="HorizontalMargins">
+    <param name="Left" default="30"/>
+    <param name="Right" default="30"/>
+    <definition>
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
+  </definition>
   </include>
   <include name="DownButton">
-    <control type="button" description="Down">
+    <param name="Right" default="30"/>
+    <definition>
+      <control type="button" description="Down">
       <top>46</top>
-      <right>46</right>
+      <right>$PARAM[Right]</right>
       <texturefocus>icons/touch/down.png</texturefocus>
       <texturenofocus>icons/touch/down.png</texturenofocus>
       <width>50</width>
@@ -62,25 +38,31 @@
       <onclick>Dialog.Close(all)</onclick>
       <onclick>FullScreen</onclick>
     </control>
+  </definition>
   </include>
   <include name="CloseButton">
-    <control type="button" description="Close">
-      <top>16</top>
-      <left>46</left>
+    <param name="Left" default="30"/>
+    <definition>
+      <control type="button" description="Close">
+      <top>0</top>
+      <left>$PARAM[Left]</left>
       <texturefocus>icons/touch/close.png</texturefocus>
       <texturenofocus>icons/touch/close.png</texturenofocus>
-      <width>80</width>
-      <height>80</height>
+      <width>96</width>
+      <height>96</height>
       <font>-</font>
       <align>left</align>
       <aligny>center</aligny>
       <onclick>back</onclick>
     </control>
+  </definition>
   </include>
   <include name="PlayerCloseButton">
+    <param name="Left" default="30"/>
+    <definition>
     <control type="button" description="PlayerClose">
       <top>46</top>
-      <left>46</left>
+      <left>$PARAM[Left]</left>
       <texturefocus>icons/touch/close.png</texturefocus>
       <texturenofocus>icons/touch/close.png</texturenofocus>
       <width>50</width>
@@ -91,13 +73,16 @@
       <onclick>Dialog.Close(all)</onclick>
       <onclick>PlayerControl(Stop)</onclick>
     </control>
+  </definition>
   </include>
   <include name="BackButton">
+    <param name="Left" default="30"/>
+    <definition>
     <control type="button" description="Back">
       <texturefocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturenofocus>
       <top>0</top>
-      <left>90</left>
+      <left>$PARAM[Left]</left>
       <width>360</width>
       <height>96</height>
       <focusedcolor>$VAR[SelectedColor]</focusedcolor>
@@ -108,14 +93,17 @@
       <label>[UPPERCASE]$LOCALIZE[31040][/UPPERCASE]</label>
       <onclick>back</onclick>
     </control>
+  </definition>
   </include>
   <include name="SearchButton">
-    <control type="button" id="19" description="Search">
+    <param name="Right" default="30"/>
+    <definition>
+      <control type="button" id="19" description="Search">
       <texturefocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturenofocus>
       <top>0</top>
-      <right>90</right>
-      <width>360</width>
+      <right>$PARAM[Right]</right>
+      <width>400</width>
       <height>96</height>
       <focusedcolor>$VAR[SelectedColor]</focusedcolor>
       <textcolor>$VAR[SelectedColor]</textcolor>
@@ -123,7 +111,48 @@
       <aligny>center</aligny>
       <textoffsetx>64</textoffsetx>
     </control>
+  </definition>
+</include>
+<include name="9000GrouplistParameters">
+    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
+    </include>
+    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
+      <param name="Left" value="120"/>
+      <param name="Right" value="120"/>
+    </include>
+    <definition>
+    <left>$PARAM[Left]</left>
+    <right>$PARAM[Right]</right>
+    <bottom>18</bottom>
+    <height>60</height>
+    <itemgap>40</itemgap>
+    <onleft>9000</onleft>
+    <onright>9000</onright>
+    <onup>50</onup>
+    <ondown>50</ondown>
+    <align>center</align>
+    <aligny>center</aligny>
+    <orientation>horizontal</orientation>
+    <animation effect="slide" end="0,-20" time="0" reversible="true" condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">Conditional</animation>
+  </definition>
   </include>
+  <include name="9000Buttons">
+    <width min="150" max="540">auto</width>
+    <height>60</height>
+    <textoffsetx>0</textoffsetx>
+    <align>center</align>
+    <aligny>center</aligny>
+    <font>size23CU</font>
+    <textcolor>$VAR[SelectedColor]</textcolor>
+    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+    <alttextcolor>$VAR[SelectedColor]</alttextcolor>
+    <altselectedcolor>$VAR[SelectedColor]</altselectedcolor>
+    <texturefocus/>
+    <texturenofocus/>
+    <alttexturenofocus/>
+    <alttexturefocus/>
+  </include>
+
   <include name="VideoMenuButtons">
     <width min="240" max="540">auto</width>
     <height>90</height>
@@ -239,59 +268,43 @@
       </control>
     </control>
   </include>
-  <include name="FullBackground">
-    <control type="image" description="BG image">
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-      <aspectratio>stretch</aspectratio>
-      <texture background="true">$VAR[Background.Overlay]</texture>
-    </control>
-    <control type="image" description="TopBar">
+  <include name ="TopBar">
+    <control type="image" description="Bar">
       <left>0</left>
       <top>0</top>
       <width>100%</width>
       <height>95</height>
-      <texture border="2" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
+      <texture colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio>stretch</aspectratio>
     </control>
-    <control type="image" description="TopBar">
+    <control type="image" description="Line">
       <left>0</left>
       <top>95</top>
       <width>100%</width>
       <height>1</height>
       <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
+      <aspectratio>stretch</aspectratio>
     </control>
-    <control type="image" description="BottomBar">
+  </include>
+  <include name ="BottomBar">
+    <control type="image" description="Bar">
       <left>0</left>
       <bottom>0</bottom>
       <width>100%</width>
-      <height>79</height>
-      <texture border="2" flipy="true" colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
+      <height>95</height>
+      <texture colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <aspectratio>stretch</aspectratio>
     </control>
-    <control type="image" description="TopBar">
+    <control type="image" description="Line">
       <left>0</left>
-      <bottom>79</bottom>
+      <bottom>95</bottom>
       <width>100%</width>
       <height>1</height>
       <texture colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
-      <aspectratio align="left" aligny="top">stretch</aspectratio>
-    </control>
-    <include>BackButton</include>
-    <control type="image" description="DebugGrid">
-      <visible>Skin.HasSetting(DebugGrid)</visible>
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-      <texture>debuggrid1080.png</texture>
-      <aspectratio align="left" aligny="top">scale</aspectratio>
+      <aspectratio>stretch</aspectratio>
     </control>
   </include>
-  <include name="PlainBG">
+  <include name="PlainBackground">
     <control type="image" description="Art">
       <left>0</left>
       <top>0</top>
@@ -309,6 +322,15 @@
       <texture>debuggrid1080.png</texture>
       <aspectratio align="left" aligny="top">scale</aspectratio>
     </control>
+  </include>
+  <include name="FullBackground">
+    <include>PlainBackground</include>
+    <include>TopBar</include>
+    <include>BottomBar</include>
+    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">BackButton</include>
+    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="BackButton">
+      <param name="Left" value="120"/>
+    </include>
   </include>
   <include name="VisibleFadeEffect">
     <animation effect="fade" time="200">VisibleChange</animation>

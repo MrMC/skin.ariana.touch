@@ -329,7 +329,7 @@
       <control type="panel" id="50" description="50 actors">
         <include>VisibleFadeEffect</include>
         <left>90</left>
-        <bottom>136</bottom>
+        <bottom>130</bottom>
         <width>100%</width>
         <height>330</height>
         <orientation>horizontal</orientation>

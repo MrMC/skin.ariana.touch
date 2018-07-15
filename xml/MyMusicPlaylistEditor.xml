@@ -23,7 +23,7 @@
         <top>96</top>
         <width>48%</width>
         <height>40</height>
-        <font>size20</font>
+        <font>size22</font>
         <align>center</align>
         <label fallback="31058">$INFO[Container(50).FolderName]</label>
       </control>
@@ -32,7 +32,7 @@
         <top>96</top>
         <width>48%</width>
         <height>40</height>
-        <font>size20</font>
+        <font>size22</font>
         <align>center</align>
         <label>$LOCALIZE[31059]: $INFO[Control.GetLabel(101)]</label>
       </control>
@@ -41,7 +41,7 @@
         <bottom>0</bottom>
         <width>90%</width>
         <height>80</height>
-        <font>size20</font>
+        <font>size22</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <align>center</align>
         <aligny>center</aligny>

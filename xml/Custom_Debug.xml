@@ -37,7 +37,7 @@
         <shadowcolor>FF000000</shadowcolor>
         <font>font13</font>
         <align>left</align>
-        <label>WINDOW: $INFO[System.CurrentWindow]</label>
+        <label>WINDOW: $INFO[System.CurrentWindow] / SCREEN: $INFO[Skin.AspectRatio]</label>
       </control>
       <!-- Content label -->
       <control type="label">

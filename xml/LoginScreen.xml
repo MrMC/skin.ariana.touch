@@ -2,7 +2,7 @@
 <window>
   <defaultcontrol always="true">52</defaultcontrol>
   <controls>
-    <include>PlainBG</include>
+    <include>PlainBackground</include>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" id="2" description="Header label">
