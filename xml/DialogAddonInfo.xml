@@ -10,7 +10,7 @@
         <label>[B]$INFO[ListItem.Property(Addon.Name)][/B]$INFO[ListItem.Property(Addon.Version),  $LOCALIZE[24051] ]</label>
       </control>
       <control type="image" description="Icon">
-        <left>90</left>
+        <left>120</left>
         <top>140</top>
         <width>320</width>
         <height>320</height>
@@ -18,7 +18,7 @@
         <texture fallback="DefaultFolder.png">$INFO[ListItem.Thumb]</texture>
       </control>
       <control type="group" description="Info">
-        <right>40</right>
+        <right>120</right>
         <top>150</top>
         <width>65%</width>
         <control type="label" description="summary">
@@ -35,18 +35,19 @@
         </control>
         <control type="textbox" description="Disclaimer">
           <top>240</top>
-          <height>66</height>
-          <font>size18</font>
+          <height>90</height>
+          <font>size22</font>
           <align>left</align>
           <textcolor>$VAR[Label2Color]</textcolor>
           <label>$INFO[ListItem.Property(Addon.Disclaimer)]</label>
         </control>
       </control>
       <control type="textbox" description="Plot">
-        <left>40</left>
-        <right>40</right>
+        <left>120</left>
+        <right>120</right>
         <top>50%</top>
         <height>400</height>
+        <font>size22</font>
         <label>$INFO[ListItem.Property(Addon.Description)]</label>
       </control>
       <control type="grouplist" id="9000">

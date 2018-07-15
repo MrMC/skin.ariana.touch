@@ -6,13 +6,21 @@
   <include name="PVRwidth" description="PVR count">
     <width>1250</width>
   </include>
-  <include name="VerticalMargins">
-    <param name="Top" default="96"/>
-    <param name="Bottom" default="96"/>
+  <include name="LeftMargin">
+    <param name="Left" default="30"/>
     <definition>
-      <top>$PARAM[Top]</top>
-      <bottom>$PARAM[Bottom]</bottom>
+      <left>$PARAM[Left]</left>
   </definition>
+  </include>
+  <include name="RightMargin">
+    <param name="Right" default="30"/>
+    <definition>
+      <right>$PARAM[Right]</right>
+  </definition>
+  </include>
+  <include name="VerticalMargins">
+    <top>96</top>
+    <bottom>96</bottom>
   </include>
   <include name="HorizontalMargins">
     <param name="Left" default="30"/>
@@ -142,7 +150,7 @@
     <textoffsetx>0</textoffsetx>
     <align>center</align>
     <aligny>center</aligny>
-    <font>size23CU</font>
+    <font>size22CU</font>
     <textcolor>$VAR[SelectedColor]</textcolor>
     <focusedcolor>$VAR[SelectedColor]</focusedcolor>
     <alttextcolor>$VAR[SelectedColor]</alttextcolor>

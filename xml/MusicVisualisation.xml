@@ -47,7 +47,7 @@
         <width>100%</width>
         <scroll>true</scroll>
         <align>center</align>
-        <font>size28B</font>
+        <font>size24B</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <animation effect="fade" time="200">VisibleChange</animation>
         <label>[B]$INFO[MusicPlayer.Title][/B]</label>
@@ -57,7 +57,7 @@
         <width>100%</width>
         <scroll>true</scroll>
         <align>center</align>
-        <font>size24B</font>
+        <font>size22B</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label>[B]$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ][/B]</label>
       </control>
@@ -66,7 +66,7 @@
         <width>100%</width>
         <scroll>true</scroll>
         <align>center</align>
-        <font>size19</font>
+        <font>size20</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <animation effect="fade" time="200">VisibleChange</animation>
         <label>[B]$INFO[MusicPlayer.PlaylistPosition] $LOCALIZE[20163] $INFO[MusicPlayer.PlaylistLength][/B]</label>
@@ -76,7 +76,7 @@
         <width>100%</width>
         <scroll>true</scroll>
         <align>center</align>
-        <font>size19</font>
+        <font>size20</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <label fallback="-:-">[B]$INFO[Player.Time]$INFO[Player.TimeRemaining, / ][/B]</label>
       </control>

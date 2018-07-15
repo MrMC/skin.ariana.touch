@@ -14,7 +14,7 @@
         <width>960</width>
         <height>170</height>
         <align>center</align>
-        <font>size23</font>
+        <font>size22</font>
         <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
       </control>
       <control type="button" id="10" description="No">

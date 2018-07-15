@@ -10,16 +10,15 @@
     <control type="label">
       <visible>!IsEmpty(ListItem.Label)</visible>
       <include>CenterHeading</include>
-      <label>[B]$INFO[ListItem.Label][/B]</label>
+      <label>$INFO[ListItem.Label]</label>
     </control>
     <control type="grouplist" id="996" description="Context menu container">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
       <centertop>50%</centertop>
-      <top>120</top>
-      <bottom>120</bottom>
       <width>600</width>
       <itemgap>10</itemgap>
+      <height max="800">auto</height>
       <aligny>center</aligny>
       <control type="button" id="1000" description="Buttons">
         <width>600</width>

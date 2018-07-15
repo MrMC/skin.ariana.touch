@@ -144,7 +144,7 @@
   <include name="View_50" description="50">
     <param name="Left" default="30"/>
     <param name="Right" default="30"/>
-    <param name="ID" default="50" />
+    <param name="ID" default="50"/>
     <definition>
     <control type="list" id="$PARAM[ID]">
       <left>$PARAM[Left]</left>
@@ -362,7 +362,7 @@
           <top>0</top>
           <height>100%</height>
           <width>160</width>
-          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
           <aspectratio>scale</aspectratio>
         </control>
@@ -403,7 +403,7 @@
           <top>0</top>
           <height>100%</height>
           <width>160</width>
-          <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
           <aspectratio>scale</aspectratio>
         </control>

@@ -24,7 +24,7 @@
         <disabledcolor>$VAR[DisabledColor]</disabledcolor>
         <texturefocus/>
         <texturenofocus/>
-        <font>size20CU</font>
+        <font>size22CU</font>
         <aligny>center</aligny>
         <align>right</align>
         <label>$LOCALIZE[10004]</label>
@@ -38,7 +38,7 @@
         <texturenofocus/>
         <width>500</width>
         <height>96</height>
-        <font>size20CU</font>
+        <font>size22CU</font>
         <textcolor>$VAR[SelectedColor]</textcolor>
         <focusedcolor>$VAR[SelectedColor]</focusedcolor>
         <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -57,7 +57,7 @@
         <texturenofocus/>
         <align>center</align>
         <aligny>center</aligny>
-        <font>size20CU</font>
+        <font>size22CU</font>
         <textcolor>$VAR[SelectedColor]</textcolor>
         <focusedcolor>$VAR[SelectedColor]</focusedcolor>
         <selectedcolor>$VAR[SelectedColor]</selectedcolor>

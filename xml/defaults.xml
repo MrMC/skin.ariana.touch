@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
   <default type="label">
-    <height>60</height>
+    <height>80</height>
     <align>left</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
     <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -13,10 +13,10 @@
     <scrollsuffix> &#0000; </scrollsuffix>
   </default>
   <default type="fadelabel">
-    <height>60</height>
+    <height>80</height>
     <align>left</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textoffsetx>20</textoffsetx>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
@@ -44,10 +44,10 @@
   </default>
   <default type="button">
     <width>390</width>
-    <height>60</height>
+    <height>80</height>
     <align>center</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textoffsetx>20</textoffsetx>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
@@ -61,10 +61,10 @@
   </default>
   <default type="edit">
     <width>390</width>
-    <height>60</height>
+    <height>80</height>
     <align>center</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textoffsetx>20</textoffsetx>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
@@ -75,10 +75,10 @@
   </default>
   <default type="togglebutton">
     <width>450</width>
-    <height>60</height>
+    <height>80</height>
     <align>left</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textoffsetx>20</textoffsetx>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
@@ -94,10 +94,10 @@
     <alttexturenofocus border="9">img/SettingsButtonNF.png</alttexturenofocus>
   </default>
   <default type="radiobutton">
-    <height>60</height>
+    <height>80</height>
     <align>left</align>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
     <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -116,8 +116,8 @@
   </default>
   <default type="spincontrol">
     <width>450</width>
-    <height>60</height>
-    <font>size20</font>
+    <height>80</height>
+    <font>size22</font>
     <textureup colordiffuse="$VAR[Label2Color]" flipy="true">img/SpinDW.png</textureup>
     <textureupfocus colordiffuse="$VAR[LabelFOColor]" flipy="true">img/SpinDW.png</textureupfocus>
     <texturedown colordiffuse="$VAR[Label2Color]">img/SpinDW.png</texturedown>
@@ -138,8 +138,8 @@
   </default>
   <default type="spincontrolex">
     <width>450</width>
-    <height>60</height>
-    <font>size20</font>
+    <height>80</height>
+    <font>size22</font>
     <textureup colordiffuse="$VAR[Label2Color]" flipy="true">img/SpinDW.png</textureup>
     <textureupfocus colordiffuse="$VAR[LabelFOColor]" flipy="true">img/SpinDW.png</textureupfocus>
     <texturedown colordiffuse="$VAR[Label2Color]">img/SpinDW.png</texturedown>
@@ -159,10 +159,10 @@
     <pulseonselect>false</pulseonselect>
   </default>
   <default type="slider" description="Seek Slider">
-    <height>60</height>
+    <height>80</height>
     <width>450</width>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
     <selectedcolor>$VAR[SelectedColor]</selectedcolor>
@@ -175,10 +175,10 @@
     <pulseonselect>false</pulseonselect>
   </default>
   <default type="sliderex" description="Default Slider">
-    <height>60</height>
+    <height>80</height>
     <width>450</width>
     <aligny>center</aligny>
-    <font>size20</font>
+    <font>size22</font>
     <textoffsetx>20</textoffsetx>
     <textcolor>$VAR[LabelNFColor]</textcolor>
     <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
