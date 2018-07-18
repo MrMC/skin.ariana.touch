@@ -9,31 +9,34 @@
         <include>CenterHeading</include>
         <label>-</label>
       </control>
+      <control type="group">
+      <centertop>50%</centertop>
+      <height>160</height>
       <control type="label" id="2" description="Line 1">
-        <top>440</top>
+        <top>0</top>
         <centerleft>50%</centerleft>
-        <width>50%</width>
+        <width>70%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="3" description="Line 2">
-        <top>480</top>
+        <top>40</top>
         <centerleft>50%</centerleft>
-        <width>50%</width>
+        <width>70%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="4" description="Line 3">
-        <top>520</top>
+        <top>80</top>
         <centerleft>50%</centerleft>
-        <width>50%</width>
+        <width>70%</width>
         <height>40</height>
         <align>center</align>
       </control>
       <control type="label" id="21" description="Progress">
-        <top>580</top>
+        <top>120</top>
         <centerleft>50%</centerleft>
-        <width>50%</width>
+        <width>70%</width>
         <height>40</height>
         <align>center</align>
         <label>[B]$INFO[Control.GetLabel(20),,%][/B]</label>
@@ -48,6 +51,7 @@
         <righttexture/>
         <overlaytexture/>
       </control>
+    </control>
       <control type="grouplist" id="9000">
         <include>9000GrouplistParameters</include>
         <control type="button" id="10" description="Cancel">

@@ -7,85 +7,65 @@
       <include>OpenClose</include>
       <control type="label" description="Heading">
         <include>CenterHeading</include>
-        <label>[B]$LOCALIZE[10004][/B]</label>
+        <label>$LOCALIZE[10004]</label>
       </control>
       <control type="panel" id="9000">
-        <centerleft>50%</centerleft>
-        <width>1440</width>
-        <top>120</top>
-        <bottom>100</bottom>
-        <itemlayout height="100" width="720">
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+          <param name="Left" value="120"/>
+        </include>
+        <width>45%</width>
+        <include>VerticalMargins</include>
+        <itemlayout height="120">
           <control type="image">
-            <left>60</left>
-            <top>0</top>
-            <right>60</right>
+            <left>24</left>
+            <bottom>0</bottom>
+            <right>24</right>
             <height>1</height>
             <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>240</width>
-            <bottom>0</bottom>
+            <height>100%</height>
+            <width>120</width>
             <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>28</bordersize>
-            <align>center</align>
+            <bordersize>30</bordersize>
+            <align>left</align>
+            <aligny>center</aligny>
             <aspectratio>keep</aspectratio>
           </control>
           <control type="label">
-            <left>200</left>
-            <top>0</top>
-            <aligny>center</aligny>
+            <left>140</left>
             <height>100%</height>
-            <font>size24B</font>
+            <font>size24</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
-          </control>
-          <control type="image">
-            <left>60</left>
-            <bottom>-1</bottom>
-            <right>60</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
           </control>
         </itemlayout>
-        <focusedlayout height="100" width="720">
+        <focusedlayout height="120">
           <control type="image">
-            <left>60</left>
-            <top>0</top>
-            <right>60</right>
+            <left>24</left>
+            <bottom>0</bottom>
+            <right>24</right>
             <height>1</height>
             <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
-            <left>0</left>
-            <top>0</top>
-            <width>240</width>
-            <bottom>0</bottom>
+            <height>100%</height>
+            <width>120</width>
             <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
-            <bordersize>28</bordersize>
-            <align>center</align>
+            <bordersize>30</bordersize>
+            <align>left</align>
+            <aligny>center</aligny>
             <aspectratio>keep</aspectratio>
           </control>
           <control type="label">
-            <left>200</left>
-            <top>0</top>
-            <aligny>center</aligny>
+            <left>140</left>
             <height>100%</height>
-            <font>size24B</font>
+            <font>size24</font>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
-          </control>
-          <control type="image">
-            <left>60</left>
-            <bottom>-1</bottom>
-            <right>60</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
           </control>
         </focusedlayout>
         <content>
@@ -95,19 +75,9 @@
             <icon>icons/sources.png</icon>
           </item>
           <item>
-            <label>$LOCALIZE[480]</label>
-            <onclick>ActivateWindow(AppearanceSettings)</onclick>
-            <icon>icons/appearance.png</icon>
-          </item>
-          <item>
             <label>$LOCALIZE[14036]</label>
             <onclick>ActivateWindow(ServiceSettings)</onclick>
             <icon>icons/network.png</icon>
-          </item>
-          <item>
-            <label>$LOCALIZE[13200]</label>
-            <onclick>ActivateWindow(Profiles)</onclick>
-            <icon>icons/profiles.png</icon>
           </item>
           <item>
             <label>$LOCALIZE[157]</label>
@@ -115,19 +85,9 @@
             <icon>icons/videos.png</icon>
           </item>
           <item>
-            <label>$LOCALIZE[13000]</label>
-            <onclick>ActivateWindow(SystemSettings)</onclick>
-            <icon>icons/system.png</icon>
-          </item>
-          <item>
             <label>$LOCALIZE[1]</label>
             <onclick>ActivateWindow(PicturesSettings)</onclick>
             <icon>icons/pictures.png</icon>
-          </item>
-          <item>
-            <label>$LOCALIZE[24001]</label>
-            <onclick>ActivateWindow(addonbrowser)</onclick>
-            <icon>icons/extensions.png</icon>
           </item>
           <item>
             <label>$LOCALIZE[2]</label>
@@ -135,14 +95,96 @@
             <icon>icons/music.png</icon>
           </item>
           <item>
-            <label>$LOCALIZE[138]</label>
-            <onclick>ActivateWindow(systeminfo)</onclick>
-            <icon>icons/sysinfo.png</icon>
-          </item>
-          <item>
             <label>$LOCALIZE[19020]</label>
             <onclick>ActivateWindow(PVRSettings)</onclick>
             <icon>icons/livetv.png</icon>
+          </item>
+        </content>
+      </control>
+      <control type="panel" id="9001">
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
+        <width>45%</width>
+        <include>VerticalMargins</include>
+        <itemlayout height="120">
+          <control type="image">
+            <left>24</left>
+            <bottom>0</bottom>
+            <right>24</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <height>100%</height>
+            <width>120</width>
+            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
+            <bordersize>30</bordersize>
+            <align>left</align>
+            <aligny>center</aligny>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>140</left>
+            <height>100%</height>
+            <font>size24</font>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </itemlayout>
+        <focusedlayout height="120">
+          <control type="image">
+            <left>24</left>
+            <bottom>0</bottom>
+            <right>24</right>
+            <height>1</height>
+            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <height>100%</height>
+            <width>120</width>
+            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Icon]</texture>
+            <bordersize>30</bordersize>
+            <align>left</align>
+            <aligny>center</aligny>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>140</left>
+            <height>100%</height>
+            <font>size24</font>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </focusedlayout>
+        <content>
+          <item>
+            <label>$LOCALIZE[480]</label>
+            <onclick>ActivateWindow(AppearanceSettings)</onclick>
+            <icon>icons/appearance.png</icon>
+          </item>
+          <item>
+            <label>$LOCALIZE[13200]</label>
+            <onclick>ActivateWindow(Profiles)</onclick>
+            <icon>icons/profiles.png</icon>
+          </item>
+          <item>
+            <label>$LOCALIZE[13000]</label>
+            <onclick>ActivateWindow(SystemSettings)</onclick>
+            <icon>icons/system.png</icon>
+          </item>
+          <item>
+            <label>$LOCALIZE[24001]</label>
+            <onclick>ActivateWindow(addonbrowser)</onclick>
+            <icon>icons/extensions.png</icon>
+          </item>
+          <item>
+            <label>$LOCALIZE[138]</label>
+            <onclick>ActivateWindow(systeminfo)</onclick>
+            <icon>icons/sysinfo.png</icon>
           </item>
           <item>
             <label>$LOCALIZE[10003]</label>

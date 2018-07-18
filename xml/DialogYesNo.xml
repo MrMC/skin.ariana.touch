@@ -11,14 +11,14 @@
       <control type="textbox" id="9" description="Labels">
         <top>340</top>
         <centerleft>50%</centerleft>
-        <width>960</width>
+        <width>80%</width>
         <height>170</height>
         <align>center</align>
         <font>size22</font>
         <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
       </control>
       <control type="button" id="10" description="No">
-        <top>556</top>
+        <top>560</top>
         <centerleft>50%</centerleft>
         <width>360</width>
         <label>106</label>
@@ -27,10 +27,9 @@
         <align>center</align>
         <focusedcolor>white</focusedcolor>
         <texturefocus colordiffuse="red" border="9">img/SettingsButtonFO.png</texturefocus>
-
       </control>
       <control type="button" id="11" description="Yes">
-        <top>624</top>
+        <top>660</top>
         <centerleft>50%</centerleft>
         <width>360</width>
         <label>107</label>
@@ -39,7 +38,6 @@
         <align>center</align>
         <focusedcolor>white</focusedcolor>
         <texturefocus colordiffuse="green" border="9">img/SettingsButtonFO.png</texturefocus>
-
       </control>
     </control>
   </controls>

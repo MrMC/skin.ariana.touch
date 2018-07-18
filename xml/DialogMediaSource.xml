@@ -13,7 +13,7 @@
       <top>120</top>
       <width>930</width>
       <control type="grouplist" id="9000">
-        <top>142</top>
+        <top>120</top>
         <width>930</width>
         <itemgap>33</itemgap>
         <orientation>horizontal</orientation>
@@ -36,12 +36,12 @@
       </control>
       <control type="panel" id="10">
         <left>0</left>
-        <top>240</top>
+        <top>210</top>
         <width>930</width>
         <height>243</height>
         <onup>9000</onup>
         <ondown>12</ondown>
-        <itemlayout height="60" width="930">
+        <itemlayout height="80">
           <control type="image">
             <width>100%</width>
             <height>100%</height>
@@ -54,11 +54,8 @@
             <info>ListItem.Label</info>
           </control>
         </itemlayout>
-        <focusedlayout height="60" width="930">
+        <focusedlayout height="80">
           <control type="group">
-            <animation type="Focus" reversible="true">
-              <effect type="zoom" center="auto" start="100" end="106" time="100" easing="inout"/>
-            </animation>
             <control type="image">
               <width>100%</width>
               <height>100%</height>

@@ -37,10 +37,13 @@
         <textcolor>$VAR[Label2Color]</textcolor>
       </control>
       <control type="panel" id="120" description="List of available subtitles">
-        <left>40</left>
-        <right>40</right>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">HorizontalMargins</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
+          <param name="Right" value="120"/>
+          <param name="Left" value="120"/>
+        </include>
         <top>240</top>
-        <height>720</height>
+        <bottom>140</bottom>
         <onleft>150</onleft>
         <onright>150</onright>
         <onup>120</onup>
@@ -180,9 +183,9 @@
       </control>
       <control type="label" id="130" description="Notification Local subtitle available">
         <centerleft>50%</centerleft>
-        <bottom>90</bottom>
+        <bottom>96</bottom>
         <width>100%</width>
-        <height>30</height>
+        <height>34</height>
         <align>center</align>
         <aligny>center</aligny>
         <font>size18</font>

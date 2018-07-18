@@ -4,11 +4,17 @@
   <controls>
     <control type="videowindow" id="20">
       <description>videowindow</description>
-      <include>Dimensions_Fullscreen</include>
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
     </control>
     <control type="image">
       <description>pattern</description>
-      <include>Dimensions_Fullscreen</include>
+      <left>0</left>
+      <top>0</top>
+      <width>100%</width>
+      <height>100%</height>
       <texture>dubuggrid1080.png</texture>
     </control>
     <control type="mover" id="8">
@@ -22,8 +28,8 @@
     </control>
     <control type="mover" id="9">
       <description>right bottom mover</description>
-      <left>1644</left>
-      <top>824</top>
+      <right>0</right>
+      <bottom>0</bottom>
       <width>256</width>
       <height>256</height>
       <texturefocus>calibrate/CalibrateBottomRight2.png</texturefocus>
@@ -31,7 +37,7 @@
     </control>
     <control type="mover" id="10">
       <description>subtitle position mover</description>
-      <left>832</left>
+      <centerleft>50%</centerleft>
       <top>592</top>
       <width>256</width>
       <height>128</height>

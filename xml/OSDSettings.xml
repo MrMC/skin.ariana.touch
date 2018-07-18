@@ -7,10 +7,11 @@
       <include>VisibleFadeEffect</include>
       <include>OpenClose</include>
       <control type="image" description="Background">
+        <animation condition="!Container(9000).HasFocus(101)" effect="slide" start="0,0" end="0,-60" time="170" tween="cubic" easing="inout" reversible="true">Conditional</animation>
         <left>0</left>
         <top>0</top>
         <width>100%</width>
-        <height>190</height>
+        <height>270</height>
         <texture>dot/Black75.png</texture>
       </control>
       <control type="image" description="Background Line">
@@ -38,7 +39,7 @@
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size22</font>
+            <font>size22CU</font>
             <textcolor>grey</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
@@ -50,32 +51,32 @@
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size22</font>
-            <textcolor>white</textcolor>
+            <font>size22CU</font>
+            <textcolor>$VAR[SelectedColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </focusedlayout>
         <content>
-          <item id="101">
-            <label>[B]$LOCALIZE[31030][/B]</label>
-            <onclick>noop</onclick>
-          </item>
           <item id="102">
-            <label>[B]$LOCALIZE[287][/B]</label>
+            <label>$LOCALIZE[287]</label>
             <onclick>SetFocus(9002)</onclick>
           </item>
           <item id="103">
-            <label>[B]$LOCALIZE[292][/B]</label>
+            <label>$LOCALIZE[292]</label>
             <onclick>SetFocus(9003)</onclick>
           </item>
           <item id="104">
-            <label>[B]$LOCALIZE[10004][/B]</label>
+            <label>$LOCALIZE[10004]</label>
             <onclick>SetFocus(9004)</onclick>
           </item>
           <item id="105">
             <visible>VideoPlayer.Content(livetv)</visible>
-            <label>[B]$LOCALIZE[31033][/B]</label>
+            <label>$LOCALIZE[31033]</label>
             <onclick>SetFocus(9005)</onclick>
+          </item>
+          <item id="101">
+            <label>$LOCALIZE[31030]</label>
+            <onclick>noop</onclick>
           </item>
         </content>
       </control>

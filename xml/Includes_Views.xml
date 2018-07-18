@@ -5,8 +5,8 @@
     <right>0</right>
     <top>24</top>
     <height>40</height>
-    <font>size22</font>
-    <label>[B]$INFO[ListItem.Label][/B]</label>
+    <font>size22B</font>
+    <label>$INFO[ListItem.Label][COLOR orange]$VAR[UnWatchedEpisodes][/COLOR]</label>
     <textcolor>$VAR[LabelNFColor]</textcolor>
   </include>
   <include name="52label2Commons">
@@ -29,9 +29,9 @@
   </include>
   <include name="52listBG">
     <control type="image">
-      <left>0</left>
+      <left>12</left>
       <bottom>0</bottom>
-      <right>0</right>
+      <right>12</right>
       <height>1</height>
       <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
       <aspectratio>stretch</aspectratio>
@@ -64,17 +64,20 @@
         <preloaditems>4</preloaditems>
         <itemlayout width="$PARAM[Width]" height="$PARAM[Height]">
           <control type="image">
+            <visible>![Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
             <height>100%</height>
             <width>100%</width>
-            <texture>thumbs/PosterFO.png</texture>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
             <bordersize>30,0,30,30</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="image">
+            <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
             <height>100%</height>
             <width>100%</width>
-            <texture background="true">$INFO[ListItem.Thumb]</texture>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
             <bordersize>30,0,30,30</bordersize>
-            <aspectratio>scale</aspectratio>
+            <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="group" description="Overlay">
             <control type="image">
@@ -88,9 +91,9 @@
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>18</bottom>
-              <left>30</left>
-              <right>30</right>
+              <bottom>26</bottom>
+              <left>36</left>
+              <right>36</right>
               <height>24</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
@@ -102,17 +105,20 @@
         </itemlayout>
         <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
           <control type="image">
+            <visible>![Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
             <height>100%</height>
             <width>100%</width>
-            <texture>thumbs/PosterFO.png</texture>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
             <bordersize>30,0,30,30</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="image">
+            <visible>[Container.Content(Movies) | Container.content(tvshows) | container.content(seasons)]</visible>
             <height>100%</height>
             <width>100%</width>
-            <texture background="true">$INFO[ListItem.Thumb]</texture>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
             <bordersize>30,0,30,30</bordersize>
-            <aspectratio>scale</aspectratio>
+            <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="group" description="Overlay">
             <control type="image">
@@ -126,9 +132,9 @@
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>18</bottom>
-              <left>30</left>
-              <right>30</right>
+              <bottom>26</bottom>
+              <left>36</left>
+              <right>36</right>
               <height>24</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
@@ -161,11 +167,12 @@
           <top>0</top>
           <height>100%</height>
           <width>168</width>
-          <texture fallback="thumbs/PosterFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -183,11 +190,12 @@
           <top>0</top>
           <height>100%</height>
           <width>168</width>
-          <texture fallback="thumbs/PosterFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -205,12 +213,13 @@
           <top>0</top>
           <height>100%</height>
           <width>426</width>
-          <texture fallback="thumbs/RectangleFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>450</left>
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -230,12 +239,13 @@
           <top>0</top>
           <height>100%</height>
           <width>426</width>
-          <texture fallback="thumbs/RectangleFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>450</left>
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -254,12 +264,13 @@
           <top>0</top>
           <height>100%</height>
           <width>240</width>
-          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>260</left>
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -278,12 +289,13 @@
           <top>0</top>
           <height>100%</height>
           <width>240</width>
-          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>260</left>
+          <font>size22U</font>
           <include>52mainLabelCommons</include>
         </control>
         <control type="label" description="Label2">
@@ -302,16 +314,16 @@
           <top>0</top>
           <height>100%</height>
           <width>160</width>
-          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>180</left>
           <right>0</right>
           <top>24</top>
           <height>40</height>
-          <font>size22</font>
+          <font>size22U</font>
           <label>[B]$INFO[ListItem.Label][/B]</label>
           <textcolor>$VAR[LabelNFColor]</textcolor>
         </control>
@@ -332,16 +344,16 @@
           <top>0</top>
           <height>100%</height>
           <width>160</width>
-          <texture fallback="thumbs/SquareFO.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
           <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
+          <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         <control type="label" description="Main Label">
           <left>180</left>
           <right>0</right>
           <top>24</top>
           <height>40</height>
-          <font>size22</font>
+          <font>size22U</font>
           <label>[B]$INFO[ListItem.Label][/B]</label>
           <textcolor>$VAR[LabelNFColor]</textcolor>
         </control>
@@ -447,96 +459,6 @@
         <label>$VAR[GlobalHeadings]</label>
       </control>
     </control>
-  </include>
-  <include name="Base_List" description="50">
-    <left>100</left>
-    <right>100</right>
-    <top>96</top>
-    <bottom>82</bottom>
-    <viewtype label="535">List</viewtype>
-    <preloaditems>2</preloaditems>
-    <itemlayout height="160">
-      <include>52listBG</include>
-      <control type="image">
-        <left>0</left>
-        <top>0</top>
-        <height>100%</height>
-        <width>160</width>
-        <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-        <bordersize>12</bordersize>
-        <aspectratio>scale</aspectratio>
-      </control>
-      <control type="label" description="Main Label">
-        <visible>IsEmpty(ListItem.Label2)</visible>
-        <left>180</left>
-        <right>0</right>
-        <top>0</top>
-        <height>100%</height>
-        <font>size22</font>
-        <label>[B]$INFO[ListItem.Label][/B]</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-      </control>
-      <control type="label" description="Main Label">
-        <visible>!IsEmpty(ListItem.Label2)</visible>
-        <left>180</left>
-        <right>0</right>
-        <top>24</top>
-        <height>40</height>
-        <font>size22</font>
-        <label>[B]$INFO[ListItem.Label][/B]</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-      </control>
-      <control type="label" description="Label2">
-        <left>180</left>
-        <right>0</right>
-        <bottom>24</bottom>
-        <height>40</height>
-        <font>size22</font>
-        <label>$INFO[ListItem.Label2]</label>
-        <textcolor>$VAR[Label2Color]</textcolor>
-      </control>
-    </itemlayout>
-    <focusedlayout height="160">
-      <include>52listBG</include>
-      <control type="image">
-        <left>0</left>
-        <top>0</top>
-        <height>100%</height>
-        <width>160</width>
-        <texture fallback="DefaultFolder.png" align="left" aligny="center">$VAR[Thumbnail]</texture>
-        <bordersize>12</bordersize>
-        <aspectratio>scale</aspectratio>
-      </control>
-      <control type="label" description="Main Label">
-        <visible>IsEmpty(ListItem.Label2)</visible>
-        <left>180</left>
-        <right>0</right>
-        <top>0</top>
-        <height>100%</height>
-        <font>size22</font>
-        <label>[B]$INFO[ListItem.Label][/B]</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-      </control>
-      <control type="label" description="Main Label">
-        <visible>!IsEmpty(ListItem.Label2)</visible>
-        <left>180</left>
-        <right>0</right>
-        <top>24</top>
-        <height>40</height>
-        <font>size22</font>
-        <label>[B]$INFO[ListItem.Label][/B]</label>
-        <textcolor>$VAR[LabelNFColor]</textcolor>
-      </control>
-      <control type="label" description="Label2">
-        <left>180</left>
-        <right>0</right>
-        <bottom>24</bottom>
-        <height>40</height>
-        <font>size22</font>
-        <label>$INFO[ListItem.Label2]</label>
-        <textcolor>$VAR[Label2Color]</textcolor>
-      </control>
-    </focusedlayout>
   </include>
   <include name="InfoPVR" description="PVR item info">
     <control type="group" description="Media info">
@@ -660,9 +582,9 @@
   </include>
   <include name="List49_Commons">
     <!--VideoInfo metadata lists-->
-    <left>90</left>
+    <left>0</left>
     <top>0</top>
-    <width>45%</width>
+    <right>50%</right>
     <height>450</height>
     <onleft>noop</onleft>
     <onright>noop</onright>

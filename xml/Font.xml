@@ -69,6 +69,7 @@
       <filename>Arial.ttf</filename>
       <size>22</size>
       <style>uppercase bold</style>
+      <aspect>0.95</aspect>
     </font>
     <font>
       <name>size17</name>
@@ -117,6 +118,11 @@
       <style>uppercase bold</style>
     </font>
     <font>
+      <name>size19C</name>
+      <filename>RobotoCondensed.ttf</filename>
+      <size>28</size>
+    </font>
+    <font>
       <name>size19CU</name>
       <filename>RobotoCondensed.ttf</filename>
       <size>28</size>
@@ -131,6 +137,11 @@
     <font>
       <name>size20</name>
       <filename>Roboto.ttf</filename>
+      <size>30</size>
+    </font>
+    <font>
+      <name>size20C</name>
+      <filename>RobotoCondensed.ttf</filename>
       <size>30</size>
     </font>
     <font>
@@ -159,6 +170,11 @@
     <font>
       <name>size22</name>
       <filename>Roboto.ttf</filename>
+      <size>34</size>
+    </font>
+    <font>
+      <name>size22C</name>
+      <filename>RobotoCondensed.ttf</filename>
       <size>34</size>
     </font>
     <font>

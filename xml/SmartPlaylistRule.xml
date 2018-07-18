@@ -11,7 +11,7 @@
       <include>OpenClose</include>
       <width>1140</width>
       <centerleft>50%</centerleft>
-      <top>330</top>
+      <top>240</top>
 
       <control type="label" description="Rule match label">
         <top>66</top>

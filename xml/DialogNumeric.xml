@@ -10,24 +10,24 @@
       </control>
       <control type="image">
         <centerleft>50%</centerleft>
-        <top>150</top>
-        <width>50%</width>
-        <height>60</height>
-        <texture border="24,8,24,8">HUD/KeyEdit.png</texture>
+        <top>140</top>
+        <width>28%</width>
+        <height>80</height>
+        <texture border="24,0,24,0">HUD/KeyEdit.png</texture>
       </control>
       <control type="label" id="4" description="Edit Text">
         <centerleft>50%</centerleft>
-        <top>150</top>
-        <width>50%</width>
-        <height>60</height>
+        <top>140</top>
+        <width>26%</width>
+        <height>80</height>
         <align>center</align>
         <aligny>center</aligny>
         <scroll>true</scroll>
-        <font>size24</font>
+        <font>size28</font>
       </control>
       <control type="group">
         <centerleft>50%</centerleft>
-        <top>300</top>
+        <top>284</top>
         <width>450</width>
         <control type="button" id="11">
           <description>1 button</description>

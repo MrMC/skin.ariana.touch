@@ -1,33 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
   <zorder>1</zorder>
-  <animation effect="slide" start="0,-44" end="0,0" time="400" easing="inout">WindowOpen</animation>
-  <animation effect="slide" start="0,0" end="0,-44" time="400" easing="inout">WindowClose</animation>
   <controls>
     <control type="group">
       <include>OpenClose</include>
-      <animation effect="slide" start="0,0" end="0,-44" time="200" reversible="true" condition="Window.IsActive(FullScreenVideo)">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,-144" time="200" reversible="true" condition="Window.IsActive(FullScreenVideo)">Conditional</animation>
       <control type="image">
         <left>0</left>
-        <top>0</top>
+        <top>96</top>
         <width>100%</width>
-        <height>44</height>
+        <height>48</height>
         <texture colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
       </control>
       <control type="label" id="30" description="Heading">
-        <top>6</top>
-        <left>10</left>
-        <width>890</width>
-        <height>60</height>
-        <align>right</align>
         <font>-</font>
       </control>
       <control type="label" id="31" description="Message">
-        <top>6</top>
-        <right>10</right>
-        <width>890</width>
-        <height>60</height>
-        <align>left</align>
         <haspath>true</haspath>
         <font>-</font>
       </control>
@@ -42,14 +30,14 @@
         <lefttexture>-</lefttexture>
       </control>
       <control type="label" id="1" description="Group label">
-        <top>0</top>
+        <top>96</top>
         <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">HorizontalMargins</include>
         <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
           <param name="Left" value="120"/>
           <param name="Right" value="120"/>
         </include>
-        <height>40</height>
-        <font>size14</font>
+        <height>48</height>
+        <font>size19CU</font>
         <textcolor>$VAR[Label2Color]</textcolor>
         <scroll>false</scroll>
         <label>$INFO[Control.GetLabel(32),,%]  $INFO[Control.GetLabel(30)] • $INFO[Control.GetLabel(31)]</label>

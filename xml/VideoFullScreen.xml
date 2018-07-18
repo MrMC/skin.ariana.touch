@@ -12,60 +12,43 @@
       <animation effect="fade" time="200">VisibleChange</animation>
       <control type="image" description="Info Background">
         <left>0</left>
-        <top>-9</top>
-        <width>1920</width>
-        <height>216</height>
-        <texture>$VAR[Background.Overlay]</texture>
+        <width>100%</width>
+        <height>220</height>
+        <texture>dot/Black90.png</texture>
       </control>
       <control type="label" id="10" description="row 1 sys label">
-        <left>60</left>
-        <top>-8</top>
-        <width>1890</width>
-        <height>70</height>
+        <top>20</top>
+        <left>120</left>
+        <right>20</right>
+        <height>60</height>
         <align>left</align>
         <aligny>center</aligny>
         <font>size17</font>
+        <textcolor>white</textcolor>
         <label>-</label>
       </control>
       <control type="label" id="11" description="row 2 sys label">
-        <left>60</left>
-        <top>63</top>
-        <width>1890</width>
-        <height>70</height>
+        <top>80</top>
+        <left>120</left>
+        <right>20</right>
+        <height>60</height>
         <align>left</align>
         <aligny>center</aligny>
         <font>size17</font>
+        <textcolor>white</textcolor>
         <label>-</label>
       </control>
       <control type="label" id="12" description="row 3 sys label">
-        <left>60</left>
-        <top>129</top>
-        <width>1890</width>
-        <height>70</height>
+        <top>140</top>
+        <left>120</left>
+        <right>20</right>
+        <height>60</height>
         <align>left</align>
         <aligny>center</aligny>
         <font>size17</font>
+        <textcolor>white</textcolor>
         <label>-</label>
       </control>
-        <control type="image" id="1" description="Buffer label Background">
-          <centertop>50%</centertop>
-          <centerleft>50%</centerleft>
-          <width>64</width>
-          <height>64</height>
-          <texture>img/SortLetterBG.png</texture>
-          <aspectratio aligny="center" align="center">keep</aspectratio>
-        </control>
-        <control type="label" id="1" description="Buffering label">
-          <centertop>50%</centertop>
-          <centerleft>50%</centerleft>
-          <height>64</height>
-          <width>100%</width>
-          <align>center</align>
-          <font>size50B</font>
-          <shadowcolor>black</shadowcolor>
-          <textcolor>white</textcolor>
-          <label>$INFO[Player.CacheLevel,,%]</label>
-        </control>
     </control>
   </controls>
 </window>

@@ -6,69 +6,47 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="panel" id="50">
-        <right>100</right>
-        <top>96</top>
-        <width>40%</width>
-        <bottom>82</bottom>
-        <viewtype label="535">List</viewtype>
-        <preloaditems>2</preloaditems>
-        <itemlayout height="122">
-          <control type="image">
-            <left>5</left>
-            <bottom>0</bottom>
-            <right>30</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
+        <include>VerticalMargins</include>
+        <width>46%</width>
+        <itemlayout height="120">
+          <include>52listBG</include>
           <control type="label" description="Main Label">
-            <left>10</left>
-            <right>10</right>
-            <top>0</top>
+            <left>20</left>
+            <right>20</right>
             <height>100%</height>
-            <font>size22</font>
             <label>$INFO[ListItem.Label]</label>
             <textcolor>$VAR[LabelNFColor]</textcolor>
           </control>
           <control type="label" description="Label2">
-            <left>10</left>
-            <right>10</right>
-            <top>60%</top>
-            <height>40%</height>
-            <font>size19</font>
+            <left>20</left>
+            <right>20</right>
+            <height>100%</height>
+            <align>right</align>
             <label>$INFO[ListItem.Label2]</label>
             <textcolor>$VAR[SelectedColor]</textcolor>
           </control>
         </itemlayout>
-        <focusedlayout height="122">
-          <control type="group">
-            <control type="image">
-              <left>5</left>
-              <bottom>0</bottom>
-              <right>30</right>
-              <height>1</height>
-              <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-              <aspectratio>stretch</aspectratio>
-            </control>
+        <focusedlayout height="120">
+            <include>52listBG</include>
             <control type="label" description="Main Label">
-              <left>10</left>
-              <right>10</right>
-              <top>0</top>
+              <left>20</left>
+              <right>20</right>
               <height>100%</height>
-              <font>size22</font>
               <label>$INFO[ListItem.Label]</label>
               <textcolor>$VAR[LabelNFColor]</textcolor>
             </control>
             <control type="label" description="Label2">
-              <left>10</left>
-              <right>10</right>
-              <top>60%</top>
-              <height>40%</height>
-              <font>size19</font>
+              <left>20</left>
+              <right>20</right>
+              <height>100%</height>
+              <align>right</align>
               <label>$INFO[ListItem.Label2]</label>
               <textcolor>$VAR[SelectedColor]</textcolor>
             </control>
-          </control>
         </focusedlayout>
         <content>
           <item id="5" description="Theme force dark">
@@ -137,11 +115,13 @@
           <label>$VAR[GlobalHeadings]</label>
         </control>
         <control type="textbox" description="Plot51">
-          <left>90</left>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+            <param name="Left" value="120"/>
+          </include>
           <centertop>50%</centertop>
-          <width>36%</width>
+          <width>30%</width>
           <height>50%</height>
-          <font>plot</font>
           <align>center</align>
           <label>[B]$LOCALIZE[470][/B][CR][CR]$LOCALIZE[31000]</label>
         </control>

@@ -10,52 +10,49 @@
         <label>$LOCALIZE[10034]</label>
       </control>
       <control type="list" id="9000" description="Left - Button Area">
-        <left>45</left>
-        <top>132</top>
-        <width>420</width>
-        <height>814</height>
-        <itemgap>5</itemgap>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+          <param name="Left" value="120"/>
+        </include>
+        <include>VerticalMargins</include>
+        <width>25%</width>
         <onleft>9100</onleft>
         <onright>9100</onright>
         <onup>9000</onup>
         <ondown>9000</ondown>
         <orientation>vertical</orientation>
-        <itemlayout height="74">
+        <itemlayout height="80">
           <control type="image">
-            <width>390</width>
-            <height>60</height>
+            <width>100%</width>
+            <height>100%</height>
+            <bordersize>2</bordersize>
             <texture border="9">img/SettingsButtonNF.png</texture>
           </control>
           <control type="label">
-            <height>60</height>
-            <width>360</width>
-            <align>center</align>
+            <height>100%</height>
+            <width>100%</width>
             <aligny>center</aligny>
-            <font>size20</font>
             <left>20</left>
             <right>20</right>
             <textcolor>$VAR[LabelNFColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
-        <focusedlayout height="74">
-          <control type="group">
-            <control type="image">
-              <width>390</width>
-              <height>60</height>
-              <texture border="9">img/SettingsButtonFO.png</texture>
-            </control>
-            <control type="label">
-              <width>360</width>
-              <height>60</height>
-              <align>center</align>
-              <aligny>center</aligny>
-              <font>size20</font>
-              <left>20</left>
-              <right>20</right>
-              <textcolor>$VAR[LabelFOColor]</textcolor>
-              <label>$INFO[ListItem.Label]</label>
-            </control>
+        <focusedlayout height="80">
+          <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <texture border="9">img/SettingsButtonFO.png</texture>
+            <bordersize>2</bordersize>
+          </control>
+          <control type="label">
+            <height>100%</height>
+            <width>100%</width>
+            <aligny>center</aligny>
+            <left>20</left>
+            <right>20</right>
+            <textcolor>$VAR[LabelFOColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
           </control>
         </focusedlayout>
         <content>
@@ -73,18 +70,19 @@
         <control type="grouplist" id="9001" description="Right - Control Area">
           <visible>Container(9000).Hasfocus(1)</visible>
           <include>VisibleFadeEffect</include>
-          <left>480</left>
-          <top>132</top>
-          <width>1010</width>
-          <height>660</height>
-          <itemgap>0</itemgap>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+            <param name="Right" value="120"/>
+          </include>
+          <include>VerticalMargins</include>
+          <width>60%</width>
           <onleft>9000</onleft>
           <onright>9000</onright>
           <onup>9001</onup>
           <ondown>9001</ondown>
           <orientation>vertical</orientation>
           <control type="radiobutton" id="4" description="Radio Button">
-            <width>1010</width>
+            <width>100%</width>
             <radioleft>1197</radioleft>
             <align>left</align>
             <label>10029</label>
@@ -94,8 +92,8 @@
             <animation type="Conditional" condition="!Control.IsEnabled(5)">
               <effect type="fade" start="100" end="30" time="0" reversible="true" />
             </animation>
-            <width>1010</width>
             <align>left</align>
+            <width>100%</width>
             <label>33084</label>
             <label2>$INFO[System.ProfileAutoLogin]</label2>
           </control>
@@ -103,14 +101,16 @@
         <control type="panel" id="2">
           <visible>Container(9000).Hasfocus(2)</visible>
           <include>VisibleFadeEffect</include>
-          <left>480</left>
-          <top>132</top>
-          <width>1010</width>
-          <height max="840">auto</height>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+            <param name="Right" value="120"/>
+          </include>
+          <include>VerticalMargins</include>
+          <width>60%</width>
           <onup>2</onup>
           <ondown>2</ondown>
           <onleft>4</onleft>
-          <itemlayout width="800" height="120">
+          <itemlayout height="120">
             <control type="image">
               <left>0</left>
               <top>0</top>
@@ -121,10 +121,11 @@
               <aspectratio>stretch</aspectratio>
             </control>
             <control type="image" description="Thumb">
-              <top>14</top>
-              <left>28</left>
-              <width>90</width>
-              <height>90</height>
+              <left>0</left>
+              <top>0</top>
+              <width>120</width>
+              <height>100%</height>
+              <bordersize>12</bordersize>
               <texture diffuse="img/UserDiffuse.png" background="true">$INFO[ListItem.Thumb]</texture>
               <aspectratio scalediffuse="false">scale</aspectratio>
             </control>
@@ -133,7 +134,7 @@
               <right>20</right>
               <top>0</top>
               <height>90</height>
-              <font>size20</font>
+              <textcolor>$VAR[LabelNFColor]</textcolor>
               <label>$INFO[ListItem.Label]</label>
             </control>
             <control type="label" description="INFO">
@@ -141,48 +142,48 @@
               <right>20</right>
               <bottom>0</bottom>
               <height>66</height>
-              <font>size16</font>
+              <font>size19U</font>
               <scroll>false</scroll>
+              <textcolor>$VAR[Label2Color]</textcolor>
               <label>$INFO[ListItem.Label2]</label>
             </control>
           </itemlayout>
-          <focusedlayout width="800" height="120">
-            <control type="group">
-              <control type="image">
-                <left>0</left>
-                <top>0</top>
-                <width>100%</width>
-                <height>100%</height>
-                <texture border="9">img/SettingsButtonFO.png</texture>
-                <bordersize>2</bordersize>
-                <aspectratio>stretch</aspectratio>
-              </control>
-              <control type="image" description="Thumb">
-                <top>14</top>
-                <left>28</left>
-                <width>90</width>
-                <height>90</height>
-                <texture diffuse="img/UserDiffuse.png" background="true">$INFO[ListItem.Thumb]</texture>
-                <aspectratio scalediffuse="false">scale</aspectratio>
-              </control>
-              <control type="label" description="Main Label">
-                <left>140</left>
-                <right>20</right>
-                <top>0</top>
-                <height>90</height>
-                <font>size20</font>
-                <textcolor>$VAR[LabelFOColor]</textcolor>
-                <label>$INFO[ListItem.Label]</label>
-              </control>
-              <control type="label" description="INFO">
-                <left>140</left>
-                <right>20</right>
-                <bottom>0</bottom>
-                <height>66</height>
-                <font>size16</font>
-                <textcolor>$VAR[LabelFOColor]</textcolor>
-                <label>$INFO[ListItem.Label2]</label>
-              </control>
+          <focusedlayout height="120">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>100%</width>
+              <height>100%</height>
+              <texture border="9">img/SettingsButtonFO.png</texture>
+              <bordersize>2</bordersize>
+              <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image" description="Thumb">
+              <left>0</left>
+              <top>0</top>
+              <width>120</width>
+              <height>100%</height>
+              <bordersize>12</bordersize>
+              <texture diffuse="img/UserDiffuse.png" background="true">$INFO[ListItem.Thumb]</texture>
+              <aspectratio scalediffuse="false">scale</aspectratio>
+            </control>
+            <control type="label" description="Main Label">
+              <left>140</left>
+              <right>20</right>
+              <top>0</top>
+              <height>90</height>
+              <textcolor>$VAR[LabelFOColor]</textcolor>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label" description="INFO">
+              <left>140</left>
+              <right>20</right>
+              <bottom>0</bottom>
+              <height>66</height>
+              <font>size19U</font>
+              <scroll>false</scroll>
+              <textcolor>$VAR[Label2Color]</textcolor>
+              <label>$INFO[ListItem.Label2]</label>
             </control>
           </focusedlayout>
         </control>

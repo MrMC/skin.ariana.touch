@@ -15,7 +15,10 @@
           <texture>dot/Black75.png</texture>
         </control>
         <control type="label">
-          <left>105</left>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+            <param name="Left" value="120"/>
+          </include>
           <top>30</top>
           <height>30</height>
           <width>140</width>
@@ -25,7 +28,10 @@
           <font>size20CU</font>
         </control>
         <control type="label">
-          <right>105</right>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+            <param name="Right" value="120"/>
+          </include>
           <top>30</top>
           <height>30</height>
           <width>140</width>
@@ -35,18 +41,22 @@
           <font>size20CU</font>
         </control>
         <control type="label">
-          <left>300</left>
-          <right>300</right>
+          <centerleft>50%</centerleft>
+          <width>50%</width>
           <top>30</top>
           <height>30</height>
           <align>center</align>
           <textcolor>white</textcolor>
-          <font>size22</font>
-          <label>[B]$INFO[Player.Title][/B]</label>
+          <font>size22U</font>
+          <label>$INFO[Player.Title]</label>
         </control>
-        <control type="button" description="Done">
+        <control type="button" description="Close">
           <top>90</top>
-          <left>90</left>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+            <param name="Left" value="120"/>
+          </include>
+          <textoffsetx>0</textoffsetx>
           <width>300</width>
           <height>60</height>
           <textcolor>white</textcolor>
@@ -62,7 +72,11 @@
         </control>
         <control type="button" description="settings">
           <top>90</top>
-          <right>90</right>
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+            <param name="Right" value="120"/>
+          </include>
+          <textoffsetx>0</textoffsetx>
           <width>300</width>
           <height>60</height>
           <textcolor>white</textcolor>
@@ -76,6 +90,18 @@
           <onclick>Dialog.Close(all)</onclick>
           <onclick>Close</onclick>
           <onclick>ActivateWindow(osdsettings.xml)</onclick>
+        </control>
+        <control type="progress" description="Video Progress">
+          <reveal>true</reveal>
+          <top>105</top>
+          <width>500</width>
+          <height>30</height>
+          <centerleft>50%</centerleft>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture border="1">HUD/ProgressFill.png</midtexture>
+          <info>Player.Volume</info>
         </control>
         <control type="grouplist" description="Volume Control">
           <top>90</top>
@@ -95,12 +121,13 @@
             <onclick>VolumeDown</onclick>
           </control>
           <control type="slider" id="1" description="Volume Slider">
-            <sliderwidth>500</sliderwidth>
-            <sliderheight>24</sliderheight>
+            <width>500</width>
+            <height>60</height>
             <info>Player.Volume</info>
             <action>Volume</action>
             <onleft>1</onleft>
             <onright>1</onright>
+            <texturesliderbar border="2">HUD/SliderBGempty.png</texturesliderbar>
           </control>
           <control type="button" description="VolMax">
             <height>60</height>
@@ -121,7 +148,6 @@
       <control type="progress" description="Cache Progress">
         <reveal>true</reveal>
         <bottom>184</bottom>
-        <left>0</left>
         <width>100%</width>
         <height>48</height>
         <texturebg border="2">HUD/SliderBG.png</texturebg>
@@ -133,10 +159,9 @@
       <control type="progress" description="Video Progress">
         <reveal>true</reveal>
         <bottom>184</bottom>
-        <left>0</left>
         <width>100%</width>
         <height>48</height>
-        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <texturebg border="2">HUD/SliderBGempty.png</texturebg>
         <lefttexture/>
         <righttexture/>
         <midtexture colordiffuse="$VAR[SelectedColor]" border="1">HUD/ProgressFill.png</midtexture>
@@ -144,27 +169,20 @@
       </control>
       <control type="slider" id="87" description="Seek Slider">
         <visible>![VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording]</visible>
-        <bottom>180</bottom>
-        <left>0</left>
+        <bottom>178</bottom>
         <width>100%</width>
-        <texturesliderbar>HUD/SliderBGempty.png</texturesliderbar>
+        <height>60</height>
+        <texturesliderbar border="2">HUD/SliderBGempty.png</texturesliderbar>
         <info>Player.Progress</info>
         <action>seek</action>
         <onleft>87</onleft>
         <onright>87</onright>
       </control>
       <control type="label">
-        <right>105</right>
-        <bottom>128</bottom>
-        <height>30</height>
-        <width>140</width>
-        <align>right</align>
-        <textcolor>white</textcolor>
-        <label>$INFO[Player.TimeRemaining]</label>
-        <font>size20CU</font>
-      </control>
-      <control type="label">
-        <left>105</left>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+          <param name="Left" value="120"/>
+        </include>
         <bottom>128</bottom>
         <height>30</height>
         <width>140</width>
@@ -174,12 +192,26 @@
         <label>$INFO[Player.Time]</label>
         <font>size20CU</font>
       </control>
+      <control type="label">
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
+        <bottom>128</bottom>
+        <height>30</height>
+        <width>140</width>
+        <align>right</align>
+        <textcolor>white</textcolor>
+        <label>$INFO[Player.TimeRemaining]</label>
+        <font>size20CU</font>
+      </control>
+
       <control type="grouplist">
         <centerleft>50%</centerleft>
         <width>100%</width>
         <bottom>60</bottom>
         <height>90</height>
-        <itemgap>50</itemgap>
+        <itemgap>75</itemgap>
         <align>center</align>
         <orientation>horizontal</orientation>
         <onup>9000</onup>

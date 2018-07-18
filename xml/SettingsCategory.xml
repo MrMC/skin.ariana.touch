@@ -18,10 +18,12 @@
         <font>-</font>
       </control>
       <control type="grouplist" id="3" description="Left - Button Area">
-        <left>60</left>
-        <top>132</top>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+          <param name="Left" value="120"/>
+        </include>
+        <include>VerticalMargins</include>
         <width>25%</width>
-        <height>90%</height>
         <itemgap>2</itemgap>
         <onleft>5</onleft>
         <onright>5</onright>
@@ -31,13 +33,16 @@
       </control>
       <control type="button" id="10" description="Category Button">
         <align>left</align>
-        <width>25%</width>
+        <width>100%</width>
       </control>
       <control type="grouplist" id="5" description="Right - Control Area">
-        <right>60</right>
-        <top>132</top>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
+        <top>96</top>
+        <bottom>220</bottom>
         <width>65%</width>
-        <height>742</height>
         <itemgap>2</itemgap>
         <onleft>3</onleft>
         <onright>60</onright>
@@ -47,27 +52,31 @@
         <orientation>vertical</orientation>
       </control>
       <control type="button" id="7" description="Button">
-        <width>65%</width>
+        <width>100%</width>
         <align>left</align>
       </control>
       <control type="radiobutton" id="8" description="Radio Button">
-        <width>65%</width>
+        <width>100%</width>
         <radioleft>1197</radioleft>
         <align>left</align>
       </control>
       <control type="spincontrolex" id="9" description="Spin control">
-        <width>65%</width>
+        <width>100%</width>
         <align>left</align>
       </control>
       <control type="sliderex" id="13" description="Slider control">
-        <width>65%</width>
+        <width>100%</width>
         <align>left</align>
       </control>
       <control type="textbox" id="6" description="Settings description">
-        <right>60</right>
-        <top>900</top>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
+        <bottom>96</bottom>
         <width>65%</width>
-        <height>126</height>
+        <height>100</height>
+        <font>size22C</font>
         <textcolor>$VAR[LabelNFColor]</textcolor>
         <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
       </control>

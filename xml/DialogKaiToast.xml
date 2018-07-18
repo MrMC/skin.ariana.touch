@@ -11,7 +11,7 @@
         <top>0</top>
         <width>100%</width>
         <height>90</height>
-        <texture colordiffuse="$VAR[OverlayColor]">dot/White90.png</texture>
+        <texture>dot/Black90.png</texture>
       </control>
       <control type="label" id="9000" description="Real label">
         <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">HorizontalMargins</include>
@@ -23,6 +23,7 @@
         <centerleft>50%</centerleft>
         <height>90</height>
         <align>center</align>
+        <textcolor>white</textcolor>
         <label>$INFO[Control.GetLabel(401)]$INFO[Control.GetLabel(402), • ]</label>
       </control>
       <control type="label" id="401" description="Heading">

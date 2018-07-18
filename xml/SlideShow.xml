@@ -3,47 +3,50 @@
   <controls>
     <control type="group">
       <visible>Slideshow.IsActive</visible>
+      <include>VisibleFadeEffect</include>
       <animation condition="Slideshow.IsPaused" effect="fade" start="100" end="0" time="200">conditional</animation>
       <animation condition="!Slideshow.IsPaused" effect="fade" start="0" end="100" time="400">conditional</animation>
       <animation condition="!Slideshow.IsPaused" effect="fade" start="100" end="0" delay="2000" time="400">conditional</animation>
       <right>200</right>
       <top>200</top>
       <width>120</width>
-      <height>60</height>
+      <height>120</height>
       <control type="image">
-        <left>15</left>
+        <left>0</left>
         <top>0</top>
-        <width>90</width>
-        <height>90</height>
-        <texture colordiffuse="black">dot/White95.png</texture>
+        <width>120</width>
+        <height>120</height>
+        <texture border="20">HUD/HUDBackground.png</texture>
       </control>
       <control type="image">
         <left>0</left>
-        <top>15</top>
+        <top>0</top>
         <width>120</width>
-        <height>60</height>
+        <height>120</height>
+        <bordersize>20</bordersize>
         <texture>OSD/Play.png</texture>
       </control>
     </control>
     <control type="group" id="13">
       <visible>Slideshow.IsPaused</visible>
-      <animation effect="fade" start="0" end="100" time="400">Visible</animation>
+      <include>VisibleFadeEffect</include>
       <right>200</right>
       <top>200</top>
       <width>120</width>
-      <height>60</height>
+      <height>120</height>
       <control type="image">
-        <left>15</left>
+        <left>0</left>
         <top>0</top>
-        <width>90</width>
-        <height>90</height>
-        <texture colordiffuse="black">dot/White95.png</texture>
+        <width>120</width>
+        <height>120</height>
+        <texture border="20">HUD/HUDBackground.png</texture>
       </control>
       <control type="image">
         <left>0</left>
-        <top>15</top>
+        <top>0</top>
         <width>120</width>
-        <height>60</height>
+        <height>120</height>
+        <bordersize>20</bordersize>
         <texture>OSD/Pause.png</texture>
       </control>
     </control>

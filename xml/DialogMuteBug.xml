@@ -3,19 +3,25 @@
   <include>OpenClose</include>
   <controls>
     <control type="image">
-      <right>45</right>
-      <top>42</top>
-      <width>111</width>
-      <height>111</height>
-      <texture border="24">HUD/HUDBackground.png</texture>
+      <top>100</top>
+      <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+      <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+        <param name="Right" value="120"/>
+      </include>
+      <width>120</width>
+      <height>120</height>
+      <texture border="20">HUD/HUDBackground.png</texture>
     </control>
     <control type="image" id="901" description="Muted">
-      <top>48</top>
-      <right>45</right>
-      <width>111</width>
-      <height>111</height>
-      <bordersize>-15</bordersize>
-      <aspectratio align="right">keep</aspectratio>
+      <top>108</top>
+      <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+      <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+        <param name="Right" value="120"/>
+      </include>
+      <width>120</width>
+      <height>120</height>
+      <bordersize>-24</bordersize>
+      <aspectratio>keep</aspectratio>
       <texture>HUD/VolumeMuted.png</texture>
     </control>
   </controls>

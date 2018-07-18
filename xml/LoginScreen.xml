@@ -11,9 +11,8 @@
       </control>
       <control type="panel" id="52" description="Addons like">
         <centerleft>50%</centerleft>
-        <top>220</top>
-        <width>780</width>
-        <height>660</height>
+        <include>VerticalMargins</include>
+        <width>60%</width>
         <onleft>5</onleft>
         <onright>5</onright>
         <ondown>5</ondown>
@@ -56,7 +55,6 @@
         </itemlayout>
         <focusedlayout height="110">
           <control type="group">
-
             <control type="image">
               <animation effect="fade" time="100">VisibleChange</animation>
               <left>0</left>

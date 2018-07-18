@@ -15,7 +15,10 @@
       </control>
       <control type="button" description="settings">
         <top>0</top>
-        <right>90</right>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+          <param name="Right" value="120"/>
+        </include>
         <width>300</width>
         <height>96</height>
         <textcolor>$VAR[SelectedColor]</textcolor>
@@ -32,8 +35,11 @@
       </control>
       <control type="button" description="Users">
         <visible>!IsEmpty(Control.GetLabel(4004))</visible>
+        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+          <param name="Left" value="120"/>
+        </include>
         <top>0</top>
-        <left>90</left>
         <texturefocus/>
         <texturenofocus/>
         <width>500</width>
@@ -279,82 +285,71 @@
     <control type="panel" id="9000">
       <visible>!StringCompare(Window.Property(shelf),home)</visible>
       <include>VisibleFadeEffect</include>
-      <centerleft>50%</centerleft>
-      <width>1440</width>
-      <top>120</top>
-      <bottom>100</bottom>
-      <itemlayout height="100" width="720">
+      <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+      <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+        <param name="Left" value="120"/>
+      </include>
+      <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+      <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+        <param name="Right" value="120"/>
+      </include>
+      <include>VerticalMargins</include>
+      <itemlayout height="100">
         <control type="image">
-          <left>60</left>
-          <top>0</top>
-          <right>60</right>
+          <left>20</left>
+          <bottom>-1</bottom>
+          <right>20</right>
           <height>1</height>
           <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
           <aspectratio>stretch</aspectratio>
         </control>
         <control type="image">
-          <left>0</left>
+          <left>-6</left>
           <top>0</top>
-          <width>240</width>
+          <width>100</width>
           <bottom>0</bottom>
           <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
-          <bordersize>28</bordersize>
+          <bordersize>24</bordersize>
           <align>center</align>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="label">
-          <left>200</left>
+          <left>120</left>
           <top>0</top>
           <aligny>center</aligny>
           <height>100%</height>
           <font>size24B</font>
           <textcolor>$VAR[LabelNFColor]</textcolor>
           <label>$INFO[ListItem.Label]</label>
-        </control>
-        <control type="image">
-          <left>60</left>
-          <bottom>-1</bottom>
-          <right>60</right>
-          <height>1</height>
-          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-          <aspectratio>stretch</aspectratio>
         </control>
       </itemlayout>
-      <focusedlayout height="100" width="720">
+      <focusedlayout height="100">
         <control type="image">
-          <left>60</left>
-          <top>0</top>
-          <right>60</right>
+          <left>20</left>
+          <bottom>-1</bottom>
+          <right>20</right>
           <height>1</height>
           <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
           <aspectratio>stretch</aspectratio>
         </control>
         <control type="image">
-          <left>0</left>
+          <left>-6</left>
           <top>0</top>
-          <width>240</width>
+          <width>100</width>
           <bottom>0</bottom>
           <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
-          <bordersize>28</bordersize>
+          <bordersize>24</bordersize>
           <align>center</align>
           <aspectratio>keep</aspectratio>
         </control>
         <control type="label">
-          <left>200</left>
+          <left>120</left>
           <top>0</top>
           <aligny>center</aligny>
           <height>100%</height>
           <font>size24B</font>
           <textcolor>$VAR[LabelNFColor]</textcolor>
           <label>$INFO[ListItem.Label]</label>
-        </control>
-        <control type="image">
-          <left>60</left>
-          <bottom>-1</bottom>
-          <right>60</right>
-          <height>1</height>
-          <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-          <aspectratio>stretch</aspectratio>
         </control>
       </focusedlayout>
     </control>

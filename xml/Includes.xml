@@ -10,13 +10,13 @@
     <param name="Left" default="30"/>
     <definition>
       <left>$PARAM[Left]</left>
-  </definition>
+    </definition>
   </include>
   <include name="RightMargin">
     <param name="Right" default="30"/>
     <definition>
       <right>$PARAM[Right]</right>
-  </definition>
+    </definition>
   </include>
   <include name="VerticalMargins">
     <top>96</top>
@@ -28,100 +28,100 @@
     <definition>
       <left>$PARAM[Left]</left>
       <right>$PARAM[Right]</right>
-  </definition>
+    </definition>
   </include>
   <include name="DownButton">
     <param name="Right" default="30"/>
     <definition>
       <control type="button" description="Down">
-      <top>46</top>
-      <right>$PARAM[Right]</right>
-      <texturefocus>icons/touch/down.png</texturefocus>
-      <texturenofocus>icons/touch/down.png</texturenofocus>
-      <width>50</width>
-      <height>50</height>
-      <font>-</font>
-      <align>left</align>
-      <aligny>center</aligny>
-      <onclick>Dialog.Close(all)</onclick>
-      <onclick>FullScreen</onclick>
-    </control>
-  </definition>
+        <top>46</top>
+        <right>$PARAM[Right]</right>
+        <texturefocus>icons/touch/down.png</texturefocus>
+        <texturenofocus>icons/touch/down.png</texturenofocus>
+        <width>50</width>
+        <height>50</height>
+        <font>-</font>
+        <align>left</align>
+        <aligny>center</aligny>
+        <onclick>Dialog.Close(all)</onclick>
+        <onclick>FullScreen</onclick>
+      </control>
+    </definition>
   </include>
   <include name="CloseButton">
     <param name="Left" default="30"/>
     <definition>
       <control type="button" description="Close">
-      <top>0</top>
-      <left>$PARAM[Left]</left>
-      <texturefocus>icons/touch/close.png</texturefocus>
-      <texturenofocus>icons/touch/close.png</texturenofocus>
-      <width>96</width>
-      <height>96</height>
-      <font>-</font>
-      <align>left</align>
-      <aligny>center</aligny>
-      <onclick>back</onclick>
-    </control>
-  </definition>
+        <top>0</top>
+        <left>$PARAM[Left]</left>
+        <texturefocus>icons/touch/close.png</texturefocus>
+        <texturenofocus>icons/touch/close.png</texturenofocus>
+        <width>96</width>
+        <height>96</height>
+        <font>-</font>
+        <align>left</align>
+        <aligny>center</aligny>
+        <onclick>back</onclick>
+      </control>
+    </definition>
   </include>
   <include name="PlayerCloseButton">
     <param name="Left" default="30"/>
     <definition>
-    <control type="button" description="PlayerClose">
-      <top>46</top>
-      <left>$PARAM[Left]</left>
-      <texturefocus>icons/touch/close.png</texturefocus>
-      <texturenofocus>icons/touch/close.png</texturenofocus>
-      <width>50</width>
-      <height>50</height>
-      <font>-</font>
-      <align>left</align>
-      <aligny>center</aligny>
-      <onclick>Dialog.Close(all)</onclick>
-      <onclick>PlayerControl(Stop)</onclick>
-    </control>
-  </definition>
+      <control type="button" description="PlayerClose">
+        <top>46</top>
+        <left>$PARAM[Left]</left>
+        <texturefocus>icons/touch/close.png</texturefocus>
+        <texturenofocus>icons/touch/close.png</texturenofocus>
+        <width>50</width>
+        <height>50</height>
+        <font>-</font>
+        <align>left</align>
+        <aligny>center</aligny>
+        <onclick>Dialog.Close(all)</onclick>
+        <onclick>PlayerControl(Stop)</onclick>
+      </control>
+    </definition>
   </include>
   <include name="BackButton">
     <param name="Left" default="30"/>
     <definition>
-    <control type="button" description="Back">
-      <texturefocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturefocus>
-      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturenofocus>
-      <top>0</top>
-      <left>$PARAM[Left]</left>
-      <width>360</width>
-      <height>96</height>
-      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-      <textcolor>$VAR[SelectedColor]</textcolor>
-      <align>left</align>
-      <aligny>center</aligny>
-      <textoffsetx>60</textoffsetx>
-      <label>[UPPERCASE]$LOCALIZE[31040][/UPPERCASE]</label>
-      <onclick>back</onclick>
-    </control>
-  </definition>
+      <control type="button" description="Back">
+        <texturefocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]" border="89,0,0,0">icons/touch/back.png</texturenofocus>
+        <top>0</top>
+        <left>$PARAM[Left]</left>
+        <width>360</width>
+        <height>96</height>
+        <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+        <textcolor>$VAR[SelectedColor]</textcolor>
+        <align>left</align>
+        <aligny>center</aligny>
+        <textoffsetx>60</textoffsetx>
+        <label>[UPPERCASE]$LOCALIZE[31040][/UPPERCASE]</label>
+        <onclick>back</onclick>
+      </control>
+    </definition>
   </include>
   <include name="SearchButton">
     <param name="Right" default="30"/>
     <definition>
       <control type="button" id="19" description="Search">
-      <texturefocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturefocus>
-      <texturenofocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturenofocus>
-      <top>0</top>
-      <right>$PARAM[Right]</right>
-      <width>400</width>
-      <height>96</height>
-      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-      <textcolor>$VAR[SelectedColor]</textcolor>
-      <align>right</align>
-      <aligny>center</aligny>
-      <textoffsetx>64</textoffsetx>
-    </control>
-  </definition>
-</include>
-<include name="9000GrouplistParameters">
+        <texturefocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[SelectedColor]" border="0,0,89,0">icons/touch/search.png</texturenofocus>
+        <top>0</top>
+        <right>$PARAM[Right]</right>
+        <width>400</width>
+        <height>96</height>
+        <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+        <textcolor>$VAR[SelectedColor]</textcolor>
+        <align>right</align>
+        <aligny>center</aligny>
+        <textoffsetx>64</textoffsetx>
+      </control>
+    </definition>
+  </include>
+  <include name="9000GrouplistParameters">
     <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
     </include>
     <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="HorizontalMargins">
@@ -129,20 +129,20 @@
       <param name="Right" value="120"/>
     </include>
     <definition>
-    <left>$PARAM[Left]</left>
-    <right>$PARAM[Right]</right>
-    <bottom>18</bottom>
-    <height>60</height>
-    <itemgap>40</itemgap>
-    <onleft>9000</onleft>
-    <onright>9000</onright>
-    <onup>50</onup>
-    <ondown>50</ondown>
-    <align>center</align>
-    <aligny>center</aligny>
-    <orientation>horizontal</orientation>
-    <animation effect="slide" end="0,-20" time="0" reversible="true" condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">Conditional</animation>
-  </definition>
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
+      <bottom>18</bottom>
+      <height>60</height>
+      <itemgap>40</itemgap>
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <onup>50</onup>
+      <ondown>50</ondown>
+      <align>center</align>
+      <aligny>center</aligny>
+      <orientation>horizontal</orientation>
+      <animation effect="slide" end="0,-20" time="0" reversible="true" condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">Conditional</animation>
+    </definition>
   </include>
   <include name="9000Buttons">
     <width min="150" max="540">auto</width>
@@ -160,7 +160,6 @@
     <alttexturenofocus/>
     <alttexturefocus/>
   </include>
-
   <include name="VideoMenuButtons">
     <width min="240" max="540">auto</width>
     <height>90</height>
@@ -174,32 +173,85 @@
     <textcolor>grey</textcolor>
     <focusedcolor>white</focusedcolor>
   </include>
+  <include name="FullscreenInfoLabelMain">
+    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+      <param name="Left" value="160"/>
+    </include>
+    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+      <param name="Left" value="220"/>
+    </include>
+    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+      <param name="Right" value="120"/>
+    </include>
+    <scroll>false</scroll>
+    <align>left</align>
+    <font>size20</font>
+    <textcolor>silver</textcolor>
+    <animation effect="fade" time="200">VisibleChange</animation>
+  </include>
   <include name="VideoMenuInfo">
-    <control type="group" description="Info group">
-      <top>90</top>
-      <control type="group">
-        <top>30</top>
-        <control type="label" description="Main label">
+    <control type="group">
+        <top>96</top>
+        <control type="image">
+          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
+            <param name="Left" value="120"/>
+          </include>
+          <top>10</top>
+          <width>100</width>
+          <height>140</height>
+          <texture>$INFO[VideoPlayer.Cover]</texture>
+          <aspectratio align="center" aligny="top">scale</aspectratio>
+        </control>
+      <control type="label" description="Main label">
           <visible>![VideoPlayer.Content(MusicVideos)]</visible>
+          <textcolor>white</textcolor>
+          <font>size22U</font>
           <include>FullscreenInfoLabelMain</include>
-          <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.TVShowTitle, • ]$INFO[VideoPlayer.Season, - $LOCALIZE[20373] ]$INFO[VideoPlayer.Episode, $LOCALIZE[20359] ]$INFO[VideoPlayer.Year, • ]</label>
+          <label>$INFO[VideoPlayer.Title]</label>
         </control>
         <control type="label" description="Main label">
           <visible>VideoPlayer.Content(MusicVideos)</visible>
+          <textcolor>white</textcolor>
+          <font>size22U</font>
           <include>FullscreenInfoLabelMain</include>
-          <label>[B]$INFO[VideoPlayer.Artist][/B]$INFO[VideoPlayer.Album, • ]</label>
+          <label>$INFO[VideoPlayer.Artist]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>VideoPlayer.Content(MusicVideos)</visible>
+          <top>50</top>
+          <include>FullscreenInfoLabelMain</include>
+          <label>$INFO[VideoPlayer.Album]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>VideoPlayer.Content(Episodes)</visible>
+          <top>50</top>
+          <include>FullscreenInfoLabelMain</include>
+          <label>$INFO[VideoPlayer.TVShowTitle] - $LOCALIZE[20373] $INFO[VideoPlayer.Season], $LOCALIZE[20359] $INFO[VideoPlayer.Episode]</label>
+        </control>
+        <control type="label" description="Label 2">
+          <visible>![VideoPlayer.Content(MusicVideos) | VideoPlayer.Content(episodes)]</visible>
+          <top>50</top>
+          <include>FullscreenInfoLabelMain</include>
+          <label>$INFO[VideoPlayer.Year,, • ]$INFO[VideoPlayer.Genre]</label>
+        </control>
+        <control type="label" description="Details">
+          <top>90</top>
+          <font>size18</font>
+          <include>FullscreenInfoLabelMain</include>
+          <label>[UPPERCASE]$INFO[VideoPlayer.VideoCodec]$INFO[VideoPlayer.VideoResolution, / ]$INFO[VideoPlayer.AudioCodec, • ]$INFO[VideoPlayer.AudioChannels, / ][/UPPERCASE]</label>
         </control>
       </control>
-    </control>
   </include>
   <include name="CenterHeading">
     <top>0</top>
     <centerleft>50%</centerleft>
     <align>center</align>
     <aligny>center</aligny>
-    <width>100%</width>
+    <width>60%</width>
     <height>96</height>
-    <font>size22U</font>
+    <font>size22CU</font>
   </include>
   <include name="NowPlaying">
     <control type="group" description="NowPlaying">
@@ -368,12 +420,6 @@
     <width>1</width>
     <height>1</height>
   </include>
-  <include name="Dimensions_Fullscreen">
-    <left>0</left>
-    <top>0</top>
-    <width>100%</width>
-    <height>100%</height>
-  </include>
   <include name="SeekbarIconsCommons">
     <width>45</width>
     <height>45</height>
@@ -387,16 +433,6 @@
     <shadowcolor>black</shadowcolor>
     <textcolor>white</textcolor>
   </include>
-  <include name="FullscreenInfoLabelMain">
-    <left>0</left>
-    <top>-6</top>
-    <right>0</right>
-    <scroll>false</scroll>
-    <align>center</align>
-    <font>size22</font>
-    <textcolor>white</textcolor>
-    <animation effect="fade" time="200">VisibleChange</animation>
-  </include>
   <include name="KeyboardButtons">
     <align>center</align>
     <aligny>center</aligny>
@@ -409,12 +445,12 @@
     <align>center</align>
     <aligny>center</aligny>
     <textoffsetx>0</textoffsetx>
-    <width>150</width>
-    <height>150</height>
-    <font>size28</font>
-    <textcolor>$VAR[SelectedColor]</textcolor>
-    <focusedcolor>$VAR[SelectedColor]</focusedcolor>
-    <texturefocus colordiffuse="$VAR[SelectedColor]">buttons/KeyNumeric.png</texturefocus>
-    <texturenofocus colordiffuse="$VAR[SelectedColor]">buttons/KeyNumeric.png</texturenofocus>
+    <width>144</width>
+    <height>144</height>
+    <font>size50</font>
+    <textcolor>$VAR[LabelFOColor]</textcolor>
+    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
+    <texturefocus colordiffuse="$VAR[LabelNFColor]">buttons/KeyNumeric.png</texturefocus>
+    <texturenofocus colordiffuse="$VAR[LabelNFColor]">buttons/KeyNumeric.png</texturenofocus>
   </include>
 </includes>

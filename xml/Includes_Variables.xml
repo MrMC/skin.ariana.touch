@@ -9,13 +9,18 @@
     <value condition="ListItem.IsResumable">OverlayInProgress.png</value>
     <value>$INFO[ListItem.Overlay]</value>
   </variable>
+  <variable name="UnWatchedEpisodes">
+    <value condition="IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)">$INFO[ListItem.Property(UnWatchedEpisodes),  (,)]</value>
+  </variable>
   <variable name="PlayerState" description="MiniPlayerOverlay">
     <value condition="Player.Playing">$LOCALIZE[31041]</value>
     <value condition="Player.Paused">$LOCALIZE[31042]</value>
   </variable>
   <variable name="Thumbnail" description="Item Thumb">
     <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-    <value>$INFO[ListItem.Icon]</value>
+    <value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+    <value condition="ListItem.IsFolder">DefaultFolder.png</value>
+    <value>DefaultFile.png</value>
   </variable>
   <variable name="CurrentSubs" description="VideoMenu">
     <value condition="VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled">$LOCALIZE[462]: $LOCALIZE[305]</value>
@@ -108,7 +113,7 @@
   </variable>
   <variable name="OverlayColor" description="Overlay">
     <value condition="Skin.HasSetting(DarkInterface)">FF151515</value>
-    <value>FFFFFFFF</value>
+    <value>FFf2f2f2</value>
   </variable>
   <variable name="LabelNFColor" description="LabelNF">
     <value condition="Skin.HasSetting(DarkInterface)">FFf1f1f1</value>
