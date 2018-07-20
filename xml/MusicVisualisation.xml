@@ -1,153 +1,231 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <controls>
+    <include>FullBackground</include>
     <control type="group">
-      <visible>!Visualisation.Enabled</visible>
-      <include>FullBackground</include>
+      <visible>Player.HasAudio + Skin.HasSetting(Visualisation)</visible>
       <include>VisibleFadeEffect</include>
-    </control>
-    <control type="visualisation" id="2" description="Visualisation">
-      <visible>Player.HasAudio</visible>
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-    </control>
-    <control type="progress" id="23" description="Progress Bar">
-      <visible>true</visible>
-      <left>-840</left>
-      <top>-750</top>
-      <width>50</width>
-      <info>Player.Progress</info>
-    </control>
-    <control type="image" description="Visualisation Overlay">
-      <visible>Visualisation.Enabled</visible>
-      <left>0</left>
-      <top>0</top>
-      <width>1920</width>
-      <height>1080</height>
-      <texture border="1,0,1,0">img/MusicPlayerOverlay.png</texture>
-    </control>
-    <control type="grouplist" description="Info">
-      <visible>!Visualisation.Enabled | Window.IsActive(MusicOSD.xml)</visible>
-      <include>VisibleFadeEffect</include>
-      <centertop>50%</centertop>
-      <centerleft>50%</centerleft>
-      <width>100%</width>
-      <height>690</height>
-      <aligny>center</aligny>
+      <include>OpenClose</include>
       <control type="image" description="MusicAlbum">
-        <height>472</height>
+        <include>VerticalMargins</include>
         <width>100%</width>
-        <aspectratio>keep</aspectratio>
-        <texture background="true">$INFO[MusicPlayer.Cover]</texture>
+        <aspectratio>stretch</aspectratio>
+        <texture>dot/Black.png</texture>
       </control>
-      <control type="label" description="Title label">
-        <height>90</height>
-        <width>100%</width>
-        <scroll>true</scroll>
-        <align>center</align>
-        <font>size24B</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <animation effect="fade" time="200">VisibleChange</animation>
-        <label>[B]$INFO[MusicPlayer.Title][/B]</label>
-      </control>
-      <control type="label" description="Artist">
-        <height>40</height>
-        <width>100%</width>
-        <scroll>true</scroll>
-        <align>center</align>
-        <font>size22B</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <label>[B]$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ][/B]</label>
-      </control>
-      <control type="label" description="Track position">
-        <height>30</height>
-        <width>100%</width>
-        <scroll>true</scroll>
-        <align>center</align>
-        <font>size20</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <animation effect="fade" time="200">VisibleChange</animation>
-        <label>[B]$INFO[MusicPlayer.PlaylistPosition] $LOCALIZE[20163] $INFO[MusicPlayer.PlaylistLength][/B]</label>
-      </control>
-      <control type="label">
-        <height>30</height>
-        <width>100%</width>
-        <scroll>true</scroll>
-        <align>center</align>
-        <font>size20</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <label fallback="-:-">[B]$INFO[Player.Time]$INFO[Player.TimeRemaining, / ][/B]</label>
-      </control>
-    </control>
-    <control type="group" id="0">
-      <left>0</left>
-      <top>0</top>
-      <animation effect="fade" time="200">VisibleChange</animation>
-      <control type="image" description="Info Background">
+      <control type="visualisation" id="2" description="Visualisation">
         <left>0</left>
         <top>0</top>
         <width>100%</width>
-        <height>60</height>
-        <texture>dot/Black75.png</texture>
-      </control>
-      <control type="label" description="row 1 sys label">
-        <left>46</left>
-        <right>46</right>
-        <top>0</top>
-        <height>60</height>
-        <align>center</align>
-        <aligny>center</aligny>
-        <font>size18</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <label>[UPPERCASE]$INFO[musicplayer.Codec][/UPPERCASE] $INFO[musicplayer.Bitrate, @ ,kbps]$INFO[musicplayer.bitspersample, · ,bit]$INFO[musicplayer.Samplerate, · ,kHz]$INFO[musicplayer.Channels, · , $LOCALIZE[21444]]</label>
-      </control>
-    </control>
-    <control type="group" description="next/Previous">
-      <top>1020</top>
-      <visible>IntegerGreaterThan(Control.GetLabel(23),95) | !IntegerGreaterThan(Control.GetLabel(23),5)</visible>
-      <animation effect="fade" time="800">VisibleChange</animation>
-      <animation condition="Window.IsActive(MusicOSD.xml)" effect="slide" start="0,0" end="0,-105" time="200">Conditional</animation>
-      <control type="label" description="Previous">
-        <left>30</left>
-        <height>36</height>
-        <width>750</width>
-        <align>left</align>
-        <scroll>false</scroll>
-        <scrollout>false</scrollout>
-        <scrollspeed>200</scrollspeed>
-        <pauseatend>5000</pauseatend>
-        <label>$INFO[MusicPlayer.offset(-1).Title,[COLOR=Label2]$LOCALIZE[210]: [/COLOR]]</label>
-        <font>size18</font>
-        <textoffsetx>20</textoffsetx>
-        <textcolor>$VAR[LabelFOColor]</textcolor>
-      </control>
-      <control type="label" description="Next">
-        <left>1890</left>
-        <height>36</height>
-        <width>750</width>
-        <align>right</align>
-        <scroll>false</scroll>
-        <scrollout>false</scrollout>
-        <scrollspeed>200</scrollspeed>
-        <pauseatend>5000</pauseatend>
-        <label>$INFO[MusicPlayer.offset(1).Title,[COLOR=Label2]$LOCALIZE[209]: [/COLOR]]</label>
-        <font>size18</font>
-        <textoffsetx>20</textoffsetx>
-        <textcolor>$VAR[LabelFOColor]</textcolor>
+        <height>100%</height>
       </control>
     </control>
     <control type="group">
-    <visible>!Window.IsActive(musicosd.xml)</visible>
-    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">PlayerCloseButton</include>
-    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PlayerCloseButton">
-      <param name="Left" value="120"/>
-    </include>
-    <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">DownButton</include>
-    <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="DownButton">
-      <param name="Right" value="120"/>
-    </include>
-  </control>
+      <include>OpenClose</include>
+      <visible>!Skin.HasSetting(visualisation)</visible>
+      <include>VisibleFadeEffect</include>
+      <control type="image" description="MusicAlbum">
+        <left>120</left>
+        <width>800</width>
+        <aspectratio>keep</aspectratio>
+        <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$INFO[MusicPlayer.Cover]</texture>
+        <bordersize>30,0,30,30</bordersize>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+      </control>
+      <control type="group">
+        <right>120</right>
+        <width>800</width>
+        <height>800</height>
+        <centertop>50%</centertop>
+        <control type="progress" id="23" description="Progress">
+          <top>70</top>
+          <reveal>true</reveal>
+          <width>100%</width>
+          <height>24</height>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture colordiffuse="$VAR[Label2Color]" border="1">HUD/ProgressFill.png</midtexture>
+          <info>Player.Progress</info>
+        </control>
+        <control type="slider" id="87" description="Seek Slider">
+          <top>70</top>
+          <width>100%</width>
+          <height>24</height>
+          <texturesliderbar border="2">HUD/SliderBGempty.png</texturesliderbar>
+          <textureslidernib colordiffuse="$VAR[Label2Color]">HUD/SliderNib.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="$VAR[Label2Color]">HUD/SliderNib.png</textureslidernibfocus>
+          <info>Player.Progress</info>
+          <action>seek</action>
+          <onleft>87</onleft>
+          <onright>87</onright>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>96</top>
+          <height>30</height>
+          <width>140</width>
+          <align>left</align>
+          <textcolor>$VAR[Label2Color]</textcolor>
+          <label>$INFO[Player.Time]</label>
+          <font>size19CU</font>
+        </control>
+        <control type="label">
+          <right>0</right>
+          <top>96</top>
+          <height>30</height>
+          <width>140</width>
+          <align>right</align>
+          <textcolor>$VAR[Label2Color]</textcolor>
+          <label>$INFO[Player.TimeRemaining]</label>
+          <font>size19CU</font>
+        </control>
+        <control type="label" description="Title label">
+          <top>210</top>
+          <height>40</height>
+          <width>100%</width>
+          <align>center</align>
+          <font>size22U</font>
+          <textcolor>$VAR[LabelNFColor]</textcolor>
+          <label>$INFO[MusicPlayer.Title]</label>
+        </control>
+        <control type="label" description="Title label">
+          <top>270</top>
+          <height>50</height>
+          <width>100%</width>
+          <align>center</align>
+          <font>size20</font>
+          <textcolor>$VAR[Label2Color]</textcolor>
+          <label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
+        </control>
+        <control type="grouplist">
+          <width>100%</width>
+          <top>430</top>
+          <height>90</height>
+          <itemgap>90</itemgap>
+          <align>center</align>
+          <orientation>horizontal</orientation>
+          <control type="button" id="104">
+            <width>90</width>
+            <height>90</height>
+            <texturenofocus colordiffuse="$VAR[LabelNFColor]">OSD/RW.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/RW.png</texturefocus>
+            <onclick>PlayerControl(Previous)</onclick>
+          </control>
+          <control type="togglebutton" id="106">
+            <width>90</width>
+            <height>90</height>
+            <texturenofocus colordiffuse="$VAR[LabelNFColor]">OSD/Play.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Play.png</texturefocus>
+            <usealttexture colordiffuse="$VAR[LabelNFColor]">Player.Playing</usealttexture>
+            <alttexturenofocus colordiffuse="$VAR[LabelNFColor]">OSD/Pause.png</alttexturenofocus>
+            <alttexturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Pause.png</alttexturefocus>
+            <onclick>PlayerControl(Play)</onclick>
+          </control>
+          <control type="button" id="105">
+            <width>90</width>
+            <height>90</height>
+            <texturenofocus colordiffuse="$VAR[LabelNFColor]">OSD/Stop.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/Stop.png</texturefocus>
+            <onclick>PlayerControl(Stop)</onclick>
+          </control>
+          <control type="button" id="107">
+            <width>90</width>
+            <height>90</height>
+            <texturenofocus colordiffuse="$VAR[LabelNFColor]">OSD/FF.png</texturenofocus>
+            <texturefocus colordiffuse="$VAR[LabelNFColor]">OSD/FF.png</texturefocus>
+            <onclick>PlayerControl(Next)</onclick>
+          </control>
+        </control>
+        <control type="progress" id="2" description="Volume Progress">
+          <reveal>true</reveal>
+          <top>664</top>
+          <height>30</height>
+          <left>70</left>
+          <width>660</width>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture colordiffuse="$VAR[Label2Color]" border="1">HUD/ProgressFill.png</midtexture>
+          <info>Player.Volume</info>
+        </control>
+        <control type="togglebutton" description="VolMin">
+          <top>650</top>
+          <left>0</left>
+          <height>60</height>
+          <width>60</width>
+          <texturefocus colordiffuse="$VAR[Label2Color]">OSD/VolMin.png</texturefocus>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolMin.png</texturenofocus>
+          <alttexturefocus colordiffuse="$VAR[Label2Color]">OSD/VolOff.png</alttexturefocus>
+          <alttexturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolOff.png</alttexturenofocus>
+          <usealttexture>!IntegerGreaterThan(player.volume,0)</usealttexture>
+          <onclick>VolumeDown</onclick>
+        </control>
+        <control type="slider" id="1" description="Volume Slider">
+          <top>650</top>
+          <left>70</left>
+          <width>660</width>
+          <height>60</height>
+          <info>Player.Volume</info>
+          <action>Volume</action>
+          <onleft>1</onleft>
+          <onright>1</onright>
+          <textureslidernib colordiffuse="$VAR[LabelNFColor]">HUD/SliderNib.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="$VAR[LabelNFColor]">HUD/SliderNib.png</textureslidernibfocus>
+          <texturesliderbar border="2">HUD/SliderBGempty.png</texturesliderbar>
+        </control>
+        <control type="button" description="VolMax">
+          <top>650</top>
+          <right>0</right>
+          <height>60</height>
+          <width>60</width>
+          <texturefocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturefocus>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturenofocus>
+          <onclick>VolumeUp</onclick>
+        </control>
+      </control>
+    </control>
+    <control type="grouplist" id="9000">
+      <include>9000GrouplistParameters</include>
+      <control type="button" id="200" description="Shuffle">
+        <width>400</width>
+        <include>9000Buttons</include>
+        <label>$LOCALIZE[191]: $INFO[Playlist.Random]</label>
+        <onclick>PlayerControl(Random)</onclick>
+      </control>
+      <control type="button" id="201" description="Repeat">
+        <include>9000Buttons</include>
+        <label>$LOCALIZE[486]: $INFO[Playlist.Repeat]</label>
+        <onclick>PlayerControl(Repeat)</onclick>
+      </control>
+      <control type="togglebutton" id="203" description="Visualisation">
+        <width>400</width>
+        <include>9000Buttons</include>
+        <label>$LOCALIZE[250]: $LOCALIZE[351]</label>
+        <altlabel>$LOCALIZE[250]: $LOCALIZE[16041]</altlabel>
+        <onclick>Skin.ToggleSetting(Visualisation)</onclick>
+        <usealttexture>Skin.HasSetting(visualisation)</usealttexture>
+      </control>
+    </control>
+    <control type="button" description="Current Playlist">
+      <texturefocus colordiffuse="$VAR[SelectedColor]" flipx="true" border="0,0,89,0">icons/touch/back.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[SelectedColor]" flipx="true" border="0,0,89,0">icons/touch/back.png</texturenofocus>
+      <top>0</top>
+      <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>
+      <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="RightMargin">
+        <param name="Right" value="120"/>
+      </include>
+      <textoffsetx>60</textoffsetx>
+      <width>600</width>
+      <height>96</height>
+      <textcolor>$VAR[SelectedColor]</textcolor>
+      <focusedcolor>$VAR[SelectedColor]</focusedcolor>
+      <selectedcolor>$VAR[SelectedColor]</selectedcolor>
+      <disabledcolor>$VAR[DisabledColor]</disabledcolor>
+      <font>size22CU</font>
+      <aligny>center</aligny>
+      <align>right</align>
+      <label>$LOCALIZE[13350]</label>
+      <onclick>ActivateWindow(MusicPlaylist)</onclick>
+    </control>
   </controls>
 </window>

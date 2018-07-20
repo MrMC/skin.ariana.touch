@@ -12,15 +12,17 @@
   <variable name="UnWatchedEpisodes">
     <value condition="IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)">$INFO[ListItem.Property(UnWatchedEpisodes),  (,)]</value>
   </variable>
-  <variable name="PlayerState" description="MiniPlayerOverlay">
-    <value condition="Player.Playing">$LOCALIZE[31041]</value>
-    <value condition="Player.Paused">$LOCALIZE[31042]</value>
-  </variable>
   <variable name="Thumbnail" description="Item Thumb">
     <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
     <value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
     <value condition="ListItem.IsFolder">DefaultFolder.png</value>
     <value>DefaultFile.png</value>
+  </variable>
+  <variable name="HomeThumbnail" description="Item Thumb">
+    <value condition="!IsEmpty(ListItem.Property(thumb))">$INFO[ListItem.Property(Thumb)]</value>
+    <value condition="!IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+    <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+    <value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
   </variable>
   <variable name="CurrentSubs" description="VideoMenu">
     <value condition="VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled">$LOCALIZE[462]: $LOCALIZE[305]</value>
@@ -113,7 +115,7 @@
   </variable>
   <variable name="OverlayColor" description="Overlay">
     <value condition="Skin.HasSetting(DarkInterface)">FF151515</value>
-    <value>FFf2f2f2</value>
+    <value>FFf9f9f9</value>
   </variable>
   <variable name="LabelNFColor" description="LabelNF">
     <value condition="Skin.HasSetting(DarkInterface)">FFf1f1f1</value>
@@ -124,8 +126,8 @@
     <value>FF000000</value>
   </variable>
   <variable name="Label2Color" description="Label2">
-    <value condition="Skin.HasSetting(DarkInterface)">FF8d9196</value>
-    <value>FF5b5f63</value>
+    <value condition="Skin.HasSetting(DarkInterface)">FFa5a5a5</value>
+    <value>FF666666</value>
   </variable>
   <variable name="DisabledColor" description="Disabled">
     <value condition="Skin.HasSetting(DarkInterface)">FF909192</value>
@@ -133,7 +135,7 @@
   </variable>
   <variable name="SelectedColor" description="Selected">
     <value condition="Skin.HasSetting(DarkInterface)">ff008080</value>
-    <value>FF288bfc</value>
+    <value>FF0180fd</value>
   </variable>
   <variable name="ButtonOverlayColor" description="Overlay home buttons">
     <value condition="Skin.HasSetting(DarkInterface)">white</value>

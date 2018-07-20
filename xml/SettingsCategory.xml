@@ -33,7 +33,7 @@
       </control>
       <control type="button" id="10" description="Category Button">
         <align>left</align>
-        <width>100%</width>
+        <width>25%%</width>
       </control>
       <control type="grouplist" id="5" description="Right - Control Area">
         <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">RightMargin</include>

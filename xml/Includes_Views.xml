@@ -6,7 +6,7 @@
     <top>24</top>
     <height>40</height>
     <font>size22B</font>
-    <label>$INFO[ListItem.Label][COLOR orange]$VAR[UnWatchedEpisodes][/COLOR]</label>
+    <label>$INFO[ListItem.Label][COLOR $VAR[SelectedColor]]$VAR[UnWatchedEpisodes][/COLOR]</label>
     <textcolor>$VAR[LabelNFColor]</textcolor>
   </include>
   <include name="52label2Commons">
@@ -33,18 +33,58 @@
       <bottom>0</bottom>
       <right>12</right>
       <height>1</height>
-      <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
+      <texture border="1" colordiffuse="$VAR[Label2Color]">dot/White20.png</texture>
       <aspectratio>stretch</aspectratio>
     </control>
   </include>
   <include name="52overlay">
-    <control type="image">
-      <right>20</right>
-      <top>30</top>
-      <height>40</height>
-      <width>40</width>
-      <texture colordiffuse="$VAR[LabelNFColor]" align="right" aligny="center">$VAR[Overlay]</texture>
-      <aspectratio>keep</aspectratio>
+    <control type="group" description="Overlay">
+      <control type="image">
+        <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+        <left>126</left>
+        <bottom>12</bottom>
+        <height>30</height>
+        <width>30</width>
+        <aspectratio>keep</aspectratio>
+        <texture>$INFO[ListItem.Overlay,grid/]</texture>
+      </control>
+      <control type="progress">
+        <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+        <bottom>10</bottom>
+        <left>18</left>
+        <width>130</width>
+        <height>30</height>
+        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <lefttexture/>
+        <righttexture/>
+        <midtexture border="1">HUD/ProgressFill.png</midtexture>
+        <info>ListItem.PercentPlayed</info>
+      </control>
+    </control>
+  </include>
+  <include name="52overlayEpisodes">
+    <control type="group" description="Overlay">
+      <control type="image">
+        <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+        <left>364</left>
+        <bottom>12</bottom>
+        <height>50</height>
+        <width>50</width>
+        <aspectratio>keep</aspectratio>
+        <texture>$INFO[ListItem.Overlay,grid/]</texture>
+      </control>
+      <control type="progress">
+        <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+        <bottom>10</bottom>
+        <left>20</left>
+        <width>386</width>
+        <height>36</height>
+        <texturebg border="2">HUD/SliderBG.png</texturebg>
+        <lefttexture/>
+        <righttexture/>
+        <midtexture border="1">HUD/ProgressFill.png</midtexture>
+        <info>ListItem.PercentPlayed</info>
+      </control>
     </control>
   </include>
   <include name="View_53" description="Grid container">
@@ -83,22 +123,22 @@
             <control type="image">
               <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <right>30</right>
-              <top>0</top>
-              <height>48</height>
-              <width>48</width>
+              <bottom>30</bottom>
+              <height>50</height>
+              <width>50</width>
               <aspectratio>keep</aspectratio>
-              <texture colordiffuse="orange">$INFO[ListItem.Overlay,grid/]</texture>
+              <texture>$INFO[ListItem.Overlay,grid/]</texture>
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>26</bottom>
+              <bottom>30</bottom>
               <left>36</left>
               <right>36</right>
-              <height>24</height>
+              <height>28</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
               <righttexture/>
-              <midtexture colordiffuse="orange" border="1">HUD/ProgressFill.png</midtexture>
+              <midtexture border="1">HUD/ProgressFill.png</midtexture>
               <info>ListItem.PercentPlayed</info>
             </control>
           </control>
@@ -124,22 +164,22 @@
             <control type="image">
               <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <right>30</right>
-              <top>0</top>
-              <height>48</height>
-              <width>48</width>
+              <bottom>30</bottom>
+              <height>50</height>
+              <width>50</width>
               <aspectratio>keep</aspectratio>
-              <texture colordiffuse="orange">$INFO[ListItem.Overlay,grid/]</texture>
+              <texture>$INFO[ListItem.Overlay,grid/]</texture>
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>26</bottom>
+              <bottom>30</bottom>
               <left>36</left>
               <right>36</right>
-              <height>24</height>
+              <height>28</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
               <righttexture/>
-              <midtexture colordiffuse="orange" border="1">HUD/ProgressFill.png</midtexture>
+              <midtexture border="1">HUD/ProgressFill.png</midtexture>
               <info>ListItem.PercentPlayed</info>
             </control>
           </control>
@@ -161,7 +201,6 @@
       <preloaditems>4</preloaditems>
       <itemlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
         <include>52listBG</include>
-        <include>52overlay</include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -171,6 +210,7 @@
           <bordersize>12</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <include>52overlay</include>
         <control type="label" description="Main Label">
           <font>size22U</font>
           <include>52mainLabelCommons</include>
@@ -184,7 +224,6 @@
       </itemlayout>
       <focusedlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
         <include>52listBG</include>
-        <include>52overlay</include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -194,6 +233,7 @@
           <bordersize>12</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <include>52overlay</include>
         <control type="label" description="Main Label">
           <font>size22U</font>
           <include>52mainLabelCommons</include>
@@ -207,7 +247,6 @@
       </focusedlayout>
       <itemlayout condition="container.content(episodes)" height="240">
         <include>52listBG</include>
-        <include>52overlay</include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -217,6 +256,7 @@
           <bordersize>12</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <include>52overlayEpisodes</include>
         <control type="label" description="Main Label">
           <left>450</left>
           <font>size22U</font>
@@ -233,7 +273,6 @@
       </itemlayout>
       <focusedlayout condition="container.content(episodes)" height="240">
         <include>52listBG</include>
-        <include>52overlay</include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -243,6 +282,7 @@
           <bordersize>12</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <include>52overlayEpisodes</include>
         <control type="label" description="Main Label">
           <left>450</left>
           <font>size22U</font>
@@ -459,6 +499,206 @@
         <label>$VAR[GlobalHeadings]</label>
       </control>
     </control>
+  </include>
+  <include name="AlbumShelf" description="Shelf container">
+    <param name="Left" default="0"/>
+    <param name="Right" default="0"/>
+    <param name="Height"/>
+    <param name="Width"/>
+    <param name="ID"/>
+    <definition>
+
+        <left>$PARAM[Left]</left>
+        <right>$PARAM[Right]</right>
+        <height>840</height>
+        <orientation>horizontal</orientation>
+        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+            <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+        </itemlayout>
+        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+          <control type="image">
+          <height>100%</height>
+          <width>100%</width>
+          <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        </focusedlayout>
+    </definition>
+  </include>
+  <include name="PosterShelf" description="Shelf container">
+    <param name="Left" default="0"/>
+    <param name="Right" default="0"/>
+    <param name="Height"/>
+    <param name="Width"/>
+    <param name="ID"/>
+    <definition>
+
+        <left>$PARAM[Left]</left>
+        <right>$PARAM[Right]</right>
+        <height>$PARAM[Height]</height>
+        <orientation>horizontal</orientation>
+        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+            <control type="image">
+            <height>100%</height>
+            <width>100%</width>
+            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+            <control type="image">
+              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <right>0</right>
+              <bottom>0</bottom>
+              <height>50</height>
+              <width>50</width>
+              <aspectratio>keep</aspectratio>
+              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+            </control>
+            <control type="progress">
+              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <bottom>6</bottom>
+              <left>46</left>
+              <right>16</right>
+              <height>36</height>
+              <texturebg border="2">HUD/SliderBG.png</texturebg>
+              <lefttexture/>
+              <righttexture/>
+              <midtexture border="1">HUD/ProgressFill.png</midtexture>
+              <info>ListItem.PercentPlayed</info>
+            </control>
+        </itemlayout>
+        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+          <control type="image">
+          <height>100%</height>
+          <width>100%</width>
+          <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+          <control type="image">
+            <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+            <right>0</right>
+            <bottom>0</bottom>
+            <height>50</height>
+            <width>50</width>
+            <aspectratio>keep</aspectratio>
+            <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+          </control>
+          <control type="progress">
+            <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+            <bottom>6</bottom>
+            <left>46</left>
+            <right>16</right>
+            <height>36</height>
+            <texturebg border="2">HUD/SliderBG.png</texturebg>
+            <lefttexture/>
+            <righttexture/>
+            <midtexture border="1">HUD/ProgressFill.png</midtexture>
+            <info>ListItem.PercentPlayed</info>
+          </control>
+        </focusedlayout>
+    </definition>
+  </include>
+  <include name="FanartShelf" description="Shelf container">
+    <param name="Left" default="0"/>
+    <param name="Right" default="0"/>
+    <param name="Height"/>
+    <param name="Width"/>
+    <param name="ID"/>
+    <param name="Kind" default="0"/>
+    <definition>
+
+        <left>$PARAM[Left]</left>
+        <right>$PARAM[Right]</right>
+        <height>$PARAM[Height]</height>
+        <orientation>horizontal</orientation>
+        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+          <control type="image">
+            <visible>IsEmpty(ListItem.Art(fanart))</visible>
+            <height>100%</height>
+            <width>100%</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="image">
+            <visible>!IsEmpty(ListItem.Art(fanart))</visible>
+            <height>100%</height>
+            <width>100%</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+            <control type="image">
+              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <right>0</right>
+              <bottom>0</bottom>
+              <height>50</height>
+              <width>50</width>
+              <aspectratio>keep</aspectratio>
+              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+            </control>
+            <control type="progress">
+              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <bottom>6</bottom>
+              <left>46</left>
+              <right>16</right>
+              <height>36</height>
+              <texturebg border="2">HUD/SliderBG.png</texturebg>
+              <lefttexture/>
+              <righttexture/>
+              <midtexture border="1">HUD/ProgressFill.png</midtexture>
+              <info>ListItem.PercentPlayed</info>
+            </control>
+        </itemlayout>
+        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+          <control type="image">
+            <visible>IsEmpty(ListItem.Art(fanart))</visible>
+            <height>100%</height>
+            <width>100%</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="image">
+            <visible>!IsEmpty(ListItem.Art(fanart))</visible>
+            <height>100%</height>
+            <width>100%</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
+            <bordersize>30,30,0,0</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+            <control type="image">
+              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <right>0</right>
+              <bottom>0</bottom>
+              <height>50</height>
+              <width>50</width>
+              <aspectratio>keep</aspectratio>
+              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+            </control>
+            <control type="progress">
+              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+              <bottom>6</bottom>
+              <left>46</left>
+              <right>16</right>
+              <height>36</height>
+              <texturebg border="2">HUD/SliderBG.png</texturebg>
+              <lefttexture/>
+              <righttexture/>
+              <midtexture border="1">HUD/ProgressFill.png</midtexture>
+              <info>ListItem.PercentPlayed</info>
+            </control>
+        </focusedlayout>
+
+    </definition>
   </include>
   <include name="InfoPVR" description="PVR item info">
     <control type="group" description="Media info">

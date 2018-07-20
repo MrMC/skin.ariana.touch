@@ -91,7 +91,7 @@
           <onclick>Close</onclick>
           <onclick>ActivateWindow(osdsettings.xml)</onclick>
         </control>
-        <control type="progress" description="Video Progress">
+        <control type="progress" id="2" description="Volume Progress">
           <reveal>true</reveal>
           <top>105</top>
           <width>500</width>
@@ -156,7 +156,7 @@
         <midtexture border="1">HUD/ProgressFill.png</midtexture>
         <info>Player.ProgressCache</info>
       </control>
-      <control type="progress" description="Video Progress">
+      <control type="progress" id="23" description="Video Progress">
         <reveal>true</reveal>
         <bottom>184</bottom>
         <width>100%</width>

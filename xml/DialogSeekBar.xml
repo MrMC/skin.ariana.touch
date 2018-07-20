@@ -2,7 +2,7 @@
 <window type="dialog">
   <zorder>2</zorder>
   <onunload>Dialog.Close(osdsettings)</onunload>
-  <visible>[[Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd) | Window.IsActive(osdsettings.xml)] + Window.IsActive(fullscreenvideo)] | [Window.IsActive(visualisation) + [Player.Showinfo | Window.IsActive(musicosd)]] | !IsEmpty(Player.SeekNumeric) | Window.IsActive(playercontrols)</visible>
+  <visible>[[Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Window.IsActive(videoosd) | Window.IsActive(osdsettings.xml)] + Window.IsActive(fullscreenvideo)] | !IsEmpty(Player.SeekNumeric)</visible>
   <visible>![Window.IsActive(sliderdialog) | Window.IsActive(locksettings) | Window.IsActive(dialogsubtitles.xml) | Window.IsActive(videoosdsettings.xml) | Window.IsActive(PVROSDGuide)]</visible>
   <include>VisibleFadeEffect</include>
   <controls>

@@ -82,6 +82,11 @@
       <size>27</size>
     </font>
     <font>
+      <name>size18C</name>
+      <filename>RobotoCondensed.ttf</filename>
+      <size>27</size>
+    </font>
+    <font>
       <name>size18B</name>
       <filename>Roboto.ttf</filename>
       <size>27</size>
