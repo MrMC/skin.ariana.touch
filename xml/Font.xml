@@ -62,7 +62,7 @@
       <name>size16CU</name>
       <filename>RobotoCondensed.ttf</filename>
       <size>24</size>
-      <style>uppercase bold</style>
+      <style>uppercase</style>
     </font>
     <font>
       <name>size16USys</name>
@@ -87,23 +87,21 @@
       <size>27</size>
     </font>
     <font>
-      <name>size18B</name>
-      <filename>Roboto.ttf</filename>
+      <name>size18CU</name>
+      <filename>RobotoCondensed.ttf</filename>
       <size>27</size>
-      <style>bold</style>
+      <style>uppercase</style>
+    </font>
+    <font>
+      <name>size18B</name>
+      <filename>RobotoBold.ttf</filename>
+      <size>27</size>
     </font>
     <font>
       <name>size18U</name>
       <filename>Roboto.ttf</filename>
       <size>27</size>
-      <style>uppercase bold</style>
-      <aspect>0.93</aspect>
-    </font>
-    <font>
-      <name>size18S</name>
-      <filename>Roboto.ttf</filename>
-      <size>27</size>
-      <aspect>0.9</aspect>
+      <style>uppercase</style>
     </font>
     <font>
       <name>size19</name>
@@ -120,7 +118,7 @@
       <name>size19U</name>
       <filename>Roboto.ttf</filename>
       <size>28</size>
-      <style>uppercase bold</style>
+      <style>uppercase</style>
     </font>
     <font>
       <name>size19C</name>

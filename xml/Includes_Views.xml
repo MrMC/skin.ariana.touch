@@ -588,6 +588,29 @@
           <bordersize>30,30,0,0</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <control type="group">
+          <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+        <control type="image">
+            <left>30</left>
+            <bottom>0</bottom>
+            <right>0</right>
+            <height>180</height>
+            <texture border="1">img/Gradient.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+        <control type="textbox" description="Labels">
+          <bottom>10</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>90</height>
+          <aligny>center</aligny>
+          <align>center</align>
+          <font>size16CU</font>
+          <textcolor>white</textcolor>
+          <focusedcolor>white</focusedcolor>
+          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+        </control>
+      </control>
         <control type="image">
           <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
           <right>0</right>
@@ -599,7 +622,7 @@
         </control>
         <control type="progress">
           <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-          <bottom>6</bottom>
+          <bottom>0</bottom>
           <left>46</left>
           <right>16</right>
           <height>36</height>
@@ -618,6 +641,29 @@
           <bordersize>30,30,0,0</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
+        <control type="group">
+          <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
+        <control type="image">
+            <left>30</left>
+            <bottom>0</bottom>
+            <right>0</right>
+            <height>180</height>
+            <texture border="1">img/Gradient.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+        <control type="textbox" description="Labels">
+          <bottom>10</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>90</height>
+          <aligny>center</aligny>
+          <align>center</align>
+          <font>size16CU</font>
+          <textcolor>white</textcolor>
+          <focusedcolor>white</focusedcolor>
+          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+        </control>
+      </control>
         <control type="image">
           <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
           <right>0</right>
@@ -629,7 +675,7 @@
         </control>
         <control type="progress">
           <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-          <bottom>6</bottom>
+          <bottom>0</bottom>
           <left>46</left>
           <right>16</right>
           <height>36</height>
@@ -698,7 +744,9 @@
           <height>90</height>
           <aligny>center</aligny>
           <align>center</align>
-          <font>size22</font>
+          <font>size20U</font>
+          <textcolor>white</textcolor>
+          <focusedcolor>white</focusedcolor>
           <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
           <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
         </control>
@@ -740,14 +788,16 @@
           <midtexture border="1">HUD/ProgressFill.png</midtexture>
           <info>ListItem.PercentPlayed</info>
         </control>
-        <control type="textbox" id="9" description="Labels">
+        <control type="textbox" description="Labels">
           <bottom>52</bottom>
           <left>46</left>
           <right>16</right>
           <height>90</height>
           <aligny>center</aligny>
           <align>center</align>
-          <font>size22</font>
+          <font>size20U</font>
+          <textcolor>white</textcolor>
+          <focusedcolor>white</focusedcolor>
           <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
           <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
         </control>
