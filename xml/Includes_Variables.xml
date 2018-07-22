@@ -115,7 +115,7 @@
   </variable>
   <variable name="OverlayColor" description="Overlay">
     <value condition="Skin.HasSetting(DarkInterface)">FF151515</value>
-    <value>FFf9f9f9</value>
+    <value>FFeeeeee</value>
   </variable>
   <variable name="LabelNFColor" description="LabelNF">
     <value condition="Skin.HasSetting(DarkInterface)">FFf1f1f1</value>

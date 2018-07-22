@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <defaultcontrol>9500</defaultcontrol>
+  <defaultcontrol>9100</defaultcontrol>
   <controls>
     <include>PlainBackground</include>
     <control type="button" id="4004" description="Users">
       <include>HiddenButton</include>
     </control>
+    <control type="button" id="4000" description="Server">
+      <include>HiddenButton</include>
+    </control>
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="mrmc">
-        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]">LeftMargin</include>
-        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
-          <param name="Left" value="120"/>
-        </include>
+        <left>30</left>
         <top>15</top>
         <height>30</height>
         <width>200</width>
         <align>left</align>
-        <font>size20U</font>
+        <font>size19</font>
         <label>MrMC</label>
       </control>
       <control type="label" description="Clock">
@@ -26,7 +26,7 @@
         <height>30</height>
         <width>300</width>
         <align>center</align>
-        <font>size20</font>
+        <font>size19</font>
         <label>$INFO[System.Time]</label>
       </control>
       <control type="group" description="Battery Level">
@@ -63,125 +63,75 @@
       <control type="panel" id="9000" description="Library sections">
         <visible>Skin.HasSetting(library)</visible>
         <include>VisibleFadeEffect</include>
-        <left>270</left>
-        <right>360</right>
+        <centerleft>50%</centerleft>
         <top>150</top>
-        <bottom>75</bottom>
-        <itemlayout height="100">
-          <control type="image">
-            <left>20</left>
-            <bottom>-1</bottom>
-            <right>20</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
-          <control type="image">
-            <left>-6</left>
-            <top>0</top>
-            <width>100</width>
-            <bottom>0</bottom>
-            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
-            <bordersize>24</bordersize>
-            <align>center</align>
-            <aspectratio>keep</aspectratio>
-          </control>
-          <control type="label">
-            <left>120</left>
-            <top>0</top>
-            <aligny>center</aligny>
-            <height>100%</height>
-            <font>size24B</font>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-          </control>
+        <bottom>150</bottom>
+        <width>1480</width>
+        <itemlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90">
+          <include>MainMenuLayout</include>
         </itemlayout>
-        <focusedlayout height="100">
-          <control type="image">
-            <left>20</left>
-            <bottom>-1</bottom>
-            <right>20</right>
-            <height>1</height>
-            <texture border="1" colordiffuse="$VAR[Label2Color]">dot/Grey.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
-          <control type="image">
-            <left>-6</left>
-            <top>0</top>
-            <width>100</width>
-            <bottom>0</bottom>
-            <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
-            <bordersize>24</bordersize>
-            <align>center</align>
-            <aspectratio>keep</aspectratio>
-          </control>
-          <control type="label">
-            <left>120</left>
-            <top>0</top>
-            <aligny>center</aligny>
-            <height>100%</height>
-            <font>size24B</font>
-            <textcolor>$VAR[LabelNFColor]</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-          </control>
+        <focusedlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90">
+          <include>MainMenuLayout</include>
+        </focusedlayout>
+        <itemlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90" width="740">
+          <include>MainMenuLayout</include>
+        </itemlayout>
+        <focusedlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90" width="740">
+          <include>MainMenuLayout</include>
         </focusedlayout>
       </control>
-      <control type="label" description="Library">
-        <visible>Skin.HasSetting(library)</visible>
-        <include>VisibleFadeEffect</include>
-        <centerleft>50%</centerleft>
-        <top>74</top>
-        <height>90</height>
-        <width>600</width>
-        <align>center</align>
-        <font>size19CU</font>
-        <textcolor>$VAR[Label2Color]</textcolor>
-        <label>$LOCALIZE[14022]</label>
-      </control>
       <control type="list" id="9100" description="Shelf menu">
-        <visible>!Skin.HasSetting(library)</visible>
+        <animation effect="slide" end="400,0" time="0" reversible="true" condition="Skin.HasSetting(library)">Conditional</animation>
         <include>VisibleFadeEffect</include>
         <centerleft>50%</centerleft>
         <top>74</top>
         <height>90</height>
-        <width>900</width>
+        <width>1200</width>
         <orientation>horizontal</orientation>
-        <itemlayout width="300">
+        <itemlayout width="400">
           <control type="label">
             <left>0</left>
             <right>0</right>
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size19CU</font>
+            <font>size20CU</font>
             <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
-        <focusedlayout width="300">
+        <focusedlayout width="400">
           <control type="label">
             <left>0</left>
             <right>0</right>
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size19CU</font>
+            <font>size20CU</font>
             <textcolor>$VAR[SelectedColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </focusedlayout>
         <content>
           <item id="1">
+            <visible>!Skin.HasSetting(library)</visible>
             <label>$LOCALIZE[681]</label>
             <onclick>SetFocus(9001)</onclick>
           </item>
           <item id="2">
+            <visible>!Skin.HasSetting(library)</visible>
             <label>$LOCALIZE[31026]</label>
             <onclick>SetFocus(9001)</onclick>
           </item>
           <item id="3">
-            <label>$LOCALIZE[2]</label>
+            <visible>!Skin.HasSetting(library)</visible>
+            <label>$LOCALIZE[31043]</label>
             <onclick>SetFocus(9001)</onclick>
+          </item>
+          <item id="4">
+            <visible>Skin.HasSetting(library)</visible>
+            <label>$LOCALIZE[14022]</label>
+            <onclick>-</onclick>
           </item>
         </content>
       </control>
@@ -336,14 +286,14 @@
           <top>0</top>
           <bottom>0</bottom>
           <right>0</right>
-          <width>180</width>
+          <width>160</width>
           <aspectratio>stretch</aspectratio>
           <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
         </control>
-        <control type="grouplist" id="9500" description="SideMenu">
+        <control type="grouplist" description="SideMenu">
           <top>150</top>
           <bottom>150</bottom>
-          <centerright>90</centerright>
+          <centerright>80</centerright>
           <width>90</width>
           <orientation>vertical</orientation>
           <itemgap>120</itemgap>
@@ -356,15 +306,15 @@
           <bottom>0</bottom>
           <left>0</left>
           <right>0</right>
-          <height>210</height>
+          <height>150</height>
           <aspectratio>stretch</aspectratio>
           <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
         </control>
-        <control type="grouplist" id="9500" description="SideMenu">
+        <control type="grouplist" description="SideMenu">
           <left>0</left>
           <right>0</right>
           <bottom>-15</bottom>
-          <height>180</height>
+          <height>150</height>
           <orientation>horizontal</orientation>
           <align>center</align>
           <aligny>center</aligny>

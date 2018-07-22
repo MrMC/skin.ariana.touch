@@ -87,6 +87,43 @@
       </control>
     </control>
   </include>
+  <include name="MainMenuLayout">
+    <control type="image">
+      <width>100%</width>
+      <height>100%</height>
+      <texture border="10">buttons/HomeMenu.png</texture>
+      <bordersize>20,4,20,4</bordersize>
+      <aspectratio>stretch</aspectratio>
+    </control>
+    <control type="image" description="arrow">
+      <right>40</right>
+      <top>5</top>
+      <height>80</height>
+      <width>40</width>
+      <align>right</align>
+      <aspectratio>keep</aspectratio>
+      <texture colordiffuse="$VAR[LabelNFColor]">img/Arrow.png</texture>
+    </control>
+    <control type="image">
+      <left>30</left>
+      <top>0</top>
+      <width>100</width>
+      <bottom>0</bottom>
+      <texture colordiffuse="$VAR[LabelNFColor]">$INFO[ListItem.Property(type),icons/,.png]</texture>
+      <bordersize>24</bordersize>
+      <align>center</align>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>140</left>
+      <top>0</top>
+      <aligny>center</aligny>
+      <height>100%</height>
+      <font>size24B</font>
+      <textcolor>$VAR[LabelNFColor]</textcolor>
+      <label>$INFO[ListItem.Label]</label>
+    </control>
+  </include>
   <include name="View_53" description="Grid container">
     <param name="Left"/>
     <param name="Right"/>
@@ -108,7 +145,7 @@
             <height>100%</height>
             <width>100%</width>
             <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-            <bordersize>30,0,30,30</bordersize>
+            <bordersize>30,30,30,0</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="image">
@@ -116,22 +153,22 @@
             <height>100%</height>
             <width>100%</width>
             <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-            <bordersize>30,0,30,30</bordersize>
+            <bordersize>30,30,30,0</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="group" description="Overlay">
             <control type="image">
               <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <right>30</right>
-              <bottom>30</bottom>
-              <height>50</height>
+              <bottom>0</bottom>
+              <height>100%</height>
               <width>50</width>
-              <aspectratio>keep</aspectratio>
+              <aspectratio aligny="bottom">keep</aspectratio>
               <texture>$INFO[ListItem.Overlay,grid/]</texture>
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>30</bottom>
+              <bottom>0</bottom>
               <left>36</left>
               <right>36</right>
               <height>28</height>
@@ -157,22 +194,22 @@
             <height>100%</height>
             <width>100%</width>
             <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-            <bordersize>30,0,30,30</bordersize>
+            <bordersize>30,30,30,0</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
           <control type="group" description="Overlay">
             <control type="image">
               <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <right>30</right>
-              <bottom>30</bottom>
-              <height>50</height>
+              <bottom>0</bottom>
+              <height>100%</height>
               <width>50</width>
-              <aspectratio>keep</aspectratio>
+              <aspectratio aligny="bottom">keep</aspectratio>
               <texture>$INFO[ListItem.Overlay,grid/]</texture>
             </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>30</bottom>
+              <bottom>0</bottom>
               <left>36</left>
               <right>36</right>
               <height>28</height>
@@ -192,305 +229,305 @@
     <param name="Right" default="30"/>
     <param name="ID" default="50"/>
     <definition>
-    <control type="list" id="$PARAM[ID]">
-      <left>$PARAM[Left]</left>
-      <right>$PARAM[Right]</right>
-      <top>96</top>
-      <bottom>96</bottom>
-      <viewtype label="535">List</viewtype>
-      <preloaditems>4</preloaditems>
-      <itemlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>168</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <include>52overlay</include>
-        <control type="label" description="Main Label">
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <include>52plotCommons</include>
-        </control>
-      </itemlayout>
-      <focusedlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>168</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <include>52overlay</include>
-        <control type="label" description="Main Label">
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <include>52plotCommons</include>
-        </control>
-      </focusedlayout>
-      <itemlayout condition="container.content(episodes)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>426</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <include>52overlayEpisodes</include>
-        <control type="label" description="Main Label">
-          <left>450</left>
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <left>450</left>
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <left>450</left>
-          <include>52plotCommons</include>
-        </control>
-      </itemlayout>
-      <focusedlayout condition="container.content(episodes)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>426</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <include>52overlayEpisodes</include>
-        <control type="label" description="Main Label">
-          <left>450</left>
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <left>450</left>
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <left>450</left>
-          <include>52plotCommons</include>
-        </control>
-      </focusedlayout>
-      <itemlayout condition="container.content(artists)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>240</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <left>260</left>
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <left>260</left>
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <left>260</left>
-          <include>52plotCommons</include>
-        </control>
-      </itemlayout>
-      <focusedlayout condition="container.content(artists)" height="240">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>240</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <left>260</left>
-          <font>size22U</font>
-          <include>52mainLabelCommons</include>
-        </control>
-        <control type="label" description="Label2">
-          <left>260</left>
-          <include>52label2Commons</include>
-        </control>
-        <control type="textbox" description="Plot">
-          <left>260</left>
-          <include>52plotCommons</include>
-        </control>
-      </focusedlayout>
-      <itemlayout condition="container.content(albums) | container.content(songs)" height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22U</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size22</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </itemlayout>
-      <focusedlayout condition="container.content(albums) | container.content(songs)" height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22U</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size22</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </focusedlayout>
-      <itemlayout height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>0</top>
-          <height>100%</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>!IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size22</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </itemlayout>
-      <focusedlayout height="160">
-        <include>52listBG</include>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <height>100%</height>
-          <width>160</width>
-          <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
-          <bordersize>12</bordersize>
-          <aspectratio>scale</aspectratio>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>0</top>
-          <height>100%</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Main Label">
-          <visible>!IsEmpty(ListItem.Label2)</visible>
-          <left>180</left>
-          <right>0</right>
-          <top>24</top>
-          <height>40</height>
-          <font>size22</font>
-          <label>[B]$INFO[ListItem.Label][/B]</label>
-          <textcolor>$VAR[LabelNFColor]</textcolor>
-        </control>
-        <control type="label" description="Label2">
-          <left>180</left>
-          <right>0</right>
-          <bottom>24</bottom>
-          <height>40</height>
-          <font>size22</font>
-          <label>$INFO[ListItem.Label2]</label>
-          <textcolor>$VAR[Label2Color]</textcolor>
-        </control>
-      </focusedlayout>
-    </control>
-  </definition>
+      <control type="list" id="$PARAM[ID]">
+        <left>$PARAM[Left]</left>
+        <right>$PARAM[Right]</right>
+        <top>96</top>
+        <bottom>96</bottom>
+        <viewtype label="535">List</viewtype>
+        <preloaditems>4</preloaditems>
+        <itemlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>168</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <include>52overlay</include>
+          <control type="label" description="Main Label">
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <include>52plotCommons</include>
+          </control>
+        </itemlayout>
+        <focusedlayout condition="container.content(Movies) | container.content(TVshows) | container.content(seasons)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>168</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <include>52overlay</include>
+          <control type="label" description="Main Label">
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <include>52plotCommons</include>
+          </control>
+        </focusedlayout>
+        <itemlayout condition="container.content(episodes)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>426</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <include>52overlayEpisodes</include>
+          <control type="label" description="Main Label">
+            <left>450</left>
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <left>450</left>
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <left>450</left>
+            <include>52plotCommons</include>
+          </control>
+        </itemlayout>
+        <focusedlayout condition="container.content(episodes)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>426</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/EpisodeDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <include>52overlayEpisodes</include>
+          <control type="label" description="Main Label">
+            <left>450</left>
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <left>450</left>
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <left>450</left>
+            <include>52plotCommons</include>
+          </control>
+        </focusedlayout>
+        <itemlayout condition="container.content(artists)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>240</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>260</left>
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <left>260</left>
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <left>260</left>
+            <include>52plotCommons</include>
+          </control>
+        </itemlayout>
+        <focusedlayout condition="container.content(artists)" height="240">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>240</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>260</left>
+            <font>size22U</font>
+            <include>52mainLabelCommons</include>
+          </control>
+          <control type="label" description="Label2">
+            <left>260</left>
+            <include>52label2Commons</include>
+          </control>
+          <control type="textbox" description="Plot">
+            <left>260</left>
+            <include>52plotCommons</include>
+          </control>
+        </focusedlayout>
+        <itemlayout condition="container.content(albums) | container.content(songs)" height="160">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>160</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>180</left>
+            <right>0</right>
+            <top>24</top>
+            <height>40</height>
+            <font>size22U</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Label2">
+            <left>180</left>
+            <right>0</right>
+            <bottom>24</bottom>
+            <height>40</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
+          </control>
+        </itemlayout>
+        <focusedlayout condition="container.content(albums) | container.content(songs)" height="160">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>160</width>
+            <texture fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <left>180</left>
+            <right>0</right>
+            <top>24</top>
+            <height>40</height>
+            <font>size22U</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Label2">
+            <left>180</left>
+            <right>0</right>
+            <bottom>24</bottom>
+            <height>40</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
+          </control>
+        </focusedlayout>
+        <itemlayout height="160">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>160</width>
+            <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <visible>IsEmpty(ListItem.Label2)</visible>
+            <left>180</left>
+            <right>0</right>
+            <top>0</top>
+            <height>100%</height>
+            <font>size22</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Main Label">
+            <visible>!IsEmpty(ListItem.Label2)</visible>
+            <left>180</left>
+            <right>0</right>
+            <top>24</top>
+            <height>40</height>
+            <font>size22</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Label2">
+            <left>180</left>
+            <right>0</right>
+            <bottom>24</bottom>
+            <height>40</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
+          </control>
+        </itemlayout>
+        <focusedlayout height="160">
+          <include>52listBG</include>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <height>100%</height>
+            <width>160</width>
+            <texture align="left" aligny="center">$VAR[Thumbnail]</texture>
+            <bordersize>12</bordersize>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="label" description="Main Label">
+            <visible>IsEmpty(ListItem.Label2)</visible>
+            <left>180</left>
+            <right>0</right>
+            <top>0</top>
+            <height>100%</height>
+            <font>size22</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Main Label">
+            <visible>!IsEmpty(ListItem.Label2)</visible>
+            <left>180</left>
+            <right>0</right>
+            <top>24</top>
+            <height>40</height>
+            <font>size22</font>
+            <label>[B]$INFO[ListItem.Label][/B]</label>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+          </control>
+          <control type="label" description="Label2">
+            <left>180</left>
+            <right>0</right>
+            <bottom>24</bottom>
+            <height>40</height>
+            <font>size22</font>
+            <label>$INFO[ListItem.Label2]</label>
+            <textcolor>$VAR[Label2Color]</textcolor>
+          </control>
+        </focusedlayout>
+      </control>
+    </definition>
     <control type="group" description="List 50 furniture">
       <visible>Control.IsVisible(50)</visible>
       <include>ContainerVisibleFade</include>
@@ -508,28 +545,28 @@
     <param name="ID"/>
     <param name="ContainerHeight" default="900"/>
     <definition>
-        <left>$PARAM[Left]</left>
-        <right>$PARAM[Right]</right>
-        <height>$PARAM[ContainerHeight]</height>
-        <orientation>horizontal</orientation>
-        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
-            <control type="image">
-            <height>100%</height>
-            <width>100%</width>
-            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
-            <bordersize>30,30,0,30</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-        </itemlayout>
-        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
-          <control type="image">
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
+      <height>$PARAM[ContainerHeight]</height>
+      <orientation>horizontal</orientation>
+      <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+        <control type="image">
           <height>100%</height>
           <width>100%</width>
           <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
           <bordersize>30,30,0,30</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
-        </focusedlayout>
+      </itemlayout>
+      <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+        <control type="image">
+          <height>100%</height>
+          <width>100%</width>
+          <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+          <bordersize>30,30,0,30</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+      </focusedlayout>
     </definition>
   </include>
   <include name="PosterShelf" description="Shelf container">
@@ -539,71 +576,70 @@
     <param name="Width"/>
     <param name="ID"/>
     <definition>
-
-        <left>$PARAM[Left]</left>
-        <right>$PARAM[Right]</right>
-        <height>$PARAM[Height]</height>
-        <orientation>horizontal</orientation>
-        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
-            <control type="image">
-            <height>100%</height>
-            <width>100%</width>
-            <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
-            <bordersize>30,30,0,0</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-            <control type="image">
-              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <right>0</right>
-              <bottom>0</bottom>
-              <height>50</height>
-              <width>50</width>
-              <aspectratio>keep</aspectratio>
-              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
-            </control>
-            <control type="progress">
-              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>6</bottom>
-              <left>46</left>
-              <right>16</right>
-              <height>36</height>
-              <texturebg border="2">HUD/SliderBG.png</texturebg>
-              <lefttexture/>
-              <righttexture/>
-              <midtexture border="1">HUD/ProgressFill.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-            </control>
-        </itemlayout>
-        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
-          <control type="image">
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
+      <height>$PARAM[Height]</height>
+      <orientation>horizontal</orientation>
+      <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+        <control type="image">
           <height>100%</height>
           <width>100%</width>
           <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
           <bordersize>30,30,0,0</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
-          <control type="image">
-            <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-            <right>0</right>
-            <bottom>0</bottom>
-            <height>50</height>
-            <width>50</width>
-            <aspectratio>keep</aspectratio>
-            <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
-          </control>
-          <control type="progress">
-            <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-            <bottom>6</bottom>
-            <left>46</left>
-            <right>16</right>
-            <height>36</height>
-            <texturebg border="2">HUD/SliderBG.png</texturebg>
-            <lefttexture/>
-            <righttexture/>
-            <midtexture border="1">HUD/ProgressFill.png</midtexture>
-            <info>ListItem.PercentPlayed</info>
-          </control>
-        </focusedlayout>
+        <control type="image">
+          <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <right>0</right>
+          <bottom>0</bottom>
+          <height>50</height>
+          <width>50</width>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+        </control>
+        <control type="progress">
+          <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <bottom>6</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>36</height>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture border="1">HUD/ProgressFill.png</midtexture>
+          <info>ListItem.PercentPlayed</info>
+        </control>
+      </itemlayout>
+      <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+        <control type="image">
+          <height>100%</height>
+          <width>100%</width>
+          <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/PosterDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <right>0</right>
+          <bottom>0</bottom>
+          <height>50</height>
+          <width>50</width>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
+        </control>
+        <control type="progress">
+          <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <bottom>6</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>36</height>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture border="1">HUD/ProgressFill.png</midtexture>
+          <info>ListItem.PercentPlayed</info>
+        </control>
+      </focusedlayout>
     </definition>
   </include>
   <include name="FanartShelf" description="Shelf container">
@@ -614,114 +650,112 @@
     <param name="ID"/>
     <param name="Kind" default="0"/>
     <definition>
-
-        <left>$PARAM[Left]</left>
-        <right>$PARAM[Right]</right>
-        <height>$PARAM[Height]</height>
-        <orientation>horizontal</orientation>
-        <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
-          <control type="image">
-            <visible>IsEmpty(ListItem.Art(fanart))</visible>
-            <height>100%</height>
-            <width>100%</width>
-            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
-            <bordersize>30,30,0,0</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-          <control type="image">
-            <visible>!IsEmpty(ListItem.Art(fanart))</visible>
-            <height>100%</height>
-            <width>100%</width>
-            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
-            <bordersize>30,30,0,0</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-          <control type="image">
-            <left>30</left>
-            <bottom>0</bottom>
-            <right>0</right>
-            <height>256</height>
-            <texture border="1">img/Gradient.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
-            <control type="progress">
-              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>6</bottom>
-              <left>46</left>
-              <right>16</right>
-              <height>40</height>
-              <texturebg border="2">HUD/SliderBG.png</texturebg>
-              <lefttexture/>
-              <righttexture/>
-              <midtexture border="1">HUD/ProgressFill.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-            </control>
-            <control type="textbox" id="9" description="Labels">
-              <bottom>52</bottom>
-              <left>46</left>
-              <right>16</right>
-              <height>90</height>
-              <aligny>center</aligny>
-              <align>center</align>
-              <font>size22</font>
-              <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
-              <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-            </control>
-        </itemlayout>
-        <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
-          <control type="image">
-            <visible>IsEmpty(ListItem.Art(fanart))</visible>
-            <height>100%</height>
-            <width>100%</width>
-            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
-            <bordersize>30,30,0,0</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-          <control type="image">
-            <visible>!IsEmpty(ListItem.Art(fanart))</visible>
-            <height>100%</height>
-            <width>100%</width>
-            <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
-            <bordersize>30,30,0,0</bordersize>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-          </control>
-          <control type="image">
-            <left>30</left>
-            <bottom>0</bottom>
-            <right>0</right>
-            <height>256</height>
-            <texture border="1">img/Gradient.png</texture>
-            <aspectratio>stretch</aspectratio>
-          </control>
-            <control type="progress">
-              <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <bottom>6</bottom>
-              <left>46</left>
-              <right>16</right>
-              <height>40</height>
-              <texturebg border="2">HUD/SliderBG.png</texturebg>
-              <lefttexture/>
-              <righttexture/>
-              <midtexture border="1">HUD/ProgressFill.png</midtexture>
-              <info>ListItem.PercentPlayed</info>
-            </control>
-            <control type="textbox" id="9" description="Labels">
-              <bottom>52</bottom>
-              <left>46</left>
-              <right>16</right>
-              <height>90</height>
-              <aligny>center</aligny>
-              <align>center</align>
-              <font>size22</font>
-              <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
-              <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
-            </control>
-        </focusedlayout>
-
+      <left>$PARAM[Left]</left>
+      <right>$PARAM[Right]</right>
+      <height>$PARAM[Height]</height>
+      <orientation>horizontal</orientation>
+      <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
+        <control type="image">
+          <visible>IsEmpty(ListItem.Art(fanart))</visible>
+          <height>100%</height>
+          <width>100%</width>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <visible>!IsEmpty(ListItem.Art(fanart))</visible>
+          <height>100%</height>
+          <width>100%</width>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <left>30</left>
+          <bottom>0</bottom>
+          <right>0</right>
+          <height>256</height>
+          <texture border="1">img/Gradient.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="progress">
+          <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <bottom>6</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>40</height>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture border="1">HUD/ProgressFill.png</midtexture>
+          <info>ListItem.PercentPlayed</info>
+        </control>
+        <control type="textbox" id="9" description="Labels">
+          <bottom>52</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>90</height>
+          <aligny>center</aligny>
+          <align>center</align>
+          <font>size22</font>
+          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
+          <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+        </control>
+      </itemlayout>
+      <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
+        <control type="image">
+          <visible>IsEmpty(ListItem.Art(fanart))</visible>
+          <height>100%</height>
+          <width>100%</width>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Thumb]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <visible>!IsEmpty(ListItem.Art(fanart))</visible>
+          <height>100%</height>
+          <width>100%</width>
+          <texture fallback="DefaultThumb.png" diffuse="thumbs/FanartDiffuse.png" align="center" aligny="center">$INFO[ListItem.Art(fanart)]</texture>
+          <bordersize>30,30,0,0</bordersize>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <left>30</left>
+          <bottom>0</bottom>
+          <right>0</right>
+          <height>256</height>
+          <texture border="1">img/Gradient.png</texture>
+          <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="progress">
+          <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
+          <bottom>6</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>40</height>
+          <texturebg border="2">HUD/SliderBG.png</texturebg>
+          <lefttexture/>
+          <righttexture/>
+          <midtexture border="1">HUD/ProgressFill.png</midtexture>
+          <info>ListItem.PercentPlayed</info>
+        </control>
+        <control type="textbox" id="9" description="Labels">
+          <bottom>52</bottom>
+          <left>46</left>
+          <right>16</right>
+          <height>90</height>
+          <aligny>center</aligny>
+          <align>center</align>
+          <font>size22</font>
+          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
+          <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+        </control>
+      </focusedlayout>
     </definition>
   </include>
-  <include name="HomeSideMenuItems" description="Control 9500">
-    <control type="togglebutton" id="7000" description="Home">
+  <include name="HomeSideMenuItems" description="Control Menu">
+    <control type="togglebutton" id="399" description="Home">
       <include>HomeMenuButton</include>
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/home.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/home.png</texturenofocus>
@@ -732,7 +766,7 @@
       <altlabel>$LOCALIZE[14022]</altlabel>
       <onclick>Skin.ToggleSetting(library)</onclick>
     </control>
-    <control type="button" id="4040" description="User">
+    <control type="button" id="404" description="User">
       <visible>Control.IsVisible(4004)</visible>
       <include>HomeMenuButton</include>
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/users.png</texturefocus>
@@ -740,10 +774,13 @@
       <label>$INFO[Control.GetLabel(4004)]</label>
       <onclick>SendClick(4004)</onclick>
     </control>
-    <control type="button" id="4000" description="Server">
+    <control type="button" id="400" description="Server">
+      <visible>Control.IsVisible(4000)</visible>
       <include>HomeMenuButton</include>
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/server.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/server.png</texturenofocus>
+      <label>$INFO[Control.GetLabel(4000)]</label>
+      <onclick>SendClick(4000)</onclick>
     </control>
     <control type="button" id="4002" description="Settings">
       <include>HomeMenuButton</include>

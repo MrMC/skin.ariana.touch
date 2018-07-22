@@ -345,7 +345,7 @@
       </control>
     </control>
   </include>
-  <include name ="TopBar">
+  <include name="_TopBar">
     <control type="image" description="Bar">
       <left>0</left>
       <top>0</top>
@@ -363,16 +363,16 @@
       <aspectratio>stretch</aspectratio>
     </control>
   </include>
-  <include name ="BottomBar">
+  <include name="BottomBar">
     <control type="image" description="Bar">
       <left>0</left>
       <bottom>0</bottom>
       <width>100%</width>
       <height>95</height>
-      <texture colordiffuse="$VAR[OverlayColor]">dot/White70.png</texture>
+      <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
       <aspectratio>stretch</aspectratio>
     </control>
-    <control type="image" description="Line">
+    <control type="_image" description="Line">
       <left>0</left>
       <bottom>95</bottom>
       <width>100%</width>
@@ -465,9 +465,9 @@
     <width>144</width>
     <height>144</height>
     <font>size50</font>
-    <textcolor>$VAR[LabelFOColor]</textcolor>
-    <focusedcolor>$VAR[LabelFOColor]</focusedcolor>
-    <texturefocus colordiffuse="$VAR[LabelNFColor]">buttons/KeyNumeric.png</texturefocus>
-    <texturenofocus colordiffuse="$VAR[LabelNFColor]">buttons/KeyNumeric.png</texturenofocus>
+    <textcolor>$VAR[LabelNFColor]</textcolor>
+    <focusedcolor>$VAR[LabelNFColor]</focusedcolor>
+    <texturefocus colordiffuse="$VAR[OverlayColor]">buttons/KeyNumeric.png</texturefocus>
+    <texturenofocus colordiffuse="$VAR[OverlayColor]">buttons/KeyNumeric.png</texturenofocus>
   </include>
 </includes>
