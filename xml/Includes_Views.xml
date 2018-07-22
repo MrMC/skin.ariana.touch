@@ -506,18 +506,18 @@
     <param name="Height"/>
     <param name="Width"/>
     <param name="ID"/>
+    <param name="ContainerHeight" default="900"/>
     <definition>
-
         <left>$PARAM[Left]</left>
         <right>$PARAM[Right]</right>
-        <height>840</height>
+        <height>$PARAM[ContainerHeight]</height>
         <orientation>horizontal</orientation>
         <itemlayout width="$PARAM[Width]" height="$PARAM[Height]" description="none">
             <control type="image">
             <height>100%</height>
             <width>100%</width>
             <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
-            <bordersize>30,30,0,0</bordersize>
+            <bordersize>30,30,0,30</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
         </itemlayout>
@@ -526,7 +526,7 @@
           <height>100%</height>
           <width>100%</width>
           <texture background="true" fallback="DefaultThumb.png" diffuse="thumbs/AlbumDiffuse.png" align="center" aligny="center">$VAR[HomeThumbnail]</texture>
-          <bordersize>30,30,0,0</bordersize>
+          <bordersize>30,30,0,30</bordersize>
           <aspectratio scalediffuse="false">scale</aspectratio>
         </control>
         </focusedlayout>
@@ -636,26 +636,36 @@
             <bordersize>30,30,0,0</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
-            <control type="image">
-              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <right>0</right>
-              <bottom>0</bottom>
-              <height>50</height>
-              <width>50</width>
-              <aspectratio>keep</aspectratio>
-              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
-            </control>
+          <control type="image">
+            <left>30</left>
+            <bottom>0</bottom>
+            <right>0</right>
+            <height>256</height>
+            <texture border="1">img/Gradient.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <bottom>6</bottom>
               <left>46</left>
               <right>16</right>
-              <height>36</height>
+              <height>40</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
               <righttexture/>
               <midtexture border="1">HUD/ProgressFill.png</midtexture>
               <info>ListItem.PercentPlayed</info>
+            </control>
+            <control type="textbox" id="9" description="Labels">
+              <bottom>52</bottom>
+              <left>46</left>
+              <right>16</right>
+              <height>90</height>
+              <aligny>center</aligny>
+              <align>center</align>
+              <font>size22</font>
+              <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
+              <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
             </control>
         </itemlayout>
         <focusedlayout width="$PARAM[Width]" height="$PARAM[Height]">
@@ -675,30 +685,73 @@
             <bordersize>30,30,0,0</bordersize>
             <aspectratio scalediffuse="false">scale</aspectratio>
           </control>
-            <control type="image">
-              <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
-              <right>0</right>
-              <bottom>0</bottom>
-              <height>50</height>
-              <width>50</width>
-              <aspectratio>keep</aspectratio>
-              <texture>$INFO[ListItem.Overlay,thumbs/]</texture>
-            </control>
+          <control type="image">
+            <left>30</left>
+            <bottom>0</bottom>
+            <right>0</right>
+            <height>256</height>
+            <texture border="1">img/Gradient.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
             <control type="progress">
               <visible>IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
               <bottom>6</bottom>
               <left>46</left>
               <right>16</right>
-              <height>36</height>
+              <height>40</height>
               <texturebg border="2">HUD/SliderBG.png</texturebg>
               <lefttexture/>
               <righttexture/>
               <midtexture border="1">HUD/ProgressFill.png</midtexture>
               <info>ListItem.PercentPlayed</info>
             </control>
+            <control type="textbox" id="9" description="Labels">
+              <bottom>52</bottom>
+              <left>46</left>
+              <right>16</right>
+              <height>90</height>
+              <aligny>center</aligny>
+              <align>center</align>
+              <font>size22</font>
+              <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),  •  ]$INFO[ListItem.Label,[CR]]</label>
+              <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+            </control>
         </focusedlayout>
 
     </definition>
+  </include>
+  <include name="HomeSideMenuItems" description="Control 9500">
+    <control type="togglebutton" id="7000" description="Home">
+      <include>HomeMenuButton</include>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/home.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/home.png</texturenofocus>
+      <alttexturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/library.png</alttexturefocus>
+      <alttexturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/library.png</alttexturenofocus>
+      <usealttexture>!Skin.HasSetting(library)</usealttexture>
+      <label>$LOCALIZE[10000]</label>
+      <altlabel>$LOCALIZE[14022]</altlabel>
+      <onclick>Skin.ToggleSetting(library)</onclick>
+    </control>
+    <control type="button" id="4040" description="User">
+      <visible>Control.IsVisible(4004)</visible>
+      <include>HomeMenuButton</include>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/users.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/users.png</texturenofocus>
+      <label>$INFO[Control.GetLabel(4004)]</label>
+      <onclick>SendClick(4004)</onclick>
+    </control>
+    <control type="button" id="4000" description="Server">
+      <include>HomeMenuButton</include>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/server.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/server.png</texturenofocus>
+    </control>
+    <control type="button" id="4002" description="Settings">
+      <include>HomeMenuButton</include>
+      <label>$LOCALIZE[5]</label>
+      <onclick>ActivateWindow(settings)</onclick>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/settings.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/settings.png</texturenofocus>
+    </control>
   </include>
   <include name="InfoPVR" description="PVR item info">
     <control type="group" description="Media info">

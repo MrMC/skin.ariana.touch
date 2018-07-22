@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-  <defaultcontrol>9000</defaultcontrol>
+  <defaultcontrol>9500</defaultcontrol>
   <controls>
     <include>PlainBackground</include>
     <control type="button" id="4004" description="Users">
@@ -29,6 +29,8 @@
         <font>size20</font>
         <label>$INFO[System.Time]</label>
       </control>
+      <control type="group" description="Battery Level">
+        <animation effect="slide" end="-180,0" time="0" reversible="true" condition="!StringCompare(Skin.AspectRatio,4:3)">Conditional</animation>
       <control type="image" description="battery img">
         <right>30</right>
         <top>0</top>
@@ -38,10 +40,10 @@
         <aspectratio>keep</aspectratio>
       </control>
       <control type="progress" id="9900">
-        <right>42</right>
+        <right>43</right>
         <top>-15</top>
         <height>86</height>
-        <width>40</width>
+        <width>39</width>
         <texturebg colordiffuse="$VAR[Label2Color]" border="2">HUD/SliderBGempty.png</texturebg>
         <lefttexture/>
         <righttexture/>
@@ -57,6 +59,7 @@
         <font>size19</font>
         <label>$INFO[Control.GetLabel(9900),,%]</label>
       </control>
+    </control>
       <control type="panel" id="9000" description="Library sections">
         <visible>Skin.HasSetting(library)</visible>
         <include>VisibleFadeEffect</include>
@@ -191,8 +194,8 @@
         <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
           <param name="Left" value="120"/>
         </include>
-        <right>240</right>
-        <bottom>60</bottom>
+        <right>0</right>
+        <bottom>0</bottom>
         <top>150</top>
         <itemgap>30</itemgap>
         <aligny>top</aligny>
@@ -200,7 +203,12 @@
           <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="FanartShelf">
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="FanartShelf">
+            <param name="ID" value="8020"/>
+            <param name="Height" value="540"/>
+            <param name="Width" value="962"/>
+          </include>
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="FanartShelf">
             <param name="ID" value="8020"/>
             <param name="Height" value="420"/>
             <param name="Width" value="748"/>
@@ -217,7 +225,12 @@
           <visible>IntegerGreaterThan(Container(8010).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="FanartShelf">
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="FanartShelf">
+            <param name="ID" value="8010"/>
+            <param name="Height" value="540"/>
+            <param name="Width" value="962"/>
+          </include>
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="FanartShelf">
             <param name="ID" value="8010"/>
             <param name="Height" value="420"/>
             <param name="Width" value="748"/>
@@ -233,26 +246,36 @@
           <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="FanartShelf">
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="PosterShelf">
             <param name="ID" value="8011"/>
             <param name="Height" value="420"/>
-            <param name="Width" value="748"/>
+            <param name="Width" value="300"/>
           </include>
-          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="FanartShelf">
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="PosterShelf">
+            <param name="ID" value="8011"/>
+            <param name="Height" value="540"/>
+            <param name="Width" value="386"/>
+          </include>
+          <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PosterShelf">
             <param name="ID" value="8011"/>
             <param name="Left" value="90"/>
             <param name="Height" value="420"/>
-            <param name="Width" value="748"/>
+            <param name="Width" value="300"/>
           </include>
         </control>
         <control type="panel" id="8000" description="Shelf">
           <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(1)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PosterShelf">
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="PosterShelf">
             <param name="ID" value="8000"/>
             <param name="Height" value="420"/>
             <param name="Width" value="300"/>
+          </include>
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="PosterShelf">
+            <param name="ID" value="8000"/>
+            <param name="Height" value="540"/>
+            <param name="Width" value="386"/>
           </include>
           <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PosterShelf">
             <param name="ID" value="8000"/>
@@ -265,10 +288,15 @@
           <visible>IntegerGreaterThan(Container(8001).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(1)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PosterShelf">
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="PosterShelf">
             <param name="ID" value="8001"/>
             <param name="Height" value="420"/>
             <param name="Width" value="300"/>
+          </include>
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="PosterShelf">
+            <param name="ID" value="8001"/>
+            <param name="Height" value="540"/>
+            <param name="Width" value="386"/>
           </include>
           <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="PosterShelf">
             <param name="ID" value="8001"/>
@@ -281,64 +309,67 @@
           <visible>IntegerGreaterThan(Container(8002).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(3)</visible>
           <include>VisibleFadeEffect</include>
-          <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="AlbumShelf">
+          <include condition="StringCompare(Skin.AspectRatio,4:3)" content="AlbumShelf">
             <param name="ID" value="8002"/>
-            <param name="Height" value="420"/>
+            <param name="Height" value="570"/>
+            <param name="Width" value="540"/>
+            <param name="ContainerHeight" value="1140"/>
+          </include>
+          <include condition="StringCompare(Skin.AspectRatio,16:9)" content="AlbumShelf">
+            <param name="ID" value="8002"/>
+            <param name="Height" value="450"/>
             <param name="Width" value="420"/>
+            <param name="ContainerHeight" value="900"/>
           </include>
           <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="AlbumShelf">
             <param name="ID" value="8002"/>
             <param name="Left" value="90"/>
-            <param name="Height" value="420"/>
+            <param name="Height" value="450"/>
             <param name="Width" value="420"/>
+            <param name="ContainerHeight" value="900"/>
           </include>
         </control>
       </control>
-      <control type="image" description="SideMenu">
-        <top>180</top>
-        <bottom>120</bottom>
-        <right>30</right>
-        <width>180</width>
-        <aspectratio>stretch</aspectratio>
-        <texture border="22" colordiffuse="$VAR[OverlayColor]">HUD/SideMenu.png</texture>
+      <control type="group" description="HomeBar phone">
+        <visible>!StringCompare(Skin.AspectRatio,4:3)</visible>
+        <control type="image" description="SideMenu">
+          <top>0</top>
+          <bottom>0</bottom>
+          <right>0</right>
+          <width>180</width>
+          <aspectratio>stretch</aspectratio>
+          <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
+        </control>
+        <control type="grouplist" id="9500" description="SideMenu">
+          <top>150</top>
+          <bottom>150</bottom>
+          <centerright>90</centerright>
+          <width>90</width>
+          <orientation>vertical</orientation>
+          <itemgap>120</itemgap>
+          <include>HomeSideMenuItems</include>
+        </control>
       </control>
-      <control type="grouplist" description="SideMenu">
-        <top>240</top>
-        <bottom>150</bottom>
-        <centerright>120</centerright>
-        <width>90</width>
-        <orientation>vertical</orientation>
-        <itemgap>120</itemgap>
-        <control type="togglebutton" id="7000" description="Home">
-          <include>HomeMenuButton</include>
-          <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/home.png</texturefocus>
-          <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/home.png</texturenofocus>
-          <alttexturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/library.png</alttexturefocus>
-          <alttexturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/library.png</alttexturenofocus>
-          <usealttexture>!Skin.HasSetting(library)</usealttexture>
-          <label>$LOCALIZE[10000]</label>
-          <altlabel>$LOCALIZE[14022]</altlabel>
-          <onclick>Skin.ToggleSetting(library)</onclick>
+      <control type="group" description="Tablet">
+        <visible>StringCompare(Skin.AspectRatio,4:3)</visible>
+        <control type="image" description="SideMenu">
+          <bottom>0</bottom>
+          <left>0</left>
+          <right>0</right>
+          <height>210</height>
+          <aspectratio>stretch</aspectratio>
+          <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
         </control>
-        <control type="button" id="4040" description="User">
-          <visible>Control.IsVisible(4004)</visible>
-          <include>HomeMenuButton</include>
-          <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/users.png</texturefocus>
-          <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/users.png</texturenofocus>
-          <label>$INFO[Control.GetLabel(4004)]</label>
-          <onclick>SendClick(4004)</onclick>
-        </control>
-        <control type="button" id="4000" description="Server">
-          <include>HomeMenuButton</include>
-          <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/server.png</texturefocus>
-          <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/server.png</texturenofocus>
-        </control>
-        <control type="button" id="4002" description="Settings">
-          <include>HomeMenuButton</include>
-          <label>$LOCALIZE[5]</label>
-          <onclick>ActivateWindow(settings)</onclick>
-          <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/settings.png</texturefocus>
-          <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/settings.png</texturenofocus>
+        <control type="grouplist" id="9500" description="SideMenu">
+          <left>0</left>
+          <right>0</right>
+          <bottom>-15</bottom>
+          <height>180</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <aligny>center</aligny>
+          <itemgap>120</itemgap>
+          <include>HomeSideMenuItems</include>
         </control>
       </control>
       <control type="group">
