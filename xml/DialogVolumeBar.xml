@@ -5,35 +5,38 @@
     <control type="group">
       <include>OpenClose</include>
       <centerleft>50%</centerleft>
-      <centertop>40%</centertop>
-      <width>540</width>
-      <height>124</height>
+      <centertop>50%</centertop>
+      <width>400</width>
+      <height>120</height>
       <control type="image">
-        <top>18</top>
-				<width>552</width>
-        <height>90</height>
-        <texture border="24">HUD/HUDBackground.png</texture>
+        <top>0</top>
+				<width>400</width>
+        <height>120</height>
+        <bordersize>-8</bordersize>
+        <texture border="20">HUD/HUDBackground.png</texture>
       </control>
       <control type="image">
         <visible>!player.passthrough + IntegerGreaterThan(player.volume,0)</visible>
-        <top>12</top>
-				<height>114</height>
-        <width>540</width>
+        <top>0</top>
+				<height>120</height>
+        <width>120</width>
+        <bordersize>32</bordersize>
         <aspectratio align="left">keep</aspectratio>
-        <texture>HUD/Volume.png</texture>
+        <texture>OSD/VolMax.png</texture>
       </control>
       <control type="image">
         <visible>player.passthrough | !IntegerGreaterThan(player.volume,0)</visible>
-        <top>12</top>
-				<height>114</height>
-        <width>540</width>
+        <top>0</top>
+				<height>120</height>
+        <width>120</width>
+        <bordersize>32</bordersize>
         <aspectratio align="left">keep</aspectratio>
-        <texture>HUD/VolumeZero.png</texture>
+        <texture>OSD/VolOff.png</texture>
 			</control>
       <control type="progress" id="20">
-        <left>126</left>
-				<top>50</top>
-				<width>300</width>
+        <left>110</left>
+				<top>46</top>
+				<width>196</width>
         <height>27</height>
         <reveal>true</reveal>
         <texturebg>HUD/VolumeBarBackground.png</texturebg>
@@ -43,10 +46,10 @@
         <info>Player.Volume</info>
       </control>
       <control type="label">
-        <left>30</left>
-				<width>480</width>
-        <height>124</height>
-        <font>size24B</font>
+        <right>32</right>
+				<width>50</width>
+        <height>120</height>
+        <font>size24</font>
         <align>right</align>
 				<label>$INFO[Control.GetLabel(20)]</label>
 				<textcolor>white</textcolor>

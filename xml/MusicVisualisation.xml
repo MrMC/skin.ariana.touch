@@ -2,6 +2,11 @@
 <window>
   <controls>
     <include>FullBackground</include>
+    <control type="label" description="MainHeading">
+      <textcolor>$VAR[Label2Color]</textcolor>
+      <include>CenterHeading</include>
+      <label>$INFO[MusicPlayer.Title]</label>
+    </control>
     <control type="group">
       <visible>Player.HasAudio + Skin.HasSetting(Visualisation)</visible>
       <include>VisibleFadeEffect</include>
@@ -23,6 +28,7 @@
       <include>OpenClose</include>
       <visible>!Skin.HasSetting(visualisation)</visible>
       <include>VisibleFadeEffect</include>
+
       <control type="image" description="MusicAlbum">
         <left>120</left>
         <width>800</width>
@@ -84,7 +90,7 @@
           <height>40</height>
           <width>100%</width>
           <align>center</align>
-          <font>size22U</font>
+          <font>size20U</font>
           <textcolor>$VAR[LabelNFColor]</textcolor>
           <label>$INFO[MusicPlayer.Title]</label>
         </control>
@@ -137,11 +143,14 @@
           </control>
         </control>
         <control type="progress" id="2" description="Volume Progress">
+          <animation type="Conditional" condition="!IntegerGreaterThan(player.volume,0) | Player.Muted | player.passthrough">
+            <effect type="fade" start="100" end="0" time="100" reversible="true" />
+          </animation>
           <reveal>true</reveal>
           <top>664</top>
           <height>30</height>
           <left>70</left>
-          <width>660</width>
+          <width>720</width>
           <texturebg border="2">HUD/SliderBG.png</texturebg>
           <lefttexture/>
           <righttexture/>
@@ -153,17 +162,20 @@
           <left>0</left>
           <height>60</height>
           <width>60</width>
-          <texturefocus colordiffuse="$VAR[Label2Color]">OSD/VolMin.png</texturefocus>
-          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolMin.png</texturenofocus>
+          <texturefocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturefocus>
+          <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturenofocus>
           <alttexturefocus colordiffuse="$VAR[Label2Color]">OSD/VolOff.png</alttexturefocus>
           <alttexturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolOff.png</alttexturenofocus>
-          <usealttexture>!IntegerGreaterThan(player.volume,0)</usealttexture>
-          <onclick>VolumeDown</onclick>
+          <usealttexture>!IntegerGreaterThan(player.volume,0) | Player.Muted</usealttexture>
+          <onclick>Mute</onclick>
         </control>
         <control type="slider" id="1" description="Volume Slider">
+          <animation type="Conditional" condition="!IntegerGreaterThan(player.volume,0) | Player.Muted | player.passthrough">
+            <effect type="fade" start="100" end="0" time="100" reversible="true" />
+          </animation>
           <top>650</top>
           <left>70</left>
-          <width>660</width>
+          <width>720</width>
           <height>60</height>
           <info>Player.Volume</info>
           <action>Volume</action>
@@ -173,7 +185,7 @@
           <textureslidernibfocus colordiffuse="$VAR[LabelNFColor]">HUD/SliderNib.png</textureslidernibfocus>
           <texturesliderbar border="2">HUD/SliderBGempty.png</texturesliderbar>
         </control>
-        <control type="button" description="VolMax">
+        <!--<control type="button" description="VolMax">
           <top>650</top>
           <right>0</right>
           <height>60</height>
@@ -181,7 +193,7 @@
           <texturefocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturefocus>
           <texturenofocus colordiffuse="$VAR[Label2Color]">OSD/VolMax.png</texturenofocus>
           <onclick>VolumeUp</onclick>
-        </control>
+        </control>-->
       </control>
     </control>
     <control type="grouplist" id="9000">

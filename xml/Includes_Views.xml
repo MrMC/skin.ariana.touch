@@ -839,6 +839,14 @@
       <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/settings.png</texturefocus>
       <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/settings.png</texturenofocus>
     </control>
+    <control type="button" id="8000" description="Player">
+      <visible>Player.HasMedia</visible>
+      <include>HomeMenuButton</include>
+      <label>$LOCALIZE[16003]</label>
+      <onclick>fullscreen</onclick>
+      <texturefocus colordiffuse="$VAR[SelectedColor]">icons/touch/playing.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[Label2Color]">icons/touch/playing.png</texturenofocus>
+    </control>
   </include>
   <include name="InfoPVR" description="PVR item info">
     <control type="group" description="Media info">

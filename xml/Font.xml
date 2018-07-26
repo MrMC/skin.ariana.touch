@@ -171,6 +171,13 @@
       <style>uppercase</style>
     </font>
     <font>
+      <name>size20USys</name>
+      <filename>Arial.ttf</filename>
+      <size>28</size>
+      <style>uppercase</style>
+      <aspect>0.9</aspect>
+    </font>
+    <font>
       <name>size22</name>
       <filename>Roboto.ttf</filename>
       <size>34</size>

@@ -203,6 +203,7 @@
   </default>
   <default type="textbox">
     <font>size22</font>
+    <scrollsuffix> . . .</scrollsuffix>
   </default>
   <default type="scrollbar">
     <width>30</width>

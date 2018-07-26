@@ -13,8 +13,8 @@
       <include>OpenClose</include>
       <control type="label" description="mrmc">
         <left>30</left>
-        <top>15</top>
-        <height>30</height>
+        <top>20</top>
+        <height>28</height>
         <width>200</width>
         <align>left</align>
         <font>size19</font>
@@ -22,26 +22,26 @@
       </control>
       <control type="label" description="Clock">
         <centerleft>50%</centerleft>
-        <top>15</top>
-        <height>30</height>
+        <top>20</top>
+        <height>28</height>
         <width>300</width>
         <align>center</align>
         <font>size19</font>
         <label>$INFO[System.Time]</label>
       </control>
       <control type="group" description="Battery Level">
-        <animation effect="slide" end="-180,0" time="0" reversible="true" condition="!StringCompare(Skin.AspectRatio,4:3)">Conditional</animation>
+        <animation effect="slide" end="-164,0" time="0" reversible="true" condition="!StringCompare(Skin.AspectRatio,4:3)">Conditional</animation>
       <control type="image" description="battery img">
-        <right>30</right>
-        <top>0</top>
+        <right>25</right>
+        <top>7</top>
         <height>60</height>
         <width>60</width>
         <texture colordiffuse="$VAR[Label2Color]">icons/touch/battery.png</texture>
-        <aspectratio>keep</aspectratio>
+        <aspectratio align="right">keep</aspectratio>
       </control>
       <control type="progress" id="9900">
-        <right>43</right>
-        <top>-15</top>
+        <right>38</right>
+        <top>-7</top>
         <height>86</height>
         <width>39</width>
         <texturebg colordiffuse="$VAR[Label2Color]" border="2">HUD/SliderBGempty.png</texturebg>
@@ -51,8 +51,8 @@
         <info>System.BatteryLevel</info>
       </control>
       <control type="label" description="battery percent">
-        <top>15</top>
-        <right>96</right>
+        <top>20</top>
+        <right>90</right>
         <width>90</width>
         <height>28</height>
         <align>right</align>
@@ -64,7 +64,7 @@
         <visible>Skin.HasSetting(library)</visible>
         <include>VisibleFadeEffect</include>
         <centerleft>50%</centerleft>
-        <top>150</top>
+        <top>180</top>
         <bottom>150</bottom>
         <width>1480</width>
         <itemlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90">
@@ -84,7 +84,7 @@
         <animation effect="slide" end="400,0" time="0" reversible="true" condition="Skin.HasSetting(library)">Conditional</animation>
         <include>VisibleFadeEffect</include>
         <centerleft>50%</centerleft>
-        <top>74</top>
+        <top>60</top>
         <height>90</height>
         <width>1200</width>
         <orientation>horizontal</orientation>
@@ -95,22 +95,44 @@
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size20CU</font>
+            <font>size22CU</font>
             <textcolor>$VAR[Label2Color]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
         </itemlayout>
         <focusedlayout width="400">
+          <control type="image">
+            <visible>!Skin.HasSetting(library)</visible>
+            <left>12</left>
+            <bottom>12</bottom>
+            <right>12</right>
+            <height>3</height>
+            <texture border="1" colordiffuse="$VAR[SelectedColor]">dot/White50.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
           <control type="label">
+            <visible>!Skin.HasSetting(library)</visible>
             <left>0</left>
             <right>0</right>
             <height>100%</height>
             <width>100%</width>
             <align>center</align>
-            <font>size20CU</font>
+            <font>size22CU</font>
+            <textcolor>$VAR[LabelNFColor]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+          <control type="label">
+            <visible>Skin.HasSetting(library)</visible>
+            <left>0</left>
+            <right>0</right>
+            <height>100%</height>
+            <width>100%</width>
+            <align>center</align>
+            <font>size22CU</font>
             <textcolor>$VAR[SelectedColor]</textcolor>
             <label>$INFO[ListItem.Label]</label>
           </control>
+
         </focusedlayout>
         <content>
           <item id="1">
@@ -149,7 +171,7 @@
         <top>150</top>
         <itemgap>30</itemgap>
         <aligny>top</aligny>
-        <control type="panel" id="8020" description="Shelf">
+        <control type="list" id="8020" description="Shelf">
           <visible>IntegerGreaterThan(Container(8020).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
           <include>VisibleFadeEffect</include>
@@ -170,7 +192,7 @@
             <param name="Width" value="748"/>
           </include>
         </control>
-        <control type="panel" id="8010" description="Shelf">
+        <control type="list" id="8010" description="Shelf">
           <visible>!Control.IsVisible(8020)</visible>
           <visible>IntegerGreaterThan(Container(8010).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
@@ -192,7 +214,7 @@
             <param name="Width" value="748"/>
           </include>
         </control>
-        <control type="panel" id="8011" description="Shelf">
+        <control type="list" id="8011" description="Shelf">
           <visible>IntegerGreaterThan(Container(8011).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(2)</visible>
           <include>VisibleFadeEffect</include>
@@ -213,7 +235,7 @@
             <param name="Width" value="300"/>
           </include>
         </control>
-        <control type="panel" id="8000" description="Shelf">
+        <control type="list" id="8000" description="Shelf">
           <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(1)</visible>
           <include>VisibleFadeEffect</include>
@@ -234,7 +256,7 @@
             <param name="Width" value="300"/>
           </include>
         </control>
-        <control type="panel" id="8001" description="Shelf">
+        <control type="list" id="8001" description="Shelf">
           <visible>IntegerGreaterThan(Container(8001).NumItems,0)</visible>
           <visible>Container(9100).HasFocus(1)</visible>
           <include>VisibleFadeEffect</include>
@@ -292,11 +314,11 @@
         </control>
         <control type="grouplist" description="SideMenu">
           <top>150</top>
-          <bottom>150</bottom>
+          <bottom>60</bottom>
           <centerright>80</centerright>
           <width>90</width>
           <orientation>vertical</orientation>
-          <itemgap>120</itemgap>
+          <itemgap>90</itemgap>
           <include>HomeSideMenuItems</include>
         </control>
       </control>
@@ -321,11 +343,6 @@
           <itemgap>120</itemgap>
           <include>HomeSideMenuItems</include>
         </control>
-      </control>
-      <control type="group">
-        <visible>Skin.HasSetting(library)</visible>
-        <include>VisibleFadeEffect</include>
-        <include>NowPlaying</include>
       </control>
     </control>
   </controls>

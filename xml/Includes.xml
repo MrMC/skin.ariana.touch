@@ -52,12 +52,12 @@
     <param name="Left" default="30"/>
     <definition>
       <control type="button" description="Close">
-        <top>0</top>
+        <top>8</top>
         <left>$PARAM[Left]</left>
         <texturefocus>icons/touch/close.png</texturefocus>
         <texturenofocus>icons/touch/close.png</texturenofocus>
-        <width>96</width>
-        <height>96</height>
+        <width>72</width>
+        <height>72</height>
         <font>-</font>
         <align>left</align>
         <aligny>center</aligny>
@@ -177,7 +177,7 @@
   <include name="VideoMenuButtons">
     <width min="240" max="540">auto</width>
     <height>90</height>
-    <font>size16USys</font>
+    <font>size20USys</font>
     <align>center</align>
     <aligny>center</aligny>
     <texturefocus/>
