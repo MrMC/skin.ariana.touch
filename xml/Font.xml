@@ -233,6 +233,12 @@
       <size>36</size>
     </font>
     <font>
+      <name>size26P</name>
+      <filename>Roboto.ttf</filename>
+      <size>38</size>
+      <linespacing>1.25</linespacing>
+    </font>
+    <font>
       <name>size26</name>
       <filename>Roboto.ttf</filename>
       <size>39</size>

@@ -18,6 +18,12 @@
       <right>$PARAM[Right]</right>
     </definition>
   </include>
+  <include name="TopMargin">
+    <param name="Top" default="96"/>
+    <definition>
+      <top>$PARAM[Top]</top>
+    </definition>
+  </include>
   <include name="VerticalMargins">
     <top>96</top>
     <bottom>96</bottom>

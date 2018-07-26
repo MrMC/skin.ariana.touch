@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1122">
   <defaultcontrol>61</defaultcontrol>
+  <onunload>ClearProperty(TextViewer_Header,home)</onunload>
+  <onunload>ClearProperty(TextViewer_Text,home)</onunload>
   <controls>
     <include>PlainBackground</include>
     <control type="group">
@@ -14,7 +16,7 @@
         <centertop>50%</centertop>
         <height>70%</height>
         <width>70%</width>
-        <font>size24</font>
+        <font>size26P</font>
         <label>$INFO[Window(home).Property(TextViewer_Text)]</label>
       </control>
       <control type="scrollbar" id="61">

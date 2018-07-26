@@ -64,15 +64,23 @@
           </control>
         </control>
       </control>
-      <control type="group" description="List Info">
+      <control type="group" description="Left panel">
         <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
           <param name="Left" value="60"/>
         </include>
         <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
           <param name="Left" value="120"/>
         </include>
-        <top>100</top>
-        <control type="group">
+        <include condition="[StringCompare(Skin.AspectRatio,4:3)]" content="TopMargin">
+          <param name="Top" value="164"/>
+        </include>
+        <include condition="![StringCompare(Skin.AspectRatio,4:3)]" content="TopMargin">
+          <param name="Top" value="110"/>
+        </include>
+        <bottom>120</bottom>
+      <control type="group" description="List Info">
+        <height>450</height>
+        <control type="group" description="Movie like">
           <visible>![container.content(tvshows) | container.content(episodes) | SubString(Container.FolderPath,videodb://3,left)]</visible>
           <include>VisibleFadeEffect</include>
           <control type="list" id="49">
@@ -209,13 +217,7 @@
         </control>
       </control>
       <control type="group" description="INFO">
-        <include condition="[StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
-          <param name="Left" value="60"/>
-        </include>
-        <include condition="![StringCompare(Skin.AspectRatio,16:9) | StringCompare(Skin.AspectRatio,4:3)]" content="LeftMargin">
-          <param name="Left" value="120"/>
-        </include>
-        <top>400</top>
+        <top>300</top>
         <control type="grouplist">
           <top>84</top>
           <right>50%</right>
@@ -311,30 +313,32 @@
           <left>0</left>
           <top>220</top>
           <right>50%</right>
-          <bottom>120</bottom>
+          <bottom>0</bottom>
           <align>left</align>
           <font>size22</font>
           <autoscroll>false</autoscroll>
           <label>$VAR[Plots]</label>
+          <pulseonselect>true</pulseonselect>
         </control>
         <control type="group">
           <visible>Control.IsVisible(4)</visible>
           <left>-8</left>
           <top>216</top>
           <right>50%</right>
-          <bottom>110</bottom>
+          <bottom>0</bottom>
           <control type="button" id="6006">
             <width>100%</width>
             <height>100%</height>
             <texturefocus></texturefocus>
             <texturenofocus></texturenofocus>
             <font/>
-            <onclick>SetProperty(TextViewer_Header,$LOCALIZE[207],home)</onclick>
+            <onclick>SetProperty(TextViewer_Header,$INFO[ListItem.Label],home)</onclick>
             <onclick>SetProperty(TextViewer_Text,$ESCINFO[ListItem.Plot],home)</onclick>
             <onclick>ActivateWindow(1122)</onclick>
           </control>
         </control>
       </control>
+    </control>
       <control type="grouplist" id="9001">
         <include>9000GrouplistParameters</include>
         <control type="togglebutton" id="8" description="Play">
