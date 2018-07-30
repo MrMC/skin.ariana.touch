@@ -131,9 +131,6 @@
             </texture>
           </control>
           <control type="slider" id="1" description="Volume Slider">
-            <animation type="Conditional" condition="!IntegerGreaterThan(player.volume,0) | Player.Muted | player.passthrough">
-              <effect type="fade" start="100" end="0" time="100" reversible="true" />
-            </animation>
             <width>500</width>
             <height>60</height>
             <info>Player.Volume</info>

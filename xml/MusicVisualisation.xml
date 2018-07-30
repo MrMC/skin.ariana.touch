@@ -170,9 +170,6 @@
           <onclick>Mute</onclick>
         </control>
         <control type="slider" id="1" description="Volume Slider">
-          <animation type="Conditional" condition="!IntegerGreaterThan(player.volume,0) | Player.Muted | player.passthrough">
-            <effect type="fade" start="100" end="0" time="100" reversible="true" />
-          </animation>
           <top>650</top>
           <left>70</left>
           <width>720</width>

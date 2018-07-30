@@ -87,6 +87,14 @@
       </control>
     </control>
   </include>
+  <include name="MainMenuMargins">
+    <top>180</top>
+    <bottom>90</bottom>
+  </include>
+  <include name="MainMenuMarginsTablet">
+    <top>180</top>
+    <bottom>150</bottom>
+  </include>
   <include name="MainMenuLayout">
     <control type="image">
       <width>100%</width>
@@ -97,10 +105,11 @@
     </control>
     <control type="image" description="arrow">
       <right>40</right>
-      <top>5</top>
-      <height>80</height>
+      <top>0</top>
+      <height>100%</height>
       <width>40</width>
       <align>right</align>
+      <aligny>center</aligny>
       <aspectratio>keep</aspectratio>
       <texture colordiffuse="$VAR[LabelNFColor]">img/Arrow.png</texture>
     </control>
@@ -590,7 +599,7 @@
         </control>
         <control type="group">
           <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-        <control type="image">
+          <control type="image">
             <left>30</left>
             <bottom>0</bottom>
             <right>0</right>
@@ -598,19 +607,19 @@
             <texture border="1">img/Gradient.png</texture>
             <aspectratio>stretch</aspectratio>
           </control>
-        <control type="textbox" description="Labels">
-          <bottom>10</bottom>
-          <left>46</left>
-          <right>16</right>
-          <height>90</height>
-          <aligny>center</aligny>
-          <align>center</align>
-          <font>size16CU</font>
-          <textcolor>white</textcolor>
-          <focusedcolor>white</focusedcolor>
-          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          <control type="textbox" description="Labels">
+            <bottom>10</bottom>
+            <left>46</left>
+            <right>16</right>
+            <height>90</height>
+            <aligny>center</aligny>
+            <align>center</align>
+            <font>size16CU</font>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          </control>
         </control>
-      </control>
         <control type="image">
           <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
           <right>0</right>
@@ -643,7 +652,7 @@
         </control>
         <control type="group">
           <visible>!IsEmpty(ListItem.TVShowTitle)</visible>
-        <control type="image">
+          <control type="image">
             <left>30</left>
             <bottom>0</bottom>
             <right>0</right>
@@ -651,19 +660,19 @@
             <texture border="1">img/Gradient.png</texture>
             <aspectratio>stretch</aspectratio>
           </control>
-        <control type="textbox" description="Labels">
-          <bottom>10</bottom>
-          <left>46</left>
-          <right>16</right>
-          <height>90</height>
-          <aligny>center</aligny>
-          <align>center</align>
-          <font>size16CU</font>
-          <textcolor>white</textcolor>
-          <focusedcolor>white</focusedcolor>
-          <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          <control type="textbox" description="Labels">
+            <bottom>10</bottom>
+            <left>46</left>
+            <right>16</right>
+            <height>90</height>
+            <aligny>center</aligny>
+            <align>center</align>
+            <font>size16CU</font>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          </control>
         </control>
-      </control>
         <control type="image">
           <visible>!IntegerGreaterThan(ListItem.PercentPlayed,0)</visible>
           <right>0</right>

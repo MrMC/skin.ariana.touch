@@ -30,7 +30,7 @@
         <label>$INFO[System.Time]</label>
       </control>
       <control type="group" description="Battery Level">
-        <animation effect="slide" end="-164,0" time="0" reversible="true" condition="!StringCompare(Skin.AspectRatio,4:3)">Conditional</animation>
+        <animation effect="slide" end="-144,0" time="0" reversible="true" condition="!StringCompare(Skin.AspectRatio,4:3)">Conditional</animation>
       <control type="image" description="battery img">
         <right>25</right>
         <top>7</top>
@@ -64,19 +64,19 @@
         <visible>Skin.HasSetting(library)</visible>
         <include>VisibleFadeEffect</include>
         <centerleft>50%</centerleft>
-        <top>180</top>
-        <bottom>150</bottom>
-        <width>1480</width>
-        <itemlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90">
+        <width>1580</width>
+        <include condition="StringCompare(Skin.AspectRatio,4:3)">MainMenuMarginsTablet</include>
+        <include condition="!StringCompare(Skin.AspectRatio,4:3)">MainMenuMargins</include>
+        <itemlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,7)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,10)]" height="115">
           <include>MainMenuLayout</include>
         </itemlayout>
-        <focusedlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90">
+        <focusedlayout condition="[!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,7)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,10)]" height="115">
           <include>MainMenuLayout</include>
         </focusedlayout>
-        <itemlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90" width="740">
+        <itemlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,7)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,10)]" height="115" width="790">
           <include>MainMenuLayout</include>
         </itemlayout>
-        <focusedlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,9)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,12)]" height="90" width="740">
+        <focusedlayout condition="![!StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,7)] | [StringCompare(Skin.AspectRatio,4:3) + !IntegerGreaterThan(Container(9000).NumItems,10)]" height="115" width="790">
           <include>MainMenuLayout</include>
         </focusedlayout>
       </control>
@@ -308,14 +308,14 @@
           <top>0</top>
           <bottom>0</bottom>
           <right>0</right>
-          <width>160</width>
+          <width>140</width>
           <aspectratio>stretch</aspectratio>
           <texture colordiffuse="$VAR[OverlayColor]">dot/White.png</texture>
         </control>
         <control type="grouplist" description="SideMenu">
           <top>150</top>
           <bottom>60</bottom>
-          <centerright>80</centerright>
+          <centerright>70</centerright>
           <width>90</width>
           <orientation>vertical</orientation>
           <itemgap>90</itemgap>
