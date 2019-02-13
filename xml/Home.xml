@@ -12,7 +12,7 @@
     <control type="group">
       <include>OpenClose</include>
       <control type="label" description="mrmc">
-        <left>30</left>
+        <left>65</left>
         <top>20</top>
         <height>28</height>
         <width>200</width>
