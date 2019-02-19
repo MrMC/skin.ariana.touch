@@ -143,6 +143,7 @@
           </control>
         </control>
         <control type="progress" id="2" description="Volume Progress">
+          <visible>!System.Platform.IOS</visible>
           <animation type="Conditional" condition="!IntegerGreaterThan(player.volume,0) | Player.Muted | player.passthrough">
             <effect type="fade" start="100" end="0" time="100" reversible="true" />
           </animation>
@@ -158,6 +159,7 @@
           <info>Player.Volume</info>
         </control>
         <control type="togglebutton" description="VolMin">
+          <visible>!System.Platform.IOS</visible>
           <top>650</top>
           <left>0</left>
           <height>60</height>
@@ -170,6 +172,7 @@
           <onclick>Mute</onclick>
         </control>
         <control type="slider" id="1" description="Volume Slider">
+          <visible>!System.Platform.IOS</visible>
           <top>650</top>
           <left>70</left>
           <width>720</width>
