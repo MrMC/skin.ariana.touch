@@ -50,5 +50,6 @@
         <texture>OSD/Pause.png</texture>
       </control>
     </control>
+    <include>BackButton</include>
   </controls>
 </window>
