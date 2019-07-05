@@ -608,6 +608,7 @@
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="textbox" description="Labels">
+            <visible>!ListItem.IsFolder</visible>
             <bottom>10</bottom>
             <left>46</left>
             <right>16</right>
@@ -617,7 +618,20 @@
             <font>size16CU</font>
             <textcolor>white</textcolor>
             <focusedcolor>white</focusedcolor>
-            <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+            <label>$INFO[ListItem.Label]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          </control>
+          <control type="textbox" description="Labels">
+            <visible>ListItem.IsFolder</visible>
+            <bottom>10</bottom>
+            <left>46</left>
+            <right>16</right>
+            <height>90</height>
+            <aligny>center</aligny>
+            <align>center</align>
+            <font>size16CU</font>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <label>$INFO[ListItem.Property(SeasonEpisode)]$INFO[ListItem.Label,[CR]]</label>
           </control>
         </control>
         <control type="image">
@@ -661,6 +675,7 @@
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="textbox" description="Labels">
+            <visible>!ListItem.IsFolder</visible>
             <bottom>10</bottom>
             <left>46</left>
             <right>16</right>
@@ -670,7 +685,20 @@
             <font>size16CU</font>
             <textcolor>white</textcolor>
             <focusedcolor>white</focusedcolor>
-            <label>$INFO[ListItem.TVShowTitle]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+            <label>$INFO[ListItem.Label]$INFO[ListItem.Property(SeasonEpisode),[CR]]</label>
+          </control>
+          <control type="textbox" description="Labels">
+            <visible>ListItem.IsFolder</visible>
+            <bottom>10</bottom>
+            <left>46</left>
+            <right>16</right>
+            <height>90</height>
+            <aligny>center</aligny>
+            <align>center</align>
+            <font>size16CU</font>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <label>$INFO[ListItem.Property(SeasonEpisode)]$INFO[ListItem.Label,[CR]]</label>
           </control>
         </control>
         <control type="image">
