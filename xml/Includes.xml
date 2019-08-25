@@ -396,15 +396,6 @@
       <aspectratio>stretch</aspectratio>
       <texture background="true">$VAR[Background.Overlay]</texture>
     </control>
-    <control type="image" description="DebugGrid">
-      <visible>Skin.HasSetting(DebugGrid)</visible>
-      <left>0</left>
-      <top>0</top>
-      <width>100%</width>
-      <height>100%</height>
-      <texture>debuggrid1080.png</texture>
-      <aspectratio align="left" aligny="top">scale</aspectratio>
-    </control>
   </include>
   <include name="FullBackground">
     <include>PlainBackground</include>
