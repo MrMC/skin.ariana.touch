@@ -82,7 +82,7 @@
             <width>60</width>
             <height>100%</height>
             <aspectratio>keep</aspectratio>
-            <texture>icon_sync.png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">icon_sync.png</texture>
             <visible>ListItem.property(sync)</visible>
           </control>
           <control type="image">
@@ -91,7 +91,7 @@
             <width>24</width>
             <height>100%</height>
             <aspectratio>keep</aspectratio>
-            <texture>icon_cc.png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">icon_cc.png</texture>
             <visible>ListItem.property(hearing_imp)</visible>
           </control>
           <control type="label">
@@ -110,8 +110,7 @@
             <width>110</width>
             <height>100%</height>
             <aspectratio>keep</aspectratio>
-            <colordiffuse>$VAR[LabelNFColor]</colordiffuse>
-            <texture>badges/$INFO[ListItem.ActualIcon].png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">badges/rating$INFO[ListItem.ActualIcon].png</texture>
           </control>
         </itemlayout>
         <focusedlayout height="80">
@@ -148,7 +147,7 @@
             <width>60</width>
             <height>100%</height>
             <aspectratio>keep</aspectratio>
-            <texture>icon_sync.png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">icon_sync.png</texture>
             <visible>ListItem.property(sync)</visible>
           </control>
           <control type="image">
@@ -157,7 +156,7 @@
             <width>24</width>
             <height>100%</height>
             <aspectratio>keep</aspectratio>
-            <texture>icon_cc.png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">icon_cc.png</texture>
             <visible>ListItem.property(hearing_imp)</visible>
           </control>
           <control type="label">
@@ -175,9 +174,8 @@
             <top>4</top>
             <width>110</width>
             <height>100%</height>
-            <colordiffuse>$VAR[LabelNFColor]</colordiffuse>
             <aspectratio>keep</aspectratio>
-            <texture>badges/$INFO[ListItem.ActualIcon].png</texture>
+            <texture colordiffuse="$VAR[LabelNFColor]">badges/rating$INFO[ListItem.ActualIcon].png</texture>
           </control>
         </focusedlayout>
       </control>
