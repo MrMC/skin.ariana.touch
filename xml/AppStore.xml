@@ -70,7 +70,17 @@
 				</control>
 			</itemlayout>
 			<focusedlayout height="80">
-					<control type="image">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>100%</width>
+					<height>100%</height>
+					<texture border="9">img/SettingsButtonNF.png</texture>
+					<bordersize>2</bordersize>
+					<aspectratio>stretch</aspectratio>
+					<visible>!Control.HasFocus(940)</visible>
+				</control>
+				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>100%</width>
@@ -78,6 +88,7 @@
 					<texture border="9">img/SettingsButtonFO.png</texture>
 					<bordersize>2</bordersize>
 					<aspectratio>stretch</aspectratio>
+					<visible>Control.HasFocus(940)</visible>
 				</control>
 				<control type="label" description="Main Label">
 					<left>25</left>
